@@ -19,11 +19,11 @@ body::-webkit-scrollbar {
 }
 
 .App .left {
-  width: 80vw;
+  width: 900px;
 }
 
 .App .right img {
-  width: 700px !important;
+  width: 500px !important;
   height: 500px !important;
 }
 
