@@ -1,0 +1,107 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+}
+
+.App .left {
+  width: 40vw;
+}
+
+.overHeader {
+  margin-left: 50px;
+  margin-top: 50px;
+  font-family: "Changa", sans-serif;
+  color: #16133d;
+}
+
+.App .left .renderedQuestion {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  margin-top: 50px;
+  margin-left: 50px;
+  font-family: "Poppins", sans-serif;
+}
+
+.App .right img {
+  width: 60vw;
+  height: 100vh;
+}
+
+.sectionHeader {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  color: #12192a;
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+}
+
+.stepDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.questionTitle {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.controllBtn {
+  margin-left: 10px;
+  margin-top: 30px;
+  gap: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.controllBtn .prev {
+  padding: 15px;
+  border: 0.5px solid black;
+  border-radius: 50px;
+  width: 200px;
+  background: linear-gradient(to right, #16133d, #6357a5);
+  color: white;
+  font-weight: bolder;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+}
+
+.controllBtn .prev:hover {
+  background: white;
+  color: black;
+}
+
+.controllBtn .sub {
+  padding: 15px;
+  border: 0.5px solid black;
+  border-radius: 50px;
+  width: 200px;
+  background: white;
+  color: black;
+  font-weight: bolder;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+}
+
+.controllBtn .sub:hover {
+  background: linear-gradient(to right, #16133d, #6357a5);
+  color: white;
+}

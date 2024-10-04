@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
+import React, { useState } from "react";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
+import "./App.css";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
+
 
 const questions = [
   {
@@ -85,7 +89,6 @@ const questions = [
   }
 ];
 
-
 const App = () => {
   const [currentSection, setCurrentSection] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -93,25 +96,49 @@ const App = () => {
   const [showResults, setShowResults] = useState(false);
 
   const handleAnswerSelection = (questionId, answer) => {
-    setAnswers(prev => ({
+    setAnswers((prev) => ({
       ...prev,
       [questionId]: answer,
     }));
     if (currentQuestion < questions[currentSection].questions.length - 1) {
-      setCurrentQuestion(prev => prev + 1);
+      setCurrentQuestion((prev) => prev + 1);
     } else if (currentSection < questions.length - 1) {
-      setCurrentSection(prev => prev + 1);
+      setCurrentSection((prev) => prev + 1);
       setCurrentQuestion(0);
-    } else {
-      setShowResults(true);
+    }
+  };
+
+  const handlePreviousQuestion = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion((prev) => prev - 1);
+    } else if (currentSection > 0) {
+      setCurrentSection((prev) => prev - 1);
+      setCurrentQuestion(questions[currentSection - 1].questions.length - 1);
     }
   };
 
   const calculateProgress = () => {
     const totalQuestions = questions.reduce(
-      (sum, section) => sum + section.questions.length, 0);
+      (sum, section) => sum + section.questions.length,
+      0
+    );
     const answeredQuestions = Object.keys(answers).length;
     return (answeredQuestions / totalQuestions) * 100;
+  };
+
+  const getCurrentStep = () => {
+    const overallStep = questions
+      .slice(0, currentSection)
+      .reduce((sum, section) => sum + section.questions.length, 0) + currentQuestion + 1;
+    const sectionStep = currentQuestion + 1;
+    const sectionTotal = questions[currentSection].questions.length;
+    const overallTotal = questions.reduce(
+      (sum, section) => sum + section.questions.length,
+      0
+    );
+
+    return `Step ${sectionStep}`;
+    // return `Question ${sectionStep} of ${sectionTotal} in ${questions[currentSection].section} (Question ${overallStep} of ${overallTotal} Overall)`;
   };
 
   const renderQuestions = () => {
@@ -119,17 +146,45 @@ const App = () => {
     const question = section.questions[currentQuestion];
 
     return (
-      <div>
-        <h3>{section.section}</h3>
-        <p>{question.question}</p>
+      <div className="renderedQuestion">
+        <div className="stepDiv">
+          <p className="sectionHeader">{section.section} OF 3</p>
+          <p className="sectionHeader">{getCurrentStep()}</p>
+        </div>
+        <p className="questionTitle">{question.question}</p>
         {question.options.map((option, index) => (
           <button
             key={index}
             onClick={() => handleAnswerSelection(question.id, option)}
+            style={{
+              backgroundColor:
+                answers[question.id] === option ? `#6357A4` : "white",
+              color: answers[question.id] === option ? `white` : "",
+              margin: "5px",
+              padding: "25px",
+              border: "0.5px solid black",
+              borderRadius: "15px",
+              marginTop: "10px",
+              fontFamily: "Poppins",
+              fontSize: "15px",
+              fontWeight: "bold",
+              cursor: "pointer",
+            }}
           >
             {option}
           </button>
         ))}
+        <br />
+        <div className="controllBtn">
+          {currentQuestion > 0 || currentSection > 0 ? (
+            <button className="prev" onClick={handlePreviousQuestion}>Previous</button>
+          ) : null}
+
+          {Object.keys(answers).length ===
+            questions.reduce((sum, section) => sum + section.questions.length, 0) ? (
+            <button className="sub" onClick={handleSubmit}>Submit</button>
+          ) : null}
+        </div>
       </div>
     );
   };
@@ -141,14 +196,18 @@ const App = () => {
     setShowResults(false);
   };
 
+  const handleSubmit = () => {
+    setShowResults(true);
+  };
+
   const getChartData = () => {
     const resultData = {
-      labels: ['A', 'B', 'C', 'D'],
+      labels: ["A", "B", "C", "D"],
       datasets: [
         {
           data: [3, 5, 2, 4], // Example data for DISC categories
-          backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
-          hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+          backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"],
+          hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"],
         },
       ],
     };
@@ -157,25 +216,38 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>DISC Assessment</h1>
+      <div className="left">
+        <h1 className="overHeader">DISC Assessment</h1>
 
-      {showResults ? (
-        <div>
-          <h2>Results</h2>
-          <Doughnut data={getChartData()} />
-          <button onClick={handleRetake}>Retake Test</button>
-        </div>
-      ) : (
-        <>
-          <div className="progress-bar">
-            <div
-              className="progress"
-              style={{ width: `${calculateProgress()}%`, backgroundColor: 'blue', height: '10px' }}
-            ></div>
+        {showResults ? (
+          <div>
+            <h2>Results</h2>
+            <Doughnut data={getChartData()} />
+            <button onClick={handleRetake}>Retake Test</button>
           </div>
-          {renderQuestions()}
-        </>
-      )}
+        ) : (
+          <>
+            <div className="progress-bar">
+              <div
+                className="progress"
+                style={{
+                  width: `${calculateProgress()}%`,
+                  backgroundColor: `#16133D`,
+                  height: "5px",
+                }}
+              ></div>
+            </div>
+            {renderQuestions()}
+            {/* {Object.keys(answers).length ===
+              questions.reduce((sum, section) => sum + section.questions.length, 0) ? (
+              <button onClick={handleSubmit}>Submit</button>
+            ) : null} */}
+          </>
+        )}
+      </div>
+      <div className="right">
+        <img src='./image (2).png' alt='logo-img' />
+      </div>
     </div>
   );
 };
