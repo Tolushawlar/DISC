@@ -222,8 +222,8 @@ const App = () => {
         {showResults ? (
           <div>
             <h2>Results</h2>
-            <Doughnut data={getChartData()} />
             <button onClick={handleRetake}>Retake Test</button>
+            <Doughnut data={getChartData()} />
           </div>
         ) : (
           <>
