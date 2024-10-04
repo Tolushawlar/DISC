@@ -2,8 +2,13 @@ body {
   padding: 0px;
   margin: 0px;
   width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
   background-color: white;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
 }
 
 .App {
@@ -40,8 +45,7 @@ body {
 .App .right img {
   width: 60vw;
   height: 100vh;
-  margin-top: 50px;
-  margin-left: 50px;
+  padding: 80px !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,10 +121,6 @@ body {
 }
 
 @media (max-width: 768px) {
-
-body{
-    overflow: scroll;
-}
   .App {
     flex-direction: column-reverse;
     justify-content: center; /* Center elements in column */
@@ -129,6 +129,10 @@ body{
   .App .left,
   .App .right {
     width: 100%; /* Full width on mobile */
+  }
+
+  .App .right img {
+    padding: 0px !important;
   }
 
   .App .right img {
