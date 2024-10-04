@@ -9,6 +9,7 @@ body {
 .App {
   display: flex;
   flex-direction: row;
+  margin-top: 100px;
   /* justify-content: space-between; */
 }
 
@@ -22,7 +23,6 @@ body {
 }
 
 .overHeader {
-  margin-left: 50px;
   margin-top: 50px;
   font-family: "Poppins", sans-serif;
   color: #16133d;
@@ -40,6 +40,9 @@ body {
 .App .right img {
   width: 60vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sectionHeader {
