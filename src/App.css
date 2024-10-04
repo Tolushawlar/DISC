@@ -122,6 +122,7 @@ body::-webkit-scrollbar {
 
 @media (max-width: 768px) {
   .App {
+    margin-top: 40px !important;
     flex-direction: column-reverse;
     justify-content: center; /* Center elements in column */
   }
@@ -138,5 +139,18 @@ body::-webkit-scrollbar {
   .App .right img {
     width: 100% !important; /* Adjust image to fit screen width */
     height: auto !important; /* Maintain aspect ratio */
+  }
+
+  .controllBtn {
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    padding: 10px;
+    width: 250px;
+  }
+  
+  .opt{
+    padding: 20px !important;
   }
 }

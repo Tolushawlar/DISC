@@ -155,6 +155,7 @@ const App = () => {
         {question.options.map((option, index) => (
           <button
             key={index}
+            className="opt"
             onClick={() => handleAnswerSelection(question.id, option)}
             style={{
               backgroundColor:
