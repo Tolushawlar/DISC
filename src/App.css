@@ -13,11 +13,11 @@ body {
 }
 
 .App .left {
-  width: 40vw;
+  width: 80vw;
 }
 
 .App .right img{
-    width: auto !important;
+    width: 700px !important;
     height: 500px !important;
 }
 .overHeader {
