@@ -16,10 +16,11 @@ body {
   width: 80vw;
 }
 
-.App .right img{
-    width: 700px !important;
-    height: 500px !important;
+.App .right img {
+  width: 700px !important;
+  height: 500px !important;
 }
+
 .overHeader {
   margin-left: 50px;
   margin-top: 50px;
@@ -109,4 +110,25 @@ body {
 .controllBtn .sub:hover {
   background: linear-gradient(to right, #16133d, #6357a5);
   color: white;
+}
+
+@media (max-width: 768px) {
+
+body{
+    overflow: scroll;
+}
+  .App {
+    flex-direction: column-reverse;
+    justify-content: center; /* Center elements in column */
+  }
+
+  .App .left,
+  .App .right {
+    width: 100%; /* Full width on mobile */
+  }
+
+  .App .right img {
+    width: 100% !important; /* Adjust image to fit screen width */
+    height: auto !important; /* Maintain aspect ratio */
+  }
 }
