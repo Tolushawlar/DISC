@@ -218,7 +218,7 @@ const App = () => {
   return (
     <div className="App">
       <div className="left">
-        <h1 className="overHeader">DISC Assessment</h1>
+        <h1 className="overHeader">4 Profile Strengths Analysis</h1>
 
         {showResults ? (
           <div>
