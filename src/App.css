@@ -97,6 +97,11 @@ body::-webkit-scrollbar {
   font-family: "Poppins", sans-serif;
 }
 
+.opts:hover {
+  background-color: #12192a !important;
+  color: white;
+}
+
 .controllBtn .prev:hover {
   background: white;
   color: black;
@@ -118,6 +123,22 @@ body::-webkit-scrollbar {
 .controllBtn .sub:hover {
   background: linear-gradient(to right, #16133d, #6357a5);
   color: white;
+}
+
+.progress-container {
+  width: 100%;
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  margin: 20px 0;
+  overflow: hidden;
+  height: 20px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #4caf50;
+  width: 0%; /* Start at 0%, will update dynamically */
+  transition: width 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
@@ -149,8 +170,8 @@ body::-webkit-scrollbar {
     padding: 10px;
     width: 250px;
   }
-  
-  .opt{
+
+  .opt {
     padding: 20px !important;
   }
 }

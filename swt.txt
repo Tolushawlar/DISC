@@ -1,0 +1,854 @@
+Strengths (Possibilities)
+Patents?
+Strong brand name?
+Good reputation among customers?
+Many product lines?
+Broad market coverage?
+Manufacturing competence?
+Good marketing skills?
+Good materials management systems?
+R&D skills and leadership?
+Information system competencies?
+Human resource competencies?
+Brand name reputation?
+Portfolio management skills?
+Cost of differentiation advantage?
+New-venture management expertise?
+Appropriate management style?
+Appropriate organizational structure?
+Appropriate control systems?
+Ability to manage strategic change?
+Well-developed corporate strategy?
+Good international operations?
+Able to profit during pandemics?
+
+Weaknesses (Possibilities)
+Obsolete, narrow product lines?
+Prone to loss during pandemics?
+Rising manufacturing costs?
+Decline in R&D innovations?
+Poor marketing skills?
+Poor materials management systems?
+Poor reputation?
+High cost structure?
+Loss of customer goodwill?
+Inadequate information systems?
+Inadequate human resources?
+Lack of access to distribution channels?
+Lack of access to natural resources?
+Loss of brand name capital?
+Lack of patent protection?
+Growth without direction?
+Poor product innovation?
+Inconsistent operations?
+Inadequate organizational structure?
+Inappropriate control systems?
+High conflict and politics?
+Poor financial management?
+
+
+Opportunities (Possibilities)
+Expand core business(es)?
+Exploit new market segments?
+Arrival of new technologies?
+Removal of international trade barriers?
+Exploit unfulfilled customer needs?
+Widen new market segments?
+Extend cost or differentiation advantage?
+Diversify into new growth businesses?
+Expand into foreign markets?
+Apply R&D skills in new areas?
+Enter new related businesses?
+Vertically integrate forward?
+Vertically integrate backward?
+Integrate corporate portfolio?
+Lower barriers to entry?
+Acquire foreign competitors?
+Increase product innovations?
+Seek fast market growth?
+Growth during pandemics?
+
+
+Threats (Possibilities)
+Attacks on core business(es)?
+Pandemics cause business interruption?
+Increases in domestic competition?
+Shift in consumer tastes?
+Emergence of substitute products?
+New regulations?
+Increased trade barriers?
+Increases in foreign competition?
+Fall in barriers to entry?
+Rise in new or substitute products?
+Increase in industry rivalry?
+Higher labor costs?
+New forms of industry competition?
+Potential for takeover?
+Susceptible to corporate raiders?
+Changes in demographic factors?
+Negative economic factors?
+Increase in political risk?
+Rising labor costs?
+Slow market growth?
+
+{
+  "SWOT": {
+    "Strengths": [
+      {
+        "id": 1,
+        "question": "Patents?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "You have strong intellectual property protection, which gives a competitive edge.",
+          "No": "Lack of patents could expose your business to copying and lost market share."
+        }
+      },
+      {
+        "id": 2,
+        "question": "Strong brand name?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "A strong brand name enhances recognition and trust among customers.",
+          "No": "Developing a stronger brand could improve customer loyalty and market positioning."
+        }
+      },
+      {
+        "id": 3,
+        "question": "Good reputation among customers?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Your business benefits from positive customer perception, increasing loyalty and trust.",
+          "No": "Building a good reputation is essential to gain customer trust and market share."
+        }
+      },
+      {
+        "id": 4,
+        "question": "Many product lines?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "A diverse product range spreads risk and caters to different customer needs.",
+          "No": "Consider expanding product lines to attract more customers and mitigate risks."
+        }
+      },
+      {
+        "id": 5,
+        "question": "Broad market coverage?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Broad coverage ensures higher market penetration and better customer reach.",
+          "No": "Expanding market coverage could improve sales and brand visibility."
+        }
+      },
+      {
+        "id": 6,
+        "question": "Manufacturing competence?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Strong manufacturing capabilities can enhance product quality and reduce costs.",
+          "No": "Improving manufacturing efficiency could reduce costs and increase competitiveness."
+        }
+      },
+      {
+        "id": 7,
+        "question": "Good marketing skills?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Effective marketing efforts boost visibility and customer engagement.",
+          "No": "Improving marketing strategies can enhance customer acquisition and retention."
+        }
+      },
+      {
+        "id": 8,
+        "question": "Good materials management systems?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Efficient materials management reduces waste and ensures smooth operations.",
+          "No": "Optimizing materials management can lower costs and improve efficiency."
+        }
+      },
+      {
+        "id": 9,
+        "question": "R&D skills and leadership?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Strong R&D capabilities drive innovation and competitive advantage.",
+          "No": "Investing in R&D can help develop new products and stay ahead of competitors."
+        }
+      },
+      {
+        "id": 10,
+        "question": "Information system competencies?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Advanced information systems enhance decision-making and operational efficiency.",
+          "No": "Developing robust IT systems can streamline processes and improve outcomes."
+        }
+      },
+      {
+        "id": 11,
+        "question": "Human resource competencies?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Skilled employees improve productivity and drive business success.",
+          "No": "Investing in employee training can enhance skills and boost performance."
+        }
+      },
+      {
+        "id": 12,
+        "question": "Brand name reputation?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "A reputable brand builds customer trust and encourages repeat business.",
+          "No": "Building a strong brand reputation can enhance loyalty and market positioning."
+        }
+      },
+      {
+        "id": 13,
+        "question": "Portfolio management skills?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Strong portfolio management helps balance risk and maximize returns.",
+          "No": "Improving portfolio management can enhance resource allocation and profitability."
+        }
+      },
+      {
+        "id": 14,
+        "question": "Cost of differentiation advantage?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "A cost advantage enables competitive pricing without compromising quality.",
+          "No": "Developing cost advantages can help attract price-sensitive customers."
+        }
+      },
+      {
+        "id": 15,
+        "question": "New-venture management expertise?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Expertise in managing new ventures enhances business growth opportunities.",
+          "No": "Building management expertise can improve success rates in new ventures."
+        }
+      },
+      {
+        "id": 16,
+        "question": "Appropriate management style?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "A suitable management style fosters teamwork and boosts morale.",
+          "No": "Adopting the right management approach can improve employee engagement."
+        }
+      },
+      {
+        "id": 17,
+        "question": "Appropriate organizational structure?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "An effective structure improves communication and operational efficiency.",
+          "No": "Optimizing the organizational structure can enhance performance and collaboration."
+        }
+      },
+      {
+        "id": 18,
+        "question": "Appropriate control systems?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Robust control systems ensure smooth operations and risk management.",
+          "No": "Developing better control systems can improve operational oversight."
+        }
+      },
+      {
+        "id": 19,
+        "question": "Ability to manage strategic change?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Strong change management capabilities enable adaptability and growth.",
+          "No": "Improving change management skills can enhance responsiveness to market shifts."
+        }
+      },
+      {
+        "id": 20,
+        "question": "Well-developed corporate strategy?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "A clear strategy guides decisions and aligns efforts toward business goals.",
+          "No": "Developing a robust strategy can provide direction and competitive advantage."
+        }
+      },
+      {
+        "id": 21,
+        "question": "Good international operations?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Strong international operations enhance market presence and diversification.",
+          "No": "Expanding international operations can open new growth opportunities."
+        }
+      },
+      {
+        "id": 22,
+        "question": "Able to profit during pandemics?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Your business is resilient and can thrive in challenging environments.",
+          "No": "Building resilience can ensure continuity and profitability during crises."
+        }
+      }
+    ],
+     "Weaknesses": [
+      {
+        "id": 1,
+        "question": "Obsolete, narrow product lines?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Your product offerings may no longer meet market demands, leading to reduced sales.",
+          "No": "Your product lines are up-to-date and diverse, meeting a variety of customer needs."
+        }
+      },
+      {
+        "id": 2,
+        "question": "Prone to loss during pandemics?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Vulnerability to pandemics threatens business continuity and profitability.",
+          "No": "Your business is well-positioned to handle disruptions from pandemics."
+        }
+      },
+      {
+        "id": 3,
+        "question": "Rising manufacturing costs?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Increasing costs could reduce margins and affect pricing competitiveness.",
+          "No": "Controlled manufacturing costs help maintain profitability."
+        }
+      },
+      {
+        "id": 4,
+        "question": "Decline in R&D innovations?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Limited innovation may hinder growth and competitiveness.",
+          "No": "Active R&D efforts keep you competitive and responsive to market changes."
+        }
+      },
+      {
+        "id": 5,
+        "question": "Poor marketing skills?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Ineffective marketing efforts could limit customer acquisition and brand growth.",
+          "No": "Strong marketing capabilities will help expand market reach and sales."
+        }
+      },
+      {
+        "id": 6,
+        "question": "Poor materials management systems?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Inefficient systems may increase waste and operational delays.",
+          "No": "Efficient systems ensure smooth operations and cost control."
+        }
+      },
+      {
+        "id": 7,
+        "question": "Poor reputation?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "A poor reputation can reduce customer trust and hurt sales.",
+          "No": "A good reputation boosts customer loyalty and business growth."
+        }
+      },
+      {
+        "id": 8,
+        "question": "High cost structure?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "High costs can limit your ability to offer competitive pricing.",
+          "No": "A lean cost structure helps maintain strong margins."
+        }
+      },
+      {
+        "id": 9,
+        "question": "Loss of customer goodwill?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Loss of goodwill can lead to decreased customer retention and negative publicity.",
+          "No": "Maintaining goodwill encourages customer loyalty and referrals."
+        }
+      },
+      {
+        "id": 10,
+        "question": "Inadequate information systems?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Weak IT systems can disrupt operations and decision-making.",
+          "No": "Strong IT systems enhance operational efficiency and data management."
+        }
+      },
+      {
+        "id": 11,
+        "question": "Inadequate human resources?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Lack of skilled personnel could limit business growth and performance.",
+          "No": "Your workforce is adequately skilled and supports business objectives."
+        }
+      },
+      {
+        "id": 12,
+        "question": "Lack of access to distribution channels?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Limited distribution channels can restrict market reach.",
+          "No": "Strong distribution networks ensure broad market access."
+        }
+      },
+      {
+        "id": 13,
+        "question": "Lack of access to natural resources?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Resource limitations could impact production and profitability.",
+          "No": "Access to resources ensures uninterrupted production."
+        }
+      },
+      {
+        "id": 14,
+        "question": "Loss of brand name capital?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Loss of brand equity reduces trust and customer loyalty.",
+          "No": "Strong brand capital enhances customer recognition and trust."
+        }
+      },
+      {
+        "id": 15,
+        "question": "Lack of patent protection?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Without patents, competitors may replicate your innovations.",
+          "No": "Patent protection provides a competitive edge."
+        }
+      },
+      {
+        "id": 16,
+        "question": "Growth without direction?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Unfocused growth could lead to inefficiencies and missed opportunities.",
+          "No": "Your growth strategy is well-aligned with business objectives."
+        }
+      },
+      {
+        "id": 17,
+        "question": "Poor product innovation?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Lack of innovation may result in outdated products.",
+          "No": "Your products remain innovative and competitive."
+        }
+      },
+      {
+        "id": 18,
+        "question": "Inconsistent operations?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Inconsistent operations can disrupt customer satisfaction and performance.",
+          "No": "Consistent operations ensure smooth business functioning."
+        }
+      },
+      {
+        "id": 19,
+        "question": "Inadequate organizational structure?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "A weak structure could cause inefficiencies and communication breakdowns.",
+          "No": "Your structure supports effective communication and performance."
+        }
+      },
+      {
+        "id": 20,
+        "question": "Inappropriate control systems?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Weak control systems could lead to errors and risks.",
+          "No": "Robust controls ensure operational integrity and compliance."
+        }
+      },
+      {
+        "id": 21,
+        "question": "High conflict and politics?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Internal conflict can reduce morale and productivity.",
+          "No": "A harmonious work environment promotes productivity."
+        }
+      },
+      {
+        "id": 22,
+        "question": "Poor financial management?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Poor financial practices could jeopardize business stability.",
+          "No": "Sound financial management ensures profitability and growth."
+        }
+      }
+    ],
+     "Opportunities": [
+      {
+        "id": 1,
+        "question": "Expand core business(es)?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Expanding core businesses could boost revenue and solidify market presence.",
+          "No": "Focusing only on existing operations may limit growth potential."
+        }
+      },
+      {
+        "id": 2,
+        "question": "Exploit new market segments?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Exploring new segments can open up untapped revenue streams.",
+          "No": "Neglecting new segments may reduce growth opportunities."
+        }
+      },
+      {
+        "id": 3,
+        "question": "Arrival of new technologies?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Adopting new technologies improves efficiency and unlocks new markets.",
+          "No": "Not leveraging new technologies may lead to missed opportunities."
+        }
+      },
+      {
+        "id": 4,
+        "question": "Removal of international trade barriers?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Free trade can enhance market reach and profitability.",
+          "No": "Trade restrictions may limit international expansion."
+        }
+      },
+      {
+        "id": 5,
+        "question": "Exploit unfulfilled customer needs?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Meeting unfulfilled needs can improve customer satisfaction and market share.",
+          "No": "Ignoring unmet needs may allow competitors to gain an edge."
+        }
+      },
+      {
+        "id": 6,
+        "question": "Widen new market segments?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Expanding into new segments strengthens market position.",
+          "No": "Sticking to existing markets may limit diversification."
+        }
+      },
+      {
+        "id": 7,
+        "question": "Extend cost or differentiation advantage?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Cost or differentiation advantages can enhance competitiveness.",
+          "No": "Without these advantages, competition may intensify."
+        }
+      },
+      {
+        "id": 8,
+        "question": "Diversify into new growth businesses?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Diversification spreads risk and taps into new revenue streams.",
+          "No": "Not diversifying may expose the business to market downturns."
+        }
+      },
+      {
+        "id": 9,
+        "question": "Expand into foreign markets?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "International expansion increases market reach and sales.",
+          "No": "Focusing only on local markets could restrict growth."
+        }
+      },
+      {
+        "id": 10,
+        "question": "Apply R&D skills in new areas?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Using R&D capabilities in new areas can drive innovation and growth.",
+          "No": "Limiting R&D focus may hinder future opportunities."
+        }
+      },
+      {
+        "id": 11,
+        "question": "Enter new related businesses?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Entering related businesses leverages existing strengths.",
+          "No": "Staying within current businesses could limit growth."
+        }
+      },
+      {
+        "id": 12,
+        "question": "Vertically integrate forward?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Forward integration strengthens control over distribution channels.",
+          "No": "Not integrating could reduce market control."
+        }
+      },
+      {
+        "id": 13,
+        "question": "Vertically integrate backward?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Backward integration ensures supply chain stability.",
+          "No": "Lack of integration could make sourcing less reliable."
+        }
+      },
+      {
+        "id": 14,
+        "question": "Integrate corporate portfolio?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Portfolio integration improves efficiency and strategic alignment.",
+          "No": "Unintegrated portfolios may lead to inefficiencies."
+        }
+      },
+      {
+        "id": 15,
+        "question": "Lower barriers to entry?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Lowering entry barriers encourages growth and new opportunities.",
+          "No": "Maintaining high barriers may limit flexibility."
+        }
+      },
+      {
+        "id": 16,
+        "question": "Acquire foreign competitors?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Acquiring competitors strengthens market position and expertise.",
+          "No": "Not acquiring may leave growth opportunities untapped."
+        }
+      },
+      {
+        "id": 17,
+        "question": "Increase product innovations?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Innovative products attract new customers and enhance competitiveness.",
+          "No": "Lack of innovation risks market irrelevance."
+        }
+      },
+      {
+        "id": 18,
+        "question": "Seek fast market growth?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Pursuing rapid growth capitalizes on favorable market conditions.",
+          "No": "Not seeking fast growth may limit potential profits."
+        }
+      },
+      {
+        "id": 19,
+        "question": "Growth during pandemics?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Pandemic growth demonstrates resilience and adaptability.",
+          "No": "Lack of growth may indicate operational weaknesses."
+        }
+      }
+    ],
+     "Threats": [
+      {
+        "id": 1,
+        "question": "Attacks on core business(es)?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Core business vulnerabilities can lead to significant losses.",
+          "No": "Your core business is secure, minimizing disruption risks."
+        }
+      },
+      {
+        "id": 2,
+        "question": "Pandemics cause business interruption?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Pandemics can severely impact operations and revenue streams.",
+          "No": "Your business is resilient to pandemic disruptions."
+        }
+      },
+      {
+        "id": 3,
+        "question": "Increases in domestic competition?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Rising domestic competition could reduce market share.",
+          "No": "Low competition keeps the market favorable for growth."
+        }
+      },
+      {
+        "id": 4,
+        "question": "Shift in consumer tastes?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Shifting tastes may reduce demand for your products.",
+          "No": "Consistent preferences ensure stable demand."
+        }
+      },
+      {
+        "id": 5,
+        "question": "Emergence of substitute products?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Substitute products could erode your market position.",
+          "No": "Lack of substitutes strengthens product demand."
+        }
+      },
+      {
+        "id": 6,
+        "question": "New regulations?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "New regulations may increase compliance costs.",
+          "No": "Stable regulations ensure predictable operations."
+        }
+      },
+      {
+        "id": 7,
+        "question": "Increased trade barriers?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Higher trade barriers may limit international growth.",
+          "No": "Free trade allows for market expansion."
+        }
+      },
+      {
+        "id": 8,
+        "question": "Increases in foreign competition?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Foreign competition could threaten market share.",
+          "No": "Limited foreign competition preserves domestic dominance."
+        }
+      },
+      {
+        "id": 9,
+        "question": "Fall in barriers to entry?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Lower entry barriers increase the risk of new competitors.",
+          "No": "High entry barriers protect market positioning."
+        }
+      },
+      {
+        "id": 10,
+        "question": "Rise in new or substitute products?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "New products can divert customers away from your offerings.",
+          "No": "Stable product offerings ensure steady demand."
+        }
+      },
+      {
+        "id": 11,
+        "question": "Increase in industry rivalry?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "High rivalry may lead to price wars and shrinking margins.",
+          "No": "Low rivalry supports consistent profits."
+        }
+      },
+      {
+        "id": 12,
+        "question": "Higher labor costs?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Rising labor costs could reduce profitability.",
+          "No": "Stable labor costs ensure sustainable operations."
+        }
+      },
+      {
+        "id": 13,
+        "question": "New forms of industry competition?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Emerging competition models may disrupt your business.",
+          "No": "Traditional competition remains manageable."
+        }
+      },
+      {
+        "id": 14,
+        "question": "Potential for takeover?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Takeover threats can destabilize operations.",
+          "No": "No takeover risks promote business stability."
+        }
+      },
+      {
+        "id": 15,
+        "question": "Susceptible to corporate raiders?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Exposure to corporate raiders could threaten ownership.",
+          "No": "Ownership structure is secure from hostile takeovers."
+        }
+      },
+      {
+        "id": 16,
+        "question": "Changes in demographic factors?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Demographic shifts may alter market demand.",
+          "No": "Consistent demographics support predictable demand."
+        }
+      },
+      {
+        "id": 17,
+        "question": "Negative economic factors?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Economic downturns could reduce customer spending.",
+          "No": "Favorable economic conditions promote growth."
+        }
+      },
+      {
+        "id": 18,
+        "question": "Increase in political risk?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Political instability could disrupt operations.",
+          "No": "Stable political conditions support business continuity."
+        }
+      },
+      {
+        "id": 19,
+        "question": "Rising labor costs?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Higher labor costs could squeeze margins.",
+          "No": "Controlled labor costs ensure profitability."
+        }
+      },
+      {
+        "id": 20,
+        "question": "Slow market growth?",
+        "options": ["Yes", "No"],
+        "result": {
+          "Yes": "Slow growth may limit revenue potential.",
+          "No": "Fast-growing markets enable higher profitability."
+        }
+      }
+    ]
+  }
+}
+
+
