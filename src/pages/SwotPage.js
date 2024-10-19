@@ -1182,7 +1182,7 @@ const SwotPage = () => {
       const userResponse = responses[section]?.[id];
       const result = options.find((opt) => opt.text === userResponse)?.result;
       return (
-        <div key={id}>
+        <div key={id} className="resultSpace">
           <p><strong>{question}</strong></p>
           <p>{result || 'No response given.'}</p>
         </div>
@@ -1231,7 +1231,7 @@ const SwotPage = () => {
         <div className="results">
           <h2>{swotData.swotQuestions[activeTab].section} Results</h2>
           {renderResults(swotData.swotQuestions[activeTab].section)}
-          <button onClick={handleRetake}>Retake Test</button>
+          <button onClick={handleRetake} className='retake'>Retake Test</button>
         </div>
       )}
     </div>

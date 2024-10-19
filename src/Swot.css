@@ -5,16 +5,20 @@ body {
   font-family: "Poppins";
   margin: 0px;
   padding: 0px;
+  width: 100vw;
 }
 
 .tabs {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   position: fixed;
   top: 0px;
+  left: 0px;
   background-color: white;
   padding: 20px;
+  width: 100vw !important;
+  gap: 30px;
 }
 
 .questions {
@@ -22,19 +26,41 @@ body {
   margin-bottom: 80px;
 }
 
+.results {
+  margin-top: 150px;
+  margin-bottom: 80px;
+}
+
+
 .questionText {
   font-size: 22px;
 }
 
 .sub {
   background-color: #6357a4;
-  padding: 20px;
+  padding: 15px;
   border: 0.5px solid black;
   border-radius: 20px;
   font-size: 15px;
   font-weight: bolder;
   cursor: pointer;
   color: white;
+  width: 200px;
+  margin-top: 50px;
+}
+
+.retake {
+  background-color: #6357a4;
+  padding: 15px;
+  border: 0.5px solid black;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: bolder;
+  cursor: pointer;
+  color: white;
+  width: 200px;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 .tabs button {
@@ -57,10 +83,14 @@ body {
   color: #6357a4;
   cursor: pointer;
   font-size: 20px;
-  margin: 20px;
+  margin: 10px;
   font-weight: bold;
 }
 
 .question label:hover {
   color: black;
+}
+
+.resultSpace {
+  margin-top: 10px;
 }
