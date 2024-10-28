@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import Table from "../Components/Table"
 import "../App.css";
+import { data } from "autoprefixer";
+import { colors } from "@mui/material";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -547,6 +550,7 @@ const App = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
+  const [identity, setIdentity] = useState("")
 
   const handleAnswerSelection = (questionId, selectedOption) => {
     // Store answer and its weight in state
@@ -665,91 +669,268 @@ const App = () => {
       {
         label: "Profile Strengths",
         data: Object.values(resultData),
-        backgroundColor: [ "#4BC0C0", "#36A2EB", "#FFCE56","#FF6384"], // Add more colors if necessary
+        // backgroundColor: [ "#4BC0C0", "#36A2EB", "#FFCE56","#FF6384"], 
+        backgroundColor: ["red", "yellow", "blue", "green"],
         hoverOffset: 4
       }
     ]
+  };
+
+  const valuesArray = data.datasets[0].data;
+  const colorsArray = data.datasets[0].backgroundColor;
+  const maxValue = Math.max(...valuesArray); // Find the highest value
+  const maxIndex = valuesArray.indexOf(maxValue); // Find the index of the highest value
+
+  // Step 2: Get the corresponding color from the colors array
+  const correspondingColor = colorsArray[maxIndex];
+
+  console.log(`Highest value: ${maxValue}, Position: ${maxIndex}, Color: ${correspondingColor}`);
+  console.log(colorsArray[0])
+  console.log(colors)
+  const ColorFeedback = () => {
+    const [feedback, setFeedback] = useState('');
+
+    const colors = [
+      { name: 'Red', value: 'Decision Makers, Goal Oriented, Results.', code: '#FF0000', result: valuesArray[0] },
+      { name: 'Yellow', value: 'Communicatiors, Participants, Adaptable.', code: '#FFFF00', result: valuesArray[1] },
+      {
+        name: 'Blue', value: 'Problem Solver, Good Listener.', code: '#0000FF', result: valuesArray[2]
+      },
+      { name: 'Green', value: 'Accurate, Consistent, Analytical.', code: '#00FF00', result: valuesArray[3] },
+    ];
+
+    const sortedColors = [...colors].sort((a, b) => b.result - a.result);
+
+    // Helper function to convert hex color to an integer value
+    const hexToInt = (hex) => parseInt(hex.slice(1), 16);
+
+    // Find the color with the highest value
+    const getHighestColor = () =>
+      colors.reduce((max, color) =>
+        hexToInt(color.value) > hexToInt(max.value) ? color : max
+      );
+
+    // Generate feedback message based on the highest color value
+    useEffect(() => {
+      const highestColor = getHighestColor();
+      if (correspondingColor === 'red') {
+        setIdentity("Decision Maker")
+        setFeedback(
+          <>
+            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+            <p>Your major strength is associated with {correspondingColor}!</p> */}
+            <p>You are result Oriented and driven, Direct to the point, confident and competitve and you are always in a hurray.</p>
+          </>
+        );
+      } else if (correspondingColor === 'yellow') {
+        setIdentity("Communicator")
+        setFeedback(
+          <>
+            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+            <p>Your major strength is associated with {correspondingColor}!</p> */}
+            <p>You are friendly, outgoing and emotional. Your orientation is people first, results second. You like to combine food with talk, and you talk a lot. You are very spontaneous.</p>
+          </>
+        );
+      } else if (correspondingColor === 'blue') {
+        setIdentity("Problem Solver and good listener")
+        setFeedback(
+          <>
+            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+            <p>Your major strength is associated with {correspondingColor}!</p> */}
+            <p>You are a sincere person and good Listener, a problem solver and peace keeper. You are appreciated for who you are, not what you do. You focus on how to make things better</p>
+            <p>How To Communicate: Ask for their Help</p>
+            <p>They want to have input, Provide alternatives and allow them the freedom to choose the best one. Show appreciation for their ideas and input. ASK them what they think about your idea. Give them a problem to solve- they think yhey should know how!</p>
+
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Strengths</th>
+                  <th>Weaknesses</th>
+                  <th>Needs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Patient</td>
+                  <td>Avoid Conflct</td>
+                  <td>Time</td>
+                </tr>
+                <tr>
+                  <td>Problem Solver</td>
+                  <td>Procastination</td>
+                  <td>Freedom</td>
+                </tr>
+                <tr>
+                  <td>Evalute Alternative</td>
+                  <td>Rationalize</td>
+                  <td>Alternatives</td>
+                </tr>
+                <tr>
+                  <td>Improvments</td>
+                  <td>"Over-imporove"</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </>
+        );
+      } else if (correspondingColor === 'green') {
+        setIdentity("Analytical")
+        setFeedback(
+          <>
+            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+            <p>Your major strength is associated with {correspondingColor}!</p> */}
+            <p>A cautious person, that tend to do all 'by the book', you analyze any situation before you commit to it, you look before you cross the street and walk before you run, your goal is to avoid to making the same mistake twice.</p>
+          </>
+        );
+      }
+    }, []);
+
+    return (
+      <div>
+        <div className="container mx-auto p-4">
+          {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
+          <table className="min-w-full border-collapse border border-gray-300 mb-4"
+            style={{
+              border: '1px solid #ccc',
+              padding: '20px',
+              borderRadius: '5px',
+              backgroundColor: '#f9f9f9',
+              marginTop: "40px"
+            }}>
+            <thead>
+              <tr>
+                <th className="border border-gray-300 px-4 py-2 text-left">Color</th>
+                <th className="border border-gray-300 px-4 py-2 text-left"></th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Profile</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sortedColors.map((color, index) => (
+                <tr key={index} className="">
+                  <td className="border border-gray-300 px-4 py-2">{color.name}</td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    <div
+                      style={{
+                        backgroundColor: color.code,
+                        width: '30px',
+                        height: '30px',
+                        borderRadius: '4px',
+                      }}
+                    />
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 profileHead">{color.value}</td>
+                  <td className="border border-gray-300 px-4 py-2">{color.result}</td>
+
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {/* Feedback Section */}
+        <div
+          style={{
+            border: '1px solid #ccc',
+            padding: '20px',
+            borderRadius: '5px',
+            backgroundColor: '#f9f9f9',
+            marginTop: "40px"
+          }}
+        >
+          <h3 className="text-lg font-bold">Feedback as a {identity} </h3>
+          <p>{feedback}</p>
+        </div>
+      </div>
+    );
   };
 
   return (
     <div className="App">
       {!showResults
         ? <div>
-            {/* Render Progress Bar */}
-            <div className="progress-container">
-              <div
-                className="progress-bar"
-                style={{ width: `${calculateProgress()}%` }}
-              />
-            </div>
-            <p>
-              {getCurrentStep()}
-            </p>
-            <h3>
-              {
-                questionsUpdate[currentSection].questions[currentQuestion]
-                  .question
-              }
-            </h3>
-            {questionsUpdate[currentSection].questions[
-              currentQuestion
-            ].options.map(option =>
-              <button
-                key={option.text}
-                onClick={() =>
-                  handleAnswerSelection(
+          {/* Render Progress Bar */}
+          <div className="progress-container">
+            <div
+              className="progress-bar"
+              style={{ width: `${calculateProgress()}%` }}
+            />
+          </div>
+          <p>
+            {getCurrentStep()}
+          </p>
+          <h3>
+            {
+              questionsUpdate[currentSection].questions[currentQuestion]
+                .question
+            }
+          </h3>
+          {questionsUpdate[currentSection].questions[
+            currentQuestion
+          ].options.map(option =>
+            <button
+              key={option.text}
+              onClick={() =>
+                handleAnswerSelection(
+                  questionsUpdate[currentSection].questions[currentQuestion]
+                    .id,
+                  option.text
+                )}
+              className="opts"
+              style={{
+                backgroundColor:
+                  answers[
                     questionsUpdate[currentSection].questions[currentQuestion]
-                      .id,
-                    option.text
-                  )}
-                  className="opts"
-                style={{
-                  backgroundColor:
-                    answers[
-                      questionsUpdate[currentSection].questions[currentQuestion]
-                        .id
-                    ] === option.text
-                      ? `#6357A4`
-                      : "white",
-                  color:
-                    answers[
-                      questionsUpdate[currentSection].questions[currentQuestion]
-                        .id
-                    ] === option.text
-                      ? `white`
-                      : "",
-                  margin: "5px",
-                  padding: "25px",
-                  border: "0.5px solid black",
-                  borderRadius: "15px",
-                  marginTop: "10px",
-                  fontFamily: "Poppins",
-                  fontSize: "15px",
-                  fontWeight: "bold",
-                  cursor: "pointer"
-                }}
-              >
-                {option.text}
-              </button>
-            )}
-            <br />
-            <div className="controllBtn">
-              {(currentQuestion > 0 || currentSection > 0) &&
-                <button className="prev" onClick={handlePreviousQuestion}>
-                  Previous
-                </button>}
+                      .id
+                  ] === option.text
+                    ? `#6357A4`
+                    : "white",
+                color:
+                  answers[
+                    questionsUpdate[currentSection].questions[currentQuestion]
+                      .id
+                  ] === option.text
+                    ? `white`
+                    : "",
+                margin: "5px",
+                padding: "25px",
+                border: "0.5px solid black",
+                borderRadius: "15px",
+                marginTop: "10px",
+                fontFamily: "Poppins",
+                fontSize: "15px",
+                fontWeight: "bold",
+                cursor: "pointer"
+              }}
+            >
+              {option.text}
+            </button>
+          )}
+          <br />
+          <div className="controllBtn">
+            {(currentQuestion > 0 || currentSection > 0) &&
+              <button className="prev" onClick={handlePreviousQuestion}>
+                Previous
+              </button>}
 
-              {allQuestionsAnswered &&
-                <button className="sub" onClick={handleSubmit}>
-                  Submit
-                </button>}
+            {allQuestionsAnswered &&
+              <button className="sub" onClick={handleSubmit}>
+                Submit
+              </button>}
+          </div>
+        </div>
+        : <div>
+          <h2 className="resultHeader">STRENGTHS MATRIX RESULTS </h2>
+          <div className="innerResults">
+            <div className="chart w-[350px] h-[80px]">
+              <Doughnut data={data} />
+              <button onClick={handleRetake} className="retake">Retake Test</button>
+            </div>
+            <div style={{ marginBottom: "80px" }} className="feedback">
+              <ColorFeedback />
             </div>
           </div>
-        : <div>
-            <h2>Results</h2>
-            <button onClick={handleRetake}>Retake Test</button>
-            <Doughnut data={data} />
-          </div>}
+        </div>}
     </div>
   );
 };

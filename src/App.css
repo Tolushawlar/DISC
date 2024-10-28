@@ -1,3 +1,37 @@
+.resultHeader{
+  font-family: "Poppins", sans-serif;
+  font-size:32px;
+}
+.chart{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+}
+.retake{
+  padding: 15px;
+  border: 0.5px solid black;
+  border-radius: 50px;
+  width: 200px;
+  background: white;
+  color: black;
+  font-weight: bolder;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+}
+
+.retake:hover {
+  background: linear-gradient(to right, #16133d, #6357a5);
+  color: white;
+}
+
+.profileHead{
+  margin-left: 230px !important;
+  padding: 10px;
+}
+
+
 body {
   padding: 0px;
   margin: 0px;
@@ -139,6 +173,15 @@ body::-webkit-scrollbar {
   background-color: #4caf50;
   width: 0%; /* Start at 0%, will update dynamically */
   transition: width 0.3s ease-in-out;
+}
+
+.innerResults{
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback{
+  width: 500px;
 }
 
 @media (max-width: 768px) {
