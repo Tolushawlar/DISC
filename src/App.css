@@ -1,14 +1,50 @@
-.resultHeader{
-  font-family: "Poppins", sans-serif;
-  font-size:32px;
-}
-.chart{
+.feedbackCol {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: auto;
 }
-.retake{
+
+.custom-box {
+  width: auto;
+  height: auto;
+  margin:  auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+    0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+  text-align: left;
+  font-family: 'Lato', sans-serif;
+}
+
+/* Hover effect */
+.custom-box:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2),
+    0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.custom-table {
+  width: 600px;
+  margin-top: 30px;
+}
+
+.resultHeader {
+  font-family: "Poppins", sans-serif;
+  font-size: 32px;
+  text-align: center;
+}
+
+.chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.retake {
   padding: 15px;
   border: 0.5px solid black;
   border-radius: 50px;
@@ -26,7 +62,7 @@
   color: white;
 }
 
-.profileHead{
+.profileHead {
   margin-left: 230px !important;
   padding: 10px;
 }
@@ -42,7 +78,8 @@ body {
 }
 
 body::-webkit-scrollbar {
-  display: none; /* For Chrome, Safari, and Opera */
+  display: none;
+  /* For Chrome, Safari, and Opera */
 }
 
 .App {
@@ -116,6 +153,8 @@ body::-webkit-scrollbar {
   gap: 20px;
   display: flex;
   flex-direction: row;
+  justify-content: start;
+  align-items: center;
 }
 
 .controllBtn .prev {
@@ -128,6 +167,7 @@ body::-webkit-scrollbar {
   font-weight: bolder;
   font-size: 15px;
   cursor: pointer;
+  height: 55px;
   font-family: "Poppins", sans-serif;
 }
 
@@ -152,6 +192,7 @@ body::-webkit-scrollbar {
   font-size: 15px;
   cursor: pointer;
   font-family: "Poppins", sans-serif;
+  margin-top: auto;
 }
 
 .controllBtn .sub:hover {
@@ -171,29 +212,35 @@ body::-webkit-scrollbar {
 .progress-bar {
   height: 100%;
   background-color: #4caf50;
-  width: 0%; /* Start at 0%, will update dynamically */
+  width: 0%;
+  /* Start at 0%, will update dynamically */
   transition: width 0.3s ease-in-out;
 }
 
-.innerResults{
+.innerResults {
   display: flex;
   flex-direction: column;
 }
 
-.feedback{
-  width: 500px;
+.feedback {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {
   .App {
     margin-top: 40px !important;
     flex-direction: column-reverse;
-    justify-content: center; /* Center elements in column */
+    justify-content: center;
+    /* Center elements in column */
   }
 
   .App .left,
   .App .right {
-    width: 100%; /* Full width on mobile */
+    width: 100%;
+    /* Full width on mobile */
   }
 
   .App .right img {
@@ -201,8 +248,10 @@ body::-webkit-scrollbar {
   }
 
   .App .right img {
-    width: 100% !important; /* Adjust image to fit screen width */
-    height: auto !important; /* Maintain aspect ratio */
+    width: 100% !important;
+    /* Adjust image to fit screen width */
+    height: auto !important;
+    /* Maintain aspect ratio */
   }
 
   .controllBtn {

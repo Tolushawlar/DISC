@@ -618,10 +618,10 @@ const App = () => {
     );
 
     // Return formatted step info
-    return `Question ${sectionStep} of ${sectionTotal} in ${questionsUpdate[
+    return `Step ${sectionStep} of ${sectionTotal} in ${questionsUpdate[
       currentSection
     ].section} 
-    (Question ${overallStep} of ${overallTotal} Overall)`;
+    (${overallStep} of ${overallTotal})`;
   };
 
   // Calculate the results based on selected answers
@@ -691,12 +691,12 @@ const App = () => {
     const [feedback, setFeedback] = useState('');
 
     const colors = [
-      { name: 'Red', value: 'Decision Makers, Goal Oriented, Results.', code: '#FF0000', result: valuesArray[0] },
-      { name: 'Yellow', value: 'Communicatiors, Participants, Adaptable.', code: '#FFFF00', result: valuesArray[1] },
+      { name: 'Red', value: 'Decision Makers, Goal Oriented, Results', code: '#FF0000', result: valuesArray[0] },
+      { name: 'Yellow', value: 'Communicators, Participants, Adaptable', code: '#FFFF00', result: valuesArray[1] },
       {
-        name: 'Blue', value: 'Problem Solver, Good Listener.', code: '#0000FF', result: valuesArray[2]
+        name: 'Blue', value: 'Problem Solver, Good Listener', code: '#0000FF', result: valuesArray[2]
       },
-      { name: 'Green', value: 'Accurate, Consistent, Analytical.', code: '#00FF00', result: valuesArray[3] },
+      { name: 'Green', value: 'Accurate, Consistent, Analytical', code: '#00FF00', result: valuesArray[3] },
     ];
 
     const sortedColors = [...colors].sort((a, b) => b.result - a.result);
@@ -714,58 +714,126 @@ const App = () => {
     useEffect(() => {
       const highestColor = getHighestColor();
       if (correspondingColor === 'red') {
-        setIdentity("Decision Maker")
+        setIdentity("Decision Makers, Goal Oriented, Result Driven")
         setFeedback(
           <>
             {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
             <p>Your major strength is associated with {correspondingColor}!</p> */}
             <p>You are result Oriented and driven, Direct to the point, confident and competitve and you are always in a hurray.</p>
+            <h3>How To Communicate: Tell them WHAT</h3>
+            <p>Be direct and concise, Reds think they should know what they are doing, therefore, they like to work with people who know what they are doing, Tell them the WHAT and forget the rest of the story. These are the "bottom line" people. </p>
+            <table className
+              ="custom-table">
+              <thead>
+                <tr style={{ textAlign: "left" }}>
+                  <th>STRENGTHS</th>
+                  <th>WEEKNESS</th>
+                  <th>NEEDS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Get Results</td>
+                  <td>Not Cautious</td>
+                  <td>Power</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Decision Makers</td>
+                  <td>Run Over People</td>
+                  <td>Authority</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Achieve Goals</td>
+                  <td>Focus On Short Term Results</td>
+                  <td>To win</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Risk Takers</td>
+                  <td>Focus On Wrong Thing</td>
+                  <td>Quantifiable Results</td>
+                </tr>
+              </tbody>
+            </table>
           </>
         );
       } else if (correspondingColor === 'yellow') {
-        setIdentity("Communicator")
+        setIdentity("Communicators, Participants, Adaptable")
         setFeedback(
           <>
             {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
             <p>Your major strength is associated with {correspondingColor}!</p> */}
             <p>You are friendly, outgoing and emotional. Your orientation is people first, results second. You like to combine food with talk, and you talk a lot. You are very spontaneous.</p>
+            <h3>How To Communicate: Ask for their HELP</h3>
+            <p>Be direct and concise, Reds think they should know what they are doing, therefore, they like to work with people who know what they are doing, Tell them the WHAT and forget the rest of the story. These are the "bottom line" people. </p>
+            <table className
+              ="custom-table">
+              <thead>
+                <tr style={{ textAlign: "left" }}>
+                  <th>STRENGTHS</th>
+                  <th>WEEKNESS</th>
+                  <th>NEEDS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Communicators</td>
+                  <td>No Sense of Time</td>
+                  <td>Recognition</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Participants</td>
+                  <td>Lack Follow-Up</td>
+                  <td>Acceptance</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Adaptability</td>
+                  <td>Lack Objectivity</td>
+                  <td>Influence</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Optimistic</td>
+                  <td>Chamelon</td>
+                  <td>Involvement</td>
+                </tr>
+              </tbody>
+            </table>
           </>
         );
       } else if (correspondingColor === 'blue') {
-        setIdentity("Problem Solver and good listener")
+        setIdentity("Patient, Problem Solver, Good Listener")
         setFeedback(
           <>
             {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
             <p>Your major strength is associated with {correspondingColor}!</p> */}
             <p>You are a sincere person and good Listener, a problem solver and peace keeper. You are appreciated for who you are, not what you do. You focus on how to make things better</p>
-            <p>How To Communicate: Ask for their Help</p>
+            <h3>How To Communicate: Ask what they THINK</h3>
             <p>They want to have input, Provide alternatives and allow them the freedom to choose the best one. Show appreciation for their ideas and input. ASK them what they think about your idea. Give them a problem to solve- they think yhey should know how!</p>
 
             <table class="custom-table">
               <thead>
-                <tr>
+                <tr style={{ textAlign: "left" }}>
                   <th>Strengths</th>
                   <th>Weaknesses</th>
                   <th>Needs</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr style={{ textAlign: "left" }}>
                   <td>Patient</td>
                   <td>Avoid Conflct</td>
                   <td>Time</td>
                 </tr>
-                <tr>
+                <tr style={{ textAlign: "left" }}>
                   <td>Problem Solver</td>
                   <td>Procastination</td>
                   <td>Freedom</td>
                 </tr>
-                <tr>
+                <tr style={{ textAlign: "left" }}>
                   <td>Evalute Alternative</td>
                   <td>Rationalize</td>
                   <td>Alternatives</td>
                 </tr>
-                <tr>
+                <tr style={{ textAlign: "left" }}>
                   <td>Improvments</td>
                   <td>"Over-imporove"</td>
                   <td></td>
@@ -775,29 +843,63 @@ const App = () => {
           </>
         );
       } else if (correspondingColor === 'green') {
-        setIdentity("Analytical")
+        setIdentity("Accurate, Consistent, Analytical")
         setFeedback(
           <>
             {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
             <p>Your major strength is associated with {correspondingColor}!</p> */}
             <p>A cautious person, that tend to do all 'by the book', you analyze any situation before you commit to it, you look before you cross the street and walk before you run, your goal is to avoid to making the same mistake twice.</p>
+            <h3>How To Communicate: Tell them HOW you want it done</h3>
+            <p>They need consistency, predictablility and control. They want to see proff. Use testimonials. Lay the facts out early. Tell them the bad news first. Make a formal presentation and answer all the HOW question.</p>
+            <table class="custom-table">
+              <thead>
+                <tr style={{ textAlign: "left" }}>
+                  <th>Strengths</th>
+                  <th>Weaknesses</th>
+                  <th>Needs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Patient</td>
+                  <td>Avoid Conflct</td>
+                  <td>Time</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Problem Solver</td>
+                  <td>Procastination</td>
+                  <td>Freedom</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Evalute Alternative</td>
+                  <td>Rationalize</td>
+                  <td>Alternatives</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Improvments</td>
+                  <td>"Over-imporove"</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
           </>
         );
       }
     }, []);
 
     return (
-      <div>
-        <div className="container mx-auto p-4">
+      <div className="feedbackCol">
+        <div className="container mx-auto p-4 custom-box">
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table className="min-w-full border-collapse border border-gray-300 mb-4"
-            style={{
-              border: '1px solid #ccc',
-              padding: '20px',
-              borderRadius: '5px',
-              backgroundColor: '#f9f9f9',
-              marginTop: "40px"
-            }}>
+          // style={{
+          //   border: '1px solid #ccc',
+          //   padding: '20px',
+          //   borderRadius: '5px',
+          //   backgroundColor: '#f9f9f9',
+          //   marginTop: "40px"
+          // }}
+          >
             <thead>
               <tr>
                 <th className="border border-gray-300 px-4 py-2 text-left">Color</th>
@@ -830,6 +932,7 @@ const App = () => {
         </div>
         {/* Feedback Section */}
         <div
+          className="custom-box"
           style={{
             border: '1px solid #ccc',
             padding: '20px',
@@ -838,7 +941,7 @@ const App = () => {
             marginTop: "40px"
           }}
         >
-          <h3 className="text-lg font-bold">Feedback as a {identity} </h3>
+          <h3 style={{ color: "#16133d", fontSize: "24px", fontWeight: "bolder" }} className="text-lg font-bold">Feedback for {identity} </h3>
           <p>{feedback}</p>
         </div>
       </div>
@@ -859,7 +962,7 @@ const App = () => {
           <p>
             {getCurrentStep()}
           </p>
-          <h3>
+          <h3 style={{ marginTop: "50px" }}>
             {
               questionsUpdate[currentSection].questions[currentQuestion]
                 .question
@@ -922,7 +1025,7 @@ const App = () => {
         : <div>
           <h2 className="resultHeader">STRENGTHS MATRIX RESULTS </h2>
           <div className="innerResults">
-            <div className="chart w-[350px] h-[80px]">
+            <div className="chart">
               <Doughnut data={data} />
               <button onClick={handleRetake} className="retake">Retake Test</button>
             </div>
