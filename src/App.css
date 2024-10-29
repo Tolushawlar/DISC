@@ -234,18 +234,30 @@ body::-webkit-scrollbar {
 }
 
 @media (max-width: 768px) {
-.riz{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-  .feedback{
-    width: 200px;
-  }
-  .custom-table {
+  .colorBox {
     width: 300px !important;
+  }
+
+  .feedbackCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .riz {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .feedback {
+    width: 300px;
+  }
+
+  .custom-table {
+    width: 400px !important;
     display: flex;
     flex-direction: column;
   }

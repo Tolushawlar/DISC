@@ -889,7 +889,7 @@ const App = () => {
 
     return (
       <div className="feedbackCol">
-        <div className="container mx-auto p-4 custom-box">
+        <div className="container mx-auto p-4 custom-box colorBox">
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table className="min-w-full border-collapse border border-gray-300 mb-4"
           // style={{
