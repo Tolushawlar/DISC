@@ -111,7 +111,8 @@ input {
 
 @media (max-width: 768px) {
   .tabs {
-    gap: 10px;
+    gap: 10px !important;
+    width: 90vw !important;
   }
 
   .tabs .tab {
