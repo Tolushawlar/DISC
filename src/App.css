@@ -7,7 +7,7 @@
 .custom-box {
   width: auto;
   height: auto;
-  margin:  auto;
+  margin: auto;
   padding: 20px;
   background-color: #ffffff;
   border-radius: 12px;
@@ -27,6 +27,8 @@
 .custom-table {
   width: 600px;
   margin-top: 30px;
+  font-family: 'Lato', sans-serif;
+
 }
 
 .resultHeader {
@@ -43,6 +45,8 @@
   justify-content: center;
   font-family: "Poppins", sans-serif;
 }
+
+
 
 .retake {
   padding: 15px;
@@ -230,10 +234,62 @@ body::-webkit-scrollbar {
 }
 
 @media (max-width: 768px) {
-  .innerResults{
+.riz{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+  .feedback{
+    width: 200px;
+  }
+  .custom-table {
+    width: 300px !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .custom-table thead {
+    display: none;
+    /* Hide the table header */
+  }
+
+  .custom-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .custom-table tr {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .custom-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }
+
+  .custom-table td {
+    display: block;
+  }
+
+  .dou {
+    width: 350px !important;
+    height: 350px !important;
+  }
+
+  .innerResults {
     margin: 0px;
     padding: 0px;
   }
+
   .App {
     margin-top: 40px !important;
     flex-direction: column-reverse;

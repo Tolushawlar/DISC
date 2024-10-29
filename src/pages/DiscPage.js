@@ -731,26 +731,26 @@ const App = () => {
                   <th>NEEDS</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="tbody">
                 <tr style={{ textAlign: "left" }}>
-                  <td>Get Results</td>
-                  <td>Not Cautious</td>
-                  <td>Power</td>
+                  <td data-label="STRENGTHS">Get Results</td>
+                  <td data-label="WEAKNESSES">Not Cautious</td>
+                  <td data-label="NEEDS">Power</td>
                 </tr>
                 <tr style={{ textAlign: "left" }}>
-                  <td>Decision Makers</td>
-                  <td>Run Over People</td>
-                  <td>Authority</td>
+                  <td data-label="STRENGTHS">Decision Makers</td>
+                  <td data-label="WEAKNESSES">Run Over People</td>
+                  <td data-label="NEEDS">Authority</td>
                 </tr>
                 <tr style={{ textAlign: "left" }}>
-                  <td>Achieve Goals</td>
-                  <td>Focus On Short Term Results</td>
-                  <td>To win</td>
+                  <td data-label="STRENGTHS">Achieve Goals</td>
+                  <td data-label="WEAKNESSES">Focus On Short Term Results</td>
+                  <td data-label="NEEDS">To win</td>
                 </tr>
                 <tr style={{ textAlign: "left" }}>
-                  <td>Risk Takers</td>
-                  <td>Focus On Wrong Thing</td>
-                  <td>Quantifiable Results</td>
+                  <td data-label="STRENGTHS">Risk Takers</td>
+                  <td data-label="WEAKNESSES">Focus On Wrong Thing</td>
+                  <td data-label="NEEDS">Quantifiable Results</td>
                 </tr>
               </tbody>
             </table>
@@ -774,7 +774,7 @@ const App = () => {
                   <th>NEEDS</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="tbody">
                 <tr style={{ textAlign: "left" }}>
                   <td>Communicators</td>
                   <td>No Sense of Time</td>
@@ -817,7 +817,7 @@ const App = () => {
                   <th>Needs</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="tbody">
                 <tr style={{ textAlign: "left" }}>
                   <td>Patient</td>
                   <td>Avoid Conflct</td>
@@ -859,7 +859,7 @@ const App = () => {
                   <th>Needs</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="tbody">
                 <tr style={{ textAlign: "left" }}>
                   <td>Patient</td>
                   <td>Avoid Conflct</td>
@@ -1022,11 +1022,11 @@ const App = () => {
               </button>}
           </div>
         </div>
-        : <div>
+        : <div className="riz">
           <h2 className="resultHeader">STRENGTHS MATRIX RESULTS </h2>
           <div className="innerResults">
             <div className="chart">
-              <Doughnut data={data} />
+              <Doughnut data={data} className="dou" />
               <button onClick={handleRetake} className="retake">Retake Test</button>
             </div>
             <div style={{ marginBottom: "80px" }} className="feedback">
