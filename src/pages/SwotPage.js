@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import "../Swot.css";
+
 
 const swotData = {
   swotQuestions: [
@@ -1145,6 +1146,8 @@ const SwotPage = () => {
   const [responses, setResponses] = useState({}); // Store user responses
   const [submitted, setSubmitted] = useState(false); // Check if form is submitted
 
+  const sectionRef = useRef(null); // Ref to scroll to the top of the section
+
   const handleOptionChange = (section, questionId, optionText) => {
     setResponses((prev) => ({
       ...prev,
@@ -1161,18 +1164,41 @@ const SwotPage = () => {
   };
 
   const handleSubmit = () => {
-    const allSectionsCompleted = swotData.swotQuestions.every((section) => isSectionCompleted(section.section));
+    const allSectionsCompleted = swotData.swotQuestions.every((section) =>
+      isSectionCompleted(section.section)
+    );
 
     if (allSectionsCompleted) {
       setSubmitted(true);
+      scrollToTop(); // Scroll to the top of the results section
     } else {
-      alert('Please complete all sections before submitting.');
+      alert("Please complete all sections before submitting.");
+    }
+  };
+
+  const handleNextTab = () => {
+    if (activeTab < swotData.swotQuestions.length - 1) {
+      setActiveTab(activeTab + 1);
+      scrollToTop(); // Scroll to top of the next section
+    }
+  };
+
+  const handleNextResultSection = () => {
+    if (activeTab < swotData.swotQuestions.length - 1) {
+      setActiveTab(activeTab + 1);
+      scrollToTop(); // Scroll to top of the next result section
     }
   };
 
   const handleRetake = () => {
     setResponses({});
     setSubmitted(false);
+    setActiveTab(0); // Reset to the first tab
+    scrollToTop(); // Scroll to the top
+  };
+
+  const scrollToTop = () => {
+    sectionRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const renderResults = (section) => {
@@ -1183,20 +1209,20 @@ const SwotPage = () => {
       const result = options.find((opt) => opt.text === userResponse)?.result;
       return (
         <div key={id} className="resultSpace">
-          <p><strong>{question}</strong></p>
-          <p>{result || 'No response given.'}</p>
+          <p style={{marginTop: "20px", fontSize: "20px"}}><strong>{question}</strong></p>
+          <p style={{ marginBottom: "20px" }}>{result || "No response given."}</p>
         </div>
       );
     });
   };
 
   return (
-    <div className="container">
+    <div className="container" ref={sectionRef}>
       <div className="tabs">
         {swotData.swotQuestions.map((section, index) => (
           <button
             key={section.section}
-            className={`tab ${index === activeTab ? 'active' : ''}`}
+            className={`tab ${index === activeTab ? "active" : "buttonTab"}`}
             onClick={() => setActiveTab(index)}
           >
             {section.section}
@@ -1208,16 +1234,25 @@ const SwotPage = () => {
         <div className="questions">
           {swotData.swotQuestions[activeTab].questions.map(({ id, question, options }) => (
             <div key={id} className="question">
-              <p className='questionText'><strong>{question}</strong></p>
+              <p className="questionText">
+                <strong>{question}</strong>
+              </p>
               {options.map((option) => (
                 <label key={option.text}>
                   <input
                     type="radio"
                     name={`question-${id}`}
                     value={option.text}
-                    checked={responses[swotData.swotQuestions[activeTab].section]?.[id] === option.text}
+                    className='optRadio'
+                    checked={
+                      responses[swotData.swotQuestions[activeTab].section]?.[id] === option.text
+                    }
                     onChange={() =>
-                      handleOptionChange(swotData.swotQuestions[activeTab].section, id, option.text)
+                      handleOptionChange(
+                        swotData.swotQuestions[activeTab].section,
+                        id,
+                        option.text
+                      )
                     }
                   />
                   {option.text}
@@ -1225,13 +1260,31 @@ const SwotPage = () => {
               ))}
             </div>
           ))}
-          <button onClick={handleSubmit} className='sub'>Submit</button>
+
+          {activeTab === swotData.swotQuestions.length - 1 ? (
+            <button onClick={handleSubmit} className="sub">
+              Submit
+            </button>
+          ) : (
+            <button onClick={handleNextTab} className="next">
+              Next
+            </button>
+          )}
         </div>
       ) : (
         <div className="results">
           <h2>{swotData.swotQuestions[activeTab].section} Results</h2>
           {renderResults(swotData.swotQuestions[activeTab].section)}
-          <button onClick={handleRetake} className='retake'>Retake Test</button>
+
+          {activeTab === swotData.swotQuestions.length - 1 ? (
+            <button onClick={handleRetake} className="retake">
+              Retake Test
+            </button>
+          ) : (
+            <button onClick={handleNextResultSection} className="next">
+              Next Result Section
+            </button>
+          )}
         </div>
       )}
     </div>
