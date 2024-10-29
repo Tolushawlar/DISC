@@ -727,7 +727,7 @@ const App = () => {
               <thead>
                 <tr style={{ textAlign: "left" }}>
                   <th>STRENGTHS</th>
-                  <th>WEEKNESS</th>
+                  <th>WEAKNESS</th>
                   <th>NEEDS</th>
                 </tr>
               </thead>
@@ -770,7 +770,7 @@ const App = () => {
               <thead>
                 <tr style={{ textAlign: "left" }}>
                   <th>STRENGTHS</th>
-                  <th>WEEKNESS</th>
+                  <th>WEAKNESS</th>
                   <th>NEEDS</th>
                 </tr>
               </thead>
@@ -812,9 +812,9 @@ const App = () => {
             <table class="custom-table">
               <thead>
                 <tr style={{ textAlign: "left" }}>
-                  <th>Strengths</th>
-                  <th>Weaknesses</th>
-                  <th>Needs</th>
+                  <th>STRENGTHS</th>
+                  <th>WEAKNESS</th>
+                  <th>NEEDS</th>
                 </tr>
               </thead>
               <tbody className="tbody">
@@ -854,9 +854,9 @@ const App = () => {
             <table class="custom-table">
               <thead>
                 <tr style={{ textAlign: "left" }}>
-                  <th>Strengths</th>
-                  <th>Weaknesses</th>
-                  <th>Needs</th>
+                  <th>STRENGTHS</th>
+                  <th>WEAKNESSES</th>
+                  <th>M=NEEDS</th>
                 </tr>
               </thead>
               <tbody className="tbody">
