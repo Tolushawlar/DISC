@@ -230,6 +230,10 @@ body::-webkit-scrollbar {
 }
 
 @media (max-width: 768px) {
+  .innerResults{
+    margin: 0px;
+    padding: 0px;
+  }
   .App {
     margin-top: 40px !important;
     flex-direction: column-reverse;
