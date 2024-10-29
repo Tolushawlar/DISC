@@ -113,6 +113,8 @@ input {
   .tabs {
     gap: 10px !important;
     width: 90vw !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   .tabs .tab {
