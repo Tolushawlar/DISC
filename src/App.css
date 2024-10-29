@@ -235,25 +235,28 @@ body::-webkit-scrollbar {
 
 @media (max-width: 768px) {
   .colorBox {
-    width: 300px !important;
+    width: 400px !important;
   }
 
   .feedbackCol {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .riz {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   .feedback {
     width: 300px;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   .custom-table {
