@@ -8,12 +8,12 @@ body {
   width: 100vw;
 }
 
-input{
+input {
   border-radius: 50px !important;
   background-color: red !important;
 }
 
-.container{
+.container {
   display: flex !important;
   text-align: center;
   justify-content: center !important;
@@ -61,7 +61,8 @@ input{
   margin-top: 50px;
 }
 
-.retake, .next {
+.retake,
+.next {
   background-color: #6357a4;
   padding: 15px;
   border: 0.5px solid black;
@@ -109,7 +110,11 @@ input{
 }
 
 @media (max-width: 768px) {
-  .tabs .tab{
-   padding: 15px;
+  .tabs {
+    gap: 10px;
+  }
+
+  .tabs .tab {
+    padding: 15px;
   }
 }
