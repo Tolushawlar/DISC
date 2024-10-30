@@ -1,6 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import "../Swot.css";
-
 
 const swotData = {
   swotQuestions: [
@@ -13,11 +12,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "You have strong intellectual property protection, which gives a competitive edge."
+              "result": "Having patents provides strong legal protection, creating barriers for competitors trying to replicate your product. It ensures your innovation is safeguarded, allowing you to capture market value without imitation. This competitive edge strengthens market position and attracts investors, as intellectual property is often a valuable business asset. Moreover, patents can offer leverage for licensing agreements, royalty payments, or strategic partnerships, enabling additional revenue streams."
             },
             {
               "text": "No",
-              "result": "Lack of patents could expose your business to copying and lost market share."
+              "result": "The absence of patents may expose your business to imitation, making it easier for competitors to copy your innovations and erode your market share. This can lead to price wars, reduced profitability, and diminished brand value. To mitigate this risk, consider other protective measures such as trade secrets, rapid innovation cycles, or developing a unique customer experience. If your product is highly innovative, exploring patent registration may still be a worthwhile investment."
             }
           ]
         },
@@ -27,11 +26,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "A strong brand name enhances recognition and trust among customers."
+              "result": "A strong brand name helps establish customer trust, recognition, and loyalty, making it easier to introduce new products and expand into new markets. Brand equity also provides a competitive advantage, as customers are more likely to choose a familiar name over unknown competitors. Furthermore, it can command premium pricing, improve customer retention, and reduce marketing costs in the long run by leveraging established trust and familiarity."
             },
             {
               "text": "No",
-              "result": "Developing a stronger brand could improve customer loyalty and market positioning."
+              "result": "Without a strong brand, your business may struggle to stand out in the market, and customers may view your products as less reliable. Building a recognizable brand requires consistent messaging, positive customer experiences, and targeted marketing. Investing in brand development through advertising, customer engagement, and partnerships will help create awareness and loyalty, ultimately enhancing long-term success."
             }
           ]
         },
@@ -41,11 +40,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Your business benefits from positive customer perception, increasing loyalty and trust."
+              "result": "A positive reputation among customers fosters trust, leading to higher customer retention, word-of-mouth referrals, and greater brand advocacy. It reduces customer acquisition costs as loyal customers are more likely to repurchase and recommend your business. In times of crisis or market uncertainty, a good reputation can act as a safety net, maintaining sales and customer loyalty. Continuing to exceed customer expectations will further strengthen your brand’s image."
             },
             {
               "text": "No",
-              "result": "Building a good reputation is essential to gain customer trust and market share."
+              "result": "A lack of a positive reputation may hinder your ability to attract and retain customers, affecting revenue and growth. It is crucial to address customer concerns, enhance product quality, and improve service to build trust. Leveraging social proof, such as customer testimonials and reviews, can also help repair and develop a better reputation. Focus on consistent delivery of value and transparency to regain customer confidence."
             }
           ]
         },
@@ -55,11 +54,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "A diverse product range spreads risk and caters to different customer needs."
+              "result": "A diverse product portfolio reduces reliance on a single product for revenue, helping to spread risk. It allows you to meet the needs of different customer segments and adapt to changing market trends. Furthermore, cross-selling opportunities between product lines can increase the average customer spend. However, managing multiple products requires careful planning to avoid resource dilution, so efficient inventory management and product differentiation strategies are essential."
             },
             {
               "text": "No",
-              "result": "Consider expanding product lines to attract more customers and mitigate risks."
+              "result": "A limited product range could restrict your ability to attract a broader audience or respond to shifts in consumer preferences. Expanding your product offerings can open new revenue streams and mitigate market risks associated with overdependence on a few products. Conducting market research will help identify gaps and ensure that any new product development aligns with customer needs and market trends."
             }
           ]
         },
@@ -69,11 +68,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Broad coverage ensures higher market penetration and better customer reach."
+              "result": "Broad market coverage enables your business to reach more customers, improving brand visibility and sales. This approach reduces dependency on a single market, making your business more resilient to local economic shifts. Geographic diversification also allows you to identify and capitalize on growth opportunities in emerging markets. However, ensuring consistent brand messaging and product quality across regions is key to maintaining your competitive edge."
             },
             {
               "text": "No",
-              "result": "Expanding market coverage could improve sales and brand visibility."
+              "result": "Limited market coverage can restrict your revenue potential and increase vulnerability to regional disruptions. Expanding into new markets, whether geographically or through new customer segments, can help diversify revenue streams and reduce risks. Developing a targeted market entry strategy—such as leveraging local partnerships or adapting products to new market needs—can ensure a successful expansion."
             }
           ]
         },
@@ -83,11 +82,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Strong manufacturing capabilities can enhance product quality and reduce costs."
+              "result": "Strong manufacturing capabilities enhance product quality, reduce waste, and lower production costs, making your business more competitive. Efficient processes enable faster turnaround times, ensuring timely delivery to customers. Additionally, manufacturing expertise allows you to scale operations efficiently in response to increased demand. Continuous investment in technology and lean practices can further improve performance and keep you ahead of competitors."
             },
             {
               "text": "No",
-              "result": "Improving manufacturing efficiency could reduce costs and increase competitiveness."
+              "result": "Lack of manufacturing competence can lead to higher costs, production delays, and quality issues, which may affect customer satisfaction. Optimizing manufacturing processes through automation, staff training, or outsourcing can reduce operational inefficiencies. Building strategic relationships with suppliers and adopting lean manufacturing practices will also help improve your cost structure and product quality."
             }
           ]
         },
@@ -97,95 +96,95 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Effective marketing efforts boost visibility and customer engagement."
+              "result": "Effective marketing strategies create brand awareness, generate leads, and engage customers, ultimately driving sales. Skilled marketing teams can identify and leverage the right channels—such as social media, content marketing, or paid ads—to reach target audiences efficiently. A well-rounded approach, including data analytics and personalized campaigns, enhances customer acquisition and retention while maximizing return on investment."
             },
             {
               "text": "No",
-              "result": "Improving marketing strategies can enhance customer acquisition and retention."
+              "result": "Weak marketing efforts may limit your business’s visibility and hinder growth. Developing marketing competencies is essential for reaching the right customers and driving sales. Investing in market research, branding, and digital marketing tools will help you craft targeted campaigns. Additionally, building an in-house team or collaborating with agencies can bring fresh perspectives to your marketing strategy, ensuring it aligns with business goals."
             }
           ]
         },
         {
           "id": 8,
-          "question": "Good materials management systems?",
+          "question": "Ability to attract talented managers?",
           "options": [
             {
               "text": "Yes",
-              "result": "Efficient materials management reduces waste and ensures smooth operations."
+              "result": "Your company excels at attracting talented managers, which strengthens leadership and enhances strategic decision-making. This capability fosters innovation, drives operational excellence, and creates a competitive advantage by aligning top talent with business objectives."
             },
             {
               "text": "No",
-              "result": "Optimizing materials management can lower costs and improve efficiency."
+              "result": "Struggling to attract skilled managers can limit your company's ability to grow and manage complex operations. Enhancing employer branding, offering competitive incentives, and investing in leadership development can help attract and retain talented managers."
             }
           ]
         },
         {
           "id": 9,
-          "question": "R&D skills and leadership?",
+          "question": "Ability to motivate employees?",
           "options": [
             {
               "text": "Yes",
-              "result": "Strong R&D capabilities drive innovation and competitive advantage."
+              "result": "Your organization has a strong ability to motivate employees, leading to higher productivity, lower turnover, and better team dynamics. A motivated workforce improves customer satisfaction and contributes to achieving long-term business goals."
             },
             {
               "text": "No",
-              "result": "Investing in R&D can help develop new products and stay ahead of competitors."
+              "result": "Without effective employee motivation, productivity and morale may suffer, leading to higher turnover rates. Fostering a positive work culture, recognizing achievements, and offering growth opportunities can boost motivation and drive better results."
             }
           ]
         },
         {
           "id": 10,
-          "question": "Information system competencies?",
+          "question": "Ability to innovate?",
           "options": [
             {
               "text": "Yes",
-              "result": "Advanced information systems enhance decision-making and operational efficiency."
+              "result": "Your company’s ability to innovate positions it at the forefront of industry trends, enabling it to develop new products and services that meet evolving customer needs. Innovation also strengthens your brand and provides a competitive edge in the market."
             },
             {
               "text": "No",
-              "result": "Developing robust IT systems can streamline processes and improve outcomes."
+              "result": "Limited innovation capabilities can leave your business vulnerable to disruption and market shifts. Encouraging creativity, investing in R&D, and fostering a culture of experimentation can enhance your ability to innovate and stay competitive."
             }
           ]
         },
         {
           "id": 11,
-          "question": "Human resource competencies?",
+          "question": "Ability to manufacture quality products?",
           "options": [
             {
               "text": "Yes",
-              "result": "Skilled employees improve productivity and drive business success."
+              "result": "Your company has mastered the ability to manufacture quality products, which enhances brand reputation, customer satisfaction, and loyalty. Consistent product quality minimizes defects and returns, helping your business maintain a competitive position."
             },
             {
               "text": "No",
-              "result": "Investing in employee training can enhance skills and boost performance."
+              "result": "Challenges in maintaining product quality can harm your brand’s reputation and lead to dissatisfied customers. Investing in quality control processes, employee training, and supplier management can help ensure high standards in manufacturing."
             }
           ]
         },
         {
           "id": 12,
-          "question": "Brand name reputation?",
+          "question": "Access to sufficient financial resources?",
           "options": [
             {
               "text": "Yes",
-              "result": "A reputable brand builds customer trust and encourages repeat business."
+              "result": "Having access to sufficient financial resources empowers your business to invest in growth opportunities, scale operations, and manage risks effectively. This financial stability ensures your business can weather downturns and fund innovation initiatives."
             },
             {
               "text": "No",
-              "result": "Building a strong brand reputation can enhance loyalty and market positioning."
+              "result": "Lack of financial resources can limit your business’s ability to grow and respond to market opportunities. Exploring alternative funding options, such as venture capital or partnerships, can help improve cash flow and ensure sustainable growth."
             }
           ]
         },
         {
           "id": 13,
-          "question": "Portfolio management skills?",
+          "question": "Strong ability to develop effective strategies?",
           "options": [
             {
               "text": "Yes",
-              "result": "Strong portfolio management helps balance risk and maximize returns."
+              "result": "Your company excels at developing effective strategies, providing clarity on objectives and how to achieve them. This capability ensures alignment across departments, drives operational efficiency, and positions your business for long-term success."
             },
             {
               "text": "No",
-              "result": "Improving portfolio management can enhance resource allocation and profitability."
+              "result": "Weak strategic development can lead to misaligned efforts, missed opportunities, and operational inefficiencies. Strengthening your strategic planning process through data analysis, scenario planning, and leadership involvement can enhance your ability to create and execute winning strategies."
             }
           ]
         },
@@ -195,11 +194,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "A cost advantage enables competitive pricing without compromising quality."
+              "result": "Your business has developed a cost-based differentiation strategy, allowing it to offer unique products at competitive prices without sacrificing quality. This advantage enables you to attract both value-conscious and quality-seeking customers, improving profitability through economies of scale and optimized production processes."
             },
             {
               "text": "No",
-              "result": "Developing cost advantages can help attract price-sensitive customers."
+              "result": "Lacking a cost advantage could limit your ability to compete on price, especially in markets with price-sensitive customers. Investing in lean production methods, strategic sourcing, and process optimization can help you build this edge, enabling you to lower costs while maintaining differentiation."
             }
           ]
         },
@@ -209,11 +208,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Expertise in managing new ventures enhances business growth opportunities."
+              "result": "Having strong expertise in new-venture management allows your business to explore and capitalize on growth opportunities, bringing innovative products or services to market effectively. This skillset reduces the risks associated with launching new projects, ensures resource efficiency, and helps capture early market share in emerging industries."
             },
             {
               "text": "No",
-              "result": "Building management expertise can improve success rates in new ventures."
+              "result": "Without expertise in managing new ventures, your business may struggle to launch successful initiatives or adapt to market changes. Building this capability through targeted training, mentorship programs, and partnerships can enhance your ability to innovate and capture growth opportunities."
             }
           ]
         },
@@ -223,11 +222,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "A suitable management style fosters teamwork and boosts morale."
+              "result": "Your leadership employs a management style that aligns with the organization’s goals and culture, fostering collaboration, trust, and employee engagement. The right management style ensures effective communication, better decision-making, and high morale among employees, which ultimately enhances productivity and reduces turnover."
             },
             {
               "text": "No",
-              "result": "Adopting the right management approach can improve employee engagement."
+              "result": "An unsuitable management style may lead to low employee morale, high turnover, and ineffective decision-making. Evaluating and adopting a more adaptive approach that considers team dynamics and organizational goals can help improve performance and employee satisfaction."
             }
           ]
         },
@@ -237,11 +236,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "An effective structure improves communication and operational efficiency."
+              "result": "Your organization has a well-defined structure that supports seamless communication, quick decision-making, and operational efficiency. This structure ensures clarity in roles and responsibilities, minimizes conflicts, and aligns departments toward common goals, fostering an agile and resilient business model."
             },
             {
               "text": "No",
-              "result": "Optimizing the organizational structure can enhance performance and collaboration."
+              "result": "An ineffective organizational structure may result in communication breakdowns, duplication of efforts, and operational bottlenecks. Restructuring your organization with clear hierarchies, efficient workflows, and well-defined roles can improve coordination and overall performance."
             }
           ]
         },
@@ -251,11 +250,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Robust control systems ensure smooth operations and risk management."
+              "result": "Your business has robust control systems in place to monitor performance, manage risks, and ensure compliance with internal policies and regulations. These systems enhance accountability, prevent errors, and facilitate continuous improvement by providing real-time data for informed decision-making."
             },
             {
               "text": "No",
-              "result": "Developing better control systems can improve operational oversight."
+              "result": "Weak or absent control systems can expose your business to risks such as fraud, inefficiencies, and regulatory non-compliance. Implementing reliable control mechanisms will enhance accountability, mitigate risks, and streamline operations, providing a solid foundation for sustainable growth."
             }
           ]
         },
@@ -265,11 +264,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Strong change management capabilities enable adaptability and growth."
+              "result": "Your business demonstrates strong change management skills, enabling it to pivot swiftly in response to market shifts or disruptions. This capability ensures smooth transitions during restructuring, mergers, or new initiatives, fostering innovation while maintaining stability and focus on long-term objectives."
             },
             {
               "text": "No",
-              "result": "Improving change management skills can enhance responsiveness to market shifts."
+              "result": "Difficulty in managing strategic change can hinder your ability to stay competitive in a rapidly evolving market. Developing change management capabilities—such as leadership alignment, communication plans, and employee engagement strategies—can help you adapt more effectively and seize new opportunities."
             }
           ]
         },
@@ -279,11 +278,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "A clear strategy guides decisions and aligns efforts toward business goals."
+              "result": "Your organization benefits from a well-developed corporate strategy that aligns its vision, mission, and goals. This clarity enables your business to prioritize resources, drive operational efficiency, and make data-driven decisions, fostering long-term growth and competitive advantage."
             },
             {
               "text": "No",
-              "result": "Developing a robust strategy can provide direction and competitive advantage."
+              "result": "Operating without a clear corporate strategy can result in misaligned efforts, wasted resources, and missed opportunities. Developing a strategic plan that incorporates market analysis, competitor insights, and organizational strengths can provide direction and facilitate better decision-making."
             }
           ]
         },
@@ -293,11 +292,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Strong international operations enhance market presence and diversification."
+              "result": "Your business excels in international operations, which helps diversify revenue streams, spread risks, and increase global market presence. Strong international capabilities also enhance your ability to tap into new customer segments and benefit from regional growth opportunities."
             },
             {
               "text": "No",
-              "result": "Expanding international operations can open new growth opportunities."
+              "result": "Limited international operations may restrict your growth potential and increase vulnerability to domestic market fluctuations. Expanding your international footprint through market research, partnerships, and operational efficiency can unlock new opportunities and improve resilience."
             }
           ]
         },
@@ -307,11 +306,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Your business is resilient and can thrive in challenging environments."
+              "result": "Your business has proven resilient during pandemics, demonstrating the ability to adapt quickly and maintain profitability despite disruptions. This resilience highlights your agility, strong leadership, and ability to meet customer needs even under challenging circumstances, setting your business apart as a trusted and reliable brand."
             },
             {
               "text": "No",
-              "result": "Building resilience can ensure continuity and profitability during crises."
+              "result": "Struggling to maintain profitability during pandemics or crises may expose vulnerabilities in your business model. Building resilience through contingency planning, digital transformation, and diversified revenue streams can strengthen your ability to weather future disruptions and ensure long-term success."
             }
           ]
         }
@@ -326,11 +325,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Limited product variety can reduce market appeal and revenue streams."
+              "result": "Limited product variety can reduce your business's market appeal and hinder revenue growth. Expanding or updating your product lines can attract new customers and meet evolving consumer demands."
             },
             {
               "text": "No",
-              "result": "Your product lines are diverse and relevant to market demands."
+              "result": "Your product lines are well-diversified and relevant to market demands, ensuring strong customer appeal and sustained revenue streams."
             }
           ]
         },
@@ -340,11 +339,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Lack of crisis resilience can lead to significant financial losses."
+              "result": "Lack of crisis resilience can lead to significant financial losses and operational disruptions during pandemics. Developing contingency plans and diversifying income sources can mitigate risks."
             },
             {
               "text": "No",
-              "result": "Your business model is adaptable to challenges like pandemics."
+              "result": "Your business model is adaptable to challenges like pandemics, ensuring continued operations and financial stability during crises."
             }
           ]
         },
@@ -354,11 +353,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Increased costs can reduce profitability and pricing competitiveness."
+              "result": "Increased manufacturing costs can squeeze profit margins and reduce pricing competitiveness. Streamlining processes or sourcing more affordable materials can improve cost efficiency."
             },
             {
               "text": "No",
-              "result": "Manufacturing costs are well-controlled, ensuring efficiency."
+              "result": "Your manufacturing costs are well-controlled, contributing to profitability and pricing competitiveness in the market."
             }
           ]
         },
@@ -368,11 +367,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Limited innovation can hinder growth and market competitiveness."
+              "result": "Limited innovation efforts can hinder growth and make your business less competitive. Strengthening your R&D investments will foster innovation and market leadership."
             },
             {
               "text": "No",
-              "result": "Strong R&D efforts are driving continuous innovation."
+              "result": "Your R&D initiatives are actively driving innovation, keeping your business ahead of market trends."
             }
           ]
         },
@@ -382,11 +381,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Weak marketing can limit brand visibility and customer acquisition."
+              "result": "Weak marketing strategies can limit brand visibility and hinder customer acquisition efforts. Improving marketing capabilities will enhance your competitive position."
             },
             {
               "text": "No",
-              "result": "Your marketing strategies effectively attract and retain customers."
+              "result": "Your marketing strategies effectively attract and retain customers, fostering brand growth and market presence."
             }
           ]
         },
@@ -396,11 +395,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Inefficient materials management increases waste and costs."
+              "result": "Inefficient materials management can lead to increased waste and higher operational costs. Implementing better inventory controls will enhance efficiency."
             },
             {
               "text": "No",
-              "result": "Materials management is efficient, reducing waste and improving operations."
+              "result": "Your materials management systems are efficient, minimizing waste and ensuring smooth operations."
             }
           ]
         },
@@ -410,11 +409,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Negative reputation can damage customer trust and sales."
+              "result": "A negative reputation can damage customer trust and impact sales. Strengthening public relations and addressing customer concerns can rebuild goodwill."
             },
             {
               "text": "No",
-              "result": "Your business enjoys a positive reputation among stakeholders."
+              "result": "Your business enjoys a positive reputation, fostering trust and loyalty among customers and stakeholders."
             }
           ]
         },
@@ -424,11 +423,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "High costs reduce margins and limit pricing flexibility."
+              "result": "High operational costs reduce margins and limit your ability to compete on price. Optimizing processes and exploring cost-saving measures can improve profitability."
             },
             {
               "text": "No",
-              "result": "Your cost structure is optimized for profitability."
+              "result": "Your cost structure is optimized for profitability, allowing you to maintain competitive pricing."
             }
           ]
         },
@@ -438,11 +437,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Losing customer goodwill can result in churn and reduced sales."
+              "result": "Losing customer goodwill can increase churn and reduce future sales. Implementing strong customer service strategies can restore trust."
             },
             {
               "text": "No",
-              "result": "Your business maintains strong relationships with customers."
+              "result": "Your business maintains strong relationships with customers, ensuring loyalty and repeat business."
             }
           ]
         },
@@ -452,11 +451,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Weak IT systems can lead to inefficiencies and poor decision-making."
+              "result": "Weak IT systems can lead to operational inefficiencies and poor decision-making. Investing in modern technologies will improve business performance."
             },
             {
               "text": "No",
-              "result": "Your information systems are effective and well-integrated."
+              "result": "Your information systems are effective, ensuring smooth operations and data-driven decision-making."
             }
           ]
         },
@@ -466,11 +465,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Inadequate staffing can reduce productivity and performance."
+              "result": "Inadequate staffing can impact productivity and performance. Strengthening recruitment and training efforts will ensure your workforce meets business needs."
             },
             {
               "text": "No",
-              "result": "Your workforce is well-equipped to meet business needs."
+              "result": "Your workforce is well-equipped and capable of meeting current business demands."
             }
           ]
         },
@@ -480,11 +479,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Limited distribution reduces market reach and sales."
+              "result": "Limited access to distribution channels can restrict market reach. Expanding your distribution network will increase sales opportunities."
             },
             {
               "text": "No",
-              "result": "Your business has effective distribution channels."
+              "result": "Your business has effective distribution channels, ensuring broad market reach."
             }
           ]
         },
@@ -494,11 +493,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Limited resources can impact production and growth."
+              "result": "Limited resources can impact production and limit growth opportunities. Securing alternative suppliers can mitigate resource constraints."
             },
             {
               "text": "No",
-              "result": "Your business has sufficient access to required resources."
+              "result": "Your business has sufficient access to essential natural resources, supporting smooth operations."
             }
           ]
         },
@@ -508,11 +507,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Losing brand value can hurt loyalty and customer engagement."
+              "result": "Losing brand value can affect customer loyalty and engagement. Investing in brand-building efforts will restore brand equity."
             },
             {
               "text": "No",
-              "result": "Your brand remains strong and recognizable."
+              "result": "Your brand remains strong and recognizable, maintaining customer trust."
             }
           ]
         },
@@ -522,11 +521,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Lack of patents can expose products to imitation."
+              "result": "Lack of patents can expose your products to imitation and reduce competitive advantage. Strengthening IP protection will safeguard your innovations."
             },
             {
               "text": "No",
-              "result": "Your patents provide strong intellectual property protection."
+              "result": "Your patents provide strong intellectual property protection, preventing imitation."
             }
           ]
         },
@@ -536,11 +535,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Unplanned growth can lead to inefficiencies and confusion."
+              "result": "Unplanned growth can cause inefficiencies and confusion. Aligning your growth with strategic goals will ensure sustainable expansion."
             },
             {
               "text": "No",
-              "result": "Your growth strategy is well-aligned with business goals."
+              "result": "Your growth strategy is well-aligned with your business objectives, ensuring smooth expansion."
             }
           ]
         },
@@ -550,11 +549,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Weak innovation reduces competitiveness and market relevance."
+              "result": "Weak innovation reduces market relevance and competitiveness. Enhancing product development efforts will drive future growth."
             },
             {
               "text": "No",
-              "result": "Product innovation is a strength of your business."
+              "result": "Your product innovation is a core strength, keeping you competitive in the market."
             }
           ]
         },
@@ -564,11 +563,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Operational inconsistencies can affect performance and quality."
+              "result": "Operational inconsistencies can affect performance and quality. Standardizing processes will improve efficiency."
             },
             {
               "text": "No",
-              "result": "Your operations are consistent and reliable."
+              "result": "Your operations are consistent and reliable, ensuring high-quality output."
             }
           ]
         },
@@ -578,11 +577,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Poor structure can hinder communication and efficiency."
+              "result": "Poor structure can hinder communication and productivity. Restructuring your organization will enhance efficiency."
             },
             {
               "text": "No",
-              "result": "Your organizational structure supports effective operations."
+              "result": "Your organizational structure supports effective communication and operations."
             }
           ]
         },
@@ -592,11 +591,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Weak controls can lead to risks and inefficiencies."
+              "result": "Weak controls can increase risks and reduce operational efficiency. Strengthening internal controls will improve risk management."
             },
             {
               "text": "No",
-              "result": "Your control systems are robust and effective."
+              "result": "Your control systems are robust, ensuring effective risk management."
             }
           ]
         },
@@ -606,25 +605,25 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Internal conflicts can reduce collaboration and performance."
+              "result": "Internal conflicts and office politics can lead to a toxic work environment, diminishing team morale and productivity. It's essential to foster a culture of collaboration and open communication to address underlying issues and build a more cohesive team."
             },
             {
               "text": "No",
-              "result": "Your organization maintains a positive work environment."
+              "result": "Your organization maintains a positive work environment, characterized by collaboration and mutual respect. This atmosphere promotes high performance and job satisfaction among employees."
             }
           ]
         },
         {
           "id": 22,
-          "question": "Poor financial management?",
+          "question": "Is there a lack of leadership or vision?",
           "options": [
             {
               "text": "Yes",
-              "result": "Weak financial management can jeopardize profitability."
+              "result": "A lack of leadership or vision can create uncertainty and hinder progress. Developing a clear vision and strengthening leadership will align teams and drive growth."
             },
             {
               "text": "No",
-              "result": "Your financial management practices are sound."
+              "result": "Your leadership provides clear direction, ensuring that your team is aligned with long-term goals and objectives."
             }
           ]
         }
@@ -639,11 +638,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Expanding core operations can boost revenue and market share."
+              "result": "Expanding core operations can boost revenue and market share. It allows your business to capitalize on existing strengths and meet increased demand."
             },
             {
               "text": "No",
-              "result": "Focusing on existing business levels without expansion for now."
+              "result": "Focusing on existing business levels without expansion for now. This can help solidify current operations but may limit growth potential."
             }
           ]
         },
@@ -653,11 +652,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Entering new segments can unlock hidden revenue opportunities."
+              "result": "Entering new segments can unlock hidden revenue opportunities, helping diversify the customer base and reduce dependency on current markets."
             },
             {
               "text": "No",
-              "result": "Staying focused on current target markets."
+              "result": "Staying focused on current target markets. This approach can strengthen brand loyalty but may overlook potential growth avenues."
             }
           ]
         },
@@ -667,11 +666,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Leveraging new technologies can drive innovation and efficiency."
+              "result": "Leveraging new technologies can drive innovation and efficiency, giving your business a competitive edge and improving operations."
             },
             {
               "text": "No",
-              "result": "Current technology solutions are adequate."
+              "result": "Current technology solutions are adequate. This conservatism can be beneficial but may risk falling behind industry advancements."
             }
           ]
         },
@@ -681,11 +680,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Lower trade barriers can open new export opportunities."
+              "result": "Lower trade barriers can open new export opportunities, enhancing global reach and diversifying revenue streams."
             },
             {
               "text": "No",
-              "result": "No significant changes in international trade policies relevant to your business."
+              "result": "No significant changes in international trade policies relevant to your business. This stability can allow for consistent planning."
             }
           ]
         },
@@ -695,11 +694,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Meeting unmet needs can increase customer satisfaction and loyalty."
+              "result": "Meeting unmet needs can increase customer satisfaction and loyalty, positioning your business as a leader in customer-centric solutions."
             },
             {
               "text": "No",
-              "result": "Current offerings align well with customer needs."
+              "result": "Current offerings align well with customer needs. While this indicates stability, it may also suggest a lack of innovation."
             }
           ]
         },
@@ -709,11 +708,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Expanding into new segments can boost business growth."
+              "result": "Expanding into new segments can boost business growth, leveraging existing capabilities to capture new audiences."
             },
             {
               "text": "No",
-              "result": "Current segments provide sufficient opportunities."
+              "result": "Current segments provide sufficient opportunities. This conservative approach can reduce risk but may limit growth potential."
             }
           ]
         },
@@ -723,11 +722,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Strengthening these advantages improves competitiveness."
+              "result": "Strengthening these advantages improves competitiveness, enabling your business to maintain pricing power and attract more customers."
             },
             {
               "text": "No",
-              "result": "Current strategies are effective as they are."
+              "result": "Current strategies are effective as they are. This may foster stability, but also risks complacency in a dynamic market."
             }
           ]
         },
@@ -737,11 +736,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Diversification can reduce risk and increase revenue streams."
+              "result": "Diversification can reduce risk and increase revenue streams, helping to buffer against market volatility."
             },
             {
               "text": "No",
-              "result": "Focusing on core business activities for now."
+              "result": "Focusing on core business activities for now. This strategy may strengthen your core offerings but could limit growth."
             }
           ]
         },
@@ -751,11 +750,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "International expansion can create new growth avenues."
+              "result": "International expansion can create new growth avenues, allowing your business to tap into emerging markets and customer bases."
             },
             {
               "text": "No",
-              "result": "Staying focused on domestic markets for the moment."
+              "result": "Staying focused on domestic markets for the moment can help consolidate resources and strengthen local operations."
             }
           ]
         },
@@ -765,11 +764,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Exploring new areas with R&D can boost innovation."
+              "result": "Exploring new areas with R&D can boost innovation, potentially leading to breakthrough products or processes."
             },
             {
               "text": "No",
-              "result": "R&D will remain focused on current projects."
+              "result": "R&D will remain focused on current projects, ensuring existing developments are executed effectively."
             }
           ]
         },
@@ -779,11 +778,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Entering related businesses can increase market synergies."
+              "result": "Entering related businesses can increase market synergies, enhancing overall business performance and value."
             },
             {
               "text": "No",
-              "result": "Staying focused on existing business operations."
+              "result": "Staying focused on existing business operations. This may optimize current resources but could limit potential synergies."
             }
           ]
         },
@@ -793,11 +792,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Forward integration can enhance control over the distribution process."
+              "result": "Forward integration can enhance control over the distribution process, improving margins and customer relationships."
             },
             {
               "text": "No",
-              "result": "Maintaining the current level of control over distribution."
+              "result": "Maintaining the current level of control over distribution. This strategy may reduce risks associated with rapid changes."
             }
           ]
         },
@@ -807,9 +806,12 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Backward integration can secure key inputs and reduce costs."
+              "result": "Backward integration can secure key inputs and reduce costs, increasing overall operational efficiency."
             },
-            { "text": "No", "result": "Relying on existing suppliers for now." }
+            {
+              "text": "No",
+              "result": "Relying on existing suppliers for now. This may provide flexibility but could expose the business to supply chain vulnerabilities."
+            }
           ]
         },
         {
@@ -818,11 +820,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Integration can optimize portfolio performance."
+              "result": "Integration can optimize portfolio performance, allowing for better resource allocation and strategic alignment."
             },
             {
               "text": "No",
-              "result": "Current portfolio management practices are sufficient."
+              "result": "Current portfolio management practices are sufficient. This indicates stability but may miss opportunities for synergy."
             }
           ]
         },
@@ -832,11 +834,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Reduced barriers can attract new opportunities."
+              "result": "Reduced barriers can attract new opportunities, enabling faster market penetration and growth."
             },
             {
               "text": "No",
-              "result": "Barriers remain challenging but manageable."
+              "result": "Barriers remain challenging but manageable. This may encourage steady growth but can limit aggressive expansion."
             }
           ]
         },
@@ -846,11 +848,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Acquisitions can strengthen market position and reduce competition."
+              "result": "Acquisitions can strengthen market position and reduce competition, enhancing your overall strategic advantage."
             },
             {
               "text": "No",
-              "result": "Acquisitions are not a strategic priority at the moment."
+              "result": "Acquisitions are not a strategic priority at the moment. This can maintain focus but may risk missing market shifts."
             }
           ]
         },
@@ -860,9 +862,12 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "More innovations can enhance competitive advantage."
+              "result": "More innovations can enhance competitive advantage, attracting customers and improving market share."
             },
-            { "text": "No", "result": "Current products are performing well." }
+            {
+              "text": "No",
+              "result": "Current products are performing well. This suggests stability but may hinder long-term growth."
+            }
           ]
         },
         {
@@ -871,11 +876,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Pursuing rapid growth can increase market share."
+              "result": "Pursuing rapid growth can increase market share, positioning your business favorably against competitors."
             },
             {
               "text": "No",
-              "result": "Focusing on sustainable, steady growth instead."
+              "result": "Focusing on sustainable, steady growth instead. This approach can foster long-term stability but may limit short-term gains."
             }
           ]
         },
@@ -885,11 +890,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Pandemic conditions can present unique growth opportunities."
+              "result": "Pandemic conditions can present unique growth opportunities, enabling businesses to innovate and adapt to changing needs."
             },
             {
               "text": "No",
-              "result": "Focus is on stability rather than growth during pandemics."
+              "result": "Focus is on stability rather than growth during pandemics. This cautious approach can protect resources but may overlook potential market shifts."
             }
           ]
         }
@@ -904,9 +909,12 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "External threats could disrupt key operations or revenue streams."
+              "result": "External threats, such as cyberattacks or market disruptions, could significantly disrupt key operations or revenue streams, leading to potential financial losses and reputational damage."
             },
-            { "text": "No", "result": "Core businesses are currently secure." }
+            {
+              "text": "No",
+              "result": "Core businesses are currently secure, indicating effective risk management strategies and robust security measures in place to protect against potential threats."
+            }
           ]
         },
         {
@@ -915,11 +923,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Pandemics could disrupt supply chains and operations."
+              "result": "Pandemics could disrupt supply chains and operations, affecting the availability of raw materials, workforce productivity, and overall market demand, leading to significant operational challenges."
             },
             {
               "text": "No",
-              "result": "Pandemic-related risks are under control."
+              "result": "Pandemic-related risks are under control, suggesting that contingency plans and adaptive strategies have been successfully implemented to mitigate potential disruptions."
             }
           ]
         },
@@ -929,9 +937,12 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Increased competition can pressure market share and profitability."
+              "result": "Increased competition can pressure market share and profitability, necessitating innovative strategies and enhanced customer engagement to maintain a competitive edge."
             },
-            { "text": "No", "result": "Competition levels remain stable." }
+            {
+              "text": "No",
+              "result": "Competition levels remain stable, allowing for consistent market positioning and the potential for strategic growth without the immediate pressure of aggressive competitors."
+            }
           ]
         },
         {
@@ -940,11 +951,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Changes in consumer preferences could impact demand."
+              "result": "Changes in consumer preferences could impact demand, requiring businesses to adapt their product offerings and marketing strategies to align with evolving customer expectations."
             },
             {
               "text": "No",
-              "result": "Consumer preferences align with current offerings."
+              "result": "Consumer preferences align with current offerings, indicating a strong understanding of market demands and effective brand positioning."
             }
           ]
         },
@@ -954,11 +965,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Substitute products could threaten market position."
+              "result": "Substitute products could threaten market position, compelling the company to enhance product features, reduce prices, or improve customer service to retain consumer loyalty."
             },
             {
               "text": "No",
-              "result": "Current products have a strong market presence."
+              "result": "Current products have a strong market presence, reflecting brand strength and customer trust that protect against potential substitution."
             }
           ]
         },
@@ -968,9 +979,12 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "New regulations could increase compliance costs."
+              "result": "New regulations could increase compliance costs, necessitating adjustments to operations, potential fines, and resource allocation to meet new standards."
             },
-            { "text": "No", "result": "Current regulations are manageable." }
+            {
+              "text": "No",
+              "result": "Current regulations are manageable, suggesting a well-prepared compliance framework that minimizes operational disruptions."
+            }
           ]
         },
         {
@@ -979,9 +993,12 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Trade barriers could limit foreign market access."
+              "result": "Trade barriers could limit foreign market access, restricting growth opportunities and necessitating a reevaluation of market strategies."
             },
-            { "text": "No", "result": "Trade barriers remain unchanged." }
+            {
+              "text": "No",
+              "result": "Trade barriers remain unchanged, facilitating smoother international operations and potentially enhancing global market opportunities."
+            }
           ]
         },
         {
@@ -990,9 +1007,12 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Foreign competitors could capture market share."
+              "result": "Foreign competitors could capture market share, prompting the need for strategic differentiation and stronger marketing efforts to sustain a competitive advantage."
             },
-            { "text": "No", "result": "Foreign competition is stable." }
+            {
+              "text": "No",
+              "result": "Foreign competition is stable, providing a conducive environment for consistent market operations without the threat of aggressive new entrants."
+            }
           ]
         },
         {
@@ -1001,9 +1021,12 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Easier market entry could attract new competitors."
+              "result": "Easier market entry could attract new competitors, necessitating proactive strategies to defend market position and customer loyalty."
             },
-            { "text": "No", "result": "Barriers to entry remain high." }
+            {
+              "text": "No",
+              "result": "Barriers to entry remain high, protecting established businesses from new competitors and allowing for continued market dominance."
+            }
           ]
         },
         {
@@ -1012,11 +1035,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "New products could shift customer demand away."
+              "result": "New products could shift customer demand away, requiring continuous innovation and customer engagement to retain market interest."
             },
             {
               "text": "No",
-              "result": "Current offerings maintain strong customer interest."
+              "result": "Current offerings maintain strong customer interest, indicating effective brand loyalty and product relevance."
             }
           ]
         },
@@ -1026,9 +1049,12 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Intensified rivalry could reduce profitability."
+              "result": "Intensified rivalry could reduce profitability, driving the need for enhanced operational efficiencies and strategic differentiation."
             },
-            { "text": "No", "result": "Industry rivalry remains moderate." }
+            {
+              "text": "No",
+              "result": "Industry rivalry remains moderate, allowing for stable profit margins and a focus on growth opportunities."
+            }
           ]
         },
         {
@@ -1037,9 +1063,12 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Rising labor costs could impact profitability."
+              "result": "Rising labor costs could impact profitability, compelling companies to explore automation and efficiency improvements to offset expenses."
             },
-            { "text": "No", "result": "Labor costs remain stable." }
+            {
+              "text": "No",
+              "result": "Labor costs remain stable, facilitating predictable budgeting and financial planning."
+            }
           ]
         },
         {
@@ -1048,11 +1077,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Emerging competition could disrupt the market."
+              "result": "Emerging competition could disrupt the market, necessitating rapid adaptation to new business models and customer expectations."
             },
             {
               "text": "No",
-              "result": "Current competition landscape remains unchanged."
+              "result": "Current competition landscape remains unchanged, allowing for continued focus on core business strategies."
             }
           ]
         },
@@ -1062,11 +1091,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Takeover threats could destabilize the company."
+              "result": "Takeover threats could destabilize the company, prompting a need for strategic defense mechanisms and stakeholder engagement."
             },
             {
               "text": "No",
-              "result": "The company is secure from hostile takeovers."
+              "result": "The company is secure from hostile takeovers, indicating strong governance and shareholder confidence."
             }
           ]
         },
@@ -1076,9 +1105,12 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Corporate raiders could pose governance risks."
+              "result": "Corporate raiders could pose governance risks, requiring robust governance practices and strategic communication with stakeholders."
             },
-            { "text": "No", "result": "Corporate raiding risks are minimal." }
+            {
+              "text": "No",
+              "result": "Corporate raiding risks are minimal, reflecting solid business practices and investor confidence."
+            }
           ]
         },
         {
@@ -1087,9 +1119,12 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Demographic shifts could affect demand."
+              "result": "Demographic shifts could affect demand, necessitating market research and product adjustments to meet changing consumer profiles."
             },
-            { "text": "No", "result": "Demographic trends remain favorable." }
+            {
+              "text": "No",
+              "result": "Demographic trends remain favorable, supporting sustained demand and growth opportunities."
+            }
           ]
         },
         {
@@ -1098,9 +1133,12 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Economic downturns could hurt business performance."
+              "result": "Economic downturns could hurt business performance, prompting the need for contingency planning and cost management strategies."
             },
-            { "text": "No", "result": "Economic conditions are stable." }
+            {
+              "text": "No",
+              "result": "Economic conditions are stable, allowing for strategic growth and investment."
+            }
           ]
         },
         {
@@ -1109,9 +1147,12 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Political instability could impact operations."
+              "result": "Political instability could impact operations, necessitating risk assessments and contingency strategies to mitigate disruptions."
             },
-            { "text": "No", "result": "Political risks are low." }
+            {
+              "text": "No",
+              "result": "Political risks are low, providing a stable environment for business operations."
+            }
           ]
         },
         {
@@ -1120,9 +1161,12 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Higher wages could increase operating costs."
+              "result": "Higher wages could increase operating costs, requiring strategic adjustments to maintain profitability."
             },
-            { "text": "No", "result": "Labor costs remain stable." }
+            {
+              "text": "No",
+              "result": "Labor costs remain stable, ensuring predictable financial management and planning."
+            }
           ]
         },
         {
@@ -1131,9 +1175,12 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Slow market growth could limit expansion opportunities."
+              "result": "Slow market growth could limit expansion opportunities, necessitating innovative strategies to capture new markets."
             },
-            { "text": "No", "result": "Market growth remains favorable." }
+            {
+              "text": "No",
+              "result": "Market growth remains favorable, supporting strategic initiatives and investments in growth opportunities."
+            }
           ]
         }
       ]
@@ -1147,6 +1194,11 @@ const SwotPage = () => {
   const [submitted, setSubmitted] = useState(false); // Check if form is submitted
 
   const sectionRef = useRef(null); // Ref to scroll to the top of the section
+
+  // Ensure the results page starts with "Strengths" on submission.
+  useEffect(() => {
+    if (submitted) setActiveTab(0); // Start with the first section ("Strengths")
+  }, [submitted]);
 
   const handleOptionChange = (section, questionId, optionText) => {
     setResponses((prev) => ({
@@ -1170,6 +1222,7 @@ const SwotPage = () => {
 
     if (allSectionsCompleted) {
       setSubmitted(true);
+      setActiveTab(0); // Reset to "Strengths" section
       scrollToTop(); // Scroll to the top of the results section
     } else {
       alert("Please complete all sections before submitting.");
@@ -1179,14 +1232,21 @@ const SwotPage = () => {
   const handleNextTab = () => {
     if (activeTab < swotData.swotQuestions.length - 1) {
       setActiveTab(activeTab + 1);
-      scrollToTop(); // Scroll to top of the next section
+      scrollToTop(); // Scroll to the top of the next section
     }
   };
 
   const handleNextResultSection = () => {
     if (activeTab < swotData.swotQuestions.length - 1) {
       setActiveTab(activeTab + 1);
-      scrollToTop(); // Scroll to top of the next result section
+      scrollToTop(); // Scroll to the top of the next result section
+    }
+  };
+
+  const handlePreviousResultSection = () => {
+    if (activeTab > 0) {
+      setActiveTab(activeTab - 1);
+      scrollToTop(); // Scroll to the top of the previous result section
     }
   };
 
@@ -1209,7 +1269,9 @@ const SwotPage = () => {
       const result = options.find((opt) => opt.text === userResponse)?.result;
       return (
         <div key={id} className="resultSpace">
-          <p style={{marginTop: "20px", fontSize: "20px"}}><strong>{question}</strong></p>
+          <p style={{ marginTop: "40px", fontSize: "20px", backgroundColor: "#D3CCF0", padding: "6px", width: "400px", borderRadius: "8px" }}>
+            <strong>{question}</strong>
+          </p>
           <p style={{ marginBottom: "20px" }}>{result || "No response given."}</p>
         </div>
       );
@@ -1234,16 +1296,18 @@ const SwotPage = () => {
         <div className="questions">
           {swotData.swotQuestions[activeTab].questions.map(({ id, question, options }) => (
             <div key={id} className="question">
-              <p className="questionText">
+              <p className="questionText" style={{ marginTop: "40px", fontSize: "20px", backgroundColor: "#D3CCF0", padding: "6px", width: "400px", borderRadius: "8px" }}>
                 <strong>{question}</strong>
               </p>
               {options.map((option) => (
-                <label key={option.text}>
+                <label key={option.text}
+                  style={{ backgroundColor: "orange", color: "black", fontWeight: "Bold", padding: "6px", width: "400px", borderRadius: "8px" }}
+                >
                   <input
                     type="radio"
                     name={`question-${id}`}
                     value={option.text}
-                    className='optRadio'
+                    className="optRadio"
                     checked={
                       responses[swotData.swotQuestions[activeTab].section]?.[id] === option.text
                     }
@@ -1273,18 +1337,27 @@ const SwotPage = () => {
         </div>
       ) : (
         <div className="results">
-          <h2>{swotData.swotQuestions[activeTab].section} Results</h2>
+          <h2 style={{ color: "#6357a4" }}>
+            {swotData.swotQuestions[activeTab].section} Results
+          </h2>
           {renderResults(swotData.swotQuestions[activeTab].section)}
 
-          {activeTab === swotData.swotQuestions.length - 1 ? (
-            <button onClick={handleRetake} className="retake">
-              Retake Test
-            </button>
-          ) : (
-            <button onClick={handleNextResultSection} className="next">
-              Next Result Section
-            </button>
-          )}
+          <div className="result-navigation">
+            {activeTab > 0 && (
+              <button onClick={handlePreviousResultSection} style={{ marginRight: "10px" }} className="previous">
+                Previous Section
+              </button>
+            )}
+            {activeTab < swotData.swotQuestions.length - 1 ? (
+              <button onClick={handleNextResultSection} className="next">
+                Next Result Section
+              </button>
+            ) : (
+              <button onClick={handleRetake} className="retake">
+                Retake Test
+              </button>
+            )}
+          </div>
         </div>
       )}
     </div>
