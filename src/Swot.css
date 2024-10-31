@@ -133,6 +133,12 @@ input {
 }
 
 @media (max-width: 768px) {
+
+  .results,
+  .questions {
+    width: 60vw;
+  }
+
   .tabs {
     gap: 10px !important;
     width: 90vw !important;

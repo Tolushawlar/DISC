@@ -1188,10 +1188,12 @@ const swotData = {
   ],
 }
 
+
 const SwotPage = () => {
   const [activeTab, setActiveTab] = useState(0); // Current tab index
   const [responses, setResponses] = useState({}); // Store user responses
   const [submitted, setSubmitted] = useState(false); // Check if form is submitted
+  const [highlightUnanswered, setHighlightUnanswered] = useState(false); // Track unanswered questions for highlight
 
   const sectionRef = useRef(null); // Ref to scroll to the top of the section
 
@@ -1225,6 +1227,7 @@ const SwotPage = () => {
       setActiveTab(0); // Reset to "Strengths" section
       scrollToTop(); // Scroll to the top of the results section
     } else {
+      setHighlightUnanswered(true); // Enable highlight for unanswered questions
       alert("Please complete all sections before submitting.");
     }
   };
@@ -1253,6 +1256,7 @@ const SwotPage = () => {
   const handleRetake = () => {
     setResponses({});
     setSubmitted(false);
+    setHighlightUnanswered(false); // Reset unanswered question highlight
     setActiveTab(0); // Reset to the first tab
     scrollToTop(); // Scroll to the top
   };
@@ -1294,36 +1298,46 @@ const SwotPage = () => {
 
       {!submitted ? (
         <div className="questions">
-          {swotData.swotQuestions[activeTab].questions.map(({ id, question, options }) => (
-            <div key={id} className="question">
-              <p className="questionText" style={{ marginTop: "40px", fontSize: "20px", backgroundColor: "#D3CCF0", padding: "6px", width: "400px", borderRadius: "8px" }}>
-                <strong>{question}</strong>
-              </p>
-              {options.map((option) => (
-                <label key={option.text}
-                  style={{ backgroundColor: "orange", color: "black", fontWeight: "Bold", padding: "6px", width: "400px", borderRadius: "8px" }}
-                >
-                  <input
-                    type="radio"
-                    name={`question-${id}`}
-                    value={option.text}
-                    className="optRadio"
-                    checked={
-                      responses[swotData.swotQuestions[activeTab].section]?.[id] === option.text
-                    }
-                    onChange={() =>
-                      handleOptionChange(
-                        swotData.swotQuestions[activeTab].section,
-                        id,
-                        option.text
-                      )
-                    }
-                  />
-                  {option.text}
-                </label>
-              ))}
-            </div>
-          ))}
+          {swotData.swotQuestions[activeTab].questions.map(({ id, question, options }) => {
+            const isUnanswered = highlightUnanswered && !responses[swotData.swotQuestions[activeTab].section]?.[id];
+            return (
+              <div key={id} className="question">
+                <p className="questionText" style={{
+                  marginTop: "40px",
+                  fontSize: "20px",
+                  backgroundColor: isUnanswered ? "#ffcccc" : "#D3CCF0", // Light red for unanswered
+                  padding: "6px",
+                  width: "400px",
+                  borderRadius: "8px"
+                }}>
+                  <strong>{question}</strong>
+                </p>
+                {options.map((option) => (
+                  <label key={option.text}
+                    style={{ backgroundColor: "orange", color: "black", fontWeight: "Bold", padding: "6px", width: "400px", borderRadius: "8px" }}
+                  >
+                    <input
+                      type="radio"
+                      name={`question-${id}`}
+                      value={option.text}
+                      className="optRadio"
+                      checked={
+                        responses[swotData.swotQuestions[activeTab].section]?.[id] === option.text
+                      }
+                      onChange={() =>
+                        handleOptionChange(
+                          swotData.swotQuestions[activeTab].section,
+                          id,
+                          option.text
+                        )
+                      }
+                    />
+                    {option.text}
+                  </label>
+                ))}
+              </div>
+            );
+          })}
 
           {activeTab === swotData.swotQuestions.length - 1 ? (
             <button onClick={handleSubmit} className="sub">
