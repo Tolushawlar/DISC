@@ -177,12 +177,14 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 20px !important;
+
   
   }
 
   .questionText{
     /* font-size: 10px !important; */
-    width: 350px !important;
+    width: 300px !important;
     /* color: red !important; */
   }
 }
