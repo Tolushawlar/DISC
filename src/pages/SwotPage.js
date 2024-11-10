@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import "../Swot.css";
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 const swotData = {
   swotQuestions: [
@@ -1282,6 +1284,39 @@ const SwotPage = () => {
     });
   };
 
+
+  const handleDownloadPdf = () => {
+    const doc = new jsPDF();
+    doc.setFontSize(16);
+    doc.text('SWOTIFY RESULTS', 14, 20);
+
+    swotData.swotQuestions.forEach((section, index) => {
+      doc.setFontSize(14);
+      doc.text(section.section, 14, 30 + index * 40); // Section title
+
+      // Prepare data array for autoTable (includes Question, Response, and Result)
+      const data = section.questions.map(({ id, question, options }) => {
+        const userResponse = responses[section.section]?.[id] || "No response";
+        const result = options.find((opt) => opt.text === userResponse)?.result || "No result available";
+
+        return [question, userResponse, result];
+      });
+
+      // Add table for each section
+      doc.autoTable({
+        head: [['Question', 'Response', 'Result']],
+        body: data,
+        startY: 40 + index * 40, // Dynamically space tables
+        margin: { top: 10, left: 14, right: 14 },
+      });
+    });
+
+    doc.save('SWOT_Analysis_Results.pdf');
+  };
+
+
+
+
   return (
     <div className="container" ref={sectionRef}>
       <div className="tabs">
@@ -1367,9 +1402,14 @@ const SwotPage = () => {
                 Next Result Section
               </button>
             ) : (
-              <button onClick={handleRetake} className="retake">
-                Retake Test
-              </button>
+              <>
+                <button onClick={handleRetake} className="retake">
+                  Retake Test
+                </button>
+                <button onClick={handleDownloadPdf} className='pdf'>
+                  Download PDF
+                </button>
+              </>
             )}
           </div>
         </div>

@@ -61,6 +61,25 @@
   font-family: "Poppins", sans-serif;
 }
 
+.pdf {
+  padding: 15px;
+  border: 0.5px solid black;
+  border-radius: 50px;
+  width: 200px;
+  background: white;
+  color: black;
+  font-weight: bolder;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 20px;
+}
+
+.pdf:hover {
+  background: linear-gradient(to right, #16133d, #6357a5);
+  color: white;
+}
+
 .retake:hover {
   background: linear-gradient(to right, #16133d, #6357a5);
   color: white;

@@ -99,6 +99,22 @@ input {
   margin-bottom: 20px;
 }
 
+.pdf {
+  background-color: #6357a4;
+  padding: 15px;
+  border: 0.5px solid black;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: bolder;
+  cursor: pointer;
+  color: white;
+  width: 200px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+
 .tabs button {
   background-color: #6357a4;
   padding: 25px;
@@ -142,13 +158,21 @@ input {
   }
 
   .tabs {
+
     gap: 10px !important;
-    width: 90vw !important;
+    width: 80vw !important;
     justify-content: center !important;
     align-items: center !important;
   }
 
   .tabs .tab {
     padding: 15px;
+    font-size: 12px ;
+  }
+
+  .questionText{
+    /* font-size: 10px !important; */
+    width: 350px !important;
+    /* color: red !important; */
   }
 }

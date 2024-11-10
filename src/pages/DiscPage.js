@@ -5,6 +5,8 @@ import Table from "../Components/Table"
 import "../App.css";
 import { data } from "autoprefixer";
 import { colors } from "@mui/material";
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -16,160 +18,160 @@ const questionsUpdate = [
         id: 1,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "plan my way out.", weight: "C" },
-          { text: "become distrustful.", weight: "D" }
+          { text: "Plan my way out.", weight: "C" },
+          { text: "Become Distrustful.", weight: "D" }
         ]
       },
       {
         id: 2,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become a big talker.", weight: "B" },
-          { text: "become withdrawn.", weight: "C" }
+          { text: "Become a big talker.", weight: "B" },
+          { text: "Become Withdrawn.", weight: "C" }
         ]
       },
       {
         id: 3,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become impractical.", weight: "C" },
-          { text: "cross.", weight: "D" }
+          { text: "Become Impractical.", weight: "C" },
+          { text: "Become Cross.", weight: "D" }
         ]
       },
       {
         id: 4,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become hotheaded.", weight: "A" },
-          { text: "careless.", weight: "B" }
+          { text: "Become Hotheaded.", weight: "A" },
+          { text: "Become Careless.", weight: "B" }
         ]
       },
       {
         id: 5,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become negative.", weight: "A" },
-          { text: "dictatorial.", weight: "D" }
+          { text: "Become Negative.", weight: "A" },
+          { text: "Become Dictatorial.", weight: "D" }
         ]
       },
       {
         id: 6,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become too permissive.", weight: "B" },
-          { text: "stubborn.", weight: "D" }
+          { text: "Become Too Permissive.", weight: "B" },
+          { text: "Become Stubborn.", weight: "D" }
         ]
       },
       {
         id: 7,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become indecisive.", weight: "A" },
-          { text: "more likely to act.", weight: "C" }
+          { text: "Become Indecisive.", weight: "A" },
+          { text: "Become More Likely To Act.", weight: "C" }
         ]
       },
       {
         id: 8,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become bearish.", weight: "A" },
-          { text: "manipulative.", weight: "B" }
+          { text: "Become Bearish.", weight: "A" },
+          { text: "Become Manipulative.", weight: "B" }
         ]
       },
       {
         id: 9,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become very cautious.", weight: "A" },
-          { text: "abrupt.", weight: "D" }
+          { text: "Become Very Cautious.", weight: "A" },
+          { text: "Become Abrupt.", weight: "D" }
         ]
       },
       {
         id: 10,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become reckless.", weight: "B" },
-          { text: "inflexible.", weight: "D" }
+          { text: "Become Reckless.", weight: "B" },
+          { text: "Become Inflexible.", weight: "D" }
         ]
       },
       {
         id: 11,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become passive.", weight: "A" },
-          { text: "insist on my own way.", weight: "C" }
+          { text: "Become Passive.", weight: "A" },
+          { text: "Become Insist On My Own Way.", weight: "C" }
         ]
       },
       {
         id: 12,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become high-handed.", weight: "A" },
-          { text: "rebellious.", weight: "B" }
+          { text: "Become High-Handed.", weight: "A" },
+          { text: "Become Rebellious.", weight: "B" }
         ]
       },
       {
         id: 13,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become very picky.", weight: "A" },
-          { text: "overbearing.", weight: "D" }
+          { text: "Become Very Picky.", weight: "A" },
+          { text: "Become Overbearing.", weight: "D" }
         ]
       },
       {
         id: 14,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become extremely careless.", weight: "B" },
-          { text: "rigid.", weight: "D" }
+          { text: "Become Extremely Careless.", weight: "B" },
+          { text: "Become Rigid.", weight: "D" }
         ]
       },
       {
         id: 15,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become scheming.", weight: "C" },
-          { text: "concerned with details.", weight: "D" }
+          { text: "Become Scheming.", weight: "C" },
+          { text: "Become Concerned With Details.", weight: "D" }
         ]
       },
       {
         id: 16,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become conceited.", weight: "B" },
-          { text: "anxious and afraid.", weight: "C" }
+          { text: "Become Conceited.", weight: "B" },
+          { text: "Become Anxious and Afraid.", weight: "C" }
         ]
       },
       {
         id: 17,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become sensitive.", weight: "A" },
-          { text: "hostile.", weight: "C" }
+          { text: "Become Sensitive.", weight: "A" },
+          { text: "Sensitive Hostile.", weight: "C" }
         ]
       },
       {
         id: 18,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become opinionated.", weight: "B" },
-          { text: "very emotional.", weight: "C" }
+          { text: "Become Opinionated.", weight: "B" },
+          { text: "Become Very Emotional.", weight: "C" }
         ]
       },
       {
         id: 19,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become uncertain.", weight: "A" },
-          { text: "domineering.", weight: "C" }
+          { text: "Become Uncertain.", weight: "A" },
+          { text: "Become Domineering.", weight: "C" }
         ]
       },
       {
         id: 20,
         question: "Under intense stress I tend to?",
         options: [
-          { text: "become a bluffer.", weight: "B" },
-          { text: "become distrustful.", weight: "D" }
+          { text: "Become a Bluffer.", weight: "B" },
+          { text: "Become Distrustful.", weight: "D" }
         ]
       }
     ]
@@ -181,121 +183,121 @@ const questionsUpdate = [
         id: 21,
         question: "I think I should?",
         options: [
-          { text: "develop new plans.", weight: "C" },
-          { text: "be consistent.", weight: "D" }
+          { text: "Develop New Plans.", weight: "C" },
+          { text: "Be Consistent.", weight: "D" }
         ]
       },
       {
         id: 22,
         question: "I think I should?",
         options: [
-          { text: "stick to the rules.", weight: "A" },
-          { text: "supervise others.", weight: "D" }
+          { text: "Stick to the Rules.", weight: "A" },
+          { text: "Supervise Others.", weight: "D" }
         ]
       },
       {
         id: 23,
         question: "I think I should?",
         options: [
-          { text: "depend on my own experiences.", weight: "A" },
-          { text: "be a self-starter.", weight: "C" }
+          { text: "Depend On My Own Experiences.", weight: "A" },
+          { text: "Be a Self-Starter.", weight: "C" }
         ]
       },
       {
         id: 24,
         question: "I think I should?",
         options: [
-          { text: "confer with other people.", weight: "B" },
-          { text: "look for new ideas.", weight: "C" }
+          { text: "Confer with Other People.", weight: "B" },
+          { text: "Look for New Ideas.", weight: "C" }
         ]
       },
       {
         id: 25,
         question: "I think I should?",
         options: [
-          { text: "give others directions.", weight: "A" },
-          { text: "influence others.", weight: "B" }
+          { text: "Give Others Directions.", weight: "A" },
+          { text: "Influence Others.", weight: "B" }
         ]
       },
       {
         id: 26,
         question: "I think I should?",
         options: [
-          { text: "conserve resources.", weight: "C" },
-          { text: "create ideas.", weight: "D" }
+          { text: "Conserve Resources.", weight: "C" },
+          { text: "Create Ideas.", weight: "D" }
         ]
       },
       {
         id: 27,
         question: "I think I should?",
         options: [
-          { text: "do what works.", weight: "A" },
-          { text: "develop new approaches.", weight: "C" }
+          { text: "Do What Works.", weight: "A" },
+          { text: "Develop New Approaches.", weight: "C" }
         ]
       },
       {
         id: 28,
         question: "I think I should?",
         options: [
-          { text: "coordinate group activities.", weight: "B" },
-          { text: "follow tradition.", weight: "D" }
+          { text: "Coordinate Group Activities.", weight: "B" },
+          { text: "Follow Tradition.", weight: "D" }
         ]
       },
       {
         id: 29,
         question: "I think I should?",
         options: [
-          { text: "achieve by using ideas.", weight: "A" },
-          { text: "do something.", weight: "C" }
+          { text: "Achieve By Using Ideas.", weight: "A" },
+          { text: "Do Something.", weight: "C" }
         ]
       },
       {
         id: 30,
         question: "I think I should?",
         options: [
-          { text: "arrange things in a pattern.", weight: "A" },
-          { text: "build something.", weight: "D" }
+          { text: "Arrange Things In a Pattern.", weight: "A" },
+          { text: "Build Something.", weight: "D" }
         ]
       },
       {
         id: 31,
         question: "I think I should?",
         options: [
-          { text: "explore new ideas.", weight: "B" },
-          { text: "help other people.", weight: "C" }
+          { text: "Explore New Ideas.", weight: "B" },
+          { text: "Help Other People.", weight: "C" }
         ]
       },
       {
         id: 32,
         question: "I think I should?",
         options: [
-          { text: "involve others.", weight: "B" },
-          { text: "keep things in order.", weight: "D" }
+          { text: "Involve Others.", weight: "B" },
+          { text: "Keep Things In Order.", weight: "D" }
         ]
       },
       {
         id: 33,
         question: "I think I should?",
         options: [
-          { text: "produce something.", weight: "A" },
-          { text: "be precise.", weight: "D" }
+          { text: "Produce Something.", weight: "A" },
+          { text: "Be Precise.", weight: "D" }
         ]
       },
       {
         id: 34,
         question: "I think I should?",
         options: [
-          { text: "keep on a schedule.", weight: "B" },
-          { text: "be hopeful.", weight: "D" }
+          { text: "Keep On a Schedule.", weight: "B" },
+          { text: "Be Hopeful.", weight: "D" }
         ]
       },
       {
         id: 35,
         question: "I think I should?",
         options: [
-          { text: "work with concepts and ideas.", weight: "C" },
+          { text: "Work With Concepts and Ideas.", weight: "C" },
           {
-            text: "be careful when working with facts and figures.",
+            text: "Be Careful When Working With Facts and Figures.",
             weight: "D"
           }
         ]
@@ -304,40 +306,40 @@ const questionsUpdate = [
         id: 36,
         question: "I think I should?",
         options: [
-          { text: "should be persuasive.", weight: "A" },
-          { text: "others should respect me.", weight: "B" }
+          { text: "Should Be Persuasive.", weight: "A" },
+          { text: "Others Should Respect Me.", weight: "B" }
         ]
       },
       {
         id: 37,
         question: "I think I should?",
         options: [
-          { text: "promote programs to others.", weight: "B" },
-          { text: "compete with myself to do better.", weight: "C" }
+          { text: "Promote Programs to Others.", weight: "B" },
+          { text: "Compete With Myself To Do Better.", weight: "C" }
         ]
       },
       {
         id: 38,
         question: "I think I should?",
         options: [
-          { text: "work within guidelines and forms.", weight: "B" },
-          { text: "coordinate group cooperation.", weight: "D" }
+          { text: "Work Within Guidelines and Forms.", weight: "B" },
+          { text: "Coordinate Group Cooperation.", weight: "D" }
         ]
       },
       {
         id: 39,
         question: "I think I should?",
         options: [
-          { text: "work with ideas and plans.", weight: "A" },
-          { text: "get something done.", weight: "C" }
+          { text: "Work with Ideas and Plans.", weight: "A" },
+          { text: "Get Something Done.", weight: "C" }
         ]
       },
       {
         id: 40,
         question: "I think I should?",
         options: [
-          { text: "organize others for the good of the group.", weight: "A" },
-          { text: "produce things.", weight: "B" }
+          { text: "Organize Others For The Good of The Group.", weight: "A" },
+          { text: "Produce Things.", weight: "B" }
         ]
       }
     ]
@@ -948,6 +950,51 @@ const App = () => {
     );
   };
 
+  const handleDownloadPdf = () => {
+    const doc = new jsPDF();
+    doc.setFontSize(18);
+    doc.text("STRENGTHS-MATRIX RESULTS", 14, 20);
+
+    let yPos = 30; // Initial Y position for questions
+
+    // Flatten all questions across sections and map questions to responses
+    const questionsMap = {};
+    questionsUpdate.forEach((section) => {
+      section.questions.forEach(({ id, question, options }) => {
+        const userResponse = answers[id] || "No response given";
+        const result = options.find((opt) => opt.text === userResponse)?.result || "N/A";
+
+        if (!questionsMap[question]) {
+          questionsMap[question] = []; // Initialize response array for each question
+        }
+        questionsMap[question].push({ userResponse, result });
+      });
+    });
+
+    // Format PDF with each question appearing only once
+    Object.entries(questionsMap).forEach(([question, responses], index) => {
+      // Add question as a header in the PDF
+      doc.setFontSize(14);
+      doc.text(`${index + 1}. ${question}`, 14, yPos);
+      yPos += 5; // Add space after question title
+
+      const data = responses.map(({ userResponse }) => [userResponse]);
+
+      // Generate table for responses
+      doc.autoTable({
+        head: [["Response"]],
+        body: data,
+        startY: yPos,
+        margin: { top: 10, left: 14, right: 14 },
+      });
+
+      yPos = doc.autoTable.previous.finalY + 15; // Update Y position after table with additional space
+    });
+
+    doc.save("SWOT_Analysis_Results.pdf");
+  };
+
+
   return (
     <div className="App">
       {!showResults
@@ -1028,6 +1075,7 @@ const App = () => {
             <div className="chart">
               <Doughnut data={data} className="dou" />
               <button onClick={handleRetake} className="retake">Retake Test</button>
+              <button onClick={handleDownloadPdf} className="pdf">Download Result</button>
             </div>
             <div style={{ marginBottom: "80px" }} className="feedback">
               <ColorFeedback />
