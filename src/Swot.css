@@ -155,7 +155,7 @@ input {
 
   .question{
     /* background-color: red; */
-    width: 80vw;
+    width: 85vw;
   }
 
   .results {
@@ -168,7 +168,7 @@ input {
     width: 100vw !important;
     justify-content: center !important;
     align-items: center !important;
-    margin-right: 15vw !important;
+    margin-right: 20px !important;
   }
 
   .tabs .tab {
