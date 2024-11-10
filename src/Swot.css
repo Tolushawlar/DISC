@@ -153,6 +153,11 @@ input {
     width: 80vw;
   }
 
+  .question{
+    /* background-color: red; */
+    width: 80vw;
+  }
+
   .results {
     width: 80vw;
   }
@@ -160,7 +165,7 @@ input {
   .tabs {
 
     gap: 10px !important;
-    width: 80vw !important;
+    width: 100vw !important;
     justify-content: center !important;
     align-items: center !important;
   }
