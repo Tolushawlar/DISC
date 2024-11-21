@@ -13,6 +13,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const questionsUpdate = [
   {
     section: "Section 1",
+    profile: "Profile C",
     questions: [
       {
         id: 1,
@@ -50,8 +51,8 @@ const questionsUpdate = [
         id: 5,
         question: "",
         options: [
-          { text: "Under intense stress I tend to Become Negative.", weight: "A" },
-          { text: "Under intense stress I tend to Become Dictatorial.", weight: "D" }
+          { text: "Under intense stress I tend to Become Negative.", weight: "D" },
+          { text: "Under intense stress I tend to Become Dictatorial.", weight: "A" }
         ]
       },
       {
@@ -66,8 +67,8 @@ const questionsUpdate = [
         id: 7,
         question: "",
         options: [
-          { text: "Under intense stress I tend to Become Indecisive.", weight: "A" },
-          { text: "Under intense stress I tend to Become More Likely To Act.", weight: "C" }
+          { text: "Under intense stress I tend to Become Indecisive.", weight: "C" },
+          { text: "Under intense stress I tend to Become More Likely To Act.", weight: "A" }
         ]
       },
       {
@@ -82,8 +83,8 @@ const questionsUpdate = [
         id: 9,
         question: "",
         options: [
-          { text: "Under intense stress I tend to Become Very Cautious.", weight: "A" },
-          { text: "Under intense stress I tend to Become Abrupt.", weight: "D" }
+          { text: "Under intense stress I tend to Become Very Cautious.", weight: "D" },
+          { text: "Under intense stress I tend to Become Abrupt.", weight: "A" }
         ]
       },
       {
@@ -98,8 +99,8 @@ const questionsUpdate = [
         id: 11,
         question: "",
         options: [
-          { text: "Under intense stress I tend to Become Passive.", weight: "A" },
-          { text: "Under intense stress I tend to Become Insist On My Own Way.", weight: "C" }
+          { text: "Under intense stress I tend to Become Passive.", weight: "C" },
+          { text: "Under intense stress I tend to Become Insist On My Own Way.", weight: "A" }
         ]
       },
       {
@@ -114,8 +115,8 @@ const questionsUpdate = [
         id: 13,
         question: "",
         options: [
-          { text: "Under intense stress I tend to Become Very Picky.", weight: "A" },
-          { text: "Under intense stress I tend to Become Overbearing.", weight: "D" }
+          { text: "Under intense stress I tend to Become Very Picky.", weight: "D" },
+          { text: "Under intense stress I tend to Become Overbearing.", weight: "A" }
         ]
       },
       {
@@ -146,8 +147,8 @@ const questionsUpdate = [
         id: 17,
         question: "",
         options: [
-          { text: "Under intense stress I tend to Become Sensitive.", weight: "A" },
-          { text: "Under intense stress I tend to Become Hostile.", weight: "C" }
+          { text: "Under intense stress I tend to Become Sensitive.", weight: "C" },
+          { text: "Under intense stress I tend to Become Hostile.", weight: "A" }
         ]
       },
       {
@@ -162,8 +163,8 @@ const questionsUpdate = [
         id: 19,
         question: "",
         options: [
-          { text: "Under intense stress I tend to Become Uncertain.", weight: "A" },
-          { text: "Under intense stress I tend to Become Domineering.", weight: "C" }
+          { text: "Under intense stress I tend to Become Uncertain.", weight: "C" },
+          { text: "Under intense stress I tend to Become Domineering.", weight: "A" }
         ]
       },
       {
@@ -178,6 +179,7 @@ const questionsUpdate = [
   },
   {
     section: "Section 2",
+    profile: "Profile P",
     questions: [
       {
         id: 21,
@@ -191,8 +193,8 @@ const questionsUpdate = [
         id: 22,
         question: "",
         options: [
-          { text: "I think I should Stick to the Rules.", weight: "A" },
-          { text: "I think I should Supervise Others.", weight: "D" }
+          { text: "I think I should Stick to the Rules.", weight: "D" },
+          { text: "I think I should Supervise Others.", weight: "A" }
         ]
       },
       {
@@ -223,8 +225,8 @@ const questionsUpdate = [
         id: 26,
         question: "",
         options: [
-          { text: "I think I should Conserve Resources.", weight: "C" },
-          { text: "I think I should Create Ideas.", weight: "D" }
+          { text: "I think I should Conserve Resources.", weight: "D" },
+          { text: "I think I should Create Ideas.", weight: "C" }
         ]
       },
       {
@@ -247,24 +249,24 @@ const questionsUpdate = [
         id: 29,
         question: "",
         options: [
-          { text: "I think I should Achieve By Using Ideas.", weight: "A" },
-          { text: "I think I should Do Something.", weight: "C" }
+          { text: "I think I should Achieve By Using Ideas.", weight: "C" },
+          { text: "I think I should Do Something.", weight: "A" }
         ]
       },
       {
         id: 30,
         question: "",
         options: [
-          { text: "I think I should Arrange Things In a Pattern.", weight: "A" },
-          { text: "I think I should Build Something.", weight: "D" }
+          { text: "I think I should Arrange Things In a Pattern.", weight: "D" },
+          { text: "I think I should Build Something.", weight: "A" }
         ]
       },
       {
         id: 31,
         question: "",
         options: [
-          { text: "I think I should Explore New Ideas.", weight: "B" },
-          { text: "I think I should Help Other People.", weight: "C" }
+          { text: "I think I should Explore New Ideas.", weight: "C" },
+          { text: "I think I should Help Other People.", weight: "B" }
         ]
       },
       {
@@ -287,8 +289,8 @@ const questionsUpdate = [
         id: 34,
         question: "",
         options: [
-          { text: "I think I should Keep On a Schedule.", weight: "B" },
-          { text: "I think I should Be Hopeful.", weight: "D" }
+          { text: "I think I should Keep On a Schedule.", weight: "D" },
+          { text: "I think I should Be Hopeful.", weight: "B" }
         ]
       },
       {
@@ -306,8 +308,8 @@ const questionsUpdate = [
         id: 36,
         question: "",
         options: [
-          { text: "I think I should Should Be Persuasive.", weight: "A" },
-          { text: "I think I should Others Should Respect Me.", weight: "B" }
+          { text: "I think I should Should Be Persuasive.", weight: "B" },
+          { text: "I think I should Others Should Respect Me.", weight: "A" }
         ]
       },
       {
@@ -322,30 +324,31 @@ const questionsUpdate = [
         id: 38,
         question: "",
         options: [
-          { text: "I think I should Work Within Guidelines and Forms.", weight: "B" },
-          { text: "I think I should Coordinate Group Cooperation.", weight: "D" }
+          { text: "I think I should Work Within Guidelines and Forms.", weight: "D" },
+          { text: "I think I should Coordinate Group Cooperation.", weight: "B" }
         ]
       },
       {
         id: 39,
         question: "",
         options: [
-          { text: "I think I should Work with Ideas and Plans.", weight: "A" },
-          { text: "I think I should Get Something Done.", weight: "C" }
+          { text: "I think I should Work with Ideas and Plans.", weight: "C" },
+          { text: "I think I should Get Something Done.", weight: "A" }
         ]
       },
       {
         id: 40,
         question: "",
         options: [
-          { text: "I think I should Organize Others For The Good of The Group.", weight: "A" },
-          { text: "I think I should Produce Things.", weight: "B" }
+          { text: "I think I should Organize Others For The Good of The Group.", weight: "B" },
+          { text: "I think I should Produce Things.", weight: "A" }
         ]
       }
     ]
   },
   {
     section: "Section 3",
+    profile: "Profile A",
     questions: [
       {
         id: 41,
@@ -402,7 +405,7 @@ const questionsUpdate = [
         id: 47,
         question: "What I am comfortable doing?",
         options: [
-          { text: "I prefer being direct with people.", weight: "C" },
+          { text: "I prefer being direct with people.", weight: "A" },
           { text: "I am comfortable checking accuracy.", weight: "D" }
         ]
       },
@@ -410,8 +413,8 @@ const questionsUpdate = [
         id: 48,
         question: "What I am comfortable doing?",
         options: [
-          { text: "I enjoy doing things with a group.", weight: "C" },
-          { text: "I enjoy looking at things in a new way.", weight: "D" }
+          { text: "I enjoy doing things with a group.", weight: "B" },
+          { text: "I enjoy looking at things in a new way.", weight: "C" }
         ]
       },
       {
@@ -426,7 +429,7 @@ const questionsUpdate = [
         id: 50,
         question: "What I am comfortable doing?",
         options: [
-          { text: "I enjoy being active.", weight: "C" },
+          { text: "I enjoy being active.", weight: "A" },
           { text: "I enjoy being exact and correct.", weight: "D" }
         ]
       },
@@ -434,7 +437,7 @@ const questionsUpdate = [
         id: 51,
         question: "What I am comfortable doing?",
         options: [
-          { text: "I tend to expect the best to happen.", weight: "C" },
+          { text: "I tend to expect the best to happen.", weight: "B" },
           { text: "I enjoy working methodically within a system.", weight: "D" }
         ]
       },
@@ -444,27 +447,27 @@ const questionsUpdate = [
         options: [
           {
             text: "I am comfortable being a powerful and forceful person.",
-            weight: "C"
+            weight: "A"
           },
-          { text: "I enjoy imagining possibilities.", weight: "D" }
+          { text: "I enjoy imagining possibilities.", weight: "C" }
         ]
       },
       {
         id: 53,
         question: "What I am comfortable doing?",
         options: [
-          { text: "I am at ease cooperating with others.", weight: "C" },
-          { text: "I enjoy thinking independently.", weight: "D" }
+          { text: "I am at ease cooperating with others.", weight: "B" },
+          { text: "I enjoy thinking independently.", weight: "C" }
         ]
       },
       {
         id: 54,
         question: "What I am comfortable doing?",
         options: [
-          { text: "I am direct in my approach to others.", weight: "C" },
+          { text: "I am direct in my approach to others.", weight: "A" },
           {
             text: "I am comfortable being warm and comforting to others.",
-            weight: "D"
+            weight: "B"
           }
         ]
       },
@@ -474,7 +477,7 @@ const questionsUpdate = [
         options: [
           {
             text: "If I believe in a cause, I will sacrifice my own interest.",
-            weight: "C"
+            weight: "B"
           },
           { text: "I enjoy doing things in an orderly way.", weight: "D" }
         ]
@@ -485,16 +488,16 @@ const questionsUpdate = [
         options: [
           {
             text: "I am comfortable acting with excitement and focus.",
-            weight: "C"
+            weight: "A"
           },
-          { text: "I am comfortable thinking about new ideas.", weight: "D" }
+          { text: "I am comfortable thinking about new ideas.", weight: "C" }
         ]
       },
       {
         id: 57,
         question: "What I am comfortable doing?",
         options: [
-          { text: "I enjoy the give and take of conversation.", weight: "C" },
+          { text: "I enjoy the give and take of conversation.", weight: "B" },
           {
             text: "I prefer following a specific order or directions.",
             weight: "D"
@@ -507,7 +510,7 @@ const questionsUpdate = [
         options: [
           {
             text: "I am most comfortable accomplishing something.",
-            weight: "C"
+            weight: "A"
           },
           {
             text: "I am comfortable being cautious and conscientious.",
@@ -521,11 +524,11 @@ const questionsUpdate = [
         options: [
           {
             text: "I enjoy situations where I can take action or do something.",
-            weight: "C"
+            weight: "A"
           },
           {
             text: "I am at ease showing understanding and compassion.",
-            weight: "D"
+            weight: "C"
           }
         ]
       },
@@ -535,17 +538,22 @@ const questionsUpdate = [
         options: [
           {
             text: "I am comfortable taking command of most situations.",
-            weight: "C"
+            weight: "A"
           },
           {
             text: "I am friendly and I enjoy conversations with strangers.",
-            weight: "D"
+            weight: "B"
           }
         ]
       }
     ]
   }
 ];
+
+
+//{C: red, B: yellow, D: blue, A: green}
+// (4) ['red', 'yellow', 'blue', 'green']
+
 
 const App = () => {
   const [currentSection, setCurrentSection] = useState(0);
@@ -589,10 +597,6 @@ const App = () => {
   const handlePreviousQuestion = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(prev => prev - 1);
-      if (!userDetails.name || !userDetails.email || !userDetails.phone) {
-        alert("Please fill in all fields before submitting.");
-        return;
-      }
     } else if (currentSection > 0) {
       setCurrentSection(prev => prev - 1);
       setCurrentQuestion(
@@ -637,6 +641,45 @@ const App = () => {
     (${overallStep} of ${overallTotal})`;
   };
 
+  console.log(currentSection)
+  const profiling = () => {
+    if (currentSection === 0) {
+      return (
+        <>
+          <p style={{ fontSize: "18px", fontWeight: "bolder" }}>Profile C</p>
+          <p style={{ maxWidth: "40vw", fontSize: "12px" }}>Each question below is divided into two statements. Choose the statement in either column that best describes
+            how you feel under intense stress. There are no wrong answers. . For example: On Statement 1 if you tend to become distrustful under
+            stress more than you tend to plan your way out, you would click on that option. You must
+            select one answer for each of the 20 statements even if you do not agree completely with either answer.</p>
+        </>
+      );
+    } else if (currentSection === 1) {
+      return (
+        <>
+          <p style={{ fontSize: "18px", fontWeight: "bolder" }}>Profile P</p>
+          <p style={{ maxWidth: "40vw", fontSize: "12px" }}>Each question below is divided into two statements. Choose the statement in either column that best describes
+            what you think you should do (or how you think others want you be).There are no wrong answers. For example: On Statement 1 if
+            you think you should develop new plans more than you think you should be consistent, you would click on that option. You need to select one answer for each of the 20 statements even if you do not
+            agree completely with either answer.</p>
+        </>
+      );
+    } else if (currentSection === 2) {
+      return (
+        <>
+          <p style={{ fontSize: "18px", fontWeight: "bolder" }}>Profile A</p>
+          <p style={{ maxWidth: "40vw", fontSize: "12px" }}>Each question below is divided into two statements. Choose the statement in either column that best describes
+            what you are comfortable doing. There are no wrong answers. For example: On Statement 1 if you show great enthusiasm defending
+            a cause more than you are decisive and firm in your actions, you would click on that option.
+            You must select one answer for each of the 20 statements even if you do not agree completely with either
+            answer.</p>
+        </>
+      );
+    } else {
+      return <p>No profile available</p>;
+    }
+  };
+
+
   // Calculate the results based on selected answers
   const calculateResults = () => {
     const resultCounts = {};
@@ -656,11 +699,16 @@ const App = () => {
       }
     });
 
+    console.log(resultCounts)
     return resultCounts;
   };
 
   const handleSubmit = () => {
     console.log("Quiz Submitted", answers);
+    if (!userDetails.name || !userDetails.email || !userDetails.phone) {
+      alert("Please fill in all fields before submitting.");
+      return;
+    }
     setShowResults(true);
   };
 
@@ -676,6 +724,7 @@ const App = () => {
     questionsUpdate.reduce((sum, section) => sum + section.questions.length, 0);
 
   const resultData = calculateResults();
+
   const data = {
     labels: Object.keys(resultData),
     datasets: [
@@ -696,7 +745,8 @@ const App = () => {
 
   // Step 2: Get the corresponding color from the colors array
   const correspondingColor = colorsArray[maxIndex];
-
+  console.log(valuesArray)
+  console.log(colorsArray)
   console.log(`Highest value: ${maxValue}, Position: ${maxIndex}, Color: ${correspondingColor}`);
   console.log(colorsArray[0])
   console.log(colors)
@@ -729,12 +779,14 @@ const App = () => {
       if (correspondingColor === 'red') {
         setIdentity("Decision Makers, Goal Oriented, Result Driven")
         setFeedback(
-          <>
+          <div>
             {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
             <p>Your major strength is associated with {correspondingColor}!</p> */}
             <p>You are result Oriented and driven, Direct to the point, confident and competitve and you are always in a hurray.</p>
-            <h3>How To Communicate: Tell them WHAT</h3>
-            <p>Be direct and concise, Reds think they should know what they are doing, therefore, they like to work with people who know what they are doing, Tell them the WHAT and forget the rest of the story. These are the "bottom line" people. </p>
+            <div>
+              <h3>How To Communicate: Tell them WHAT</h3>
+              <p>Be direct and concise, Reds think they should know what they are doing, therefore, they like to work with people who know what they are doing, Tell them the WHAT and forget the rest of the story. These are the "bottom line" people. </p>
+            </div>
             <table className
               ="custom-table">
               <thead>
@@ -767,17 +819,19 @@ const App = () => {
                 </tr>
               </tbody>
             </table>
-          </>
+          </div>
         );
       } else if (correspondingColor === 'yellow') {
         setIdentity("Communicators, Participants, Adaptable")
         setFeedback(
-          <>
+          <div>
             {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
             <p>Your major strength is associated with {correspondingColor}!</p> */}
             <p>You are friendly, outgoing and emotional. Your orientation is people first, results second. You like to combine food with talk, and you talk a lot. You are very spontaneous.</p>
-            <h3>How To Communicate: Ask for their HELP</h3>
-            <p>Be direct and concise, Reds think they should know what they are doing, therefore, they like to work with people who know what they are doing, Tell them the WHAT and forget the rest of the story. These are the "bottom line" people. </p>
+            <div>
+              <h3>How To Communicate: Ask for their HELP</h3>
+              <p>Be direct and concise, Reds think they should know what they are doing, therefore, they like to work with people who know what they are doing, Tell them the WHAT and forget the rest of the story. These are the "bottom line" people. </p>
+            </div>
             <table className
               ="custom-table">
               <thead>
@@ -810,18 +864,19 @@ const App = () => {
                 </tr>
               </tbody>
             </table>
-          </>
+          </div>
         );
       } else if (correspondingColor === 'blue') {
         setIdentity("Patient, Problem Solver, Good Listener")
         setFeedback(
-          <>
+          <div>
             {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
             <p>Your major strength is associated with {correspondingColor}!</p> */}
             <p>You are a sincere person and good Listener, a problem solver and peace keeper. You are appreciated for who you are, not what you do. You focus on how to make things better</p>
-            <h3>How To Communicate: Ask what they THINK</h3>
-            <p>They want to have input, Provide alternatives and allow them the freedom to choose the best one. Show appreciation for their ideas and input. ASK them what they think about your idea. Give them a problem to solve- they think yhey should know how!</p>
-
+            <div>
+              <h3>How To Communicate: Ask what they THINK</h3>
+              <p>They want to have input, Provide alternatives and allow them the freedom to choose the best one. Show appreciation for their ideas and input. ASK them what they think about your idea. Give them a problem to solve- they think yhey should know how!</p>
+            </div>
             <table class="custom-table">
               <thead>
                 <tr style={{ textAlign: "left" }}>
@@ -853,17 +908,19 @@ const App = () => {
                 </tr>
               </tbody>
             </table>
-          </>
+          </div>
         );
       } else if (correspondingColor === 'green') {
         setIdentity("Accurate, Consistent, Analytical")
         setFeedback(
-          <>
+          <div>
             {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
             <p>Your major strength is associated with {correspondingColor}!</p> */}
             <p>A cautious person, that tend to do all 'by the book', you analyze any situation before you commit to it, you look before you cross the street and walk before you run, your goal is to avoid to making the same mistake twice.</p>
-            <h3>How To Communicate: Tell them HOW you want it done</h3>
-            <p>They need consistency, predictablility and control. They want to see proff. Use testimonials. Lay the facts out early. Tell them the bad news first. Make a formal presentation and answer all the HOW question.</p>
+            <div>
+              <h3>How To Communicate: Tell them HOW you want it done</h3>
+              <p>They need consistency, predictablility and control. They want to see proff. Use testimonials. Lay the facts out early. Tell them the bad news first. Make a formal presentation and answer all the HOW question.</p>
+            </div>
             <table class="custom-table">
               <thead>
                 <tr style={{ textAlign: "left" }}>
@@ -895,7 +952,7 @@ const App = () => {
                 </tr>
               </tbody>
             </table>
-          </>
+          </div>
         );
       }
     }, []);
@@ -955,7 +1012,7 @@ const App = () => {
           }}
         >
           <h3 style={{ color: "#16133d", fontSize: "24px", fontWeight: "bolder" }} className="text-lg font-bold">Feedback for {identity} </h3>
-          <p>{feedback}</p>
+          {feedback}
         </div>
       </div>
     );
@@ -968,9 +1025,10 @@ const App = () => {
     let yPos = 30; // Initial Y position for questions
 
     // Add chart
+    console.log(chartRef)
     if (chartRef.current) {
       const chartImage = chartRef.current.toBase64Image();
-      doc.addImage(chartImage, "PNG", 14, yPos, 180, 90);
+      doc.addImage(chartImage, "PNG", 14, yPos, 100, 90);
       yPos += 100;
     }
 
@@ -1019,6 +1077,54 @@ const App = () => {
     doc.save(`${userDetails.name}_Strengths_Matrix_Results.pdf`);
   };
 
+  const extractLast20Weights = () => {
+    // Flatten all questions across sections
+    const allQuestions = questionsUpdate.flatMap(section => section.questions);
+
+    // Get the last 20 questions
+    const last20Questions = allQuestions.slice(-20);
+
+    // Extract their IDs
+    const last20QuestionIds = last20Questions.map(q => q.id);
+
+    // Filter answers for these IDs and calculate weights
+    const last20Weights = last20QuestionIds
+      .map(id => {
+        const question = allQuestions.find(q => q.id === id);
+        const selectedOption = answers[id];
+        const option = question?.options.find(opt => opt.text === selectedOption);
+
+        return option?.weight || 0; // Return weight if exists, otherwise 0
+      })
+      .filter(weight => weight !== 0); // Filter out any invalid weights
+
+    return last20Weights;
+  };
+
+  // Call the function and store the result when needed
+  const last20Weights = extractLast20Weights();
+  console.log("Last 20 Question Weights:", last20Weights);
+
+
+  const letterToColor = {
+    C: 'red',
+    B: 'yellow',
+    D: 'blue',
+    A: 'green',
+  };
+
+  // Count the occurrences of each letter
+  const colorCounts = last20Weights.reduce((acc, letter) => {
+    const color = letterToColor[letter]; // Get the corresponding color
+    if (color) {
+      acc[color] = (acc[color] || 0) + 1; // Increment the count for this color
+    }
+    return acc;
+  }, {});
+
+  console.log("Color Counts:", colorCounts);
+
+
   return (
     <div className="App">
       {!showResults
@@ -1033,7 +1139,8 @@ const App = () => {
           <p>
             {getCurrentStep()}
           </p>
-          <h3 style={{ marginTop: "50px" }}>
+          <p>{profiling()}</p>
+          <h3 style={{ marginTop: "0px" }}>
             {
               questionsUpdate[currentSection].questions[currentQuestion]
                 .question
@@ -1043,7 +1150,7 @@ const App = () => {
             currentQuestion
           ].options.map(option =>
             <div style={{ display: "flex", flexWrap: "wrap", flexDirection: "row-reverse", justifyContent: "center", alignItems: "center" }}>
-              <p>{option.text}</p>
+              <p style={{ fontSize: "18px" }}>{option.text}</p>
               <button
                 key={option.text}
                 onClick={() =>
@@ -1074,7 +1181,7 @@ const App = () => {
                   borderRadius: "15px",
                   marginTop: "10px",
                   fontFamily: "Poppins",
-                  fontSize: "15px",
+                  fontSize: "20px",
                   fontWeight: "bold",
                   cursor: "pointer"
                 }}
@@ -1084,30 +1191,32 @@ const App = () => {
             </div>
           )}
           <br />
-          <div>
-            <h3>Enter Your Details:</h3>
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={userDetails.name}
-              onChange={handleInputChange}
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={userDetails.email}
-              onChange={handleInputChange}
-            />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone"
-              value={userDetails.phone}
-              onChange={handleInputChange}
-            />
-          </div>
+          {allQuestionsAnswered && currentQuestion === 19 && (
+            <div>
+              <h3>Enter Your Details:</h3>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={userDetails.name}
+                onChange={handleInputChange}
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={userDetails.email}
+                onChange={handleInputChange}
+              />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone"
+                value={userDetails.phone}
+                onChange={handleInputChange}
+              />
+            </div>
+          )}
 
           < div className="controllBtn">
             {(currentQuestion > 0 || currentSection > 0) &&
@@ -1125,7 +1234,7 @@ const App = () => {
           <h2 className="resultHeader">STRENGTHS MATRIX RESULTS </h2>
           <div className="innerResults">
             <div className="chart">
-              <Doughnut data={data} className="dou" />
+              <Doughnut data={data} className="dou" ref={chartRef} />
               <button onClick={handleRetake} className="retake">Retake Test</button>
               <button onClick={handleDownloadPdf} className="pdf">Download Result</button>
             </div>

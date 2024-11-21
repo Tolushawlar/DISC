@@ -1198,6 +1198,7 @@ const SwotPage = () => {
   const [highlightUnanswered, setHighlightUnanswered] = useState(false); // Track unanswered questions for highlight
 
   const sectionRef = useRef(null); // Ref to scroll to the top of the section
+  const questionContainerRef = useRef(null); // Ref for the container
 
   // Ensure the results page starts with "Strengths" on submission.
   useEffect(() => {
@@ -1213,6 +1214,22 @@ const SwotPage = () => {
       },
     }));
   };
+
+  // Gradually scroll upwards when an option is selected
+  if (sectionRef.current) {
+    sectionRef.current.scrollTo({
+      top: sectionRef.current.scrollTo + 10, // Adjust this value as needed
+      behavior: "smooth",
+    });
+  }
+
+  // Automatically scroll the container slightly upward
+  if (questionContainerRef.current) {
+    questionContainerRef.current.scrollBy({
+      top: -50, // Adjust to control how much the scroll moves
+      behavior: "smooth",
+    });
+  }
 
   const isSectionCompleted = (section) => {
     const questions = swotData.swotQuestions.find((q) => q.section === section).questions;
@@ -1284,135 +1301,338 @@ const SwotPage = () => {
     });
   };
 
+  // const handleDownloadPdf = () => {
+  //   const doc = new jsPDF();
+
+  //   // General font settings
+  //   doc.setFont("helvetica", "normal");
+
+  //   // Define styles for SWOT sections
+  //   const sectionStyles = {
+  //     Strengths: { color: [0, 176, 80] }, // Green
+  //     Weaknesses: { color: [255, 0, 0] }, // Red
+  //     Opportunities: { color: [0, 112, 192] }, // Blue
+  //     Threats: { color: [255, 192, 0] }, // Yellow
+  //   };
+
+  //   // Add title
+  //   doc.setFontSize(12);
+  //   doc.setTextColor(0, 0, 0);
+  //   doc.text("Marketing Plan SWOT Analysis", 14, 20);
+
+  //   let currentY = 30; // Start position for the content
+
+  //   // Loop through SWOT sections
+  //   swotData.swotQuestions.forEach((section) => {
+  //     const { section: sectionTitle, questions } = section;
+  //     const { color } = sectionStyles[sectionTitle] || {};
+
+  //     // Add section title
+  //     doc.setFontSize(10);
+  //     doc.setTextColor(0, 0, 0);
+  //     doc.text(`${sectionTitle}`, 10, currentY + 10); // Section name on the left
+
+  //     // Add initial right border with distinct colors
+  //     let startY = currentY - 5; // Keep track of the starting Y-coordinate for the border
+  //     doc.setFillColor(...color);
+  //     doc.rect(200, startY, 5, 270 - startY, "F"); // Initial right border (up to the bottom of the page)
+
+  //     // Add spacing
+  //     currentY += 15;
+
+  //     // Render all questions and their responses
+  //     questions.forEach((questionObj) => {
+  //       const { id, question, options } = questionObj;
+  //       const userResponse = responses[sectionTitle]?.[id] || "No response given";
+  //       const result = options.find((opt) => opt.text === userResponse)?.result || "No result available";
+
+  //       // Background color for questions and results
+  //       doc.setFillColor(...color.map((val) => Math.min(val + 50, 255))); // Lighter shade of the border color
+  //       doc.rect(15, currentY - 3, 180, 20, "F"); // Background rectangle
+
+  //       // Add question (bold)
+  //       doc.setFontSize(8);
+  //       doc.setFont("helvetica", "bold");
+  //       const questionText = doc.splitTextToSize(`${question}:`, 160);
+  //       doc.text(questionText, 20, currentY);
+
+  //       // Add response (normal font)
+  //       doc.setFont("helvetica", "normal");
+  //       const responseText = `${userResponse}: ${result}`;
+  //       const responseLines = doc.splitTextToSize(responseText, 160);
+  //       doc.text(responseLines, 25, currentY + questionText.length * 4);
+
+  //       // Adjust currentY for the next question
+  //       currentY += questionText.length * 3 + responseLines.length * 2 + 10;
+
+  //       // Handle page break if content exceeds the page
+  //       if (currentY > 270) {
+  //         // Draw a continuation border for the remaining section
+  //         const remainingHeight = 270 - startY; // Border height on the current page
+  //         doc.rect(200, startY, 5, remainingHeight, "F");
+
+  //         // Add a new page
+  //         doc.addPage();
+
+  //         // Reset currentY for the new page and continue the border
+  //         currentY = 20;
+  //         startY = 20; // Reset border start position
+  //         doc.rect(200, startY, 5, 270 - startY, "F"); // Continuation border
+  //       }
+  //     });
+
+  //     // Finalize the section border after all questions
+  //     const remainingHeight = currentY - startY; // Remaining height for the current section's border
+  //     doc.rect(200, startY, 5, remainingHeight, "F");
+
+  //     // Add spacing between sections
+  //     currentY += 5;
+
+  //     // Handle page break after the section if needed
+  //     if (currentY > 270) {
+  //       doc.addPage();
+  //       currentY = 20; // Reset Y for the new page
+  //     }
+  //   });
+
+  //   // Save the PDF
+  //   doc.save("SWOT_Analysis_Results.pdf");
+  // };
 
   const handleDownloadPdf = () => {
     const doc = new jsPDF();
-    doc.setFontSize(16);
-    doc.text('SWOTIFY RESULTS', 14, 20);
 
-    swotData.swotQuestions.forEach((section, index) => {
-      doc.setFontSize(14);
-      doc.text(section.section, 14, 30 + index * 40); // Section title
+    // General font settings
+    doc.setFont("helvetica", "normal");
 
-      // Prepare data array for autoTable (includes Question, Response, and Result)
-      const data = section.questions.map(({ id, question, options }) => {
-        const userResponse = responses[section.section]?.[id] || "No response";
+    // Define styles for SWOT sections
+    const sectionStyles = {
+      Strengths: { color: [0, 255, 255] }, // Green
+      Weaknesses: { color: [255, 0, 0] }, // Red
+      Opportunities: { color: [0, 112, 192] }, // Blue
+      Threats: { color: [255, 192, 0] }, // Yellow
+    };
+
+    // Add title
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+    doc.text("Marketing Plan SWOT Analysis", 14, 20);
+
+    let currentY = 30; // Start position for the content
+
+    // Loop through SWOT sections
+    swotData.swotQuestions.forEach((section) => {
+      const { section: sectionTitle, questions } = section;
+      const { color } = sectionStyles[sectionTitle] || {};
+
+      // Add section title
+      doc.setFontSize(10);
+      doc.setTextColor(0, 0, 0);
+      doc.text(`${sectionTitle}`, 10, currentY + 10); // Section name on the left
+
+      // Set initial position for the right border
+      let startY = currentY - 5;
+      doc.setFillColor(...color);
+      doc.rect(200, startY, 5, 270 - startY, "F"); // Add right border
+
+      // Add spacing for section title
+      currentY += 15;
+
+      // Loop through each question in the section
+      questions.forEach((questionObj) => {
+        const { id, question, options } = questionObj;
+        const userResponse = responses[sectionTitle]?.[id] || "No response given";
         const result = options.find((opt) => opt.text === userResponse)?.result || "No result available";
 
-        return [question, userResponse, result];
+        // Add background color for the question and result
+        doc.setFillColor(...color.map((val) => Math.min(val + 50, 255))); // Lighter shade
+        doc.rect(15, currentY - 3, 180, 14, "F"); // Background rectangle
+
+        // Add the question (bold)
+        doc.setFontSize(8);
+        doc.setFont("helvetica", "bold");
+        const questionText = doc.splitTextToSize(`${question}:`, 160);
+        doc.text(questionText, 20, currentY);
+
+        // Add the response (normal font)
+        doc.setFont("helvetica", "normal");
+        const responseText = `${userResponse}: ${result}`;
+        const responseLines = doc.splitTextToSize(responseText, 160);
+        doc.text(responseLines, 25, currentY + questionText.length * 3);
+
+        // Adjust currentY for the next question
+        currentY += questionText.length * 3 + responseLines.length * 2 + 10;
+
+        // Handle page break if content exceeds the page
+        if (currentY > 270) {
+          // Finalize the current border
+          const remainingHeight = 270 - startY;
+          doc.rect(200, startY, 5, remainingHeight, "F");
+
+          // Add a new page
+          doc.addPage();
+
+          // Reset currentY and start a new border
+          currentY = 20;
+          startY = 20;
+          doc.rect(200, startY, 5, 270 - startY, "F"); // Continuation border
+        }
       });
 
-      // Add table for each section
-      doc.autoTable({
-        head: [['Question', 'Response', 'Result']],
-        body: data,
-        startY: 40 + index * 40, // Dynamically space tables
-        margin: { top: 10, left: 14, right: 14 },
-      });
+      // Finalize the right border for the current section
+      const remainingHeight = currentY - startY;
+      doc.rect(200, startY, 5, remainingHeight, "F");
+
+      // Add spacing between sections
+      currentY += 5;
+
+      // Handle page break after the section if needed
+      if (currentY > 270) {
+        doc.addPage();
+        currentY = 20; // Reset Y for the new page
+      }
     });
 
-    doc.save('SWOT_Analysis_Results.pdf');
+    // Save the PDF
+    doc.save("SWOT_Analysis_Results.pdf");
   };
 
 
 
 
+
   return (
-    <div className="container" ref={sectionRef}>
-      <div className="tabs">
-        {swotData.swotQuestions.map((section, index) => (
-          <button
-            key={section.section}
-            className={`tab ${index === activeTab ? "active" : "buttonTab"}`}
-            onClick={() => setActiveTab(index)}
-          >
-            {section.section}
-          </button>
-        ))}
-      </div>
-
+    <div className="container" ref={sectionRef} >
       {!submitted ? (
-        <div className="questions">
-          {swotData.swotQuestions[activeTab].questions.map(({ id, question, options }) => {
-            const isUnanswered = highlightUnanswered && !responses[swotData.swotQuestions[activeTab].section]?.[id];
-            return (
-              <div key={id} className="question">
-                <p className="questionText" style={{
-                  marginTop: "40px",
-                  fontSize: "20px",
-                  backgroundColor: isUnanswered ? "#ffcccc" : "#D3CCF0", // Light red for unanswered
-                  padding: "6px",
-                  width: "400px",
-                  borderRadius: "8px"
-                }}>
-                  <strong>{question}</strong>
-                </p>
-                {options.map((option) => (
-                  <label key={option.text}
-                    style={{ backgroundColor: "orange", color: "black", fontWeight: "Bold", padding: "6px", width: "400px", borderRadius: "8px" }}
-                  >
-                    <input
-                      type="radio"
-                      name={`question-${id}`}
-                      value={option.text}
-                      className="optRadio"
-                      checked={
-                        responses[swotData.swotQuestions[activeTab].section]?.[id] === option.text
-                      }
-                      onChange={() =>
-                        handleOptionChange(
-                          swotData.swotQuestions[activeTab].section,
-                          id,
-                          option.text
-                        )
-                      }
-                    />
-                    {option.text}
-                  </label>
-                ))}
-              </div>
-            );
-          })}
-
-          {activeTab === swotData.swotQuestions.length - 1 ? (
-            <button onClick={handleSubmit} className="sub">
-              Submit
-            </button>
-          ) : (
-            <button onClick={handleNextTab} className="next">
-              Next
-            </button>
-          )}
-        </div>
-      ) : (
-        <div className="results">
-          <h2 style={{ color: "#6357a4" }}>
-            {swotData.swotQuestions[activeTab].section} Results
-          </h2>
-          {renderResults(swotData.swotQuestions[activeTab].section)}
-
-          <div className="result-navigation">
-            {activeTab > 0 && (
-              <button onClick={handlePreviousResultSection} style={{ marginRight: "10px" }} className="previous">
-                Previous Section
+        <>
+          <div className="tabs">
+            {swotData.swotQuestions.map((section, index) => (
+              <button
+                key={section.section}
+                className={`tab ${index === activeTab ? "active" : "buttonTab"}`}
+                onClick={() => setActiveTab(index)}
+              >
+                {section.section}
               </button>
-            )}
-            {activeTab < swotData.swotQuestions.length - 1 ? (
-              <button onClick={handleNextResultSection} className="next">
-                Next Result Section
+            ))}
+          </div>
+          <div className="questions">
+            {swotData.swotQuestions[activeTab].questions.map(({ id, question, options }) => {
+              const isUnanswered = highlightUnanswered && !responses[swotData.swotQuestions[activeTab].section]?.[id];
+              return (
+                <div key={id} className="question">
+                  <p className="questionText" style={{
+                    marginTop: "40px",
+                    fontSize: "20px",
+                    backgroundColor: isUnanswered ? "#ffcccc" : "#D3CCF0", // Light red for unanswered
+                    padding: "6px",
+                    width: "400px",
+                    borderRadius: "8px"
+                  }}>
+                    <strong>{question}</strong>
+                  </p>
+                  {options.map((option) => (
+                    <label key={option.text}
+                      style={{ backgroundColor: "orange", color: "black", fontWeight: "Bold", padding: "6px", width: "400px", borderRadius: "8px" }}
+                    >
+                      <input
+                        type="radio"
+                        name={`question-${id}`}
+                        value={option.text}
+                        className="optRadio"
+                        checked={
+                          responses[swotData.swotQuestions[activeTab].section]?.[id] === option.text
+                        }
+                        onChange={() =>
+                          handleOptionChange(
+                            swotData.swotQuestions[activeTab].section,
+                            id,
+                            option.text
+                          )
+                        }
+                      />
+                      {option.text}
+                    </label>
+                  ))}
+                </div>
+              );
+            })}
+
+            {activeTab === swotData.swotQuestions.length - 1 ? (
+              <button onClick={handleSubmit} className="sub">
+                Submit
               </button>
             ) : (
-              <>
-                <button onClick={handleRetake} className="retake">
-                  Retake Test
-                </button>
-                <button onClick={handleDownloadPdf} className='pdf'>
-                  Download PDF
-                </button>
-              </>
+              <button onClick={handleNextTab} className="next">
+                Next
+              </button>
             )}
           </div>
+        </>
+      ) : (
+        // <div className="results">
+        //   <h2 style={{ color: "#6357a4" }}>
+        //     {swotData.swotQuestions[activeTab].section} Results
+        //   </h2>
+        //   {renderResults(swotData.swotQuestions[activeTab].section)}
+
+        //   <div className="result-navigation">
+        //     {activeTab > 0 && (
+        //       <button onClick={handlePreviousResultSection} style={{ marginRight: "10px" }} className="previous">
+        //         Previous Section
+        //       </button>
+        //     )}
+        //     {activeTab < swotData.swotQuestions.length - 1 ? (
+        //       <button onClick={handleNextResultSection} className="next">
+        //         Next Result Section
+        //       </button>
+        //     ) : (
+        //       <>
+        //         <button onClick={handleRetake} className="retake">
+        //           Retake Test
+        //         </button>
+        //         <button onClick={handleDownloadPdf} className='pdf'>
+        //           Download PDF
+        //         </button>
+        //       </>
+        //     )}
+        //   </div>
+        // </div>
+        <div className="results">
+          <h2 style={{ color: "#6357a4" }}>SWOT Analysis Results</h2>
+
+          {/* Iterate through all sections and display results in scrollable boxes */}
+          {swotData.swotQuestions.map((section, index) => (
+            <div
+              key={section.section}
+              className="section-results-box"
+              style={{
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                padding: "20px",
+                marginBottom: "30px",
+                borderRadius: "10px",
+                backgroundColor: "#ffffff",
+                maxHeight: "300px", // Set maximum height
+                overflowY: "auto",  // Make content scrollable
+              }}
+            >
+              <h3 style={{ color: "#4A47A3", marginBottom: "10px", fontSize: "25px" }}>{section.section}</h3>
+              {renderResults(section.section)}
+            </div>
+          ))}
+
+          {/* Add buttons for retaking the test and downloading the PDF */}
+          <div className="result-navigation" style={{ marginTop: "20px" }}>
+            <button onClick={handleRetake} className="retake">
+              Retake Test
+            </button>
+            <button onClick={handleDownloadPdf} className="pdf">
+              Download PDF
+            </button>
+          </div>
         </div>
+
+
       )}
     </div>
   );
