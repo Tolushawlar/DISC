@@ -1296,7 +1296,7 @@ const SwotPage = () => {
       const result = options.find((opt) => opt.text === userResponse)?.result;
       return (
         <div key={id} className="resultSpace">
-          <p style={{ marginTop: "40px", fontSize: "20px", backgroundColor: "#D3CCF0", padding: "6px", width: "400px", borderRadius: "8px" }}>
+          <p className="questTitle" style={{ marginTop: "40px", fontSize: "20px", backgroundColor: "#D3CCF0", padding: "6px", width: "400px", borderRadius: "8px" }}>
             <strong>{question}</strong>
           </p>
           <p style={{ marginBottom: "20px" }}>{result || "No response given."}</p>

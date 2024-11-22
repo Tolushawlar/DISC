@@ -203,6 +203,11 @@ input {
 
 
 @media (max-width: 768px) {
+  .questTitle{
+    font-size: 15px !important;
+    width: 60vw !important;
+  }
+
   .questions {
     width: 80vw;
   }
