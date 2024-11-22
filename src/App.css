@@ -324,7 +324,7 @@ body::-webkit-scrollbar {
   }
 
   .custInner{
-    max-width: 300px !important;
+    max-width: 270px !important;
   }
   .feedback h3 {
     font-size: 18px;
@@ -335,7 +335,7 @@ body::-webkit-scrollbar {
   }
 
   .feedbackColTable{
-    width: 70vw;
+    width: 80vw;
   }
 
   .resultHeader {
