@@ -276,6 +276,10 @@ body::-webkit-scrollbar {
     margin: 10px;
   }
 
+  .chart{
+    margin-right: 60vw !important;
+  }
+
   .App {
     display: flex !important;
     flex-direction: column !important;
@@ -316,6 +320,7 @@ body::-webkit-scrollbar {
 
   .resultHeader {
     font-size: 18px !important;
+    margin-right: 50vw;
   }
 
   .riz {
@@ -323,7 +328,7 @@ body::-webkit-scrollbar {
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    margin-right: 30vw !important;
+    margin-right: 60vw !important;
   }
 
   .feedback {

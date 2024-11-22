@@ -1618,7 +1618,7 @@ const App = () => {
         : <div className="riz">
           <h2 className="resultHeader">{userDetails.name}'s Strengths-Matrix Results</h2>
           <div className="innerResults">
-            <div className="chart">
+            <div className="chart charDiv">
               <Doughnut data={data} className="dou" ref={chartRef} />
               <button onClick={handleRetake} className="retake" id="download-button2">Retake Test</button>
               {/* <button onClick={generatePDF} className="pdf">Download Result</button> */}
