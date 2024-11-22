@@ -5,8 +5,10 @@ import Table from "../Components/Table"
 import "../App.css";
 import { data } from "autoprefixer";
 import { colors } from "@mui/material";
-import jsPDF from 'jspdf';
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import 'jspdf-autotable';
+import { useReactToPrint } from "react-to-print";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -563,6 +565,68 @@ const App = () => {
   const [identity, setIdentity] = useState("")
   const [userDetails, setUserDetails] = useState({ name: "", email: "", phone: "" });
   const chartRef = useRef(null);
+  const [isGenerating, setIsGenerating] = useState(false); // State to track PDF generation
+
+  const generatePDF = async () => {
+    setIsGenerating(true); // Hide button
+    // Temporarily hide button using a CSS class
+    const buttonElement = document.getElementById("download-button");
+    const buttonElement2 = document.getElementById("download-button2");
+    buttonElement.style.display = "none";
+    buttonElement2.style.display = "none";
+
+    const element = document.body; // Capture the entire page
+    const canvas = await html2canvas(element, {
+      useCORS: true,
+      scale: 2, // Improves resolution
+    });
+
+    const pdf = new jsPDF("p", "mm", "a4");
+    const pdfWidth = 210; // A4 width in mm
+    const pdfHeight = 297; // A4 height in mm
+    const canvasWidth = canvas.width;
+    const canvasHeight = canvas.height;
+
+    const imgData = canvas.toDataURL("image/png");
+    const imgHeight = (pdfWidth / canvasWidth) * canvasHeight;
+
+    let currentHeight = 0; // Track how much content is rendered
+
+    while (currentHeight < canvasHeight) {
+      const pageCanvas = document.createElement("canvas");
+      pageCanvas.width = canvas.width;
+      pageCanvas.height = Math.min(canvas.height - currentHeight, canvas.height);
+
+      const context = pageCanvas.getContext("2d");
+      context.drawImage(
+        canvas,
+        0,
+        currentHeight,
+        canvas.width,
+        pageCanvas.height,
+        0,
+        0,
+        canvas.width,
+        pageCanvas.height
+      );
+
+      const pageData = pageCanvas.toDataURL("image/png");
+      const pageHeight = (pdfWidth / canvasWidth) * pageCanvas.height;
+
+      pdf.addImage(pageData, "PNG", 0, 0, pdfWidth, pageHeight);
+
+      currentHeight += pageCanvas.height;
+
+      if (currentHeight < canvasHeight) {
+        pdf.addPage();
+      }
+    }
+
+    pdf.save(`${userDetails.name}'s Strengths-Matrix Results.pdf`);
+    buttonElement.style.display = "block";
+    buttonElement2.style.display = "block";
+    setIsGenerating(false); // Show button again
+  };
 
   const handleAnswerSelection = (questionId, selectedOption) => {
     // Store answer and its weight in state
@@ -647,7 +711,7 @@ const App = () => {
       return (
         <>
           <p style={{ fontSize: "18px", fontWeight: "bolder" }}>Profile C</p>
-          <p style={{ maxWidth: "40vw", fontSize: "12px" }}>Each question below is divided into two statements. Choose the statement in either column that best describes
+          <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px" }}>Each question below is divided into two statements. Choose the statement in either column that best describes
             how you feel under intense stress. There are no wrong answers. . For example: On Statement 1 if you tend to become distrustful under
             stress more than you tend to plan your way out, you would click on that option. You must
             select one answer for each of the 20 statements even if you do not agree completely with either answer.</p>
@@ -657,7 +721,7 @@ const App = () => {
       return (
         <>
           <p style={{ fontSize: "18px", fontWeight: "bolder" }}>Profile P</p>
-          <p style={{ maxWidth: "40vw", fontSize: "12px" }}>Each question below is divided into two statements. Choose the statement in either column that best describes
+          <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px" }}>Each question below is divided into two statements. Choose the statement in either column that best describes
             what you think you should do (or how you think others want you be).There are no wrong answers. For example: On Statement 1 if
             you think you should develop new plans more than you think you should be consistent, you would click on that option. You need to select one answer for each of the 20 statements even if you do not
             agree completely with either answer.</p>
@@ -667,7 +731,7 @@ const App = () => {
       return (
         <>
           <p style={{ fontSize: "18px", fontWeight: "bolder" }}>Profile A</p>
-          <p style={{ maxWidth: "40vw", fontSize: "12px" }}>Each question below is divided into two statements. Choose the statement in either column that best describes
+          <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px" }}>Each question below is divided into two statements. Choose the statement in either column that best describes
             what you are comfortable doing. There are no wrong answers. For example: On Statement 1 if you show great enthusiasm defending
             a cause more than you are decisive and firm in your actions, you would click on that option.
             You must select one answer for each of the 20 statements even if you do not agree completely with either
@@ -732,7 +796,7 @@ const App = () => {
         label: "Profile Strengths",
         data: Object.values(resultData),
         // backgroundColor: [ "#4BC0C0", "#36A2EB", "#FFCE56","#FF6384"], 
-        backgroundColor: ["red", "yellow", "blue", "green"],
+        backgroundColor: ["blue", "green", "red", "yellow"],
         hoverOffset: 4
       }
     ]
@@ -754,12 +818,12 @@ const App = () => {
     const [feedback, setFeedback] = useState('');
 
     const colors = [
-      { name: 'Red', value: 'Decision Makers, Goal Oriented, Results', code: '#FF0000', result: valuesArray[0] },
-      { name: 'Yellow', value: 'Communicators, Participants, Adaptable', code: '#FFFF00', result: valuesArray[1] },
+      { name: 'Red', value: 'Decision Makers, Goal Oriented, Results', code: '#FF0000', result: valuesArray[2] },
+      { name: 'Yellow', value: 'Communicators, Participants, Adaptable', code: '#FFFF00', result: valuesArray[3] },
       {
-        name: 'Blue', value: 'Problem Solver, Good Listener', code: '#0000FF', result: valuesArray[2]
+        name: 'Blue', value: 'Problem Solver, Good Listener', code: '#0000FF', result: valuesArray[0]
       },
-      { name: 'Green', value: 'Accurate, Consistent, Analytical', code: '#00FF00', result: valuesArray[3] },
+      { name: 'Green', value: 'Accurate, Consistent, Analytical', code: '#00FF00', result: valuesArray[1] },
     ];
 
     const sortedColors = [...colors].sort((a, b) => b.result - a.result);
@@ -926,7 +990,7 @@ const App = () => {
                 <tr style={{ textAlign: "left" }}>
                   <th>STRENGTHS</th>
                   <th>WEAKNESSES</th>
-                  <th>M=NEEDS</th>
+                  <th>NEEDS</th>
                 </tr>
               </thead>
               <tbody className="tbody">
@@ -959,6 +1023,7 @@ const App = () => {
 
     return (
       <div className="feedbackCol">
+        <h2>Total Result</h2>
         <div className="container mx-auto p-4 custom-box colorBox">
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table className="min-w-full border-collapse border border-gray-300 mb-4"
@@ -1008,12 +1073,282 @@ const App = () => {
             padding: '20px',
             borderRadius: '5px',
             backgroundColor: '#f9f9f9',
-            marginTop: "40px"
+            marginTop: "40px",
+            marginBottom: "100px"
           }}
         >
           <h3 style={{ color: "#16133d", fontSize: "24px", fontWeight: "bolder" }} className="text-lg font-bold">Feedback for {identity} </h3>
           {feedback}
         </div>
+      </div>
+    );
+  };
+
+  const ColorFeedback2 = () => {
+    const [feedback2, setFeedback2] = useState('');
+
+    const colors = [
+      { name: 'Red', value: "Action", code: '#FF0000', result: adultResult[0] },
+      { name: 'Yellow', value: "Talking", code: '#FFFF00', result: adultResult[1] },
+      {
+        name: 'Blue', value: 'Thinking', code: '#0000FF', result: adultResult[2]
+      },
+      { name: 'Green', value: 'Checking', code: '#00FF00', result: adultResult[3] },
+    ];
+
+    const sortedColors = [...colors].sort((a, b) => b.result - a.result);
+
+    // Helper function to convert hex color to an integer value
+    const hexToInt = (hex) => parseInt(hex.slice(1), 16);
+
+    // Find the color with the highest value
+    const getHighestColor = () =>
+      colors.reduce((max, color) =>
+        hexToInt(color.value) > hexToInt(max.value) ? color : max
+      );
+
+    // Generate feedback message based on the highest color value
+    // useEffect(() => {
+    //   const highestColor = getHighestColor();
+    //   if (correspondingColor === 'red') {
+    //     setIdentity("Decision Makers, Goal Oriented, Result Driven")
+    //     setFeedback(
+    //       <div>
+    //         {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+    //         <p>Your major strength is associated with {correspondingColor}!</p> */}
+    //         <p>You are result Oriented and driven, Direct to the point, confident and competitve and you are always in a hurray.</p>
+    //         <div>
+    //           <h3>How To Communicate: Tell them WHAT</h3>
+    //           <p>Be direct and concise, Reds think they should know what they are doing, therefore, they like to work with people who know what they are doing, Tell them the WHAT and forget the rest of the story. These are the "bottom line" people. </p>
+    //         </div>
+    //         <table className
+    //           ="custom-table">
+    //           <thead>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <th>STRENGTHS</th>
+    //               <th>WEAKNESS</th>
+    //               <th>NEEDS</th>
+    //             </tr>
+    //           </thead>
+    //           <tbody className="tbody">
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td data-label="STRENGTHS">Get Results</td>
+    //               <td data-label="WEAKNESSES">Not Cautious</td>
+    //               <td data-label="NEEDS">Power</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td data-label="STRENGTHS">Decision Makers</td>
+    //               <td data-label="WEAKNESSES">Run Over People</td>
+    //               <td data-label="NEEDS">Authority</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td data-label="STRENGTHS">Achieve Goals</td>
+    //               <td data-label="WEAKNESSES">Focus On Short Term Results</td>
+    //               <td data-label="NEEDS">To win</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td data-label="STRENGTHS">Risk Takers</td>
+    //               <td data-label="WEAKNESSES">Focus On Wrong Thing</td>
+    //               <td data-label="NEEDS">Quantifiable Results</td>
+    //             </tr>
+    //           </tbody>
+    //         </table>
+    //       </div>
+    //     );
+    //   } else if (correspondingColor === 'yellow') {
+    //     setIdentity("Communicators, Participants, Adaptable")
+    //     setFeedback(
+    //       <div>
+    //         {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+    //         <p>Your major strength is associated with {correspondingColor}!</p> */}
+    //         <p>You are friendly, outgoing and emotional. Your orientation is people first, results second. You like to combine food with talk, and you talk a lot. You are very spontaneous.</p>
+    //         <div>
+    //           <h3>How To Communicate: Ask for their HELP</h3>
+    //           <p>Be direct and concise, Reds think they should know what they are doing, therefore, they like to work with people who know what they are doing, Tell them the WHAT and forget the rest of the story. These are the "bottom line" people. </p>
+    //         </div>
+    //         <table className
+    //           ="custom-table">
+    //           <thead>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <th>STRENGTHS</th>
+    //               <th>WEAKNESS</th>
+    //               <th>NEEDS</th>
+    //             </tr>
+    //           </thead>
+    //           <tbody className="tbody">
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Communicators</td>
+    //               <td>No Sense of Time</td>
+    //               <td>Recognition</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Participants</td>
+    //               <td>Lack Follow-Up</td>
+    //               <td>Acceptance</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Adaptability</td>
+    //               <td>Lack Objectivity</td>
+    //               <td>Influence</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Optimistic</td>
+    //               <td>Chamelon</td>
+    //               <td>Involvement</td>
+    //             </tr>
+    //           </tbody>
+    //         </table>
+    //       </div>
+    //     );
+    //   } else if (correspondingColor === 'blue') {
+    //     setIdentity("Patient, Problem Solver, Good Listener")
+    //     setFeedback(
+    //       <div>
+    //         {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+    //         <p>Your major strength is associated with {correspondingColor}!</p> */}
+    //         <p>You are a sincere person and good Listener, a problem solver and peace keeper. You are appreciated for who you are, not what you do. You focus on how to make things better</p>
+    //         <div>
+    //           <h3>How To Communicate: Ask what they THINK</h3>
+    //           <p>They want to have input, Provide alternatives and allow them the freedom to choose the best one. Show appreciation for their ideas and input. ASK them what they think about your idea. Give them a problem to solve- they think yhey should know how!</p>
+    //         </div>
+    //         <table class="custom-table">
+    //           <thead>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <th>STRENGTHS</th>
+    //               <th>WEAKNESS</th>
+    //               <th>NEEDS</th>
+    //             </tr>
+    //           </thead>
+    //           <tbody className="tbody">
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Patient</td>
+    //               <td>Avoid Conflct</td>
+    //               <td>Time</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Problem Solver</td>
+    //               <td>Procastination</td>
+    //               <td>Freedom</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Evalute Alternative</td>
+    //               <td>Rationalize</td>
+    //               <td>Alternatives</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Improvments</td>
+    //               <td>"Over-imporove"</td>
+    //               <td></td>
+    //             </tr>
+    //           </tbody>
+    //         </table>
+    //       </div>
+    //     );
+    //   } else if (correspondingColor === 'green') {
+    //     setIdentity("Accurate, Consistent, Analytical")
+    //     setFeedback(
+    //       <div>
+    //         {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+    //         <p>Your major strength is associated with {correspondingColor}!</p> */}
+    //         <p>A cautious person, that tend to do all 'by the book', you analyze any situation before you commit to it, you look before you cross the street and walk before you run, your goal is to avoid to making the same mistake twice.</p>
+    //         <div>
+    //           <h3>How To Communicate: Tell them HOW you want it done</h3>
+    //           <p>They need consistency, predictablility and control. They want to see proff. Use testimonials. Lay the facts out early. Tell them the bad news first. Make a formal presentation and answer all the HOW question.</p>
+    //         </div>
+    //         <table class="custom-table">
+    //           <thead>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <th>STRENGTHS</th>
+    //               <th>WEAKNESSES</th>
+    //               <th>M=NEEDS</th>
+    //             </tr>
+    //           </thead>
+    //           <tbody className="tbody">
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Patient</td>
+    //               <td>Avoid Conflct</td>
+    //               <td>Time</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Problem Solver</td>
+    //               <td>Procastination</td>
+    //               <td>Freedom</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Evalute Alternative</td>
+    //               <td>Rationalize</td>
+    //               <td>Alternatives</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Improvments</td>
+    //               <td>"Over-imporove"</td>
+    //               <td></td>
+    //             </tr>
+    //           </tbody>
+    //         </table>
+    //       </div>
+    //     );
+    //   }
+    // }, []);
+
+    return (
+      <div className="feedbackCol">
+        <h2>Adult Strengths Profile Result</h2>
+        <div className="container mx-auto p-4 custom-box colorBox">
+          {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
+          <table className="min-w-full border-collapse border border-gray-300 mb-4"
+          // style={{
+          //   border: '1px solid #ccc',
+          //   padding: '20px',
+          //   borderRadius: '5px',
+          //   backgroundColor: '#f9f9f9',
+          //   marginTop: "40px"
+          // }}
+          >
+            <thead>
+              <tr>
+                <th className="border border-gray-300 px-4 py-2 text-left">Color</th>
+                <th className="border border-gray-300 px-4 py-2 text-left"></th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Profile</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sortedColors.map((color, index) => (
+                <tr key={index} className="">
+                  <td className="border border-gray-300 px-4 py-2">{color.name}</td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    <div
+                      style={{
+                        backgroundColor: color.code,
+                        width: '30px',
+                        height: '30px',
+                        borderRadius: '4px',
+                      }}
+                    />
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 profileHead">{color.value}</td>
+                  <td className="border border-gray-300 px-4 py-2">{color.result}</td>
+
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {/* Feedback Section */}
+        {/* <div
+          className="custom-box"
+          style={{
+            border: '1px solid #ccc',
+            padding: '20px',
+            borderRadius: '5px',
+            backgroundColor: '#f9f9f9',
+            marginTop: "40px"
+          }}
+        >
+          <h3 style={{ color: "#16133d", fontSize: "24px", fontWeight: "bolder" }} className="text-lg font-bold">Feedback for {identity} </h3>
+          {feedback2}
+        </div> */}
       </div>
     );
   };
@@ -1106,11 +1441,16 @@ const App = () => {
   console.log("Last 20 Question Weights:", last20Weights);
 
 
+  const adultResult = ['A', 'B', 'C', 'D'].map(value =>
+    last20Weights.filter(item => item === value).length
+  );
+  console.log(adultResult)
+
   const letterToColor = {
-    C: 'red',
+    C: 'blue',
     B: 'yellow',
-    D: 'blue',
-    A: 'green',
+    D: 'green',
+    A: 'red',
   };
 
   // Count the occurrences of each letter
@@ -1124,6 +1464,51 @@ const App = () => {
 
   console.log("Color Counts:", colorCounts);
 
+  const FourStrengthsTable = () => {
+    const tableData = [
+      { position: "Buyer", red: 8, yellow: 7, blue: 2, green: 3 },
+      { position: "Sales", red: 7, yellow: 8, blue: 5, green: 0 },
+      { position: "Research Specialist", red: 5, yellow: 5, blue: 5, green: 5 },
+      { position: "Dig Lead Coordinator", red: 5, yellow: 6, blue: 4, green: 5 },
+      { position: "Dig Lead Locator", red: 5, yellow: 3, blue: 6, green: 6 },
+      { position: "Locator Buyer", red: 5, yellow: 7, blue: 3, green: 5 },
+      { position: "Coordinator (New Office)", red: 5, yellow: 6, blue: 4, green: 5 },
+      { position: "Appointment Specialist", red: 5, yellow: 7, blue: 3, green: 5 },
+      { position: "Closing Coordinator", red: 5, yellow: 5, blue: 5, green: 5 },
+      { position: "Office Manager", red: 5, yellow: 5, blue: 5, green: 5 },
+      { position: "Sales Manager", red: 7, yellow: 7, blue: 5, green: 1 },
+      { position: "Construction Manager", red: 6, yellow: 7, blue: 2, green: 5 },
+      { position: "Investor Relations", red: 6, yellow: 7, blue: 5, green: 2 },
+    ];
+
+    return (
+      <div className="fourTable" style={{ padding: "20px" }}>
+        <h2>Adult Strengths Profile for Organizational Positions</h2>
+        <table border="1" style={{ borderCollapse: "collapse", width: "100%" }}>
+          <thead>
+            <tr>
+              <th>Position</th>
+              <th>Red (Action)</th>
+              <th>Yellow (Talking)</th>
+              <th>Blue (Thinking)</th>
+              <th>Green (Checking)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData.map((row, index) => (
+              <tr key={index}>
+                <td>{row.position}</td>
+                <td>{row.red}</td>
+                <td>{row.yellow}</td>
+                <td>{row.blue}</td>
+                <td>{row.green}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  };
 
   return (
     <div className="App">
@@ -1149,8 +1534,8 @@ const App = () => {
           {questionsUpdate[currentSection].questions[
             currentQuestion
           ].options.map(option =>
-            <div style={{ display: "flex", flexWrap: "wrap", flexDirection: "row-reverse", justifyContent: "center", alignItems: "center" }}>
-              <p style={{ fontSize: "18px" }}>{option.text}</p>
+            <div  style={{ display: "flex", flexWrap: "wrap", flexDirection: "row-reverse", justifyContent: "center", alignItems: "center" }}>
+              <p className="options" style={{ fontSize: "18px" }}>{option.text}</p>
               <button
                 key={option.text}
                 onClick={() =>
@@ -1192,7 +1577,7 @@ const App = () => {
           )}
           <br />
           {allQuestionsAnswered && currentQuestion === 19 && (
-            <div>
+            <div className="details">
               <h3>Enter Your Details:</h3>
               <input
                 type="text"
@@ -1231,12 +1616,23 @@ const App = () => {
           </div>
         </div>
         : <div className="riz">
-          <h2 className="resultHeader">STRENGTHS MATRIX RESULTS </h2>
+          <h2 className="resultHeader">{userDetails.name}'s Strengths-Matrix Results</h2>
           <div className="innerResults">
             <div className="chart">
               <Doughnut data={data} className="dou" ref={chartRef} />
-              <button onClick={handleRetake} className="retake">Retake Test</button>
-              <button onClick={handleDownloadPdf} className="pdf">Download Result</button>
+              <button onClick={handleRetake} className="retake" id="download-button2">Retake Test</button>
+              {/* <button onClick={generatePDF} className="pdf">Download Result</button> */}
+              {/* Hide button while generating PDF */}
+              {!isGenerating && (
+                <button id="download-button" className="pdf" onClick={generatePDF}>Download PDF</button>
+              )}
+
+              {isGenerating && <p>Generating PDF, please wait...</p>}
+
+            </div>
+            <div style={{ marginBottom: "80px" }} className="feedback">
+              <ColorFeedback2 />
+              <FourStrengthsTable/>
             </div>
             <div style={{ marginBottom: "80px" }} className="feedback">
               <ColorFeedback />
