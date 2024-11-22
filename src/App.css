@@ -311,7 +311,7 @@ body::-webkit-scrollbar {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    margin-left: 50vw;
+    margin-left: 30vw;
   }
 
   .resultHeader {
@@ -323,6 +323,7 @@ body::-webkit-scrollbar {
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
+    margin-right: 20vw !important;
   }
 
   .feedback {
