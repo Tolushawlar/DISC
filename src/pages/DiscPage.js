@@ -852,7 +852,7 @@ const App = () => {
               <p>Be direct and concise, Reds think they should know what they are doing, therefore, they like to work with people who know what they are doing, Tell them the WHAT and forget the rest of the story. These are the "bottom line" people. </p>
             </div>
             <table className
-              ="custom-table">
+              ="custom-table custInner">
               <thead>
                 <tr style={{ textAlign: "left" }}>
                   <th>STRENGTHS</th>
@@ -1067,7 +1067,7 @@ const App = () => {
         </div>
         {/* Feedback Section */}
         <div
-          className="custom-box"
+          className="custom-box feedbackColTable"
           style={{
             border: '1px solid #ccc',
             padding: '20px',
@@ -1534,7 +1534,7 @@ const App = () => {
           {questionsUpdate[currentSection].questions[
             currentQuestion
           ].options.map(option =>
-            <div  style={{ display: "flex", flexWrap: "wrap", flexDirection: "row-reverse", justifyContent: "center", alignItems: "center" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", flexDirection: "row-reverse", justifyContent: "center", alignItems: "center" }}>
               <p className="options" style={{ fontSize: "18px" }}>{option.text}</p>
               <button
                 key={option.text}
@@ -1632,7 +1632,7 @@ const App = () => {
             </div>
             <div style={{ marginBottom: "80px" }} className="feedback">
               <ColorFeedback2 />
-              <FourStrengthsTable/>
+              <FourStrengthsTable />
             </div>
             <div style={{ marginBottom: "80px" }} className="feedback">
               <ColorFeedback />

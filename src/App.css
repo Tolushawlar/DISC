@@ -266,6 +266,7 @@ body::-webkit-scrollbar {
 }
 
 @media (max-width: 768px) {
+
   .details {
     display: flex;
     flex-direction: column;
@@ -276,7 +277,7 @@ body::-webkit-scrollbar {
     margin: 10px;
   }
 
-  .chart{
+  .chart {
     margin-right: 60vw !important;
   }
 
@@ -309,17 +310,36 @@ body::-webkit-scrollbar {
     width: 400px !important;
   }
 
+  .colorBox {
+    max-width: 70vw;
+  }
+
   .feedbackCol,
   .fourTable {
     display: flex;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    margin-left: 30vw;
+    margin-left: 80vw;
+  }
+
+  .custInner{
+    max-width: 300px !important;
+  }
+  .feedback h3 {
+    font-size: 18px;
+  }
+
+  .feedbackCol h2 {
+    font-size: 18px;
+  }
+
+  .feedbackColTable{
+    width: 70vw;
   }
 
   .resultHeader {
-    font-size: 18px !important;
+    font-size: 20px !important;
     margin-right: 60vw;
   }
 
