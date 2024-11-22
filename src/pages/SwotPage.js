@@ -7,6 +7,7 @@ const swotData = {
   swotQuestions: [
     {
       "section": "Strengths",
+      'mobile': 'S',
       "questions": [
         {
           "id": 1,
@@ -320,6 +321,7 @@ const swotData = {
     },
     {
       "section": "Weaknesses",
+      'mobile': 'W',
       "questions": [
         {
           "id": 1,
@@ -633,6 +635,7 @@ const swotData = {
     },
     {
       "section": "Opportunities",
+      'mobile': 'O',
       "questions": [
         {
           "id": 1,
@@ -904,6 +907,7 @@ const swotData = {
     },
     {
       "section": "Threats",
+      'mobile': 'T',
       "questions": [
         {
           "id": 1,
@@ -1498,7 +1502,20 @@ const SwotPage = () => {
   };
 
 
+  const [isMobile, setIsMobile] = useState(false);
+  // Update isMobile state based on window size
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
+    };
 
+    // Initial check and event listener
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
 
   return (
@@ -1506,7 +1523,7 @@ const SwotPage = () => {
       {!submitted ? (
         <>
           <div className="tabs">
-            {swotData.swotQuestions.map((section, index) => (
+            {/* {swotData.swotQuestions.map((section, index) => (
               <button
                 key={section.section}
                 className={`tab ${index === activeTab ? "active" : "buttonTab"}`}
@@ -1514,7 +1531,33 @@ const SwotPage = () => {
               >
                 {section.section}
               </button>
-            ))}
+            ))} */}
+            {isMobile ? (
+              <div className="tabs">
+                {swotData.swotQuestions.map((section, index) => (
+                  <button
+                    key={section.section}
+                    className={`tab ${index === activeTab ? "active" : "buttonTab"}`}
+                    onClick={() => setActiveTab(index)}
+                    style={{fontSize:"25px"}}
+                  >
+                    {section.mobile}
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <div className="tabs">
+                {swotData.swotQuestions.map((section, index) => (
+                  <button
+                    key={section.section}
+                    className={`tab ${index === activeTab ? "active" : "buttonTab"}`}
+                    onClick={() => setActiveTab(index)}
+                  >
+                    {section.section}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
           <div className="questions">
             {swotData.swotQuestions[activeTab].questions.map(({ id, question, options }) => {
@@ -1533,7 +1576,7 @@ const SwotPage = () => {
                   </p>
                   {options.map((option) => (
                     <label key={option.text}
-                      style={{ backgroundColor: "orange", color: "black", fontWeight: "Bold", padding: "6px", width: "400px", borderRadius: "8px" }}
+                      style={{ backgroundColor: "white", color: "black", fontWeight: "Bold", padding: "6px", width: "400px", borderRadius: "8px", borderColor: "red", border: "3px", }}
                     >
                       <input
                         type="radio"
