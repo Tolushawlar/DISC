@@ -1484,7 +1484,7 @@ const App = () => {
     return (
       <div className="fourTable" style={{ padding: "20px" }}>
         <h2>Adult Strengths Profile for Organizational Positions</h2>
-        <table border="1" style={{ borderCollapse: "collapse", width: "100%" }}>
+        <table border="1" style={{ borderCollapse: "collapse", }} className="tablePro">
           <thead>
             <tr>
               <th>Position</th>

@@ -323,7 +323,7 @@ body::-webkit-scrollbar {
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    margin-right: 20vw !important;
+    margin-right: 30vw !important;
   }
 
   .feedback {
