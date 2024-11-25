@@ -15,11 +15,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Having patents provides strong legal protection, creating barriers for competitors trying to replicate your product. It ensures your innovation is safeguarded, allowing you to capture market value without imitation. This competitive edge strengthens market position and attracts investors, as intellectual property is often a valuable business asset. Moreover, patents can offer leverage for licensing agreements, royalty payments, or strategic partnerships, enabling additional revenue streams."
+              "result": "Patents provide legal protection, prevent imitation, and attract investors, strengthening market position."
             },
             {
               "text": "No",
-              "result": "The absence of patents may expose your business to imitation, making it easier for competitors to copy your innovations and erode your market share. This can lead to price wars, reduced profitability, and diminished brand value. To mitigate this risk, consider other protective measures such as trade secrets, rapid innovation cycles, or developing a unique customer experience. If your product is highly innovative, exploring patent registration may still be a worthwhile investment."
+              "result": "Without patents, your business is vulnerable to imitation. Explore trade secrets or consider patent registration."
             }
           ]
         },
@@ -29,11 +29,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "A strong brand name helps establish customer trust, recognition, and loyalty, making it easier to introduce new products and expand into new markets. Brand equity also provides a competitive advantage, as customers are more likely to choose a familiar name over unknown competitors. Furthermore, it can command premium pricing, improve customer retention, and reduce marketing costs in the long run by leveraging established trust and familiarity."
+              "result": "A strong brand builds trust, loyalty, and recognition, enhancing market presence and reducing costs."
             },
             {
               "text": "No",
-              "result": "Without a strong brand, your business may struggle to stand out in the market, and customers may view your products as less reliable. Building a recognizable brand requires consistent messaging, positive customer experiences, and targeted marketing. Investing in brand development through advertising, customer engagement, and partnerships will help create awareness and loyalty, ultimately enhancing long-term success."
+              "result": "Lack of a strong brand hinders visibility. Invest in branding to boost awareness and customer loyalty."
             }
           ]
         },
@@ -43,11 +43,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "A positive reputation among customers fosters trust, leading to higher customer retention, word-of-mouth referrals, and greater brand advocacy. It reduces customer acquisition costs as loyal customers are more likely to repurchase and recommend your business. In times of crisis or market uncertainty, a good reputation can act as a safety net, maintaining sales and customer loyalty. Continuing to exceed customer expectations will further strengthen your brand’s image."
+              "result": "A good reputation drives loyalty, referrals, and retention, enhancing long-term business success."
             },
             {
               "text": "No",
-              "result": "A lack of a positive reputation may hinder your ability to attract and retain customers, affecting revenue and growth. It is crucial to address customer concerns, enhance product quality, and improve service to build trust. Leveraging social proof, such as customer testimonials and reviews, can also help repair and develop a better reputation. Focus on consistent delivery of value and transparency to regain customer confidence."
+              "result": "A weak reputation affects growth. Focus on customer satisfaction to rebuild trust and loyalty."
             }
           ]
         },
@@ -57,11 +57,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "A diverse product portfolio reduces reliance on a single product for revenue, helping to spread risk. It allows you to meet the needs of different customer segments and adapt to changing market trends. Furthermore, cross-selling opportunities between product lines can increase the average customer spend. However, managing multiple products requires careful planning to avoid resource dilution, so efficient inventory management and product differentiation strategies are essential."
+              "result": "Diverse product lines reduce risks and attract more customers, boosting revenue potential."
             },
             {
               "text": "No",
-              "result": "A limited product range could restrict your ability to attract a broader audience or respond to shifts in consumer preferences. Expanding your product offerings can open new revenue streams and mitigate market risks associated with overdependence on a few products. Conducting market research will help identify gaps and ensure that any new product development aligns with customer needs and market trends."
+              "result": "Limited products restrict growth. Explore market gaps to diversify offerings and revenue streams."
             }
           ]
         },
@@ -71,11 +71,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Broad market coverage enables your business to reach more customers, improving brand visibility and sales. This approach reduces dependency on a single market, making your business more resilient to local economic shifts. Geographic diversification also allows you to identify and capitalize on growth opportunities in emerging markets. However, ensuring consistent brand messaging and product quality across regions is key to maintaining your competitive edge."
+              "result": "Broad coverage improves visibility, resilience, and sales across diverse markets."
             },
             {
               "text": "No",
-              "result": "Limited market coverage can restrict your revenue potential and increase vulnerability to regional disruptions. Expanding into new markets, whether geographically or through new customer segments, can help diversify revenue streams and reduce risks. Developing a targeted market entry strategy—such as leveraging local partnerships or adapting products to new market needs—can ensure a successful expansion."
+              "result": "Limited coverage reduces revenue potential. Expand strategically to new regions or segments."
             }
           ]
         },
@@ -85,11 +85,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Strong manufacturing capabilities enhance product quality, reduce waste, and lower production costs, making your business more competitive. Efficient processes enable faster turnaround times, ensuring timely delivery to customers. Additionally, manufacturing expertise allows you to scale operations efficiently in response to increased demand. Continuous investment in technology and lean practices can further improve performance and keep you ahead of competitors."
+              "result": "Efficient manufacturing improves quality, reduces costs, and enhances scalability."
             },
             {
               "text": "No",
-              "result": "Lack of manufacturing competence can lead to higher costs, production delays, and quality issues, which may affect customer satisfaction. Optimizing manufacturing processes through automation, staff training, or outsourcing can reduce operational inefficiencies. Building strategic relationships with suppliers and adopting lean manufacturing practices will also help improve your cost structure and product quality."
+              "result": "Inefficiencies affect quality and cost. Optimize processes or consider outsourcing for improvements."
             }
           ]
         },
@@ -99,11 +99,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Effective marketing strategies create brand awareness, generate leads, and engage customers, ultimately driving sales. Skilled marketing teams can identify and leverage the right channels—such as social media, content marketing, or paid ads—to reach target audiences efficiently. A well-rounded approach, including data analytics and personalized campaigns, enhances customer acquisition and retention while maximizing return on investment."
+              "result": "Effective marketing increases visibility, customer engagement, and sales."
             },
             {
               "text": "No",
-              "result": "Weak marketing efforts may limit your business’s visibility and hinder growth. Developing marketing competencies is essential for reaching the right customers and driving sales. Investing in market research, branding, and digital marketing tools will help you craft targeted campaigns. Additionally, building an in-house team or collaborating with agencies can bring fresh perspectives to your marketing strategy, ensuring it aligns with business goals."
+              "result": "Weak marketing limits growth. Invest in skills and tools to reach and retain customers."
             }
           ]
         },
@@ -113,11 +113,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Your company excels at attracting talented managers, which strengthens leadership and enhances strategic decision-making. This capability fosters innovation, drives operational excellence, and creates a competitive advantage by aligning top talent with business objectives."
+              "result": "Attracting skilled managers strengthens leadership and drives operational excellence."
             },
             {
               "text": "No",
-              "result": "Struggling to attract skilled managers can limit your company's ability to grow and manage complex operations. Enhancing employer branding, offering competitive incentives, and investing in leadership development can help attract and retain talented managers."
+              "result": "Lacking talent limits growth. Enhance employer branding and offer competitive incentives."
             }
           ]
         },
@@ -127,11 +127,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Your organization has a strong ability to motivate employees, leading to higher productivity, lower turnover, and better team dynamics. A motivated workforce improves customer satisfaction and contributes to achieving long-term business goals."
+              "result": "Motivated employees boost productivity and contribute to organizational success."
             },
             {
               "text": "No",
-              "result": "Without effective employee motivation, productivity and morale may suffer, leading to higher turnover rates. Fostering a positive work culture, recognizing achievements, and offering growth opportunities can boost motivation and drive better results."
+              "result": "Low morale affects performance. Recognize achievements and foster growth to improve motivation."
             }
           ]
         },
@@ -141,109 +141,109 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Your company’s ability to innovate positions it at the forefront of industry trends, enabling it to develop new products and services that meet evolving customer needs. Innovation also strengthens your brand and provides a competitive edge in the market."
+              "result": "Innovation keeps your business competitive and aligned with market trends."
             },
             {
               "text": "No",
-              "result": "Limited innovation capabilities can leave your business vulnerable to disruption and market shifts. Encouraging creativity, investing in R&D, and fostering a culture of experimentation can enhance your ability to innovate and stay competitive."
+              "result": "Lack of innovation risks obsolescence. Foster creativity and invest in R&D to adapt."
             }
           ]
         },
         {
           "id": 11,
-          "question": "Ability to manufacture quality products?",
+          "question": "Clear understanding of customer needs?",
           "options": [
             {
               "text": "Yes",
-              "result": "Your company has mastered the ability to manufacture quality products, which enhances brand reputation, customer satisfaction, and loyalty. Consistent product quality minimizes defects and returns, helping your business maintain a competitive position."
+              "result": "Understanding customer needs helps tailor products and services, increasing satisfaction and loyalty."
             },
             {
               "text": "No",
-              "result": "Challenges in maintaining product quality can harm your brand’s reputation and lead to dissatisfied customers. Investing in quality control processes, employee training, and supplier management can help ensure high standards in manufacturing."
+              "result": "Lack of insight into customer needs can lead to mismatched offerings. Invest in customer research and feedback."
             }
           ]
         },
         {
           "id": 12,
-          "question": "Access to sufficient financial resources?",
+          "question": "Ability to innovate?",
           "options": [
             {
               "text": "Yes",
-              "result": "Having access to sufficient financial resources empowers your business to invest in growth opportunities, scale operations, and manage risks effectively. This financial stability ensures your business can weather downturns and fund innovation initiatives."
+              "result": "Innovation drives growth, differentiating your business and positioning you as an industry leader."
             },
             {
               "text": "No",
-              "result": "Lack of financial resources can limit your business’s ability to grow and respond to market opportunities. Exploring alternative funding options, such as venture capital or partnerships, can help improve cash flow and ensure sustainable growth."
+              "result": "Lack of innovation results in stagnation. Foster creativity to stay competitive and meet changing demands."
             }
           ]
         },
         {
           "id": 13,
-          "question": "Strong ability to develop effective strategies?",
+          "question": "Effective customer support?",
           "options": [
             {
               "text": "Yes",
-              "result": "Your company excels at developing effective strategies, providing clarity on objectives and how to achieve them. This capability ensures alignment across departments, drives operational efficiency, and positions your business for long-term success."
+              "result": "Exceptional support enhances customer loyalty, reduces churn, and improves brand reputation."
             },
             {
               "text": "No",
-              "result": "Weak strategic development can lead to misaligned efforts, missed opportunities, and operational inefficiencies. Strengthening your strategic planning process through data analysis, scenario planning, and leadership involvement can enhance your ability to create and execute winning strategies."
+              "result": "Poor support leads to dissatisfaction and loss of customers. Invest in responsive and helpful support systems."
             }
           ]
         },
         {
           "id": 14,
-          "question": "Cost of differentiation advantage?",
+          "question": "Strong employee satisfaction?",
           "options": [
             {
               "text": "Yes",
-              "result": "Your business has developed a cost-based differentiation strategy, allowing it to offer unique products at competitive prices without sacrificing quality. This advantage enables you to attract both value-conscious and quality-seeking customers, improving profitability through economies of scale and optimized production processes."
+              "result": "Happy employees are more productive and motivated, directly contributing to business success."
             },
             {
               "text": "No",
-              "result": "Lacking a cost advantage could limit your ability to compete on price, especially in markets with price-sensitive customers. Investing in lean production methods, strategic sourcing, and process optimization can help you build this edge, enabling you to lower costs while maintaining differentiation."
+              "result": "Low satisfaction impacts performance. Focus on employee engagement and welfare to boost morale."
             }
           ]
         },
         {
           "id": 15,
-          "question": "New-venture management expertise?",
+          "question": "Clear brand identity?",
           "options": [
             {
               "text": "Yes",
-              "result": "Having strong expertise in new-venture management allows your business to explore and capitalize on growth opportunities, bringing innovative products or services to market effectively. This skillset reduces the risks associated with launching new projects, ensures resource efficiency, and helps capture early market share in emerging industries."
+              "result": "A strong brand identity attracts customers, builds loyalty, and positions you effectively in the market."
             },
             {
               "text": "No",
-              "result": "Without expertise in managing new ventures, your business may struggle to launch successful initiatives or adapt to market changes. Building this capability through targeted training, mentorship programs, and partnerships can enhance your ability to innovate and capture growth opportunities."
+              "result": "An unclear brand confuses customers. Define your brand values, vision, and messaging for better recognition."
             }
           ]
         },
         {
           "id": 16,
-          "question": "Appropriate management style?",
+          "question": "Access to capital?",
           "options": [
             {
               "text": "Yes",
-              "result": "Your leadership employs a management style that aligns with the organization’s goals and culture, fostering collaboration, trust, and employee engagement. The right management style ensures effective communication, better decision-making, and high morale among employees, which ultimately enhances productivity and reduces turnover."
+              "result": "Easier access to capital supports growth, investment in new opportunities, and financial stability."
             },
             {
               "text": "No",
-              "result": "An unsuitable management style may lead to low employee morale, high turnover, and ineffective decision-making. Evaluating and adopting a more adaptive approach that considers team dynamics and organizational goals can help improve performance and employee satisfaction."
+              "result": "Limited capital restricts growth. Improve financial planning and explore new funding sources."
             }
           ]
         },
         {
           "id": 17,
-          "question": "Appropriate organizational structure?",
+          "question": "Efficient supply chain?",
           "options": [
             {
               "text": "Yes",
-              "result": "Your organization has a well-defined structure that supports seamless communication, quick decision-making, and operational efficiency. This structure ensures clarity in roles and responsibilities, minimizes conflicts, and aligns departments toward common goals, fostering an agile and resilient business model."
+              "result": "A streamlined supply chain reduces costs, improves product availability, and enhances customer satisfaction."
             },
             {
               "text": "No",
-              "result": "An ineffective organizational structure may result in communication breakdowns, duplication of efforts, and operational bottlenecks. Restructuring your organization with clear hierarchies, efficient workflows, and well-defined roles can improve coordination and overall performance."
+              "result": "Inefficiencies in the supply chain lead to delays and higher costs. Optimize your logistics to stay competitive."
             }
           ]
         },
@@ -253,11 +253,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Your business has robust control systems in place to monitor performance, manage risks, and ensure compliance with internal policies and regulations. These systems enhance accountability, prevent errors, and facilitate continuous improvement by providing real-time data for informed decision-making."
+              "result": "Strong control systems ensure accountability, minimize risks, and improve decision-making through real-time data."
             },
             {
               "text": "No",
-              "result": "Weak or absent control systems can expose your business to risks such as fraud, inefficiencies, and regulatory non-compliance. Implementing reliable control mechanisms will enhance accountability, mitigate risks, and streamline operations, providing a solid foundation for sustainable growth."
+              "result": "Weak controls expose risks and inefficiencies. Implement robust systems to enhance accountability and compliance."
             }
           ]
         },
@@ -267,11 +267,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Your business demonstrates strong change management skills, enabling it to pivot swiftly in response to market shifts or disruptions. This capability ensures smooth transitions during restructuring, mergers, or new initiatives, fostering innovation while maintaining stability and focus on long-term objectives."
+              "result": "Your adaptability ensures smooth transitions, fostering innovation and maintaining competitive focus."
             },
             {
               "text": "No",
-              "result": "Difficulty in managing strategic change can hinder your ability to stay competitive in a rapidly evolving market. Developing change management capabilities—such as leadership alignment, communication plans, and employee engagement strategies—can help you adapt more effectively and seize new opportunities."
+              "result": "Struggles with change hinder competitiveness. Build capabilities to adapt and seize new opportunities."
             }
           ]
         },
@@ -281,11 +281,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Your organization benefits from a well-developed corporate strategy that aligns its vision, mission, and goals. This clarity enables your business to prioritize resources, drive operational efficiency, and make data-driven decisions, fostering long-term growth and competitive advantage."
+              "result": "A clear strategy aligns goals, optimizes resources, and drives long-term growth."
             },
             {
               "text": "No",
-              "result": "Operating without a clear corporate strategy can result in misaligned efforts, wasted resources, and missed opportunities. Developing a strategic plan that incorporates market analysis, competitor insights, and organizational strengths can provide direction and facilitate better decision-making."
+              "result": "Lack of strategy causes inefficiencies. Develop a plan to align efforts and drive success."
             }
           ]
         },
@@ -295,11 +295,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Your business excels in international operations, which helps diversify revenue streams, spread risks, and increase global market presence. Strong international capabilities also enhance your ability to tap into new customer segments and benefit from regional growth opportunities."
+              "result": "Strong international operations diversify revenue and boost global presence."
             },
             {
               "text": "No",
-              "result": "Limited international operations may restrict your growth potential and increase vulnerability to domestic market fluctuations. Expanding your international footprint through market research, partnerships, and operational efficiency can unlock new opportunities and improve resilience."
+              "result": "Limited global reach restricts growth. Expand internationally for resilience and new opportunities."
             }
           ]
         },
@@ -309,11 +309,11 @@ const swotData = {
           "options": [
             {
               "text": "Yes",
-              "result": "Your business has proven resilient during pandemics, demonstrating the ability to adapt quickly and maintain profitability despite disruptions. This resilience highlights your agility, strong leadership, and ability to meet customer needs even under challenging circumstances, setting your business apart as a trusted and reliable brand."
+              "result": "Resilient operations maintain profitability during crises, enhancing trust and brand strength."
             },
             {
               "text": "No",
-              "result": "Struggling to maintain profitability during pandemics or crises may expose vulnerabilities in your business model. Building resilience through contingency planning, digital transformation, and diversified revenue streams can strengthen your ability to weather future disruptions and ensure long-term success."
+              "result": "Pandemic struggles highlight vulnerabilities. Build resilience to handle future disruptions."
             }
           ]
         }
@@ -1406,100 +1406,245 @@ const SwotPage = () => {
   const handleDownloadPdf = () => {
     const doc = new jsPDF();
 
-    // General font settings
-    doc.setFont("helvetica", "normal");
-
-    // Define styles for SWOT sections
+    // Define gradient styles for SWOT sections
     const sectionStyles = {
-      Strengths: { color: [0, 255, 255] }, // Green
-      Weaknesses: { color: [255, 0, 0] }, // Red
-      Opportunities: { color: [0, 112, 192] }, // Blue
-      Threats: { color: [255, 192, 0] }, // Yellow
+      Strengths: { colorStart: [205, 165, 0], colorEnd: [255, 145, 0] }, // Orange gradient 
+      Weaknesses: { colorStart: [173, 216, 230], colorEnd: [100, 149, 237] }, // Light blue gradient
+      Opportunities: { colorStart: [128, 0, 128], colorEnd: [75, 0, 130] }, // Purple gradient
+      Threats: { colorStart: [0, 100, 0], colorEnd: [0, 128, 0] }, // Deep green gradient 
+    };
+
+    let pageNumber = 1; // Track the current page number
+
+    // Helper function to draw page border
+    const drawPageBorder = (doc) => {
+      doc.setDrawColor(257, 257, 257); // Black border color
+      doc.setLineWidth(1.5); // Border thickness
+      // doc.rect(5, 5, 200, 287); // Border dimensions (full page)
+      doc.roundedRect(5, 5, 200, 287, 10, 10, "S"); // Rounded border with a radius of 10
+    };
+
+    // Helper function to add a soft background
+    const addSoftBackground = (doc, color = [22, 0, 57]) => {
+      doc.setFillColor(...color);
+      doc.rect(0, 0, 210, 297, "F"); // Cover full A4 page with the color
+    };
+
+    // Helper function to add a footer
+    const addFooter = (doc) => {
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(10);
+      doc.setTextColor(256, 256, 256);
+      doc.text("www.beteachable.com", 105, 285, { align: "center" });
+      doc.text(`Page ${pageNumber}`, 105, 290, { align: "center" }); // Page number in the center
     };
 
     // Add title
+    doc.setFont("helvetica", "bold");
     doc.setFontSize(12);
-    doc.setTextColor(0, 0, 0);
-    doc.text("Marketing Plan SWOT Analysis", 14, 20);
+    doc.setTextColor(236, 66, 244); // White text
 
-    let currentY = 30; // Start position for the content
+    // Add a background to the first page
+    addSoftBackground(doc);
+    drawPageBorder(doc); // Add border to the first page
+
+    // Centering "BETEACHABLE" title
+    const title1 = "BETEACHABLE";
+    const title1Width = doc.getStringUnitWidth(title1) * doc.internal.getFontSize() / doc.internal.scaleFactor;
+    const title1X = (210 - title1Width) / 2; // Center horizontally on the A4 page (210mm width)
+    doc.text(title1, title1X, 20); // Y position is 20mm
+
+    // Set up for the second title
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(46);
+    doc.setTextColor(236, 66, 244); // White text
+
+    // Centering "SWOT ANALYSIS" title
+    const title2 = "SWOT ANALYSIS";
+    const title2Width = doc.getStringUnitWidth(title2) * doc.internal.getFontSize() / doc.internal.scaleFactor;
+    const title2X = (210 - title2Width) / 2; // Center horizontally on the A4 page (210mm width)
+    doc.text(title2, title2X, 40); // Y position is 40mm
+
+
+
+    // Draw 4 larger circles with letters "S", "W", "O", "T"
+    const circleRadius = 15; // Increased circle radius
+    const circleY = 40; // Y position for circles
+
+    const letters = ['S', 'W', 'O', 'T'];
+    const colors = ['#F44336', '#4CAF50', '#FF9800', '#3F51B5']; // Color for each letter
+
+    // Draw circles and add letters inside them
+    for (let i = 0; i < 4; i++) {
+      const circleX = 30 + i * 50; // Increased space between circles horizontally
+      // Draw circle
+      doc.setFillColor(colors[i]);
+      doc.circle(circleX, circleY + 40, circleRadius, 'F');
+      // Add letter inside the circle
+      doc.setFont("helvetica", "bold");
+      doc.setTextColor(255, 255, 255); // Set text color to white for contrast
+      doc.setFontSize(55);
+      doc.text(letters[i], circleX - 8.5, circleY + 48); // Adjust positioning inside the circle
+    }
+
+    // Define section titles and content
+    const sections = [
+      { title: 'Strengths', content: `- Attributes that support a company's success and competitiveness.\n- Characteristics that set the company apart from its competitors.` },
+      { title: 'Weaknesses', content: `- Characteristics that put the company at a disadvantage compared to others.\n- Negative internal factors that the company needs to address to achieve its objectives.` },
+      { title: 'Opportunities', content: `- External factors that the company can leverage to achieve its objectives.\n- Favorable market conditions that the company can capitalize on.` },
+      { title: 'Threats', content: `- Unfavorable market conditions that the company needs to address.\n- Negative external factors that can harm the company's growth and success.` }
+    ];
+
+    // Set position for the section titles
+    let currentY = 100; // Start position for content
+
+    // Draw section titles and content horizontally in a row under each circle
+    for (let i = 0; i < sections.length; i++) {
+      const section = sections[i];
+      const sectionX = 30 + i * 52; // Align text under each circle
+
+      // Add section title
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(8);
+      doc.text(section.title, sectionX - 15, currentY); // Position section title under each circle
+
+      // Add section content (adjusted to fit horizontally)
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8);
+      const contentLines = doc.splitTextToSize(section.content, 30); // Split content to fit
+      doc.text(contentLines, sectionX - 15, currentY + 5); // Position content below section title
+
+      currentY = 100; // Increase Y position for the next row of content
+    }
+
+
+    // let currentY = 60; // Start position for the content
+    currentY = 190
 
     // Loop through SWOT sections
     swotData.swotQuestions.forEach((section) => {
       const { section: sectionTitle, questions } = section;
-      const { color } = sectionStyles[sectionTitle] || {};
+      const { colorStart, colorEnd } = sectionStyles[sectionTitle] || {};
 
-      // Add section title
-      doc.setFontSize(10);
-      doc.setTextColor(0, 0, 0);
-      doc.text(`${sectionTitle}`, 10, currentY + 10); // Section name on the left
+      // Add section title with padding and rounded rectangle
+      doc.setDrawColor(0, 0, 0); // Border color
+      doc.setLineWidth(0.5);
+      doc.setFillColor(...colorStart);
+      doc.roundedRect(10, currentY, 190, 20, 10, 10, "FD"); // Rounded rectangle
 
-      // Set initial position for the right border
-      let startY = currentY - 5;
-      doc.setFillColor(...color);
-      doc.rect(200, startY, 5, 270 - startY, "F"); // Add right border
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(18);
+      doc.setTextColor(255, 255, 255); // White text
+      // doc.text(`${sectionTitle}`, 15, currentY + 13); // Section name inside rounded rectangle
+      const sectionText = `${sectionTitle}`;
+      // Write the text multiple times with slight shifts
+      doc.text(sectionText, 15, currentY + 13);
+      doc.text(sectionText, 15.2, currentY + 13);
+      doc.text(sectionText, 14.8, currentY + 13);
+      doc.text(sectionText, 15, currentY + 13.2);
+      doc.text(sectionText, 15, currentY + 12.8);
 
-      // Add spacing for section title
-      currentY += 15;
-
+      // Add spacing for content
+      currentY += 25;
+      // pageNumber+=1
+      // Loop through each question in the section
       // Loop through each question in the section
       questions.forEach((questionObj) => {
         const { id, question, options } = questionObj;
         const userResponse = responses[sectionTitle]?.[id] || "No response given";
         const result = options.find((opt) => opt.text === userResponse)?.result || "No result available";
 
-        // Add background color for the question and result
-        doc.setFillColor(...color.map((val) => Math.min(val + 50, 255))); // Lighter shade
-        doc.rect(15, currentY - 3, 180, 14, "F"); // Background rectangle
+        // Define the box dimensions
+        const boxHeight = 20; // Height for the question and response box
+        const boxWidth = 180;
+        const boxX = 15;
+        const gradientStep = 3; // Increment for gradient effect
 
-        // Add the question (bold)
-        doc.setFontSize(8);
+        // Define color range for gradient
+        const colorRange = {
+          r: (colorEnd[0] - colorStart[0]) / (boxWidth / gradientStep),
+          g: (colorEnd[1] - colorStart[1]) / (boxWidth / gradientStep),
+          b: (colorEnd[2] - colorStart[2]) / (boxWidth / gradientStep),
+        };
+
+        // First, draw the rounded border (no fill yet)
+        const borderRadius = 80; // Set border radius for the curve
+        doc.setDrawColor(256, 256, 256); // Set border color (black)
+        doc.setLineWidth(1); // Set border thickness (thinner line)
+        doc.roundedRect(boxX, currentY, boxWidth, boxHeight, borderRadius, borderRadius, "S"); // Rounded rectangle for border
+
+        // Now, apply the gradient fill inside the box
+        for (let i = 0; i < boxWidth; i += gradientStep) {
+          const r = Math.min(colorStart[0] + colorRange.r * (i / gradientStep), 255);
+          const g = Math.min(colorStart[1] + colorRange.g * (i / gradientStep), 255);
+          const b = Math.min(colorStart[2] + colorRange.b * (i / gradientStep), 255);
+
+          doc.setFillColor(r, g, b);
+          doc.rect(boxX + i, currentY, gradientStep, boxHeight, "F");
+        }
+
+        // Add question and response text inside the box with white text
+        doc.setFontSize(10);
         doc.setFont("helvetica", "bold");
-        const questionText = doc.splitTextToSize(`${question}:`, 160);
-        doc.text(questionText, 20, currentY);
+        doc.setTextColor(255, 255, 255); // Set text color to white for the question
+        const questionText = doc.splitTextToSize(`${question}:`, boxWidth - 10);
+        doc.text(questionText, boxX + 5, currentY + 7);
 
-        // Add the response (normal font)
-        doc.setFont("helvetica", "normal");
+        doc.setFont("helvetica", "bold");
         const responseText = `${userResponse}: ${result}`;
-        const responseLines = doc.splitTextToSize(responseText, 160);
-        doc.text(responseLines, 25, currentY + questionText.length * 3);
+        const responseLines = doc.splitTextToSize(responseText, boxWidth - 10);
+        doc.text(responseLines, boxX + 5, currentY + 12);
 
         // Adjust currentY for the next question
-        currentY += questionText.length * 3 + responseLines.length * 2 + 10;
+        currentY += boxHeight + 5;
 
         // Handle page break if content exceeds the page
-        if (currentY > 270) {
-          // Finalize the current border
-          const remainingHeight = 270 - startY;
-          doc.rect(200, startY, 5, remainingHeight, "F");
-
-          // Add a new page
+        if (currentY > 260) {
+          addFooter(doc);
+          pageNumber += 1
           doc.addPage();
-
-          // Reset currentY and start a new border
-          currentY = 20;
-          startY = 20;
-          doc.rect(200, startY, 5, 270 - startY, "F"); // Continuation border
+          addSoftBackground(doc); // Add background to the new page
+          drawPageBorder(doc); // Add border to the new page
+          currentY = 20; // Reset Y for the new page
         }
       });
 
-      // Finalize the right border for the current section
-      const remainingHeight = currentY - startY;
-      doc.rect(200, startY, 5, remainingHeight, "F");
+
+
 
       // Add spacing between sections
-      currentY += 5;
+      currentY += 10;
 
       // Handle page break after the section if needed
-      if (currentY > 270) {
-        doc.addPage();
-        currentY = 20; // Reset Y for the new page
-      }
+      
     });
+
+    if (currentY > 260) {
+      addFooter(doc);
+      pageNumber++; // Increment page number
+      doc.addPage();
+      addSoftBackground(doc); // Add background to the new page
+      drawPageBorder(doc); // Add border to the new page
+      currentY = 20; // Reset Y for the new page
+    }
+
+    // Add footer to the final page
+    addFooter(doc);
 
     // Save the PDF
     doc.save("SWOT_Analysis_Results.pdf");
   };
+
+
+  // Helper function to add footer
+  const addFooter = (doc) => {
+    doc.setFontSize(10);
+    doc.setTextColor(150, 150, 150);
+    doc.text("www.beteachable.com", 105, 285, { align: "center" }); // Centered footer
+  };
+
+
+
 
 
   const [isMobile, setIsMobile] = useState(false);
@@ -1539,7 +1684,7 @@ const SwotPage = () => {
                     key={section.section}
                     className={`tab ${index === activeTab ? "active" : "buttonTab"}`}
                     onClick={() => setActiveTab(index)}
-                    style={{fontSize:"25px"}}
+                    style={{ fontSize: "25px" }}
                   >
                     {section.mobile}
                   </button>
