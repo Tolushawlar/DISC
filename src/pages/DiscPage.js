@@ -19,7 +19,7 @@ const questionsUpdate = [
     questions: [
       {
         id: 1,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Plan my way out.", weight: "C" },
           { text: "Under intense stress I tend to Become Distrustful.", weight: "D" }
@@ -27,15 +27,15 @@ const questionsUpdate = [
       },
       {
         id: 2,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
-          { text: "Under intense stress I tend to Become a big talker.", weight: "B" },
+          { text: "Under intense stress I tend to Become a big Talker.", weight: "B" },
           { text: "Under intense stress I tend to Become Withdrawn.", weight: "C" }
         ]
       },
       {
         id: 3,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become Impractical.", weight: "C" },
           { text: "Under intense stress I tend to Become Cross.", weight: "D" }
@@ -43,7 +43,7 @@ const questionsUpdate = [
       },
       {
         id: 4,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become Hotheaded.", weight: "A" },
           { text: "Under intense stress I tend to Become Careless.", weight: "B" }
@@ -51,7 +51,7 @@ const questionsUpdate = [
       },
       {
         id: 5,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become Negative.", weight: "D" },
           { text: "Under intense stress I tend to Become Dictatorial.", weight: "A" }
@@ -59,7 +59,7 @@ const questionsUpdate = [
       },
       {
         id: 6,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become Too Permissive.", weight: "B" },
           { text: "Under intense stress I tend to Become Stubborn.", weight: "D" }
@@ -67,7 +67,7 @@ const questionsUpdate = [
       },
       {
         id: 7,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become Indecisive.", weight: "C" },
           { text: "Under intense stress I tend to Become More Likely To Act.", weight: "A" }
@@ -75,7 +75,7 @@ const questionsUpdate = [
       },
       {
         id: 8,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become Bearish.", weight: "A" },
           { text: "Under intense stress I tend to Become Manipulative.", weight: "B" }
@@ -83,7 +83,7 @@ const questionsUpdate = [
       },
       {
         id: 9,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become Very Cautious.", weight: "D" },
           { text: "Under intense stress I tend to Become Abrupt.", weight: "A" }
@@ -91,7 +91,7 @@ const questionsUpdate = [
       },
       {
         id: 10,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become Reckless.", weight: "B" },
           { text: "Under intense stress I tend to Become Inflexible.", weight: "D" }
@@ -99,15 +99,15 @@ const questionsUpdate = [
       },
       {
         id: 11,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become Passive.", weight: "C" },
-          { text: "Under intense stress I tend to Become Insist On My Own Way.", weight: "A" }
+          { text: "Under intense stress I tend to Insist On My Own Way.", weight: "A" }
         ]
       },
       {
         id: 12,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become High-Handed.", weight: "A" },
           { text: "Under intense stress I tend to Become Rebellious.", weight: "B" }
@@ -115,7 +115,7 @@ const questionsUpdate = [
       },
       {
         id: 13,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become Very Picky.", weight: "D" },
           { text: "Under intense stress I tend to Become Overbearing.", weight: "A" }
@@ -123,7 +123,7 @@ const questionsUpdate = [
       },
       {
         id: 14,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become Extremely Careless.", weight: "B" },
           { text: "Under intense stress I tend to Become Rigid.", weight: "D" }
@@ -131,7 +131,7 @@ const questionsUpdate = [
       },
       {
         id: 15,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become Scheming.", weight: "C" },
           { text: "Under intense stress I tend to Become Concerned With Details.", weight: "D" }
@@ -139,7 +139,7 @@ const questionsUpdate = [
       },
       {
         id: 16,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become Conceited.", weight: "B" },
           { text: "Under intense stress I tend to Become Anxious and Afraid.", weight: "C" }
@@ -147,7 +147,7 @@ const questionsUpdate = [
       },
       {
         id: 17,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become Sensitive.", weight: "C" },
           { text: "Under intense stress I tend to Become Hostile.", weight: "A" }
@@ -155,7 +155,7 @@ const questionsUpdate = [
       },
       {
         id: 18,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become Opinionated.", weight: "B" },
           { text: "Under intense stress I tend to Become Very Emotional.", weight: "C" }
@@ -163,7 +163,7 @@ const questionsUpdate = [
       },
       {
         id: 19,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become Uncertain.", weight: "C" },
           { text: "Under intense stress I tend to Become Domineering.", weight: "A" }
@@ -171,7 +171,7 @@ const questionsUpdate = [
       },
       {
         id: 20,
-        question: "",
+        question: "Under Intense Stress, I Tend to",
         options: [
           { text: "Under intense stress I tend to Become a Bluffer.", weight: "B" },
           { text: "Under intense stress I tend to Become Distrustful.", weight: "D" }
@@ -185,7 +185,7 @@ const questionsUpdate = [
     questions: [
       {
         id: 21,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Develop New Plans.", weight: "C" },
           { text: "I think I should Be Consistent.", weight: "D" }
@@ -193,7 +193,7 @@ const questionsUpdate = [
       },
       {
         id: 22,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Stick to the Rules.", weight: "D" },
           { text: "I think I should Supervise Others.", weight: "A" }
@@ -201,7 +201,7 @@ const questionsUpdate = [
       },
       {
         id: 23,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Depend On My Own Experiences.", weight: "A" },
           { text: "I think I should Be a Self-Starter.", weight: "C" }
@@ -209,7 +209,7 @@ const questionsUpdate = [
       },
       {
         id: 24,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Confer with Other People.", weight: "B" },
           { text: "I think I should Look for New Ideas.", weight: "C" }
@@ -217,7 +217,7 @@ const questionsUpdate = [
       },
       {
         id: 25,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Give Others Directions.", weight: "A" },
           { text: "I think I should Influence Others.", weight: "B" }
@@ -225,7 +225,7 @@ const questionsUpdate = [
       },
       {
         id: 26,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Conserve Resources.", weight: "D" },
           { text: "I think I should Create Ideas.", weight: "C" }
@@ -233,7 +233,7 @@ const questionsUpdate = [
       },
       {
         id: 27,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Do What Works.", weight: "A" },
           { text: "I think I should Develop New Approaches.", weight: "C" }
@@ -241,7 +241,7 @@ const questionsUpdate = [
       },
       {
         id: 28,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Coordinate Group Activities.", weight: "B" },
           { text: "I think I should Follow Tradition.", weight: "D" }
@@ -249,7 +249,7 @@ const questionsUpdate = [
       },
       {
         id: 29,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Achieve By Using Ideas.", weight: "C" },
           { text: "I think I should Do Something.", weight: "A" }
@@ -257,7 +257,7 @@ const questionsUpdate = [
       },
       {
         id: 30,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Arrange Things In a Pattern.", weight: "D" },
           { text: "I think I should Build Something.", weight: "A" }
@@ -265,7 +265,7 @@ const questionsUpdate = [
       },
       {
         id: 31,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Explore New Ideas.", weight: "C" },
           { text: "I think I should Help Other People.", weight: "B" }
@@ -273,7 +273,7 @@ const questionsUpdate = [
       },
       {
         id: 32,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Involve Others.", weight: "B" },
           { text: "I think I should Keep Things In Order.", weight: "D" }
@@ -281,7 +281,7 @@ const questionsUpdate = [
       },
       {
         id: 33,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Produce Something.", weight: "A" },
           { text: "I think I should Be Precise.", weight: "D" }
@@ -289,7 +289,7 @@ const questionsUpdate = [
       },
       {
         id: 34,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Keep On a Schedule.", weight: "D" },
           { text: "I think I should Be Hopeful.", weight: "B" }
@@ -297,7 +297,7 @@ const questionsUpdate = [
       },
       {
         id: 35,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Work With Concepts and Ideas.", weight: "C" },
           {
@@ -308,15 +308,15 @@ const questionsUpdate = [
       },
       {
         id: 36,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Should Be Persuasive.", weight: "B" },
-          { text: "I think I should Others Should Respect Me.", weight: "A" }
+          { text: "I feel that Others Should Respect Me.", weight: "A" }
         ]
       },
       {
         id: 37,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Promote Programs to Others.", weight: "B" },
           { text: "I think I should Compete With Myself To Do Better.", weight: "C" }
@@ -324,7 +324,7 @@ const questionsUpdate = [
       },
       {
         id: 38,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Work Within Guidelines and Forms.", weight: "D" },
           { text: "I think I should Coordinate Group Cooperation.", weight: "B" }
@@ -332,7 +332,7 @@ const questionsUpdate = [
       },
       {
         id: 39,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Work with Ideas and Plans.", weight: "C" },
           { text: "I think I should Get Something Done.", weight: "A" }
@@ -340,7 +340,7 @@ const questionsUpdate = [
       },
       {
         id: 40,
-        question: "",
+        question: "I Think I Should",
         options: [
           { text: "I think I should Organize Others For The Good of The Group.", weight: "B" },
           { text: "I think I should Produce Things.", weight: "A" }
