@@ -702,6 +702,9 @@ const App = () => {
   const [answers, setAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
   const [identity, setIdentity] = useState("");
+  const [identity2, setIdentity2] = useState("");
+  const [identity3, setIdentity3] = useState("");
+  const [identity4, setIdentity4] = useState("");
   const [userDetails, setUserDetails] = useState({
     name: "",
     email: "",
@@ -965,6 +968,28 @@ const App = () => {
   const maxValue = Math.max(...valuesArray); // Find the highest value
   const maxIndex = valuesArray.indexOf(maxValue); // Find the index of the highest value
 
+  // Create an array of value-index pairs
+  const valueIndexPairs = valuesArray.map((value, index) => ({ value, index }));
+
+  // Sort the pairs by value in descending order
+  valueIndexPairs.sort((a, b) => b.value - a.value);
+
+  // Get the indices of the 2nd, 3rd, and 4th highest values
+  const secondHighestIndex = valueIndexPairs[1]?.index;
+  const thirdHighestIndex = valueIndexPairs[2]?.index;
+  const fourthHighestIndex = valueIndexPairs[3]?.index;
+
+  // Fetch the corresponding colors
+  const secondHighestColor = colorsArray[secondHighestIndex];
+  const thirdHighestColor = colorsArray[thirdHighestIndex];
+  const fourthHighestColor = colorsArray[fourthHighestIndex];
+
+  console.log("Values Array:", valuesArray);
+  console.log("Colors Array:", colorsArray);
+  console.log(`2nd Highest Color: ${secondHighestColor}`);
+  console.log(`3rd Highest Color: ${thirdHighestColor}`);
+  console.log(`4th Highest Color: ${fourthHighestColor}`);
+
   // Step 2: Get the corresponding color from the colors array
   const correspondingColor = colorsArray[maxIndex];
   console.log(valuesArray);
@@ -974,8 +999,13 @@ const App = () => {
   );
   console.log(colorsArray[0]);
   console.log(colors);
+
+
   const ColorFeedback = () => {
     const [feedback, setFeedback] = useState("");
+    const [feedback2, setFeedback2] = useState("");
+    const [feedback3, setFeedback3] = useState("");
+    const [feedback4, setFeedback4] = useState("");
 
     const colors = [
       {
@@ -1024,180 +1054,20 @@ const App = () => {
           <div>
             {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
             <p>Your major strength is associated with {correspondingColor}!</p> */}
-            <p>
-              You are result Oriented and driven, Direct to the point, confident
-              and competitve and you are always in a hurray.
-            </p>
-            <div>
-              <h3>How To Communicate: Tell them WHAT</h3>
-              <p>
-                Be direct and concise, Reds think they should know what they are
-                doing, therefore, they like to work with people who know what
-                they are doing, Tell them the WHAT and forget the rest of the
-                story. These are the "bottom line" people.{" "}
-              </p>
-            </div>
-            <table className="custom-table custInner">
-              <thead>
-                <tr style={{ textAlign: "left" }}>
-                  <th>STRENGTHS</th>
-                  <th>WEAKNESS</th>
-                  <th>NEEDS</th>
-                </tr>
-              </thead>
-              <tbody className="tbody">
-                <tr style={{ textAlign: "left" }}>
-                  <td data-label="STRENGTHS">Get Results</td>
-                  <td data-label="WEAKNESSES">Not Cautious</td>
-                  <td data-label="NEEDS">Power</td>
-                </tr>
-                <tr style={{ textAlign: "left" }}>
-                  <td data-label="STRENGTHS">Decision Makers</td>
-                  <td data-label="WEAKNESSES">Run Over People</td>
-                  <td data-label="NEEDS">Authority</td>
-                </tr>
-                <tr style={{ textAlign: "left" }}>
-                  <td data-label="STRENGTHS">Achieve Goals</td>
-                  <td data-label="WEAKNESSES">Focus On Short Term Results</td>
-                  <td data-label="NEEDS">To win</td>
-                </tr>
-                <tr style={{ textAlign: "left" }}>
-                  <td data-label="STRENGTHS">Risk Takers</td>
-                  <td data-label="WEAKNESSES">Focus On Wrong Thing</td>
-                  <td data-label="NEEDS">Quantifiable Results</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        );
-      } else if (correspondingColor === "yellow") {
-        setIdentity("Communicators, Participants, Adaptable");
-        setFeedback(
-          <div>
-            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
-            <p>Your major strength is associated with {correspondingColor}!</p> */}
-            <p>
-              You are friendly, outgoing and emotional. Your orientation is
-              people first, results second. You like to combine food with talk,
-              and you talk a lot. You are very spontaneous.
-            </p>
-            <div>
-              <h3>How To Communicate: Ask for their HELP</h3>
-              <p>
-                Be direct and concise, Reds think they should know what they are
-                doing, therefore, they like to work with people who know what
-                they are doing, Tell them the WHAT and forget the rest of the
-                story. These are the "bottom line" people.{" "}
-              </p>
-            </div>
-            <table className="custom-table">
-              <thead>
-                <tr style={{ textAlign: "left" }}>
-                  <th>STRENGTHS</th>
-                  <th>WEAKNESS</th>
-                  <th>NEEDS</th>
-                </tr>
-              </thead>
-              <tbody className="tbody">
-                <tr style={{ textAlign: "left" }}>
-                  <td>Communicators</td>
-                  <td>No Sense of Time</td>
-                  <td>Recognition</td>
-                </tr>
-                <tr style={{ textAlign: "left" }}>
-                  <td>Participants</td>
-                  <td>Lack Follow-Up</td>
-                  <td>Acceptance</td>
-                </tr>
-                <tr style={{ textAlign: "left" }}>
-                  <td>Adaptability</td>
-                  <td>Lack Objectivity</td>
-                  <td>Influence</td>
-                </tr>
-                <tr style={{ textAlign: "left" }}>
-                  <td>Optimistic</td>
-                  <td>Chamelon</td>
-                  <td>Involvement</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        );
-      } else if (correspondingColor === "blue") {
-        setIdentity("Patient, Problem Solver, Good Listener");
-        setFeedback(
-          <div>
-            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
-            <p>Your major strength is associated with {correspondingColor}!</p> */}
-            <p>
-              You are a sincere person and good Listener, a problem solver and
-              peace keeper. You are appreciated for who you are, not what you
-              do. You focus on how to make things better
-            </p>
-            <div>
-              <h3>How To Communicate: Ask what they THINK</h3>
-              <p>
-                They want to have input, Provide alternatives and allow them the
-                freedom to choose the best one. Show appreciation for their
-                ideas and input. ASK them what they think about your idea. Give
-                them a problem to solve- they think yhey should know how!
-              </p>
-            </div>
-            <table class="custom-table">
-              <thead>
-                <tr style={{ textAlign: "left" }}>
-                  <th>STRENGTHS</th>
-                  <th>WEAKNESS</th>
-                  <th>NEEDS</th>
-                </tr>
-              </thead>
-              <tbody className="tbody">
-                <tr style={{ textAlign: "left" }}>
-                  <td>Patient</td>
-                  <td>Avoid Conflct</td>
-                  <td>Time</td>
-                </tr>
-                <tr style={{ textAlign: "left" }}>
-                  <td>Problem Solver</td>
-                  <td>Procastination</td>
-                  <td>Freedom</td>
-                </tr>
-                <tr style={{ textAlign: "left" }}>
-                  <td>Evalute Alternative</td>
-                  <td>Rationalize</td>
-                  <td>Alternatives</td>
-                </tr>
-                <tr style={{ textAlign: "left" }}>
-                  <td>Improvments</td>
-                  <td>"Over-imporove"</td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        );
-      } else if (correspondingColor === "green") {
-        setIdentity("Accurate, Consistent, Analytical");
-        setFeedback(
-          <div>
-            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
-            <p>Your major strength is associated with {correspondingColor}!</p> */}
-            <p>
+            {/* <p>
               A cautious person, that tend to do all 'by the book', you analyze
               any situation before you commit to it, you look before you cross
               the street and walk before you run, your goal is to avoid to
               making the same mistake twice.
-            </p>
+            </p> */}
+            <p>
+              Result-Oriented and Driven You are a highly driven and goal-oriented individual who is focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects.</p>
             <div>
-              <h3>How To Communicate: Tell them HOW you want it done</h3>
+              <h3>Communication Preferences </h3>
               <p>
-                They need consistency, predictablility and control. They want to
-                see proff. Use testimonials. Lay the facts out early. Tell them
-                the bad news first. Make a formal presentation and answer all
-                the HOW question.
-              </p>
+                Direct Communication Style When communicating with you, it is best to be concise and to the point. You prefer clear and straightforward information, as you believe that people should already know what they are doing. You are a "bottom-line" person who values efficiency and getting things done.</p>
             </div>
-            <table class="custom-table">
+            {/* <table class="custom-table">
               <thead>
                 <tr style={{ textAlign: "left" }}>
                   <th>STRENGTHS</th>
@@ -1227,11 +1097,1003 @@ const App = () => {
                   <td></td>
                 </tr>
               </tbody>
-            </table>
+            </table> */}
+            <div>
+              <h3>Strengths and Weaknesses </h3>
+              <p>
+                Your key strengths lie in your ability to make decisions, achieve your goals, and take calculated risks. However, you may sometimes overlook the importance of caution and long-term considerations, focusing instead on short-term results. Additionally, you have a very high built-in sense of urgency. This allows you to make decisions and get results quickly, but can also cause frustration when working with others who don't have the same motor.</p>  </div>
+            <div>
+              <h3>Needs and Motivations </h3>
+              <p>
+                To thrive, you require a sense of power, authority, and the ability to win. You are motivated by quantifiable achievements and the opportunity to demonstrate your competence and drive. </p>
+            </div>
+            <p>Overall, you are a highly capable and results-oriented individual who values direct communication, decision-making, and the achievement of your goals. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
           </div>
+        );
+      } else if (correspondingColor === "yellow") {
+        setIdentity("Communicators, Participants, Adaptable");
+        setFeedback(
+
+          <div>
+            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+          <p>Your major strength is associated with {correspondingColor}!</p> */}
+            {/* <p>
+            A cautious person, that tend to do all 'by the book', you analyze
+            any situation before you commit to it, you look before you cross
+            the street and walk before you run, your goal is to avoid to
+            making the same mistake twice.
+          </p> */}
+            <p>
+              Friendly, Outgoing, and Emotional You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations.
+            </p>
+            <div>
+              <h3>Communication Preferences </h3>
+              <p>
+                When communicating with you, it is best to ask for your help and input. You appreciate being involved and valued for your unique perspective. Showcase your enthusiasm and excitement, and look for common ground that can foster a sense of camaraderie. Avoid getting bogged down in details, and instead focus on creating a positive and engaging atmosphere.
+              </p>
+            </div>
+            {/* <table class="custom-table">
+            <thead>
+              <tr style={{ textAlign: "left" }}>
+                <th>STRENGTHS</th>
+                <th>WEAKNESSES</th>
+                <th>NEEDS</th>
+              </tr>
+            </thead>
+            <tbody className="tbody">
+              <tr style={{ textAlign: "left" }}>
+                <td>Patient</td>
+                <td>Avoid Conflct</td>
+                <td>Time</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Problem Solver</td>
+                <td>Procastination</td>
+                <td>Freedom</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Evalute Alternative</td>
+                <td>Rationalize</td>
+                <td>Alternatives</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Improvments</td>
+                <td>"Over-imporove"</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table> */}
+            <div>
+              <h3>Strengths and Weaknesses </h3>
+              <p>
+                Your key strengths include your strong communication skills, adaptability, and optimistic outlook. However, you may sometimes struggle with a lack of time management, difficulty following up on tasks, and a tendency to be overly subjective.
+              </p>
+              <div>
+                <h3>Needs and Motivations </h3>
+                <p>
+                  To feel fulfilled, you require recognition, acceptance, and the opportunity to exert influence and be involved. You are motivated by flexibility, options, and the chance to participate actively in discussions and decision-making.
+                </p>
+              </div>
+              <p>Overall, you are a vibrant and people-oriented individual who thrives on social interaction, enthusiasm, and a sense of belonging. By understanding your personality traits and communication preferences, others can more effectively engage and collaborate with you.</p>
+            </div>
+          </div>
+        );
+      } else if (correspondingColor === "blue") {
+        setIdentity("Patient, Problem Solver, Good Listener");
+        setFeedback(
+
+          <div>
+            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+          <p>Your major strength is associated with {correspondingColor}!</p> */}
+            {/* <p>
+            A cautious person, that tend to do all 'by the book', you analyze
+            any situation before you commit to it, you look before you cross
+            the street and walk before you run, your goal is to avoid to
+            making the same mistake twice.
+          </p> */}
+            <p>
+              Sincere and Focused on Problem-Solving You are a sincere and thoughtful individual who takes great pride in being a good listener and a problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper.
+            </p>
+            <div>
+              <h3>Communication Preferences </h3>
+              <p>
+                When communicating with you, it is important to ask for your input and opinions. You thrive when given the freedom to evaluate alternatives and choose the best course of action. Showing appreciation for your ideas and allowing you to contribute to the problem-solving process is key.
+              </p>
+            </div>
+            {/* <table class="custom-table">
+            <thead>
+              <tr style={{ textAlign: "left" }}>
+                <th>STRENGTHS</th>
+                <th>WEAKNESSES</th>
+                <th>NEEDS</th>
+              </tr>
+            </thead>
+            <tbody className="tbody">
+              <tr style={{ textAlign: "left" }}>
+                <td>Patient</td>
+                <td>Avoid Conflct</td>
+                <td>Time</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Problem Solver</td>
+                <td>Procastination</td>
+                <td>Freedom</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Evalute Alternative</td>
+                <td>Rationalize</td>
+                <td>Alternatives</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Improvments</td>
+                <td>"Over-imporove"</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table> */}
+            <div>
+              <h3>Strengths and Weaknesses </h3>
+              <p>
+                Your key strengths include your ability to listen attentively, your patience, and your skill in evaluating alternatives and identifying improvements. However, you may sometimes struggle with conflict avoidance and procrastination, and can become overly focused on perfecting a solution.
+              </p>
+              <div>
+                <h3>Needs and Motivations </h3>
+                <p>
+                  To feel fulfilled, you require a sense of appreciation, the freedom to explore options, and the time needed to thoroughly consider and implement solutions. You are motivated by the opportunity to make a positive impact and contribute to the overall well-being of the group or organization.
+                </p>
+              </div>
+              <p>Overall, you are a supportive and problem-solving oriented individual who values collaboration, consensus-building, and continuous improvement. By understanding your personality traits and communication preferences, others can more effectively engage and work with you.</p>
+            </div>
+          </div>
+        );
+      } else if (correspondingColor === "green") {
+        setIdentity("Accurate, Consistent, Analytical");
+        setFeedback(
+          <>
+            <div>
+
+              <p>
+                Analytical and Cautious You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to "look before you leap" in order to avoid repeating past mistakes.
+              </p>
+              <div>
+                <h3>Communication Preferences </h3>
+                <p>
+                  When communicating with you, it is important to provide a clear and structured approach, addressing the "how" rather than just the "what." You thrive on predictability and control, so presenting detailed information, facts, and testimonials early on will help establish trust and credibility.
+                </p>
+              </div>
+              {/* <table class="custom-table">
+                <thead>
+                  <tr style={{ textAlign: "left" }}>
+                    <th>STRENGTHS</th>
+                    <th>WEAKNESSES</th>
+                    <th>NEEDS</th>
+                  </tr>
+                </thead>
+                <tbody className="tbody">
+                  <tr style={{ textAlign: "left" }}>
+                    <td>Patient</td>
+                    <td>Avoid Conflct</td>
+                    <td>Time</td>
+                  </tr>
+                  <tr style={{ textAlign: "left" }}>
+                    <td>Problem Solver</td>
+                    <td>Procastination</td>
+                    <td>Freedom</td>
+                  </tr>
+                  <tr style={{ textAlign: "left" }}>
+                    <td>Evalute Alternative</td>
+                    <td>Rationalize</td>
+                    <td>Alternatives</td>
+                  </tr>
+                  <tr style={{ textAlign: "left" }}>
+                    <td>Improvments</td>
+                    <td>"Over-imporove"</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table> */}
+              <div>
+                <h3>Strengths and Weaknesses </h3>
+                <p>
+                  Your key strengths lie in your analytical abilities, accuracy, and commitment to maintaining high standards. However, this can also lead to rigidity, procrastination, and an overly critical perspective that focuses too heavily on the past. </p>
+              </div>
+              <div>
+                <h3>Needs and Motivations </h3>
+                <p>
+                  To feel fulfilled, you require a sense of control, the opportunity to engage in precise and detailed work, and a consistent environment that allows you to take the time needed to thoroughly consider your decisions. </p>
+              </div>
+              <p>Overall, you are a thoughtful and cautious individual who values structure, predictability, and a methodical approach to tasks and projects. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
+            </div>
+          </>
         );
       }
     }, []);
+
+    useEffect(() => {
+      const highestColor = getHighestColor();
+      if (secondHighestColor === "red") {
+        setIdentity2("Decision Makers, Goal Oriented, Result Driven");
+        setFeedback2(
+          <div>
+            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+            <p>Your major strength is associated with {correspondingColor}!</p> */}
+            {/* <p>
+              A cautious person, that tend to do all 'by the book', you analyze
+              any situation before you commit to it, you look before you cross
+              the street and walk before you run, your goal is to avoid to
+              making the same mistake twice.
+            </p> */}
+            <p>
+              Result-Oriented and Driven You are a highly driven and goal-oriented individual who is focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects.</p>
+            <div>
+              <h3>Communication Preferences </h3>
+              <p>
+                Direct Communication Style When communicating with you, it is best to be concise and to the point. You prefer clear and straightforward information, as you believe that people should already know what they are doing. You are a "bottom-line" person who values efficiency and getting things done.</p>
+            </div>
+            {/* <table class="custom-table">
+              <thead>
+                <tr style={{ textAlign: "left" }}>
+                  <th>STRENGTHS</th>
+                  <th>WEAKNESSES</th>
+                  <th>NEEDS</th>
+                </tr>
+              </thead>
+              <tbody className="tbody">
+                <tr style={{ textAlign: "left" }}>
+                  <td>Patient</td>
+                  <td>Avoid Conflct</td>
+                  <td>Time</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Problem Solver</td>
+                  <td>Procastination</td>
+                  <td>Freedom</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Evalute Alternative</td>
+                  <td>Rationalize</td>
+                  <td>Alternatives</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Improvments</td>
+                  <td>"Over-imporove"</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table> */}
+            <div>
+              <h3>Strengths and Weaknesses </h3>
+              <p>
+                Your key strengths lie in your ability to make decisions, achieve your goals, and take calculated risks. However, you may sometimes overlook the importance of caution and long-term considerations, focusing instead on short-term results. Additionally, you have a very high built-in sense of urgency. This allows you to make decisions and get results quickly, but can also cause frustration when working with others who don't have the same motor.</p>  </div>
+            <div>
+              <h3>Needs and Motivations </h3>
+              <p>
+                To thrive, you require a sense of power, authority, and the ability to win. You are motivated by quantifiable achievements and the opportunity to demonstrate your competence and drive. </p>
+            </div>
+            <p>Overall, you are a highly capable and results-oriented individual who values direct communication, decision-making, and the achievement of your goals. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
+          </div>
+        );
+      } else if (secondHighestColor === "yellow") {
+        setIdentity2("Communicators, Participants, Adaptable");
+        setFeedback2(
+          <div>
+            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+          <p>Your major strength is associated with {correspondingColor}!</p> */}
+            {/* <p>
+            A cautious person, that tend to do all 'by the book', you analyze
+            any situation before you commit to it, you look before you cross
+            the street and walk before you run, your goal is to avoid to
+            making the same mistake twice.
+          </p> */}
+            <p>
+              Friendly, Outgoing, and Emotional You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations.
+            </p>
+            <div>
+              <h3>Communication Preferences </h3>
+              <p>
+                When communicating with you, it is best to ask for your help and input. You appreciate being involved and valued for your unique perspective. Showcase your enthusiasm and excitement, and look for common ground that can foster a sense of camaraderie. Avoid getting bogged down in details, and instead focus on creating a positive and engaging atmosphere.
+              </p>
+            </div>
+            {/* <table class="custom-table">
+            <thead>
+              <tr style={{ textAlign: "left" }}>
+                <th>STRENGTHS</th>
+                <th>WEAKNESSES</th>
+                <th>NEEDS</th>
+              </tr>
+            </thead>
+            <tbody className="tbody">
+              <tr style={{ textAlign: "left" }}>
+                <td>Patient</td>
+                <td>Avoid Conflct</td>
+                <td>Time</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Problem Solver</td>
+                <td>Procastination</td>
+                <td>Freedom</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Evalute Alternative</td>
+                <td>Rationalize</td>
+                <td>Alternatives</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Improvments</td>
+                <td>"Over-imporove"</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table> */}
+            <div>
+              <h3>Strengths and Weaknesses </h3>
+              <p>
+                Your key strengths include your strong communication skills, adaptability, and optimistic outlook. However, you may sometimes struggle with a lack of time management, difficulty following up on tasks, and a tendency to be overly subjective.
+              </p>
+              <div>
+                <h3>Needs and Motivations </h3>
+                <p>
+                  To feel fulfilled, you require recognition, acceptance, and the opportunity to exert influence and be involved. You are motivated by flexibility, options, and the chance to participate actively in discussions and decision-making.
+                </p>
+              </div>
+              <p>Overall, you are a vibrant and people-oriented individual who thrives on social interaction, enthusiasm, and a sense of belonging. By understanding your personality traits and communication preferences, others can more effectively engage and collaborate with you.</p>
+            </div>
+          </div>
+        )
+      } else if (secondHighestColor === "blue") {
+        setIdentity2("Patient, Problem Solver, Good Listener");
+        setFeedback2(
+          <div>
+            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+          <p>Your major strength is associated with {correspondingColor}!</p> */}
+            {/* <p>
+            A cautious person, that tend to do all 'by the book', you analyze
+            any situation before you commit to it, you look before you cross
+            the street and walk before you run, your goal is to avoid to
+            making the same mistake twice.
+          </p> */}
+            <p>
+              Sincere and Focused on Problem-Solving You are a sincere and thoughtful individual who takes great pride in being a good listener and a problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper.
+            </p>
+            <div>
+              <h3>Communication Preferences </h3>
+              <p>
+                When communicating with you, it is important to ask for your input and opinions. You thrive when given the freedom to evaluate alternatives and choose the best course of action. Showing appreciation for your ideas and allowing you to contribute to the problem-solving process is key.
+              </p>
+            </div>
+            {/* <table class="custom-table">
+            <thead>
+              <tr style={{ textAlign: "left" }}>
+                <th>STRENGTHS</th>
+                <th>WEAKNESSES</th>
+                <th>NEEDS</th>
+              </tr>
+            </thead>
+            <tbody className="tbody">
+              <tr style={{ textAlign: "left" }}>
+                <td>Patient</td>
+                <td>Avoid Conflct</td>
+                <td>Time</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Problem Solver</td>
+                <td>Procastination</td>
+                <td>Freedom</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Evalute Alternative</td>
+                <td>Rationalize</td>
+                <td>Alternatives</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Improvments</td>
+                <td>"Over-imporove"</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table> */}
+            <div>
+              <h3>Strengths and Weaknesses </h3>
+              <p>
+                Your key strengths include your ability to listen attentively, your patience, and your skill in evaluating alternatives and identifying improvements. However, you may sometimes struggle with conflict avoidance and procrastination, and can become overly focused on perfecting a solution.
+              </p>
+              <div>
+                <h3>Needs and Motivations </h3>
+                <p>
+                  To feel fulfilled, you require a sense of appreciation, the freedom to explore options, and the time needed to thoroughly consider and implement solutions. You are motivated by the opportunity to make a positive impact and contribute to the overall well-being of the group or organization.
+                </p>
+              </div>
+              <p>Overall, you are a supportive and problem-solving oriented individual who values collaboration, consensus-building, and continuous improvement. By understanding your personality traits and communication preferences, others can more effectively engage and work with you.</p>
+            </div>
+          </div>
+        );
+      } else if (secondHighestColor === "green") {
+        setIdentity2("Accurate, Consistent, Analytical");
+        setFeedback2(
+          <>
+            <div>
+
+              <p>
+                Analytical and Cautious You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to "look before you leap" in order to avoid repeating past mistakes.
+              </p>
+              <div>
+                <h3>Communication Preferences </h3>
+                <p>
+                  When communicating with you, it is important to provide a clear and structured approach, addressing the "how" rather than just the "what." You thrive on predictability and control, so presenting detailed information, facts, and testimonials early on will help establish trust and credibility.
+                </p>
+              </div>
+              {/* <table class="custom-table">
+                <thead>
+                  <tr style={{ textAlign: "left" }}>
+                    <th>STRENGTHS</th>
+                    <th>WEAKNESSES</th>
+                    <th>NEEDS</th>
+                  </tr>
+                </thead>
+                <tbody className="tbody">
+                  <tr style={{ textAlign: "left" }}>
+                    <td>Patient</td>
+                    <td>Avoid Conflct</td>
+                    <td>Time</td>
+                  </tr>
+                  <tr style={{ textAlign: "left" }}>
+                    <td>Problem Solver</td>
+                    <td>Procastination</td>
+                    <td>Freedom</td>
+                  </tr>
+                  <tr style={{ textAlign: "left" }}>
+                    <td>Evalute Alternative</td>
+                    <td>Rationalize</td>
+                    <td>Alternatives</td>
+                  </tr>
+                  <tr style={{ textAlign: "left" }}>
+                    <td>Improvments</td>
+                    <td>"Over-imporove"</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table> */}
+              <div>
+                <h3>Strengths and Weaknesses </h3>
+                <p>
+                  Your key strengths lie in your analytical abilities, accuracy, and commitment to maintaining high standards. However, this can also lead to rigidity, procrastination, and an overly critical perspective that focuses too heavily on the past. </p>
+              </div>
+              <div>
+                <h3>Needs and Motivations </h3>
+                <p>
+                  To feel fulfilled, you require a sense of control, the opportunity to engage in precise and detailed work, and a consistent environment that allows you to take the time needed to thoroughly consider your decisions. </p>
+              </div>
+              <p>Overall, you are a thoughtful and cautious individual who values structure, predictability, and a methodical approach to tasks and projects. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
+            </div>
+          </>
+        );
+      }
+    }, []);
+
+    useEffect(() => {
+      const highestColor = getHighestColor();
+      if (thirdHighestColor === "red") {
+        setIdentity3("Decision Makers, Goal Oriented, Result Driven");
+        setFeedback3(
+          <div>
+            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+            <p>Your major strength is associated with {correspondingColor}!</p> */}
+            {/* <p>
+              A cautious person, that tend to do all 'by the book', you analyze
+              any situation before you commit to it, you look before you cross
+              the street and walk before you run, your goal is to avoid to
+              making the same mistake twice.
+            </p> */}
+            <p>
+              Result-Oriented and Driven You are a highly driven and goal-oriented individual who is focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects.</p>
+            <div>
+              <h3>Communication Preferences </h3>
+              <p>
+                Direct Communication Style When communicating with you, it is best to be concise and to the point. You prefer clear and straightforward information, as you believe that people should already know what they are doing. You are a "bottom-line" person who values efficiency and getting things done.</p>
+            </div>
+            {/* <table class="custom-table">
+              <thead>
+                <tr style={{ textAlign: "left" }}>
+                  <th>STRENGTHS</th>
+                  <th>WEAKNESSES</th>
+                  <th>NEEDS</th>
+                </tr>
+              </thead>
+              <tbody className="tbody">
+                <tr style={{ textAlign: "left" }}>
+                  <td>Patient</td>
+                  <td>Avoid Conflct</td>
+                  <td>Time</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Problem Solver</td>
+                  <td>Procastination</td>
+                  <td>Freedom</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Evalute Alternative</td>
+                  <td>Rationalize</td>
+                  <td>Alternatives</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Improvments</td>
+                  <td>"Over-imporove"</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table> */}
+            <div>
+              <h3>Strengths and Weaknesses </h3>
+              <p>
+                Your key strengths lie in your ability to make decisions, achieve your goals, and take calculated risks. However, you may sometimes overlook the importance of caution and long-term considerations, focusing instead on short-term results. Additionally, you have a very high built-in sense of urgency. This allows you to make decisions and get results quickly, but can also cause frustration when working with others who don't have the same motor.</p>  </div>
+            <div>
+              <h3>Needs and Motivations </h3>
+              <p>
+                To thrive, you require a sense of power, authority, and the ability to win. You are motivated by quantifiable achievements and the opportunity to demonstrate your competence and drive. </p>
+            </div>
+            <p>Overall, you are a highly capable and results-oriented individual who values direct communication, decision-making, and the achievement of your goals. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
+          </div>
+        );
+      } else if (thirdHighestColor === "yellow") {
+        setIdentity3("Communicators, Participants, Adaptable");
+        setFeedback3(
+          <div>
+            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+          <p>Your major strength is associated with {correspondingColor}!</p> */}
+            {/* <p>
+            A cautious person, that tend to do all 'by the book', you analyze
+            any situation before you commit to it, you look before you cross
+            the street and walk before you run, your goal is to avoid to
+            making the same mistake twice.
+          </p> */}
+            <p>
+              Friendly, Outgoing, and Emotional You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations.
+            </p>
+            <div>
+              <h3>Communication Preferences </h3>
+              <p>
+                When communicating with you, it is best to ask for your help and input. You appreciate being involved and valued for your unique perspective. Showcase your enthusiasm and excitement, and look for common ground that can foster a sense of camaraderie. Avoid getting bogged down in details, and instead focus on creating a positive and engaging atmosphere.
+              </p>
+            </div>
+            {/* <table class="custom-table">
+            <thead>
+              <tr style={{ textAlign: "left" }}>
+                <th>STRENGTHS</th>
+                <th>WEAKNESSES</th>
+                <th>NEEDS</th>
+              </tr>
+            </thead>
+            <tbody className="tbody">
+              <tr style={{ textAlign: "left" }}>
+                <td>Patient</td>
+                <td>Avoid Conflct</td>
+                <td>Time</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Problem Solver</td>
+                <td>Procastination</td>
+                <td>Freedom</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Evalute Alternative</td>
+                <td>Rationalize</td>
+                <td>Alternatives</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Improvments</td>
+                <td>"Over-imporove"</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table> */}
+            <div>
+              <h3>Strengths and Weaknesses </h3>
+              <p>
+                Your key strengths include your strong communication skills, adaptability, and optimistic outlook. However, you may sometimes struggle with a lack of time management, difficulty following up on tasks, and a tendency to be overly subjective.
+              </p>
+              <div>
+                <h3>Needs and Motivations </h3>
+                <p>
+                  To feel fulfilled, you require recognition, acceptance, and the opportunity to exert influence and be involved. You are motivated by flexibility, options, and the chance to participate actively in discussions and decision-making.
+                </p>
+              </div>
+              <p>Overall, you are a vibrant and people-oriented individual who thrives on social interaction, enthusiasm, and a sense of belonging. By understanding your personality traits and communication preferences, others can more effectively engage and collaborate with you.</p>
+            </div>
+          </div>
+        );
+      } else if (thirdHighestColor === "blue") {
+        setIdentity3("Patient, Problem Solver, Good Listener");
+        setFeedback3(
+          <div>
+            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+          <p>Your major strength is associated with {correspondingColor}!</p> */}
+            {/* <p>
+            A cautious person, that tend to do all 'by the book', you analyze
+            any situation before you commit to it, you look before you cross
+            the street and walk before you run, your goal is to avoid to
+            making the same mistake twice.
+          </p> */}
+            <p>
+              Sincere and Focused on Problem-Solving You are a sincere and thoughtful individual who takes great pride in being a good listener and a problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper.
+            </p>
+            <div>
+              <h3>Communication Preferences </h3>
+              <p>
+                When communicating with you, it is important to ask for your input and opinions. You thrive when given the freedom to evaluate alternatives and choose the best course of action. Showing appreciation for your ideas and allowing you to contribute to the problem-solving process is key.
+              </p>
+            </div>
+            {/* <table class="custom-table">
+            <thead>
+              <tr style={{ textAlign: "left" }}>
+                <th>STRENGTHS</th>
+                <th>WEAKNESSES</th>
+                <th>NEEDS</th>
+              </tr>
+            </thead>
+            <tbody className="tbody">
+              <tr style={{ textAlign: "left" }}>
+                <td>Patient</td>
+                <td>Avoid Conflct</td>
+                <td>Time</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Problem Solver</td>
+                <td>Procastination</td>
+                <td>Freedom</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Evalute Alternative</td>
+                <td>Rationalize</td>
+                <td>Alternatives</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Improvments</td>
+                <td>"Over-imporove"</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table> */}
+            <div>
+              <h3>Strengths and Weaknesses </h3>
+              <p>
+                Your key strengths include your ability to listen attentively, your patience, and your skill in evaluating alternatives and identifying improvements. However, you may sometimes struggle with conflict avoidance and procrastination, and can become overly focused on perfecting a solution.
+              </p>
+              <div>
+                <h3>Needs and Motivations </h3>
+                <p>
+                  To feel fulfilled, you require a sense of appreciation, the freedom to explore options, and the time needed to thoroughly consider and implement solutions. You are motivated by the opportunity to make a positive impact and contribute to the overall well-being of the group or organization.
+                </p>
+              </div>
+              <p>Overall, you are a supportive and problem-solving oriented individual who values collaboration, consensus-building, and continuous improvement. By understanding your personality traits and communication preferences, others can more effectively engage and work with you.</p>
+            </div>
+          </div>
+        );
+      } else if (thirdHighestColor === "green") {
+        setIdentity3("Accurate, Consistent, Analytical");
+        setFeedback3(
+          <>
+            <div>
+
+              <p>
+                Analytical and Cautious You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to "look before you leap" in order to avoid repeating past mistakes.
+              </p>
+              <div>
+                <h3>Communication Preferences </h3>
+                <p>
+                  When communicating with you, it is important to provide a clear and structured approach, addressing the "how" rather than just the "what." You thrive on predictability and control, so presenting detailed information, facts, and testimonials early on will help establish trust and credibility.
+                </p>
+              </div>
+              {/* <table class="custom-table">
+                <thead>
+                  <tr style={{ textAlign: "left" }}>
+                    <th>STRENGTHS</th>
+                    <th>WEAKNESSES</th>
+                    <th>NEEDS</th>
+                  </tr>
+                </thead>
+                <tbody className="tbody">
+                  <tr style={{ textAlign: "left" }}>
+                    <td>Patient</td>
+                    <td>Avoid Conflct</td>
+                    <td>Time</td>
+                  </tr>
+                  <tr style={{ textAlign: "left" }}>
+                    <td>Problem Solver</td>
+                    <td>Procastination</td>
+                    <td>Freedom</td>
+                  </tr>
+                  <tr style={{ textAlign: "left" }}>
+                    <td>Evalute Alternative</td>
+                    <td>Rationalize</td>
+                    <td>Alternatives</td>
+                  </tr>
+                  <tr style={{ textAlign: "left" }}>
+                    <td>Improvments</td>
+                    <td>"Over-imporove"</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table> */}
+              <div>
+                <h3>Strengths and Weaknesses </h3>
+                <p>
+                  Your key strengths lie in your analytical abilities, accuracy, and commitment to maintaining high standards. However, this can also lead to rigidity, procrastination, and an overly critical perspective that focuses too heavily on the past. </p>
+              </div>
+              <div>
+                <h3>Needs and Motivations </h3>
+                <p>
+                  To feel fulfilled, you require a sense of control, the opportunity to engage in precise and detailed work, and a consistent environment that allows you to take the time needed to thoroughly consider your decisions. </p>
+              </div>
+              <p>Overall, you are a thoughtful and cautious individual who values structure, predictability, and a methodical approach to tasks and projects. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
+            </div>
+          </>
+        );
+      }
+    }, []);
+
+    useEffect(() => {
+      const highestColor = getHighestColor();
+      if (fourthHighestColor === "red") {
+        setIdentity4("Decision Makers, Goal Oriented, Result Driven");
+        setFeedback4(
+          <div>
+            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+            <p>Your major strength is associated with {correspondingColor}!</p> */}
+            {/* <p>
+              A cautious person, that tend to do all 'by the book', you analyze
+              any situation before you commit to it, you look before you cross
+              the street and walk before you run, your goal is to avoid to
+              making the same mistake twice.
+            </p> */}
+            <p>
+              Result-Oriented and Driven You are a highly driven and goal-oriented individual who is focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects.</p>
+            <div>
+              <h3>Communication Preferences </h3>
+              <p>
+                Direct Communication Style When communicating with you, it is best to be concise and to the point. You prefer clear and straightforward information, as you believe that people should already know what they are doing. You are a "bottom-line" person who values efficiency and getting things done.</p>
+            </div>
+            {/* <table class="custom-table">
+              <thead>
+                <tr style={{ textAlign: "left" }}>
+                  <th>STRENGTHS</th>
+                  <th>WEAKNESSES</th>
+                  <th>NEEDS</th>
+                </tr>
+              </thead>
+              <tbody className="tbody">
+                <tr style={{ textAlign: "left" }}>
+                  <td>Patient</td>
+                  <td>Avoid Conflct</td>
+                  <td>Time</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Problem Solver</td>
+                  <td>Procastination</td>
+                  <td>Freedom</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Evalute Alternative</td>
+                  <td>Rationalize</td>
+                  <td>Alternatives</td>
+                </tr>
+                <tr style={{ textAlign: "left" }}>
+                  <td>Improvments</td>
+                  <td>"Over-imporove"</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table> */}
+            <div>
+              <h3>Strengths and Weaknesses </h3>
+              <p>
+                Your key strengths lie in your ability to make decisions, achieve your goals, and take calculated risks. However, you may sometimes overlook the importance of caution and long-term considerations, focusing instead on short-term results. Additionally, you have a very high built-in sense of urgency. This allows you to make decisions and get results quickly, but can also cause frustration when working with others who don't have the same motor.</p>  </div>
+            <div>
+              <h3>Needs and Motivations </h3>
+              <p>
+                To thrive, you require a sense of power, authority, and the ability to win. You are motivated by quantifiable achievements and the opportunity to demonstrate your competence and drive. </p>
+            </div>
+            <p>Overall, you are a highly capable and results-oriented individual who values direct communication, decision-making, and the achievement of your goals. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
+          </div>
+        );
+      } else if (fourthHighestColor === "yellow") {
+        setIdentity4("Communicators, Participants, Adaptable");
+        setFeedback4(
+
+          <div>
+            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+          <p>Your major strength is associated with {correspondingColor}!</p> */}
+            {/* <p>
+            A cautious person, that tend to do all 'by the book', you analyze
+            any situation before you commit to it, you look before you cross
+            the street and walk before you run, your goal is to avoid to
+            making the same mistake twice.
+          </p> */}
+            <p>
+              Friendly, Outgoing, and Emotional You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations.
+            </p>
+            <div>
+              <h3>Communication Preferences </h3>
+              <p>
+                When communicating with you, it is best to ask for your help and input. You appreciate being involved and valued for your unique perspective. Showcase your enthusiasm and excitement, and look for common ground that can foster a sense of camaraderie. Avoid getting bogged down in details, and instead focus on creating a positive and engaging atmosphere.
+              </p>
+            </div>
+            {/* <table class="custom-table">
+            <thead>
+              <tr style={{ textAlign: "left" }}>
+                <th>STRENGTHS</th>
+                <th>WEAKNESSES</th>
+                <th>NEEDS</th>
+              </tr>
+            </thead>
+            <tbody className="tbody">
+              <tr style={{ textAlign: "left" }}>
+                <td>Patient</td>
+                <td>Avoid Conflct</td>
+                <td>Time</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Problem Solver</td>
+                <td>Procastination</td>
+                <td>Freedom</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Evalute Alternative</td>
+                <td>Rationalize</td>
+                <td>Alternatives</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Improvments</td>
+                <td>"Over-imporove"</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table> */}
+            <div>
+              <h3>Strengths and Weaknesses </h3>
+              <p>
+                Your key strengths include your strong communication skills, adaptability, and optimistic outlook. However, you may sometimes struggle with a lack of time management, difficulty following up on tasks, and a tendency to be overly subjective.
+              </p>
+              <div>
+                <h3>Needs and Motivations </h3>
+                <p>
+                  To feel fulfilled, you require recognition, acceptance, and the opportunity to exert influence and be involved. You are motivated by flexibility, options, and the chance to participate actively in discussions and decision-making.
+                </p>
+              </div>
+              <p>Overall, you are a vibrant and people-oriented individual who thrives on social interaction, enthusiasm, and a sense of belonging. By understanding your personality traits and communication preferences, others can more effectively engage and collaborate with you.</p>
+            </div>
+          </div>
+        );
+      } else if (fourthHighestColor === "blue") {
+        setIdentity4("Patient, Problem Solver, Good Listener");
+        setFeedback4(
+
+          <div>
+            {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+          <p>Your major strength is associated with {correspondingColor}!</p> */}
+            {/* <p>
+            A cautious person, that tend to do all 'by the book', you analyze
+            any situation before you commit to it, you look before you cross
+            the street and walk before you run, your goal is to avoid to
+            making the same mistake twice.
+          </p> */}
+            <p>
+              Sincere and Focused on Problem-Solving You are a sincere and thoughtful individual who takes great pride in being a good listener and a problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper.
+            </p>
+            <div>
+              <h3>Communication Preferences </h3>
+              <p>
+                When communicating with you, it is important to ask for your input and opinions. You thrive when given the freedom to evaluate alternatives and choose the best course of action. Showing appreciation for your ideas and allowing you to contribute to the problem-solving process is key.
+              </p>
+            </div>
+            {/* <table class="custom-table">
+            <thead>
+              <tr style={{ textAlign: "left" }}>
+                <th>STRENGTHS</th>
+                <th>WEAKNESSES</th>
+                <th>NEEDS</th>
+              </tr>
+            </thead>
+            <tbody className="tbody">
+              <tr style={{ textAlign: "left" }}>
+                <td>Patient</td>
+                <td>Avoid Conflct</td>
+                <td>Time</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Problem Solver</td>
+                <td>Procastination</td>
+                <td>Freedom</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Evalute Alternative</td>
+                <td>Rationalize</td>
+                <td>Alternatives</td>
+              </tr>
+              <tr style={{ textAlign: "left" }}>
+                <td>Improvments</td>
+                <td>"Over-imporove"</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table> */}
+            <div>
+              <h3>Strengths and Weaknesses </h3>
+              <p>
+                Your key strengths include your ability to listen attentively, your patience, and your skill in evaluating alternatives and identifying improvements. However, you may sometimes struggle with conflict avoidance and procrastination, and can become overly focused on perfecting a solution.
+              </p>
+              <div>
+                <h3>Needs and Motivations </h3>
+                <p>
+                  To feel fulfilled, you require a sense of appreciation, the freedom to explore options, and the time needed to thoroughly consider and implement solutions. You are motivated by the opportunity to make a positive impact and contribute to the overall well-being of the group or organization.
+                </p>
+              </div>
+              <p>Overall, you are a supportive and problem-solving oriented individual who values collaboration, consensus-building, and continuous improvement. By understanding your personality traits and communication preferences, others can more effectively engage and work with you.</p>
+            </div>
+          </div>
+        );
+      } else if (fourthHighestColor === "green") {
+        setIdentity4("Accurate, Consistent, Analytical");
+        setFeedback4(
+          <>
+            <div>
+
+              <p>
+                Analytical and Cautious You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to "look before you leap" in order to avoid repeating past mistakes.
+              </p>
+              <div>
+                <h3>Communication Preferences </h3>
+                <p>
+                  When communicating with you, it is important to provide a clear and structured approach, addressing the "how" rather than just the "what." You thrive on predictability and control, so presenting detailed information, facts, and testimonials early on will help establish trust and credibility.
+                </p>
+              </div>
+              {/* <table class="custom-table">
+                <thead>
+                  <tr style={{ textAlign: "left" }}>
+                    <th>STRENGTHS</th>
+                    <th>WEAKNESSES</th>
+                    <th>NEEDS</th>
+                  </tr>
+                </thead>
+                <tbody className="tbody">
+                  <tr style={{ textAlign: "left" }}>
+                    <td>Patient</td>
+                    <td>Avoid Conflct</td>
+                    <td>Time</td>
+                  </tr>
+                  <tr style={{ textAlign: "left" }}>
+                    <td>Problem Solver</td>
+                    <td>Procastination</td>
+                    <td>Freedom</td>
+                  </tr>
+                  <tr style={{ textAlign: "left" }}>
+                    <td>Evalute Alternative</td>
+                    <td>Rationalize</td>
+                    <td>Alternatives</td>
+                  </tr>
+                  <tr style={{ textAlign: "left" }}>
+                    <td>Improvments</td>
+                    <td>"Over-imporove"</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table> */}
+              <div>
+                <h3>Strengths and Weaknesses </h3>
+                <p>
+                  Your key strengths lie in your analytical abilities, accuracy, and commitment to maintaining high standards. However, this can also lead to rigidity, procrastination, and an overly critical perspective that focuses too heavily on the past. </p>
+              </div>
+              <div>
+                <h3>Needs and Motivations </h3>
+                <p>
+                  To feel fulfilled, you require a sense of control, the opportunity to engage in precise and detailed work, and a consistent environment that allows you to take the time needed to thoroughly consider your decisions. </p>
+              </div>
+              <p>Overall, you are a thoughtful and cautious individual who values structure, predictability, and a methodical approach to tasks and projects. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
+            </div>
+          </>
+        );
+      }
+    }, []);
+
 
     return (
       <div className="feedbackCol">
@@ -1240,13 +2102,13 @@ const App = () => {
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
             className="min-w-full border-collapse border border-gray-300 mb-4"
-            // style={{
-            //   border: '1px solid #ccc',
-            //   padding: '20px',
-            //   borderRadius: '5px',
-            //   backgroundColor: '#f9f9f9',
-            //   marginTop: "40px"
-            // }}
+          // style={{
+          //   border: '1px solid #ccc',
+          //   padding: '20px',
+          //   borderRadius: '5px',
+          //   backgroundColor: '#f9f9f9',
+          //   marginTop: "40px"
+          // }}
           >
             <thead>
               <tr>
@@ -1298,7 +2160,7 @@ const App = () => {
             borderRadius: "5px",
             backgroundColor: "#f9f9f9",
             marginTop: "40px",
-            marginBottom: "100px",
+            marginBottom: "10px",
           }}
         >
           <h3
@@ -1308,6 +2170,66 @@ const App = () => {
             Feedback for {identity}{" "}
           </h3>
           {feedback}
+        </div>
+
+        <div
+          className="custom-box feedbackColTable"
+          style={{
+            border: "1px solid #ccc",
+            padding: "20px",
+            borderRadius: "5px",
+            backgroundColor: "#f9f9f9",
+            marginTop: "40px",
+            marginBottom: "10px",
+          }}
+        >
+          <h3
+            style={{ color: "#16133d", fontSize: "24px", fontWeight: "bolder" }}
+            className="text-lg font-bold"
+          >
+            Feedback for {identity2}{" "}
+          </h3>
+          {feedback2}
+        </div>
+
+        <div
+          className="custom-box feedbackColTable"
+          style={{
+            border: "1px solid #ccc",
+            padding: "20px",
+            borderRadius: "5px",
+            backgroundColor: "#f9f9f9",
+            marginTop: "40px",
+            marginBottom: "10px",
+          }}
+        >
+          <h3
+            style={{ color: "#16133d", fontSize: "24px", fontWeight: "bolder" }}
+            className="text-lg font-bold"
+          >
+            Feedback for {identity3}{" "}
+          </h3>
+          {feedback3}
+        </div>
+
+        <div
+          className="custom-box feedbackColTable"
+          style={{
+            border: "1px solid #ccc",
+            padding: "20px",
+            borderRadius: "5px",
+            backgroundColor: "#f9f9f9",
+            marginTop: "40px",
+            marginBottom: "100px",
+          }}
+        >
+          <h3
+            style={{ color: "#16133d", fontSize: "24px", fontWeight: "bolder" }}
+            className="text-lg font-bold"
+          >
+            Feedback for {identity4}{" "}
+          </h3>
+          {feedback4}
         </div>
       </div>
     );
@@ -1545,13 +2467,13 @@ const App = () => {
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
             className="min-w-full border-collapse border border-gray-300 mb-4"
-            // style={{
-            //   border: '1px solid #ccc',
-            //   padding: '20px',
-            //   borderRadius: '5px',
-            //   backgroundColor: '#f9f9f9',
-            //   marginTop: "40px"
-            // }}
+          // style={{
+          //   border: '1px solid #ccc',
+          //   padding: '20px',
+          //   borderRadius: '5px',
+          //   backgroundColor: '#f9f9f9',
+          //   marginTop: "40px"
+          // }}
           >
             <thead>
               <tr>
@@ -1844,13 +2766,312 @@ const App = () => {
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
             className="min-w-full border-collapse border border-gray-300 mb-4"
-            // style={{
-            //   border: '1px solid #ccc',
-            //   padding: '20px',
-            //   borderRadius: '5px',
-            //   backgroundColor: '#f9f9f9',
-            //   marginTop: "40px"
-            // }}
+          // style={{
+          //   border: '1px solid #ccc',
+          //   padding: '20px',
+          //   borderRadius: '5px',
+          //   backgroundColor: '#f9f9f9',
+          //   marginTop: "40px"
+          // }}
+          >
+            <thead>
+              <tr>
+                <th className="border border-gray-300 px-4 py-2 text-left">
+                  Color
+                </th>
+                <th className="border border-gray-300 px-4 py-2 text-left"></th>
+                <th className="border border-gray-300 px-4 py-2 text-left">
+                  Profile
+                </th>
+                <th className="border border-gray-300 px-4 py-2 text-left">
+                  Score
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {sortedColors.map((color, index) => (
+                <tr key={index} className="">
+                  <td className="border border-gray-300 px-4 py-2">
+                    {color.name}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    <div
+                      style={{
+                        backgroundColor: color.code,
+                        width: "30px",
+                        height: "30px",
+                        borderRadius: "4px",
+                      }}
+                    />
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 profileHead">
+                    {color.value}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    {color.result}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {/* Feedback Section */}
+        {/* <div
+          className="custom-box"
+          style={{
+            border: '1px solid #ccc',
+            padding: '20px',
+            borderRadius: '5px',
+            backgroundColor: '#f9f9f9',
+            marginTop: "40px"
+          }}
+        >
+          <h3 style={{ color: "#16133d", fontSize: "24px", fontWeight: "bolder" }} className="text-lg font-bold">Feedback for {identity} </h3>
+          {feedback2}
+        </div> */}
+      </div>
+    );
+  };
+
+  const ColorFeedback4 = () => {
+    // const [feedback2, setFeedback2] = useState('');
+
+    const colors = [
+      {
+        name: "Red",
+        value: "Taking Action",
+        code: "#FF0000",
+        result: parentResult[0],
+      },
+      {
+        name: "Yellow",
+        value: "Influencing",
+        code: "#FFFF00",
+        result: parentResult[1],
+      },
+      {
+        name: "Blue",
+        value: "Thinking",
+        code: "#0000FF",
+        result: parentResult[2],
+      },
+      {
+        name: "Green",
+        value: "Maintaining",
+        code: "#00FF00",
+        result: parentResult[3],
+      },
+    ];
+
+    const sortedColors = [...colors].sort((a, b) => b.result - a.result);
+
+    // Helper function to convert hex color to an integer value
+    const hexToInt = (hex) => parseInt(hex.slice(1), 16);
+
+    // Find the color with the highest value
+    const getHighestColor = () =>
+      colors.reduce((max, color) =>
+        hexToInt(color.value) > hexToInt(max.value) ? color : max
+      );
+
+    // Generate feedback message based on the highest color value
+    // useEffect(() => {
+    //   const highestColor = getHighestColor();
+    //   if (correspondingColor === 'red') {
+    //     setIdentity("Decision Makers, Goal Oriented, Result Driven")
+    //     setFeedback(
+    //       <div>
+    //         {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+    //         <p>Your major strength is associated with {correspondingColor}!</p> */}
+    //         <p>You are result Oriented and driven, Direct to the point, confident and competitve and you are always in a hurray.</p>
+    //         <div>
+    //           <h3>How To Communicate: Tell them WHAT</h3>
+    //           <p>Be direct and concise, Reds think they should know what they are doing, therefore, they like to work with people who know what they are doing, Tell them the WHAT and forget the rest of the story. These are the "bottom line" people. </p>
+    //         </div>
+    //         <table className
+    //           ="custom-table">
+    //           <thead>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <th>STRENGTHS</th>
+    //               <th>WEAKNESS</th>
+    //               <th>NEEDS</th>
+    //             </tr>
+    //           </thead>
+    //           <tbody className="tbody">
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td data-label="STRENGTHS">Get Results</td>
+    //               <td data-label="WEAKNESSES">Not Cautious</td>
+    //               <td data-label="NEEDS">Power</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td data-label="STRENGTHS">Decision Makers</td>
+    //               <td data-label="WEAKNESSES">Run Over People</td>
+    //               <td data-label="NEEDS">Authority</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td data-label="STRENGTHS">Achieve Goals</td>
+    //               <td data-label="WEAKNESSES">Focus On Short Term Results</td>
+    //               <td data-label="NEEDS">To win</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td data-label="STRENGTHS">Risk Takers</td>
+    //               <td data-label="WEAKNESSES">Focus On Wrong Thing</td>
+    //               <td data-label="NEEDS">Quantifiable Results</td>
+    //             </tr>
+    //           </tbody>
+    //         </table>
+    //       </div>
+    //     );
+    //   } else if (correspondingColor === 'yellow') {
+    //     setIdentity("Communicators, Participants, Adaptable")
+    //     setFeedback(
+    //       <div>
+    //         {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+    //         <p>Your major strength is associated with {correspondingColor}!</p> */}
+    //         <p>You are friendly, outgoing and emotional. Your orientation is people first, results second. You like to combine food with talk, and you talk a lot. You are very spontaneous.</p>
+    //         <div>
+    //           <h3>How To Communicate: Ask for their HELP</h3>
+    //           <p>Be direct and concise, Reds think they should know what they are doing, therefore, they like to work with people who know what they are doing, Tell them the WHAT and forget the rest of the story. These are the "bottom line" people. </p>
+    //         </div>
+    //         <table className
+    //           ="custom-table">
+    //           <thead>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <th>STRENGTHS</th>
+    //               <th>WEAKNESS</th>
+    //               <th>NEEDS</th>
+    //             </tr>
+    //           </thead>
+    //           <tbody className="tbody">
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Communicators</td>
+    //               <td>No Sense of Time</td>
+    //               <td>Recognition</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Participants</td>
+    //               <td>Lack Follow-Up</td>
+    //               <td>Acceptance</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Adaptability</td>
+    //               <td>Lack Objectivity</td>
+    //               <td>Influence</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Optimistic</td>
+    //               <td>Chamelon</td>
+    //               <td>Involvement</td>
+    //             </tr>
+    //           </tbody>
+    //         </table>
+    //       </div>
+    //     );
+    //   } else if (correspondingColor === 'blue') {
+    //     setIdentity("Patient, Problem Solver, Good Listener")
+    //     setFeedback(
+    //       <div>
+    //         {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+    //         <p>Your major strength is associated with {correspondingColor}!</p> */}
+    //         <p>You are a sincere person and good Listener, a problem solver and peace keeper. You are appreciated for who you are, not what you do. You focus on how to make things better</p>
+    //         <div>
+    //           <h3>How To Communicate: Ask what they THINK</h3>
+    //           <p>They want to have input, Provide alternatives and allow them the freedom to choose the best one. Show appreciation for their ideas and input. ASK them what they think about your idea. Give them a problem to solve- they think yhey should know how!</p>
+    //         </div>
+    //         <table class="custom-table">
+    //           <thead>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <th>STRENGTHS</th>
+    //               <th>WEAKNESS</th>
+    //               <th>NEEDS</th>
+    //             </tr>
+    //           </thead>
+    //           <tbody className="tbody">
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Patient</td>
+    //               <td>Avoid Conflct</td>
+    //               <td>Time</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Problem Solver</td>
+    //               <td>Procastination</td>
+    //               <td>Freedom</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Evalute Alternative</td>
+    //               <td>Rationalize</td>
+    //               <td>Alternatives</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Improvments</td>
+    //               <td>"Over-imporove"</td>
+    //               <td></td>
+    //             </tr>
+    //           </tbody>
+    //         </table>
+    //       </div>
+    //     );
+    //   } else if (correspondingColor === 'green') {
+    //     setIdentity("Accurate, Consistent, Analytical")
+    //     setFeedback(
+    //       <div>
+    //         {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
+    //         <p>Your major strength is associated with {correspondingColor}!</p> */}
+    //         <p>A cautious person, that tend to do all 'by the book', you analyze any situation before you commit to it, you look before you cross the street and walk before you run, your goal is to avoid to making the same mistake twice.</p>
+    //         <div>
+    //           <h3>How To Communicate: Tell them HOW you want it done</h3>
+    //           <p>They need consistency, predictablility and control. They want to see proff. Use testimonials. Lay the facts out early. Tell them the bad news first. Make a formal presentation and answer all the HOW question.</p>
+    //         </div>
+    //         <table class="custom-table">
+    //           <thead>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <th>STRENGTHS</th>
+    //               <th>WEAKNESSES</th>
+    //               <th>M=NEEDS</th>
+    //             </tr>
+    //           </thead>
+    //           <tbody className="tbody">
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Patient</td>
+    //               <td>Avoid Conflct</td>
+    //               <td>Time</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Problem Solver</td>
+    //               <td>Procastination</td>
+    //               <td>Freedom</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Evalute Alternative</td>
+    //               <td>Rationalize</td>
+    //               <td>Alternatives</td>
+    //             </tr>
+    //             <tr style={{ textAlign: "left" }}>
+    //               <td>Improvments</td>
+    //               <td>"Over-imporove"</td>
+    //               <td></td>
+    //             </tr>
+    //           </tbody>
+    //         </table>
+    //       </div>
+    //     );
+    //   }
+    // }, []);
+
+    return (
+      <div className="feedbackCol">
+        <h2>What You Feel You Ought to Do/How You Should Think</h2>
+        <div className="container mx-auto p-4 custom-box colorBox">
+          {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
+          <table
+            className="min-w-full border-collapse border border-gray-300 mb-4"
+          // style={{
+          //   border: '1px solid #ccc',
+          //   padding: '20px',
+          //   borderRadius: '5px',
+          //   backgroundColor: '#f9f9f9',
+          //   marginTop: "40px"
+          // }}
           >
             <thead>
               <tr>
@@ -2000,6 +3221,37 @@ const App = () => {
     return first20Weights;
   };
 
+  const extractMiddle20Weights = () => {
+    // Flatten all questions across sections
+    const allQuestions = questionsUpdate.flatMap(
+      (section) => section.questions
+    );
+
+    // Calculate the middle range
+    const totalQuestions = allQuestions.length;
+    const startIndex = Math.floor((totalQuestions - 20) / 2); // Middle start index
+    const middle20Questions = allQuestions.slice(startIndex, startIndex + 20);
+
+    // Extract their IDs
+    const middle20QuestionIds = middle20Questions.map((q) => q.id);
+
+    // Filter answers for these IDs and calculate weights
+    const middle20Weights = middle20QuestionIds
+      .map((id) => {
+        const question = allQuestions.find((q) => q.id === id);
+        const selectedOption = answers[id];
+        const option = question?.options.find(
+          (opt) => opt.text === selectedOption
+        );
+
+        return option?.weight || 0; // Return weight if exists, otherwise 0
+      })
+      .filter((weight) => weight !== 0); // Filter out any invalid weights
+
+    return middle20Weights;
+  };
+
+
   const extractLast20Weights = () => {
     // Flatten all questions across sections
     const allQuestions = questionsUpdate.flatMap(
@@ -2031,7 +3283,9 @@ const App = () => {
   // Call the function and store the result when needed
   const last20Weights = extractLast20Weights();
   const first20Weights = extractFirst20Weights();
+  const middle20Weights = extractMiddle20Weights();
   console.log("Last 20 Question Weights:", last20Weights);
+  console.log("middle 20 Question Weights:", middle20Weights);
   console.log("first 20 Question Weights:", first20Weights);
 
   const childResult = ["A", "B", "C", "D"].map(
@@ -2043,6 +3297,11 @@ const App = () => {
     (value) => last20Weights.filter((item) => item === value).length
   );
   console.log(adultResult);
+
+  const parentResult = ["A", "B", "C", "D"].map(
+    (value) => middle20Weights.filter((item) => item === value).length
+  );
+  console.log(parentResult);
 
   const letterToColor = {
     C: "blue",
@@ -2289,7 +3548,8 @@ const App = () => {
             <div style={{ marginBottom: "80px" }} className="feedback">
               <ColorFeedback2 />
               <ColorFeedback3 />
-              <FourStrengthsTable />
+              <ColorFeedback4 />
+              {/* <FourStrengthsTable /> */}
             </div>
             <div style={{ marginBottom: "80px" }} className="feedback">
               <ColorFeedback />
