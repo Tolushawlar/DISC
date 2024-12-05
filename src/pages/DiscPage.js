@@ -697,6 +697,15 @@ const questionsUpdate = [
 // (4) ['red', 'yellow', 'blue', 'green']
 
 const App = () => {
+  // const [totals, setTotals] = useState({ Red: 0, Yellow: 0, Blue: 0, Green: 0 });
+  const [highestColor, setHighestColorName] = useState(null);
+  const [secondHighestColor2, setSecondHighestColorName] = useState(null);
+  const [thirdHighestColor2, setThirdHighestColorName] = useState(null);
+  const [fourthHighestColor2, setFourthHighestColorName] = useState(null);
+  const [childValue, setChildValue] = useState([])
+  const [parentValue, setParentValue] = useState([])
+  const [adultValue, setAdultValue] = useState([])
+  const [finalResults, setFinalResults] = useState([]);
   const [currentSection, setCurrentSection] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -857,7 +866,7 @@ const App = () => {
     if (currentSection === 0) {
       return (
         <>
-          <p style={{ fontSize: "18px", fontWeight: "bolder" }}>Profile C</p>
+          <p style={{ fontSize: "18px", fontWeight: "bolder" }}>How I Respond Under Intense Pressure</p>
           <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px" }}>
             Each question below is divided into two statements. Choose the
             statement in either column that best describes how you feel under
@@ -872,7 +881,7 @@ const App = () => {
     } else if (currentSection === 1) {
       return (
         <>
-          <p style={{ fontSize: "18px", fontWeight: "bolder" }}>Profile P</p>
+          <p style={{ fontSize: "18px", fontWeight: "bolder" }}>What I Think I Should Do</p>
           <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px" }}>
             Each question below is divided into two statements. Choose the
             statement in either column that best describes what you think you
@@ -888,7 +897,7 @@ const App = () => {
     } else if (currentSection === 2) {
       return (
         <>
-          <p style={{ fontSize: "18px", fontWeight: "bolder" }}>Profile A</p>
+          <p style={{ fontSize: "18px", fontWeight: "bolder" }}>What I Am Comfortable Doing</p>
           <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px" }}>
             Each question below is divided into two statements. Choose the
             statement in either column that best describes what you are
@@ -992,8 +1001,7 @@ const App = () => {
 
   // Step 2: Get the corresponding color from the colors array
   const correspondingColor = colorsArray[maxIndex];
-  console.log(valuesArray);
-  console.log(colorsArray);
+
   console.log(
     `Highest value: ${maxValue}, Position: ${maxIndex}, Color: ${correspondingColor}`
   );
@@ -1035,7 +1043,7 @@ const App = () => {
     ];
 
     const sortedColors = [...colors].sort((a, b) => b.result - a.result);
-
+    console.log("sorted", sortedColors)
     // Helper function to convert hex color to an integer value
     const hexToInt = (hex) => parseInt(hex.slice(1), 16);
 
@@ -1047,8 +1055,8 @@ const App = () => {
 
     // Generate feedback message based on the highest color value
     useEffect(() => {
-      const highestColor = getHighestColor();
-      if (correspondingColor === "red") {
+      // const highestColor = getHighestColor();
+      if (highestColor === "Red") {
         setIdentity("Decision Makers, Goal Oriented, Result Driven");
         setFeedback(
           <div>
@@ -1060,8 +1068,9 @@ const App = () => {
               the street and walk before you run, your goal is to avoid to
               making the same mistake twice.
             </p> */}
+            <h3> Result-Oriented and Driven </h3>
             <p>
-              Result-Oriented and Driven You are a highly driven and goal-oriented individual who is focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects.</p>
+              You are a highly driven and goal-oriented individual who is focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects.</p>
             <div>
               <h3>Communication Preferences </h3>
               <p>
@@ -1110,7 +1119,7 @@ const App = () => {
             <p>Overall, you are a highly capable and results-oriented individual who values direct communication, decision-making, and the achievement of your goals. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
           </div>
         );
-      } else if (correspondingColor === "yellow") {
+      } else if (highestColor === "Yellow") {
         setIdentity("Communicators, Participants, Adaptable");
         setFeedback(
 
@@ -1123,8 +1132,9 @@ const App = () => {
             the street and walk before you run, your goal is to avoid to
             making the same mistake twice.
           </p> */}
+            <h3>Friendly, Outgoing, and Emotional</h3>
             <p>
-              Friendly, Outgoing, and Emotional You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations.
+              You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations.
             </p>
             <div>
               <h3>Communication Preferences </h3>
@@ -1178,7 +1188,7 @@ const App = () => {
             </div>
           </div>
         );
-      } else if (correspondingColor === "blue") {
+      } else if (highestColor === "Blue") {
         setIdentity("Patient, Problem Solver, Good Listener");
         setFeedback(
 
@@ -1191,8 +1201,9 @@ const App = () => {
             the street and walk before you run, your goal is to avoid to
             making the same mistake twice.
           </p> */}
+            <h3>Sincere and Focused on Problem-Solving</h3>
             <p>
-              Sincere and Focused on Problem-Solving You are a sincere and thoughtful individual who takes great pride in being a good listener and a problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper.
+              You are a sincere and thoughtful individual who takes great pride in being a good listener and a problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper.
             </p>
             <div>
               <h3>Communication Preferences </h3>
@@ -1246,14 +1257,14 @@ const App = () => {
             </div>
           </div>
         );
-      } else if (correspondingColor === "green") {
+      } else if (highestColor === "Green") {
         setIdentity("Accurate, Consistent, Analytical");
         setFeedback(
           <>
             <div>
-
+              <h3>Analytical and Cautious</h3>
               <p>
-                Analytical and Cautious You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to "look before you leap" in order to avoid repeating past mistakes.
+                You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to "look before you leap" in order to avoid repeating past mistakes.
               </p>
               <div>
                 <h3>Communication Preferences </h3>
@@ -1323,8 +1334,9 @@ const App = () => {
               the street and walk before you run, your goal is to avoid to
               making the same mistake twice.
             </p> */}
+            <h3> Result-Oriented and Driven </h3>
             <p>
-              Result-Oriented and Driven You are a highly driven and goal-oriented individual who is focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects.</p>
+              You are a highly driven and goal-oriented individual who is focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects.</p>
             <div>
               <h3>Communication Preferences </h3>
               <p>
@@ -1385,8 +1397,9 @@ const App = () => {
             the street and walk before you run, your goal is to avoid to
             making the same mistake twice.
           </p> */}
+            <h3> Friendly, Outgoing, and Emotional</h3>
             <p>
-              Friendly, Outgoing, and Emotional You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations.
+              You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations.
             </p>
             <div>
               <h3>Communication Preferences </h3>
@@ -1452,8 +1465,9 @@ const App = () => {
             the street and walk before you run, your goal is to avoid to
             making the same mistake twice.
           </p> */}
+            <h3> Sincere and Focused on Problem-Solving </h3>
             <p>
-              Sincere and Focused on Problem-Solving You are a sincere and thoughtful individual who takes great pride in being a good listener and a problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper.
+              You are a sincere and thoughtful individual who takes great pride in being a good listener and a problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper.
             </p>
             <div>
               <h3>Communication Preferences </h3>
@@ -1512,9 +1526,9 @@ const App = () => {
         setFeedback2(
           <>
             <div>
-
+              <h3> Analytical and Cautious </h3>
               <p>
-                Analytical and Cautious You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to "look before you leap" in order to avoid repeating past mistakes.
+                You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to "look before you leap" in order to avoid repeating past mistakes.
               </p>
               <div>
                 <h3>Communication Preferences </h3>
@@ -1584,8 +1598,9 @@ const App = () => {
               the street and walk before you run, your goal is to avoid to
               making the same mistake twice.
             </p> */}
+            <h3>Result-Oriented and Driven</h3>
             <p>
-              Result-Oriented and Driven You are a highly driven and goal-oriented individual who is focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects.</p>
+              You are a highly driven and goal-oriented individual who is focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects.</p>
             <div>
               <h3>Communication Preferences </h3>
               <p>
@@ -1646,8 +1661,9 @@ const App = () => {
             the street and walk before you run, your goal is to avoid to
             making the same mistake twice.
           </p> */}
+            <h3>Friendly, Outgoing, and Emotional</h3>
             <p>
-              Friendly, Outgoing, and Emotional You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations.
+              You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations.
             </p>
             <div>
               <h3>Communication Preferences </h3>
@@ -1713,8 +1729,9 @@ const App = () => {
             the street and walk before you run, your goal is to avoid to
             making the same mistake twice.
           </p> */}
+            <h3> Sincere and Focused on Problem-Solving </h3>
             <p>
-              Sincere and Focused on Problem-Solving You are a sincere and thoughtful individual who takes great pride in being a good listener and a problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper.
+              You are a sincere and thoughtful individual who takes great pride in being a good listener and a problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper.
             </p>
             <div>
               <h3>Communication Preferences </h3>
@@ -1773,9 +1790,9 @@ const App = () => {
         setFeedback3(
           <>
             <div>
-
+              <h3> Analytical and Cautious </h3>
               <p>
-                Analytical and Cautious You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to "look before you leap" in order to avoid repeating past mistakes.
+                You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to "look before you leap" in order to avoid repeating past mistakes.
               </p>
               <div>
                 <h3>Communication Preferences </h3>
@@ -1845,8 +1862,9 @@ const App = () => {
               the street and walk before you run, your goal is to avoid to
               making the same mistake twice.
             </p> */}
+            <h3> Result-Oriented and Driven </h3>
             <p>
-              Result-Oriented and Driven You are a highly driven and goal-oriented individual who is focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects.</p>
+              You are a highly driven and goal-oriented individual who is focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects.</p>
             <div>
               <h3>Communication Preferences </h3>
               <p>
@@ -1908,8 +1926,9 @@ const App = () => {
             the street and walk before you run, your goal is to avoid to
             making the same mistake twice.
           </p> */}
+            <h3> Friendly, Outgoing, and Emotional </h3>
             <p>
-              Friendly, Outgoing, and Emotional You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations.
+              You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations.
             </p>
             <div>
               <h3>Communication Preferences </h3>
@@ -1976,8 +1995,9 @@ const App = () => {
             the street and walk before you run, your goal is to avoid to
             making the same mistake twice.
           </p> */}
+            <h3>Sincere and Focused on Problem-Solving</h3>
             <p>
-              Sincere and Focused on Problem-Solving You are a sincere and thoughtful individual who takes great pride in being a good listener and a problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper.
+              You are a sincere and thoughtful individual who takes great pride in being a good listener and a problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper.
             </p>
             <div>
               <h3>Communication Preferences </h3>
@@ -2036,9 +2056,9 @@ const App = () => {
         setFeedback4(
           <>
             <div>
-
+              <h3>Analytical and Cautious</h3>
               <p>
-                Analytical and Cautious You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to "look before you leap" in order to avoid repeating past mistakes.
+                You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to "look before you leap" in order to avoid repeating past mistakes.
               </p>
               <div>
                 <h3>Communication Preferences </h3>
@@ -2125,7 +2145,7 @@ const App = () => {
               </tr>
             </thead>
             <tbody>
-              {sortedColors.map((color, index) => (
+              {finalResults.map((color, index) => (
                 <tr key={index} className="">
                   <td className="border border-gray-300 px-4 py-2">
                     {color.name}
@@ -2167,7 +2187,7 @@ const App = () => {
             style={{ color: "#16133d", fontSize: "24px", fontWeight: "bolder" }}
             className="text-lg font-bold"
           >
-            Feedback for {identity}{" "}
+            {/* Feedback for {identity}{" "} */}
           </h3>
           {feedback}
         </div>
@@ -2187,7 +2207,7 @@ const App = () => {
             style={{ color: "#16133d", fontSize: "24px", fontWeight: "bolder" }}
             className="text-lg font-bold"
           >
-            Feedback for {identity2}{" "}
+            {/* Feedback for {identity2}{" "} */}
           </h3>
           {feedback2}
         </div>
@@ -2207,7 +2227,7 @@ const App = () => {
             style={{ color: "#16133d", fontSize: "24px", fontWeight: "bolder" }}
             className="text-lg font-bold"
           >
-            Feedback for {identity3}{" "}
+            {/* Feedback for {identity3}{" "} */}
           </h3>
           {feedback3}
         </div>
@@ -2227,7 +2247,7 @@ const App = () => {
             style={{ color: "#16133d", fontSize: "24px", fontWeight: "bolder" }}
             className="text-lg font-bold"
           >
-            Feedback for {identity4}{" "}
+            {/* Feedback for {identity4}{" "} */}
           </h3>
           {feedback4}
         </div>
@@ -3284,24 +3304,127 @@ const App = () => {
   const last20Weights = extractLast20Weights();
   const first20Weights = extractFirst20Weights();
   const middle20Weights = extractMiddle20Weights();
-  console.log("Last 20 Question Weights:", last20Weights);
-  console.log("middle 20 Question Weights:", middle20Weights);
   console.log("first 20 Question Weights:", first20Weights);
+  console.log("middle 20 Question Weights:", middle20Weights);
+  console.log("Last 20 Question Weights:", last20Weights);
+
 
   const childResult = ["A", "B", "C", "D"].map(
     (value) => first20Weights.filter((item) => item === value).length
   );
-  console.log(childResult);
 
   const adultResult = ["A", "B", "C", "D"].map(
     (value) => last20Weights.filter((item) => item === value).length
   );
-  console.log(adultResult);
 
   const parentResult = ["A", "B", "C", "D"].map(
     (value) => middle20Weights.filter((item) => item === value).length
   );
+
+  console.log(childResult);
   console.log(parentResult);
+  console.log(adultResult);
+
+  useEffect(() => {
+    setChildValue(childResult)
+    setParentValue(parentResult)
+    setAdultValue(adultResult)
+  }, [])
+
+  console.log(valuesArray);
+  console.log(colorsArray);
+
+  /** 
+  const rows = [
+    childResult,
+    parentResult,
+    adultResult
+  ];
+
+  // Colors in the specified order
+  const colorsAss = ["Red", "Yellow", "Blue", "Green"];
+
+  // Initialize an object to store the totals
+  const totals = { Red: 0, Yellow: 0, Blue: 0, Green: 0 };
+
+  // Sum the values column-wise and assign to the respective colors
+  rows.forEach(row => {
+    row.forEach((value, index) => {
+      totals[colorsAss[index]] += value;
+    });
+  });
+
+  // setTotals(totals); 
+
+  console.log("summed total =", totals)
+
+  **/
+
+  useEffect(() => {
+    const rows = [
+      childResult,
+      parentResult,
+      adultResult,
+    ];
+
+    // Colors in the specified order and their attributes
+    const colorAttributes = {
+      Red: {
+        code: "#FF0000",
+        name: "Red",
+        value: "Decision Makers, Goal Oriented, Results",
+      },
+      Yellow: {
+        code: "#FFFF00",
+        name: "Yellow",
+        value: "Communicators, Participants, Adaptable",
+      },
+      Blue: {
+        code: "#0000FF",
+        name: "Blue",
+        value: "Problem Solver, Good Listener",
+      },
+      Green: {
+        code: "#00FF00",
+        name: "Green",
+        value: "Accurate, Consistent, Analytical",
+      },
+    };
+
+    // Initialize an array to store the results
+    const results = [
+      { ...colorAttributes.Red, result: 0 },
+      { ...colorAttributes.Yellow, result: 0 },
+      { ...colorAttributes.Blue, result: 0 },
+      { ...colorAttributes.Green, result: 0 },
+    ];
+
+    // Sum the values column-wise and assign to the respective colors
+    rows.forEach(row => {
+      row.forEach((value, index) => {
+        results[index].result += value;
+      });
+    });
+
+    // Optional: Sort the results in descending order
+    results.sort((a, b) => b.result - a.result);
+    // Set the final results state
+
+    // Store the highest, second-highest, third-highest, and fourth-highest color
+    if (results.length > 0) {
+      let first = (results[0].name);
+      setHighestColorName(JSON.stringify(first, null, 2))
+      setSecondHighestColorName(results[1].name);
+      setThirdHighestColorName(results[2].name);
+      setFourthHighestColorName(results[3].name);
+    }
+
+
+    setFinalResults(results);
+  })
+
+  console.log("Final Results:", finalResults);
+  console.log("higgg", highestColor)
 
   const letterToColor = {
     C: "blue",
@@ -3415,12 +3538,12 @@ const App = () => {
           </div>
           <p>{getCurrentStep()}</p>
           <p>{profiling()}</p>
-          <h3 style={{ marginTop: "0px" }}>
+          {/* <h3 style={{ marginTop: "0px" }}>
             {
               questionsUpdate[currentSection].questions[currentQuestion]
                 .question
             }
-          </h3>
+          </h3> */}
           {questionsUpdate[currentSection].questions[
             currentQuestion
           ].options.map((option) => (
@@ -3546,9 +3669,9 @@ const App = () => {
               {isGenerating && <p>Generating PDF, please wait...</p>}
             </div>
             <div style={{ marginBottom: "80px" }} className="feedback">
-              <ColorFeedback2 />
               <ColorFeedback3 />
               <ColorFeedback4 />
+              <ColorFeedback2 />
               {/* <FourStrengthsTable /> */}
             </div>
             <div style={{ marginBottom: "80px" }} className="feedback">
