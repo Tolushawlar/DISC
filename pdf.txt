@@ -1,0 +1,63 @@
+ const generatePDF = async () => {
+    setIsGenerating(true); // Hide button
+    // Temporarily hide button using a CSS class
+    const buttonElement = document.getElementById("download-button");
+    const buttonElement2 = document.getElementById("download-button2");
+    buttonElement.style.display = "none";
+    buttonElement2.style.display = "none";
+
+    const element = document.body; // Capture the entire page
+    const canvas = await html2canvas(element, {
+      useCORS: true,
+      scale: 2, // Improves resolution
+    });
+
+    const pdf = new jsPDF("p", "mm", "a4");
+    const pdfWidth = 210; // A4 width in mm
+    const pdfHeight = 297; // A4 height in mm
+    const canvasWidth = canvas.width;
+    const canvasHeight = canvas.height;
+
+    const imgData = canvas.toDataURL("image/png");
+    const imgHeight = (pdfWidth / canvasWidth) * canvasHeight;
+
+    let currentHeight = 0; // Track how much content is rendered
+
+    while (currentHeight < canvasHeight) {
+      const pageCanvas = document.createElement("canvas");
+      pageCanvas.width = canvas.width;
+      pageCanvas.height = Math.min(
+        canvas.height - currentHeight,
+        canvas.height
+      );
+
+      const context = pageCanvas.getContext("2d");
+      context.drawImage(
+        canvas,
+        0,
+        currentHeight,
+        canvas.width,
+        pageCanvas.height,
+        0,
+        0,
+        canvas.width,
+        pageCanvas.height
+      );
+
+      const pageData = pageCanvas.toDataURL("image/png");
+      const pageHeight = (pdfWidth / canvasWidth) * pageCanvas.height;
+
+      pdf.addImage(pageData, "PNG", 0, 0, pdfWidth, pageHeight);
+
+      currentHeight += pageCanvas.height;
+
+      if (currentHeight < canvasHeight) {
+        pdf.addPage();
+      }
+    }
+
+    pdf.save(`${userDetails.name}'s Strengths-Matrix Results.pdf`);
+    buttonElement.style.display = "block";
+    buttonElement2.style.display = "block";
+    setIsGenerating(false); // Show button again
+  };

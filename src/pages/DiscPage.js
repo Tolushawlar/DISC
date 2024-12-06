@@ -724,13 +724,13 @@ const App = () => {
 
   const generatePDF = async () => {
     setIsGenerating(true); // Hide button
-    // Temporarily hide button using a CSS class
     const buttonElement = document.getElementById("download-button");
     const buttonElement2 = document.getElementById("download-button2");
     buttonElement.style.display = "none";
     buttonElement2.style.display = "none";
 
-    const element = document.body; // Capture the entire page
+    // Capture the entire page
+    const element = document.body; // Replace with the specific element to capture if needed
     const canvas = await html2canvas(element, {
       useCORS: true,
       scale: 2, // Improves resolution
@@ -745,14 +745,14 @@ const App = () => {
     const imgData = canvas.toDataURL("image/png");
     const imgHeight = (pdfWidth / canvasWidth) * canvasHeight;
 
-    let currentHeight = 0; // Track how much content is rendered
+    let currentHeight = 0; // Track how much content has been rendered
 
     while (currentHeight < canvasHeight) {
       const pageCanvas = document.createElement("canvas");
       pageCanvas.width = canvas.width;
       pageCanvas.height = Math.min(
         canvas.height - currentHeight,
-        canvas.height
+        (pdfHeight / pdfWidth) * canvasWidth // Map height proportionally to A4
       );
 
       const context = pageCanvas.getContext("2d");
@@ -780,11 +780,15 @@ const App = () => {
       }
     }
 
+    // Save the PDF
     pdf.save(`${userDetails.name}'s Strengths-Matrix Results.pdf`);
+
+    // Restore button visibility
     buttonElement.style.display = "block";
     buttonElement2.style.display = "block";
-    setIsGenerating(false); // Show button again
+    setIsGenerating(false);
   };
+
 
   const handleAnswerSelection = (questionId, selectedOption) => {
     // Store answer and its weight in state
@@ -1056,7 +1060,7 @@ const App = () => {
     // Generate feedback message based on the highest color value
     useEffect(() => {
       // const highestColor = getHighestColor();
-      if (highestColor === "Red") {
+      if (correspondingColor === "red") {
         setIdentity("Decision Makers, Goal Oriented, Result Driven");
         setFeedback(
           <div>
@@ -1119,7 +1123,7 @@ const App = () => {
             <p>Overall, you are a highly capable and results-oriented individual who values direct communication, decision-making, and the achievement of your goals. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
           </div>
         );
-      } else if (highestColor === "Yellow") {
+      } else if (correspondingColor === "yellow") {
         setIdentity("Communicators, Participants, Adaptable");
         setFeedback(
 
@@ -1188,7 +1192,7 @@ const App = () => {
             </div>
           </div>
         );
-      } else if (highestColor === "Blue") {
+      } else if (correspondingColor === "blue") {
         setIdentity("Patient, Problem Solver, Good Listener");
         setFeedback(
 
@@ -1257,7 +1261,7 @@ const App = () => {
             </div>
           </div>
         );
-      } else if (highestColor === "Green") {
+      } else if (correspondingColor === "green") {
         setIdentity("Accurate, Consistent, Analytical");
         setFeedback(
           <>
@@ -3421,7 +3425,7 @@ const App = () => {
 
 
     setFinalResults(results);
-  })
+  }, [])
 
   console.log("Final Results:", finalResults);
   console.log("higgg", highestColor)
