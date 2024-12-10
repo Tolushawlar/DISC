@@ -320,7 +320,7 @@ body::-webkit-scrollbar {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    margin-left: 80vw;
+    margin-left: 82vw;
   }
 
   .custInner{
@@ -336,6 +336,7 @@ body::-webkit-scrollbar {
 
   .feedbackColTable{
     width: 80vw;
+    margin-left: 5vw;
   }
 
   .resultHeader {
