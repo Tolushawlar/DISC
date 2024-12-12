@@ -335,8 +335,8 @@ body::-webkit-scrollbar {
   }
 
   .feedbackColTable{
-    width: 80vw;
-    margin-left: 5vw;
+    width: 75vw;
+    /* margin-left: 5vw; */
   }
 
   .resultHeader {
@@ -358,7 +358,7 @@ body::-webkit-scrollbar {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    margin-left: 15vw !important;
+    margin-left: 13vw !important;
   }
 
 
