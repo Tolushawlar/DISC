@@ -336,7 +336,7 @@ body::-webkit-scrollbar {
 
   .feedbackColTable{
     width: 80vw;
-    margin-left:-3vw;
+    margin-left:3vw;
   }
 
   .resultHeader {
