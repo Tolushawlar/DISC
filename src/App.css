@@ -408,3 +408,11 @@ body::-webkit-scrollbar {
     padding: 20px !important;
   }
 }
+
+/* Media query for all iPhones */
+@media screen and (min-device-width: 320px) and (max-device-width: 428px) and (-webkit-min-device-pixel-ratio: 2) {
+  /* Styles for iPhones */
+  body {
+    background-color: red;
+  }
+}
