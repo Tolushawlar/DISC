@@ -403,11 +403,12 @@ body::-webkit-scrollbar {
   }
 }
 
-/* Media query for all iPhones */
-
-@supports (hanging-punctuation: first) and (font: -apple-system-body) and
-  (-webkit-appearance: none) {
-  .safari-only {
-    background-color: red;
+@media only screen and (max-width: 768px) {
+  /* Target WebKit browsers (including Safari) */
+  @supports (-webkit-touch-callout: none) {
+    /* Safari-specific styles */
+    body {
+      background-color: red;
+    }
   }
 }
