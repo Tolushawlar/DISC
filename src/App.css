@@ -404,6 +404,7 @@ body::-webkit-scrollbar {
 
   .safari-browser  {
     background-color: red !important;
-    margin-left: 95vw !important;
+    margin-left: 90vw !important;
+    overflow-x: hidden !important;
   }
 }
