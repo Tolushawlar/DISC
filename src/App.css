@@ -279,7 +279,8 @@ body::-webkit-scrollbar {
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    margin-left: 92vw;
+    margin-left: 90vw;
+    overflow-x: hidden !important;
   }
 
   .options {
