@@ -404,17 +404,17 @@ body::-webkit-scrollbar {
 
   .safari-browser  {
     /* background-color: red !important; */
-    margin-left: 18vw !important;
+    margin-left: 20vw !important;
     overflow-x: hidden !important;
   }
 
-  .safari-browser .opts{
-    max-width: 200px !important;
+  .safari-browser .options{
+    max-width: 250px !important;
     color: red !important;
   }
 
   .safari-browser .intro{
-    max-width: 200px !important;
+    max-width: 250px !important;
     color: red !important;
   }
 
