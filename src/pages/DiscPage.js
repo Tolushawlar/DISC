@@ -870,7 +870,7 @@ const App = () => {
     if (currentSection === 0) {
       return (
         <>
-          <p style={{ fontSize: "18px", fontWeight: "bolder" }}>How I Respond Under Intense Pressure</p>
+          <p className="topicHeader" style={{ fontSize: "18px", fontWeight: "bolder" }}>How I Respond Under Intense Pressure</p>
           <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px" }}>
             Each question below is divided into two statements. Choose the
             statement in either column that best describes how you feel under
@@ -885,7 +885,7 @@ const App = () => {
     } else if (currentSection === 1) {
       return (
         <>
-          <p style={{ fontSize: "18px", fontWeight: "bolder" }}>What I Think I Should Do</p>
+          <p className="topicHeader" style={{ fontSize: "18px", fontWeight: "bolder" }}>What I Think I Should Do</p>
           <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px" }}>
             Each question below is divided into two statements. Choose the
             statement in either column that best describes what you think you
@@ -901,7 +901,7 @@ const App = () => {
     } else if (currentSection === 2) {
       return (
         <>
-          <p style={{ fontSize: "18px", fontWeight: "bolder" }}>What I Am Comfortable Doing</p>
+          <p className="topicHeader" style={{ fontSize: "18px", fontWeight: "bolder" }}>What I Am Comfortable Doing</p>
           <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px" }}>
             Each question below is divided into two statements. Choose the
             statement in either column that best describes what you are
