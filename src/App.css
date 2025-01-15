@@ -336,12 +336,13 @@ body::-webkit-scrollbar {
 
   .feedbackColTable{
     width: 80vw;
-    margin-left: 5vw;
+    margin-left:3vw;
   }
 
   .resultHeader {
     font-size: 20px !important;
     margin-right: 60vw;
+    max-width: 250px;
   }
 
   .riz {
@@ -357,7 +358,7 @@ body::-webkit-scrollbar {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    margin-left: 5vw !important;
+    margin-left: 13vw !important;
   }
 
 
