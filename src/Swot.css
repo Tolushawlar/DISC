@@ -245,7 +245,7 @@ input {
 
   .questionText {
     /* font-size: 10px !important; */
-    width: 330px !important;
+    max-width: 300px !important;
     /* color: red !important; */
   }
 }

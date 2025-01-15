@@ -1714,7 +1714,7 @@ const SwotPage = () => {
                     fontSize: "20px",
                     backgroundColor: isUnanswered ? "#ffcccc" : "#D3CCF0", // Light red for unanswered
                     padding: "6px",
-                    width: "400px",
+                    // width: "400px",
                     borderRadius: "8px"
                   }}>
                     <strong>{question}</strong>
