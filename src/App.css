@@ -403,8 +403,8 @@ body::-webkit-scrollbar {
   }
 
   .safari-browser  {
-    background-color: red !important;
-    margin-left: 90vw !important;
+    /* background-color: red !important; */
+    margin-left: 10vw !important;
     overflow-x: hidden !important;
   }
 }
