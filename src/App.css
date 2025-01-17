@@ -404,22 +404,22 @@ body::-webkit-scrollbar {
 
   .safari-browser  {
     /* background-color: red !important; */
-    margin-left: 20vw !important;
+    margin-left: 30vw !important;
     overflow-x: hidden !important;
   }
 
   .safari-browser .options{
-    max-width: 250px !important;
-    color: red !important;
+    max-width: 280px !important;
+    /* color: red !important; */
   }
 
   .safari-browser .intro{
-    max-width: 250px !important;
-    color: red !important;
+    max-width: 280px !important;
+    /* color: red !important; */
   }
 
   .safari-browser .topicHeader{
-    max-width: 200px !important;
-    color: red !important;
+    max-width: 180px !important;
+    /* color: red !important; */
   }
 }
