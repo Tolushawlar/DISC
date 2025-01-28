@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "question": "Do you have a documented strategic growth plan with measurable milestones for the short, mid, and long term?",
+    "options": [
+      {
+        "label": "Yes",
+        "response": "Great! Your strategic growth plan is a key strength. Continue to review and refine it regularly to ensure it aligns with your business goals.",
+      },
+      {
+        "label": "No",
+        "response": "Consider developing a strategic growth plan with clear, measurable milestones. This will help guide your business toward long-term success.",
+      },
+      {
+        "label": "Unsure",
+        "response": "Evaluate your current planning process. Are there clear goals and timelines in place? If not, start by outlining your business objectives and setting achievable milestones.",
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "Do you conduct regular market analysis to identify new opportunities?",
+    "options": [
+      {
+        "label": "Yes",
+        "response": "Fantastic! Regular market analysis ensures you stay ahead of trends and capitalize on new opportunities.",
+      },
+      {
+        "label": "No",
+        "response": "Consider implementing market analysis as part of your strategy. Understanding market trends can help you adapt and grow your business effectively.",
+      },
+      {
+        "label": "Unsure",
+        "response": "Assess your current approach. Identifying market trends is crucial for staying competitive.",
+      }
+    ]
+  }
+]

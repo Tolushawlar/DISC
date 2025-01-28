@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
-import Table from "../Components/Table";
+// import Table from "../Components/Table";
 import "../App.css";
-import { data } from "autoprefixer";
+// import { data } from "autoprefixer";
 import { colors } from "@mui/material";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
-import { useReactToPrint } from "react-to-print";
+// import { useReactToPrint } from "react-to-print";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

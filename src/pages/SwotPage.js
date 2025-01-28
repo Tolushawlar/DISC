@@ -19,7 +19,7 @@ const swotData = {
             },
             {
               "text": "No",
-              "result": "Without patents, your business is vulnerable to imitation. Explore trade secrets or consider patent registration."
+              "result": "Without patents,∆w your business is vulnerable to imitation. Explore trade secrets or consider patent registration."
             }
           ]
         },
