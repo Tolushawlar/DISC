@@ -1722,14 +1722,13 @@ const questionsData = [
 ];
 
 
-
 const Questionnaire = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-
+  const [formData, setFormData] = useState({ fullName: "", email: "", phone: "" });
+  
   const totalQuestions = questionsData.length;
-  const totalSections = 1; // Assuming there's only one section for now
 
   const handleAnswer = (selectedOption) => {
     setAnswers((prev) => ({
@@ -1737,7 +1736,7 @@ const Questionnaire = () => {
       [currentQuestionIndex]: {
         selected: selectedOption.label,
         response: selectedOption.response,
-        quadrant: selectedOption.quadrant, // Track the quadrant
+        quadrant: selectedOption.quadrant,
       },
     }));
 
@@ -1752,88 +1751,43 @@ const Questionnaire = () => {
     }
   };
 
-  const handleSubmit = () => {
-    setIsSubmitted(true);
+  const handleFormChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const currentStep = currentQuestionIndex + 1;
-  const currentSection = 1; // We can expand this logic to handle multiple sections later
+  const isFormValid = formData.fullName && formData.email && formData.phone;
 
-  const progress = currentStep / totalQuestions;
+  const handleSubmit = () => {
+    if (isFormValid) {
+      setIsSubmitted(true);
+    }
+  };
 
   if (isSubmitted) {
     return <Results answers={answers} questions={questionsData} />;
   }
 
   return (
-    <div
-    className="main"
-      style={{
-        width: "600px",
-        maxWidth: "600px",
-        margin: "100px auto 0 auto",
-        padding: "24px",
-        backgroundColor: "white",
-        // boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-        borderRadius: "8px",
-      }}
-    >
-      <ProgressBar
-        progress={progress}
-        currentStep={currentStep}
-        totalSteps={totalQuestions}
-        currentSection={currentSection}
-        totalSections={totalSections}
-      />
+    <div className="main" style={{ width: "600px", margin: "100px auto", padding: "24px", backgroundColor: "white", borderRadius: "8px" }}>
+      <ProgressBar progress={(currentQuestionIndex + 1) / totalQuestions} currentStep={currentQuestionIndex + 1} totalSteps={totalQuestions} />
+      
+      <Question question={questionsData[currentQuestionIndex]} onAnswer={handleAnswer} selectedAnswer={answers[currentQuestionIndex]?.selected} />
+      
+      {currentQuestionIndex === totalQuestions - 1 && (
+        <div>
+          <h2>Complete Your Details</h2>
+          <input type="text" name="fullName" placeholder="Full Name" value={formData.fullName} onChange={handleFormChange} required /><br />
+          <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleFormChange} required /><br />
+          <input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleFormChange} required /><br />
+        </div>
+      )}
 
-      <Question
-        question={questionsData[currentQuestionIndex]}
-        onAnswer={handleAnswer}
-        selectedAnswer={answers[currentQuestionIndex]?.selected}
-      />
+      <div style={{ display: "flex", justifyContent: "flex-start", marginTop: "16px" }}>
+        <button className="prev" style={{ padding: "8px 16px", backgroundColor: "#E5E7EB", cursor: currentQuestionIndex === 0 ? "not-allowed" : "pointer", opacity: currentQuestionIndex === 0 ? 0.5 : 1 }} onClick={handlePrevious} disabled={currentQuestionIndex === 0}>Previous</button>
 
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "flex-start",
-          marginTop: "16px",
-        }}
-      >
-        <button
-          style={{
-            padding: "8px 16px",
-            backgroundColor: "#E5E7EB",
-            cursor: currentQuestionIndex === 0 ? "not-allowed" : "pointer",
-            opacity: currentQuestionIndex === 0 ? 0.5 : 1,
-          }}
-          onClick={handlePrevious}
-          disabled={currentQuestionIndex === 0}
-          className=" prev"
-        >
-          Previous
-        </button>
-
-        {currentQuestionIndex === totalQuestions - 1 ? (
-          <button
-            style={{
-              padding: "8px 16px",
-              // backgroundColor: "#16133d",
-              background: "linear-gradient(to right, #16133d, #6357a5)",
-              color: "white",
-              marginLeft: "10px",
-              borderRadius: "50px",
-              width: "200px",
-              fontSize: "15px",
-              fontWeight: "bold",
-              cursor: answers[currentQuestionIndex] ? "pointer" : "not-allowed",
-              opacity: answers[currentQuestionIndex] ? 1 : 0.5,
-            }}
-            onClick={handleSubmit}
-            disabled={!answers[currentQuestionIndex]}
-          >
-            Submit
-          </button>
-        ) : null}
+        {currentQuestionIndex === totalQuestions - 1 && (
+          <button style={{ padding: "8px 16px", background: "linear-gradient(to right, #16133d, #6357a5)", color: "white", marginLeft: "10px", borderRadius: "50px", width: "200px", fontSize: "15px", fontWeight: "bold", cursor: isFormValid ? "pointer" : "not-allowed", opacity: isFormValid ? 1 : 0.5 }} onClick={handleSubmit} disabled={!isFormValid}>Submit</button>
+        )}
       </div>
     </div>
   );
