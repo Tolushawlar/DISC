@@ -1,1175 +1,231 @@
-const questionsUpdate = [
-  {
-    section: "Section 1",
-    questions: [
-      {
-        id: 1,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "plan my way out.", weight: "C" },
-          { text: "become distrustful.", weight: "D" }
-        ]
-      },
-      {
-        id: 2,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become a big talker.", weight: "B" },
-          { text: "become withdrawn.", weight: "C" }
-        ]
-      },
-      {
-        id: 3,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become impractical.", weight: "C" },
-          { text: "cross.", weight: "D" }
-        ]
-      },
-      {
-        id: 4,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become hotheaded.", weight: "A" },
-          { text: "careless.", weight: "B" }
-        ]
-      },
-      {
-        id: 5,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become negative.", weight: "A" },
-          { text: "dictatorial.", weight: "D" }
-        ]
-      },
-      {
-        id: 6,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become too permissive.", weight: "B" },
-          { text: "stubborn.", weight: "D" }
-        ]
-      },
-      {
-        id: 7,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become indecisive.", weight: "A" },
-          { text: "more likely to act.", weight: "C" }
-        ]
-      },
-      {
-        id: 8,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become bearish.", weight: "A" },
-          { text: "manipulative.", weight: "B" }
-        ]
-      },
-      {
-        id: 9,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become very cautious.", weight: "A" },
-          { text: "abrupt.", weight: "D" }
-        ]
-      },
-      {
-        id: 10,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become reckless.", weight: "B" },
-          { text: "inflexible.", weight: "D" }
-        ]
-      },
-      {
-        id: 11,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become passive.", weight: "A" },
-          { text: "insist on my own way.", weight: "C" }
-        ]
-      },
-      {
-        id: 12,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become high-handed.", weight: "A" },
-          { text: "rebellious.", weight: "B" }
-        ]
-      },
-      {
-        id: 13,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become very picky.", weight: "A" },
-          { text: "overbearing.", weight: "D" }
-        ]
-      },
-      {
-        id: 14,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become extremely careless.", weight: "B" },
-          { text: "rigid.", weight: "D" }
-        ]
-      },
-      {
-        id: 15,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become scheming.", weight: "C" },
-          { text: "concerned with details.", weight: "D" }
-        ]
-      },
-      {
-        id: 16,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become conceited.", weight: "B" },
-          { text: "anxious and afraid.", weight: "C" }
-        ]
-      },
-      {
-        id: 17,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become sensitive.", weight: "A" },
-          { text: "hostile.", weight: "C" }
-        ]
-      },
-      {
-        id: 18,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become opinionated.", weight: "B" },
-          { text: "very emotional.", weight: "C" }
-        ]
-      },
-      {
-        id: 19,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become uncertain.", weight: "A" },
-          { text: "domineering.", weight: "C" }
-        ]
-      },
-      {
-        id: 20,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become a bluffer.", weight: "B" },
-          { text: "become distrustful.", weight: "D" }
-        ]
-      }
-    ]
-  },
-  {
-    section: "Section 2",
-    questions: [
-      {
-        id: 21,
-        question: "I think I should?",
-        options: [
-          { text: "develop new plans.", weight: "C" },
-          { text: "be consistent.", weight: "D" }
-        ]
-      },
-      {
-        id: 22,
-        question: "I think I should?",
-        options: [
-          { text: "stick to the rules.", weight: "A" },
-          { text: "supervise others.", weight: "D" }
-        ]
-      },
-      {
-        id: 23,
-        question: "I think I should?",
-        options: [
-          { text: "depend on my own experiences.", weight: "A" },
-          { text: "be a self-starter.", weight: "C" }
-        ]
-      },
-      {
-        id: 24,
-        question: "I think I should?",
-        options: [
-          { text: "confer with other people.", weight: "B" },
-          { text: "look for new ideas.", weight: "C" }
-        ]
-      },
-      {
-        id: 25,
-        question: "I think I should?",
-        options: [
-          { text: "give others directions.", weight: "A" },
-          { text: "influence others.", weight: "B" }
-        ]
-      },
-      {
-        id: 26,
-        question: "I think I should?",
-        options: [
-          { text: "conserve resources.", weight: "C" },
-          { text: "create ideas.", weight: "D" }
-        ]
-      },
-      {
-        id: 27,
-        question: "I think I should?",
-        options: [
-          { text: "do what works.", weight: "A" },
-          { text: "develop new approaches.", weight: "C" }
-        ]
-      },
-      {
-        id: 28,
-        question: "I think I should?",
-        options: [
-          { text: "coordinate group activities.", weight: "B" },
-          { text: "follow tradition.", weight: "D" }
-        ]
-      },
-      {
-        id: 29,
-        question: "I think I should?",
-        options: [
-          { text: "achieve by using ideas.", weight: "A" },
-          { text: "do something.", weight: "C" }
-        ]
-      },
-      {
-        id: 30,
-        question: "I think I should?",
-        options: [
-          { text: "arrange things in a pattern.", weight: "A" },
-          { text: "build something.", weight: "D" }
-        ]
-      },
-      {
-        id: 31,
-        question: "I think I should?",
-        options: [
-          { text: "explore new ideas.", weight: "B" },
-          { text: "help other people.", weight: "C" }
-        ]
-      },
-      {
-        id: 32,
-        question: "I think I should?",
-        options: [
-          { text: "involve others.", weight: "B" },
-          { text: "keep things in order.", weight: "D" }
-        ]
-      },
-      {
-        id: 33,
-        question: "I think I should?",
-        options: [
-          { text: "produce something.", weight: "A" },
-          { text: "be precise.", weight: "D" }
-        ]
-      },
-      {
-        id: 34,
-        question: "I think I should?",
-        options: [
-          { text: "keep on a schedule.", weight: "B" },
-          { text: "be hopeful.", weight: "D" }
-        ]
-      },
-      {
-        id: 35,
-        question: "I think I should?",
-        options: [
-          { text: "work with concepts and ideas.", weight: "C" },
-          { text: "be careful when working with facts and figures.", weight: "D" }
-        ]
-      },
-      {
-        id: 36,
-        question: "I think I should?",
-        options: [
-          { text: "should be persuasive.", weight: "A" },
-          { text: "others should respect me.", weight: "B" }
-        ]
-      },
-      {
-        id: 37,
-        question: "I think I should?",
-        options: [
-          { text: "promote programs to others.", weight: "B" },
-          { text: "compete with myself to do better.", weight: "C" }
-        ]
-      },
-      {
-        id: 38,
-        question: "I think I should?",
-        options: [
-          { text: "work within guidelines and forms.", weight: "B" },
-          { text: "coordinate group cooperation.", weight: "D" }
-        ]
-      },
-      {
-        id: 39,
-        question: "I think I should?",
-        options: [
-          { text: "work with ideas and plans.", weight: "A" },
-          { text: "get something done.", weight: "C" }
-        ]
-      },
-      {
-        id: 40,
-        question: "I think I should?",
-        options: [
-          { text: "organize others for the good of the group.", weight: "A" },
-          { text: "produce things.", weight: "B" }
-        ]
-      }
-    ]
-  },
-  {
-    section: "Section 3",
-    questions: [
-      {
-        id: 41,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am decisive and firm in my actions.", weight: "A" },
-          { text: "I show great enthusiasm when I am defending a cause.", weight: "B" }
-        ]
-      },
-      {
-        id: 42,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I enjoy meeting new people.", weight: "B" },
-          { text: "I prefer harmonious conditions.", weight: "C" }
-        ]
-      },
-      {
-        id: 43,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am comfortable planning future events.", weight: "C" },
-          { text: "I prefer following a procedure.", weight: "D" }
-        ]
-      },
-      {
-        id: 44,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am comfortable taking action.", weight: "A" },
-          { text: "I am most comfortable being creative.", weight: "C" }
-        ]
-      },
-      {
-        id: 45,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I enjoy being friendly to people.", weight: "B" },
-          { text: "I enjoy working with details and specifics.", weight: "D" }
-        ]
-      },
-      {
-        id: 46,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I enjoy thinking about alternatives.", weight: "C" },
-          { text: "I enjoy looking for exceptions.", weight: "D" }
-        ]
-      },
-      {
-        id: 47,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I prefer being direct with people.", weight: "C" },
-          { text: "I am comfortable checking accuracy.", weight: "D" }
-        ]
-      },
-      {
-        id: 48,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I enjoy doing things with a group.", weight: "C" },
-          { text: "I enjoy looking at things in a new way.", weight: "D" }
-        ]
-      },
-      {
-        id: 49,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am comfortable being an idea person.", weight: "C" },
-          { text: "I enjoy exercising control and order.", weight: "D" }
-        ]
-      },
-      {
-        id: 50,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I enjoy being active.", weight: "C" },
-          { text: "I enjoy being exact and correct.", weight: "D" }
-        ]
-      },
-      {
-        id: 51,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I tend to expect the best to happen.", weight: "C" },
-          { text: "I enjoy working methodically within a system.", weight: "D" }
-        ]
-      },
-      {
-        id: 52,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am comfortable being a powerful and forceful person.", weight: "C" },
-          { text: "I enjoy imagining possibilities.", weight: "D" }
-        ]
-      },
-      {
-        id: 53,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am at ease cooperating with others.", weight: "C" },
-          { text: "I enjoy thinking independently.", weight: "D" }
-        ]
-      },
-      {
-        id: 54,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am direct in my approach to others.", weight: "C" },
-          { text: "I am comfortable being warm and comforting to others.", weight: "D" }
-        ]
-      },
-      {
-        id: 55,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "If I believe in a cause, I will sacrifice my own interest.", weight: "C" },
-          { text: "I enjoy doing things in an orderly way.", weight: "D" }
-        ]
-      },
-      {
-        id: 56,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am comfortable acting with excitement and focus.", weight: "C" },
-          { text: "I am comfortable thinking about new ideas.", weight: "D" }
-        ]
-      },
-      {
-        id: 57,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I enjoy the give and take of conversation.", weight: "C" },
-          { text: "I prefer following a specific order or directions.", weight: "D" }
-        ]
-      },
-      {
-        id: 58,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am most comfortable accomplishing something.", weight: "C" },
-          { text: "I am comfortable being cautious and conscientious.", weight: "D" }
-        ]
-      },
-      {
-        id: 59,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I enjoy situations where I can take action or do something.", weight: "C" },
-          { text: "I am at ease showing understanding and compassion.", weight: "D" }
-        ]
-      },
-      {
-        id: 60,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am comfortable taking command of most situations.", weight: "C" },
-          { text: "I am friendly and I enjoy conversations with strangers.", weight: "D" }
-        ]
-      }
-    ]
-  }
-]
+const handleDownloadPdf = () => {
+    const doc = new jsPDF();
 
-
-
-import React, { useState } from "react";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
-import "./App.css";
-import Header from "./Components/Header";
-import Footer from "./Components/Footer";
-
-ChartJS.register(ArcElement, Tooltip, Legend);
-
-const questionsUpdate = [
-  {
-    section: "Section 1",
-    questions: [
-      {
-        id: 1,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "plan my way out.", weight: "C" },
-          { text: "become distrustful.", weight: "D" }
-        ]
-      },
-      {
-        id: 2,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become a big talker.", weight: "B" },
-          { text: "become withdrawn.", weight: "C" }
-        ]
-      },
-      {
-        id: 3,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become impractical.", weight: "C" },
-          { text: "cross.", weight: "D" }
-        ]
-      },
-      {
-        id: 4,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become hotheaded.", weight: "A" },
-          { text: "careless.", weight: "B" }
-        ]
-      },
-      {
-        id: 5,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become negative.", weight: "A" },
-          { text: "dictatorial.", weight: "D" }
-        ]
-      },
-      {
-        id: 6,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become too permissive.", weight: "B" },
-          { text: "stubborn.", weight: "D" }
-        ]
-      },
-      {
-        id: 7,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become indecisive.", weight: "A" },
-          { text: "more likely to act.", weight: "C" }
-        ]
-      },
-      {
-        id: 8,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become bearish.", weight: "A" },
-          { text: "manipulative.", weight: "B" }
-        ]
-      },
-      {
-        id: 9,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become very cautious.", weight: "A" },
-          { text: "abrupt.", weight: "D" }
-        ]
-      },
-      {
-        id: 10,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become reckless.", weight: "B" },
-          { text: "inflexible.", weight: "D" }
-        ]
-      }
-      {
-        id: 11,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become passive.", weight: "A" },
-          { text: "insist on my own way.", weight: "C" }
-        ]
-      },
-      {
-        id: 12,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become high-handed.", weight: "A" },
-          { text: "rebellious.", weight: "B" }
-        ]
-      },
-      {
-        id: 13,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become very picky.", weight: "A" },
-          { text: "overbearing.", weight: "D" }
-        ]
-      },
-      {
-        id: 14,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become extremely careless.", weight: "B" },
-          { text: "rigid.", weight: "D" }
-        ]
-      },
-      {
-        id: 15,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become scheming.", weight: "C" },
-          { text: "concerned with details.", weight: "D" }
-        ]
-      },
-      {
-        id: 16,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become conceited.", weight: "B" },
-          { text: "anxious and afraid.", weight: "C" }
-        ]
-      },
-      {
-        id: 17,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become sensitive.", weight: "A" },
-          { text: "hostile.", weight: "C" }
-        ]
-      },
-      {
-        id: 18,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become opinionated.", weight: "B" },
-          { text: "very emotional.", weight: "C" }
-        ]
-      },
-      {
-        id: 19,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become uncertain.", weight: "A" },
-          { text: "domineering.", weight: "C" }
-        ]
-      },
-      {
-        id: 20,
-        question: "Under intense stress I tend to?",
-        options: [
-          { text: "become a bluffer.", weight: "B" },
-          { text: "become distrustful.", weight: "D" }
-        ]
-      }
-    ]
-  },
-  {
-    section: "Section 2",
-    questions: [
-      {
-        id: 21,
-        question: "I think I should?",
-        options: [
-          { text: "develop new plans.", weight: "C" },
-          { text: "be consistent.", weight: "D" }
-        ]
-      },
-      {
-        id: 22,
-        question: "I think I should?",
-        options: [
-          { text: "stick to the rules.", weight: "A" },
-          { text: "supervise others.", weight: "D" }
-        ]
-      },
-      {
-        id: 23,
-        question: "I think I should?",
-        options: [
-          { text: "depend on my own experiences.", weight: "A" },
-          { text: "be a self-starter.", weight: "C" }
-        ]
-      },
-      {
-        id: 24,
-        question: "I think I should?",
-        options: [
-          { text: "confer with other people.", weight: "B" },
-          { text: "look for new ideas.", weight: "C" }
-        ]
-      },
-      {
-        id: 25,
-        question: "I think I should?",
-        options: [
-          { text: "give others directions.", weight: "A" },
-          { text: "influence others.", weight: "B" }
-        ]
-      },
-      {
-        id: 26,
-        question: "I think I should?",
-        options: [
-          { text: "conserve resources.", weight: "C" },
-          { text: "create ideas.", weight: "D" }
-        ]
-      },
-      {
-        id: 27,
-        question: "I think I should?",
-        options: [
-          { text: "do what works.", weight: "A" },
-          { text: "develop new approaches.", weight: "C" }
-        ]
-      },
-      {
-        id: 28,
-        question: "I think I should?",
-        options: [
-          { text: "coordinate group activities.", weight: "B" },
-          { text: "follow tradition.", weight: "D" }
-        ]
-      },
-      {
-        id: 29,
-        question: "I think I should?",
-        options: [
-          { text: "achieve by using ideas.", weight: "A" },
-          { text: "do something.", weight: "C" }
-        ]
-      },
-      {
-        id: 30,
-        question: "I think I should?",
-        options: [
-          { text: "arrange things in a pattern.", weight: "A" },
-          { text: "build something.", weight: "D" }
-        ]
-      },
-      {
-        id: 31,
-        question: "I think I should?",
-        options: [
-          { text: "explore new ideas.", weight: "B" },
-          { text: "help other people.", weight: "C" }
-        ]
-      },
-      {
-        id: 32,
-        question: "I think I should?",
-        options: [
-          { text: "involve others.", weight: "B" },
-          { text: "keep things in order.", weight: "D" }
-        ]
-      },
-      {
-        id: 33,
-        question: "I think I should?",
-        options: [
-          { text: "produce something.", weight: "A" },
-          { text: "be precise.", weight: "D" }
-        ]
-      },
-      {
-        id: 34,
-        question: "I think I should?",
-        options: [
-          { text: "keep on a schedule.", weight: "B" },
-          { text: "be hopeful.", weight: "D" }
-        ]
-      },
-      {
-        id: 35,
-        question: "I think I should?",
-        options: [
-          { text: "work with concepts and ideas.", weight: "C" },
-          { text: "be careful when working with facts and figures.", weight: "D" }
-        ]
-      },
-      {
-        id: 36,
-        question: "I think I should?",
-        options: [
-          { text: "should be persuasive.", weight: "A" },
-          { text: "others should respect me.", weight: "B" }
-        ]
-      },
-      {
-        id: 37,
-        question: "I think I should?",
-        options: [
-          { text: "promote programs to others.", weight: "B" },
-          { text: "compete with myself to do better.", weight: "C" }
-        ]
-      },
-      {
-        id: 38,
-        question: "I think I should?",
-        options: [
-          { text: "work within guidelines and forms.", weight: "B" },
-          { text: "coordinate group cooperation.", weight: "D" }
-        ]
-      },
-      {
-        id: 39,
-        question: "I think I should?",
-        options: [
-          { text: "work with ideas and plans.", weight: "A" },
-          { text: "get something done.", weight: "C" }
-        ]
-      },
-      {
-        id: 40,
-        question: "I think I should?",
-        options: [
-          { text: "organize others for the good of the group.", weight: "A" },
-          { text: "produce things.", weight: "B" }
-        ]
-      }
-    ]
-  },
-  {
-    section: "Section 3",
-    questions: [
-      {
-        id: 41,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am decisive and firm in my actions.", weight: "A" },
-          { text: "I show great enthusiasm when I am defending a cause.", weight: "B" }
-        ]
-      },
-      {
-        id: 42,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I enjoy meeting new people.", weight: "B" },
-          { text: "I prefer harmonious conditions.", weight: "C" }
-        ]
-      },
-      {
-        id: 43,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am comfortable planning future events.", weight: "C" },
-          { text: "I prefer following a procedure.", weight: "D" }
-        ]
-      },
-      {
-        id: 44,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am comfortable taking action.", weight: "A" },
-          { text: "I am most comfortable being creative.", weight: "C" }
-        ]
-      },
-      {
-        id: 45,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I enjoy being friendly to people.", weight: "B" },
-          { text: "I enjoy working with details and specifics.", weight: "D" }
-        ]
-      },
-      {
-        id: 46,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I enjoy thinking about alternatives.", weight: "C" },
-          { text: "I enjoy looking for exceptions.", weight: "D" }
-        ]
-      },
-      {
-        id: 47,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I prefer being direct with people.", weight: "C" },
-          { text: "I am comfortable checking accuracy.", weight: "D" }
-        ]
-      },
-      {
-        id: 48,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I enjoy doing things with a group.", weight: "C" },
-          { text: "I enjoy looking at things in a new way.", weight: "D" }
-        ]
-      },
-      {
-        id: 49,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am comfortable being an idea person.", weight: "C" },
-          { text: "I enjoy exercising control and order.", weight: "D" }
-        ]
-      },
-      {
-        id: 50,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I enjoy being active.", weight: "C" },
-          { text: "I enjoy being exact and correct.", weight: "D" }
-        ]
-      },
-      {
-        id: 51,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I tend to expect the best to happen.", weight: "C" },
-          { text: "I enjoy working methodically within a system.", weight: "D" }
-        ]
-      },
-      {
-        id: 52,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am comfortable being a powerful and forceful person.", weight: "C" },
-          { text: "I enjoy imagining possibilities.", weight: "D" }
-        ]
-      },
-      {
-        id: 53,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am at ease cooperating with others.", weight: "C" },
-          { text: "I enjoy thinking independently.", weight: "D" }
-        ]
-      },
-      {
-        id: 54,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am direct in my approach to others.", weight: "C" },
-          { text: "I am comfortable being warm and comforting to others.", weight: "D" }
-        ]
-      },
-      {
-        id: 55,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "If I believe in a cause, I will sacrifice my own interest.", weight: "C" },
-          { text: "I enjoy doing things in an orderly way.", weight: "D" }
-        ]
-      },
-      {
-        id: 56,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am comfortable acting with excitement and focus.", weight: "C" },
-          { text: "I am comfortable thinking about new ideas.", weight: "D" }
-        ]
-      },
-      {
-        id: 57,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I enjoy the give and take of conversation.", weight: "C" },
-          { text: "I prefer following a specific order or directions.", weight: "D" }
-        ]
-      },
-      {
-        id: 58,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am most comfortable accomplishing something.", weight: "C" },
-          { text: "I am comfortable being cautious and conscientious.", weight: "D" }
-        ]
-      },
-      {
-        id: 59,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I enjoy situations where I can take action or do something.", weight: "C" },
-          { text: "I am at ease showing understanding and compassion.", weight: "D" }
-        ]
-      },
-      {
-        id: 60,
-        question: "What I am comfortable doing?",
-        options: [
-          { text: "I am comfortable taking command of most situations.", weight: "C" },
-          { text: "I am friendly and I enjoy conversations with strangers.", weight: "D" }
-        ]
-      }
-    ]
-  }
-]
-
-
-
-
-const App = () => {
-  const [currentSection, setCurrentSection] = useState(0);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState({});
-  const [showResults, setShowResults] = useState(false);
-
-  const handleAnswerSelection = (questionId, answer) => {
-    setAnswers((prev) => ({
-      ...prev,
-      [questionId]: answer,
-    }));
-    if (currentQuestion < questions[currentSection].questions.length - 1) {
-      setCurrentQuestion((prev) => prev + 1);
-    } else if (currentSection < questions.length - 1) {
-      setCurrentSection((prev) => prev + 1);
-      setCurrentQuestion(0);
-    }
-  };
-
-  const handlePreviousQuestion = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion((prev) => prev - 1);
-    } else if (currentSection > 0) {
-      setCurrentSection((prev) => prev - 1);
-      setCurrentQuestion(questions[currentSection - 1].questions.length - 1);
-    }
-  };
-
-  const calculateProgress = () => {
-    const totalQuestions = questions.reduce(
-      (sum, section) => sum + section.questions.length,
-      0
-    );
-    const answeredQuestions = Object.keys(answers).length;
-    return (answeredQuestions / totalQuestions) * 100;
-  };
-
-  const getCurrentStep = () => {
-    const overallStep = questions
-      .slice(0, currentSection)
-      .reduce((sum, section) => sum + section.questions.length, 0) + currentQuestion + 1;
-    const sectionStep = currentQuestion + 1;
-    const sectionTotal = questions[currentSection].questions.length;
-    const overallTotal = questions.reduce(
-      (sum, section) => sum + section.questions.length,
-      0
-    );
-
-    return `Step ${sectionStep}`;
-    // return `Question ${sectionStep} of ${sectionTotal} in ${questions[currentSection].section} (Question ${overallStep} of ${overallTotal} Overall)`;
-  };
-
-  const renderQuestions = () => {
-    const section = questions[currentSection];
-    const question = section.questions[currentQuestion];
-
-    return (
-      <div className="renderedQuestion">
-        <div className="stepDiv">
-          <p className="sectionHeader">{section.section} OF 3</p>
-          <p className="sectionHeader">{getCurrentStep()}</p>
-        </div>
-        <p className="questionTitle">{question.question}</p>
-        {question.options.map((option, index) => (
-          <button
-            key={index}
-            className="opt"
-            onClick={() => handleAnswerSelection(question.id, option)}
-            style={{
-              backgroundColor:
-                answers[question.id] === option ? `#6357A4` : "white",
-              color: answers[question.id] === option ? `white` : "",
-              margin: "5px",
-              padding: "25px",
-              border: "0.5px solid black",
-              borderRadius: "15px",
-              marginTop: "10px",
-              fontFamily: "Poppins",
-              fontSize: "15px",
-              fontWeight: "bold",
-              cursor: "pointer",
-            }}
-          >
-            {option}
-          </button>
-        ))}
-        <br />
-        <div className="controllBtn">
-          {currentQuestion > 0 || currentSection > 0 ? (
-            <button className="prev" onClick={handlePreviousQuestion}>Previous</button>
-          ) : null}
-
-          {Object.keys(answers).length ===
-            questions.reduce((sum, section) => sum + section.questions.length, 0) ? (
-            <button className="sub" onClick={handleSubmit}>Submit</button>
-          ) : null}
-        </div>
-      </div>
-    );
-  };
-
-  const handleRetake = () => {
-    setCurrentSection(0);
-    setCurrentQuestion(0);
-    setAnswers({});
-    setShowResults(false);
-  };
-
-  const handleSubmit = () => {
-    setShowResults(true);
-  };
-
-  const getChartData = () => {
-    const resultData = {
-      labels: ["A", "B", "C", "D"],
-      datasets: [
-        {
-          data: [3, 5, 2, 4], // Example data for DISC categories
-          backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"],
-          hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0"],
-        },
-      ],
+    // Define gradient styles for SWOT sections
+    const sectionStyles = {
+      Strengths: { colorStart: [205, 165, 0], colorEnd: [255, 145, 0] }, // Orange gradient 
+      Weaknesses: { colorStart: [173, 216, 230], colorEnd: [100, 149, 237] }, // Light blue gradient
+      Opportunities: { colorStart: [128, 0, 128], colorEnd: [75, 0, 130] }, // Purple gradient
+      Threats: { colorStart: [0, 100, 0], colorEnd: [0, 128, 0] }, // Deep green gradient 
     };
-    return resultData;
+
+    let pageNumber = 1; // Track the current page number
+
+    // Helper function to draw page border
+    const drawPageBorder = (doc) => {
+      doc.setDrawColor(257, 257, 257); // Black border color
+      doc.setLineWidth(1.5); // Border thickness
+      // doc.rect(5, 5, 200, 287); // Border dimensions (full page)
+      doc.roundedRect(5, 5, 200, 287, 10, 10, "S"); // Rounded border with a radius of 10
+    };
+
+    // Helper function to add a soft background
+    const addSoftBackground = (doc, color = [22, 0, 57]) => {
+      doc.setFillColor(...color);
+      doc.rect(0, 0, 210, 297, "F"); // Cover full A4 page with the color
+    };
+
+    // Helper function to add a footer
+    const addFooter = (doc) => {
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(10);
+      doc.setTextColor(256, 256, 256);
+      doc.text("www.beteachable.com", 105, 285, { align: "center" });
+      doc.text(`Page ${pageNumber}`, 105, 290, { align: "center" }); // Page number in the center
+    };
+
+    // Add title
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(12);
+    doc.setTextColor(236, 66, 244); // White text
+
+    // Add a background to the first page
+    addSoftBackground(doc);
+    drawPageBorder(doc); // Add border to the first page
+
+    // Centering "BETEACHABLE" title
+    const title1 = "BETEACHABLE";
+    const title1Width = doc.getStringUnitWidth(title1) * doc.internal.getFontSize() / doc.internal.scaleFactor;
+    const title1X = (210 - title1Width) / 2; // Center horizontally on the A4 page (210mm width)
+    doc.text(title1, title1X, 20); // Y position is 20mm
+
+    // Set up for the second title
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(46);
+    doc.setTextColor(236, 66, 244); // White text
+
+    // Centering "SWOT ANALYSIS" title
+    const title2 = "SWOT ANALYSIS";
+    const title2Width = doc.getStringUnitWidth(title2) * doc.internal.getFontSize() / doc.internal.scaleFactor;
+    const title2X = (210 - title2Width) / 2; // Center horizontally on the A4 page (210mm width)
+    doc.text(title2, title2X, 40); // Y position is 40mm
+
+
+
+    // Draw 4 larger circles with letters "S", "W", "O", "T"
+    const circleRadius = 15; // Increased circle radius
+    const circleY = 40; // Y position for circles
+
+    const letters = ['S', 'W', 'O', 'T'];
+    const colors = ['#F44336', '#4CAF50', '#FF9800', '#3F51B5']; // Color for each letter
+
+    // Draw circles and add letters inside them
+    for (let i = 0; i < 4; i++) {
+      const circleX = 30 + i * 50; // Increased space between circles horizontally
+      // Draw circle
+      doc.setFillColor(colors[i]);
+      doc.circle(circleX, circleY + 40, circleRadius, 'F');
+      // Add letter inside the circle
+      doc.setFont("helvetica", "bold");
+      doc.setTextColor(255, 255, 255); // Set text color to white for contrast
+      doc.setFontSize(55);
+      doc.text(letters[i], circleX - 8.5, circleY + 48); // Adjust positioning inside the circle
+    }
+
+    // Define section titles and content
+    const sections = [
+      { title: 'Strengths', content: `- Attributes that support a company's success and competitiveness.\n- Characteristics that set the company apart from its competitors.` },
+      { title: 'Weaknesses', content: `- Characteristics that put the company at a disadvantage compared to others.\n- Negative internal factors that the company needs to address to achieve its objectives.` },
+      { title: 'Opportunities', content: `- External factors that the company can leverage to achieve its objectives.\n- Favorable market conditions that the company can capitalize on.` },
+      { title: 'Threats', content: `- Unfavorable market conditions that the company needs to address.\n- Negative external factors that can harm the company's growth and success.` }
+    ];
+
+    // Set position for the section titles
+    let currentY = 100; // Start position for content
+
+    // Draw section titles and content horizontally in a row under each circle
+    for (let i = 0; i < sections.length; i++) {
+      const section = sections[i];
+      const sectionX = 30 + i * 52; // Align text under each circle
+
+      // Add section title
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(8);
+      doc.text(section.title, sectionX - 15, currentY); // Position section title under each circle
+
+      // Add section content (adjusted to fit horizontally)
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8);
+      const contentLines = doc.splitTextToSize(section.content, 30); // Split content to fit
+      doc.text(contentLines, sectionX - 15, currentY + 5); // Position content below section title
+
+      currentY = 100; // Increase Y position for the next row of content
+    }
+
+
+    // let currentY = 60; // Start position for the content
+    currentY = 190
+
+    // Loop through SWOT sections
+    swotData.swotQuestions.forEach((section) => {
+      const { section: sectionTitle, questions } = section;
+      const { colorStart, colorEnd } = sectionStyles[sectionTitle] || {};
+
+      // Add section title with padding and rounded rectangle
+      doc.setDrawColor(0, 0, 0); // Border color
+      doc.setLineWidth(0.5);
+      doc.setFillColor(...colorStart);
+      doc.roundedRect(10, currentY, 190, 20, 10, 10, "FD"); // Rounded rectangle
+
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(18);
+      doc.setTextColor(255, 255, 255); // White text
+      // doc.text(`${sectionTitle}`, 15, currentY + 13); // Section name inside rounded rectangle
+      const sectionText = `${sectionTitle}`;
+      // Write the text multiple times with slight shifts
+      doc.text(sectionText, 15, currentY + 13);
+      doc.text(sectionText, 15.2, currentY + 13);
+      doc.text(sectionText, 14.8, currentY + 13);
+      doc.text(sectionText, 15, currentY + 13.2);
+      doc.text(sectionText, 15, currentY + 12.8);
+
+      // Add spacing for content
+      currentY += 25;
+      // pageNumber+=1
+      // Loop through each question in the section
+      // Loop through each question in the section
+      questions.forEach((questionObj) => {
+        const { id, question, options } = questionObj;
+        const userResponse = responses[sectionTitle]?.[id] || "No response given";
+        const result = options.find((opt) => opt.text === userResponse)?.result || "No result available";
+
+        // Define the box dimensions
+        const boxHeight = 20; // Height for the question and response box
+        const boxWidth = 180;
+        const boxX = 15;
+        const gradientStep = 3; // Increment for gradient effect
+
+        // Define color range for gradient
+        const colorRange = {
+          r: (colorEnd[0] - colorStart[0]) / (boxWidth / gradientStep),
+          g: (colorEnd[1] - colorStart[1]) / (boxWidth / gradientStep),
+          b: (colorEnd[2] - colorStart[2]) / (boxWidth / gradientStep),
+        };
+
+        // First, draw the rounded border (no fill yet)
+        const borderRadius = 80; // Set border radius for the curve
+        doc.setDrawColor(256, 256, 256); // Set border color (black)
+        doc.setLineWidth(1); // Set border thickness (thinner line)
+        doc.roundedRect(boxX, currentY, boxWidth, boxHeight, borderRadius, borderRadius, "S"); // Rounded rectangle for border
+
+        // Now, apply the gradient fill inside the box
+        for (let i = 0; i < boxWidth; i += gradientStep) {
+          const r = Math.min(colorStart[0] + colorRange.r * (i / gradientStep), 255);
+          const g = Math.min(colorStart[1] + colorRange.g * (i / gradientStep), 255);
+          const b = Math.min(colorStart[2] + colorRange.b * (i / gradientStep), 255);
+
+          doc.setFillColor(r, g, b);
+          doc.rect(boxX + i, currentY, gradientStep, boxHeight, "F");
+        }
+
+        // Add question and response text inside the box with white text
+        doc.setFontSize(10);
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(255, 255, 255); // Set text color to white for the question
+        const questionText = doc.splitTextToSize(`${question}:`, boxWidth - 10);
+        doc.text(questionText, boxX + 5, currentY + 7);
+
+        doc.setFont("helvetica", "bold");
+        const responseText = `${userResponse}: ${result}`;
+        const responseLines = doc.splitTextToSize(responseText, boxWidth - 10);
+        doc.text(responseLines, boxX + 5, currentY + 12);
+
+        // Adjust currentY for the next question
+        currentY += boxHeight + 5;
+
+        // Handle page break if content exceeds the page
+        if (currentY > 260) {
+          addFooter(doc);
+          pageNumber += 1
+          doc.addPage();
+          addSoftBackground(doc); // Add background to the new page
+          drawPageBorder(doc); // Add border to the new page
+          currentY = 20; // Reset Y for the new page
+        }
+      });
+
+
+
+
+      // Add spacing between sections
+      currentY += 10;
+
+      // Handle page break after the section if needed
+      
+    });
+
+    if (currentY > 260) {
+      addFooter(doc);
+      pageNumber++; // Increment page number
+      doc.addPage();
+      addSoftBackground(doc); // Add background to the new page
+      drawPageBorder(doc); // Add border to the new page
+      currentY = 20; // Reset Y for the new page
+    }
+
+    // Add footer to the final page
+    addFooter(doc);
+
+    // Save the PDF
+    doc.save("SWOT_Analysis_Results.pdf");
   };
-
-  return (
-    <div className="App">
-      <div className="left">
-        <h1 className="overHeader">4 Profile Strengths Analysis</h1>
-
-        {showResults ? (
-          <div>
-            <h2>Results</h2>
-            <button onClick={handleRetake}>Retake Test</button>
-            <Doughnut data={getChartData()} />
-          </div>
-        ) : (
-          <>
-            <div className="progress-bar">
-              <div
-                className="progress"
-                style={{
-                  width: `${calculateProgress()}%`,
-                  backgroundColor: `#16133D`,
-                  height: "5px",
-                }}
-              ></div>
-            </div>
-            {renderQuestions()}
-            {/* {Object.keys(answers).length ===
-              questions.reduce((sum, section) => sum + section.questions.length, 0) ? (
-              <button onClick={handleSubmit}>Submit</button>
-            ) : null} */}
-          </>
-        )}
-      </div>
-      <div className="right">
-        <img src='./image (2).png' alt='logo-img' />
-      </div>
-    </div>
-  );
-};
-
-export default App;

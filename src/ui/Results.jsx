@@ -1,6 +1,7 @@
 import React from "react";
+import handleDownloadPdf from "./handleDownloadPdf";
 
-const Results = ({ answers, questions }) => {
+const Results = ({ answers, questions, onRetakeTest }) => {
   // Group answers by their quadrant
   const groupedResults = {
     Strength: [],
@@ -9,14 +10,23 @@ const Results = ({ answers, questions }) => {
     Threat: [],
   };
 
+  // Debugging: Log the answers and questions
+  console.log("Answers:", answers);
+  console.log("Questions:", questions);
+
   Object.entries(answers).forEach(([questionId, answer]) => {
     const question = questions.find((q) => q.id === Number(questionId));
     if (question) {
-      groupedResults[answer.quadrant].push({
-        question: question.question,
-        selectedAnswer: answer.selected,
-        response: answer.response,
-      });
+      // Ensure the quadrant is valid
+      if (groupedResults.hasOwnProperty(answer.quadrant)) {
+        groupedResults[answer.quadrant].push({
+          question: question.question,
+          selectedAnswer: answer.selected,
+          response: answer.response,
+        });
+      } else {
+        console.error(`Invalid quadrant: ${answer.quadrant}`); // Log invalid quadrant
+      }
     }
   });
 
@@ -30,12 +40,56 @@ const Results = ({ answers, questions }) => {
           marginBottom: "16px",
         }}
       >
-        Results
+        SWOT Analysis Results
       </h2>
+
+      {/* Buttons Row */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "10px", // Space between buttons
+          marginBottom: "20px",
+        }}
+      >
+        <button
+          style={{
+            padding: "10px 15px",
+            backgroundColor: "#E5E7EB",
+            cursor: "pointer",
+            border: "none",
+            borderRadius: "50px",
+            width: "200px",
+            height: "50px",
+            fontWeight: "400",
+            fontSize: "14px",
+          }}
+          onClick={() => handleDownloadPdf(groupedResults)} // Pass groupedResults to the PDF handler
+          className="download-pdf"
+        >
+          Download PDF
+        </button>
+
+        <button
+          style={{
+            padding: "10px 15px",
+            backgroundColor: "#FECACA",
+            cursor: "pointer",
+            border: "none",
+            height: "50px",
+            borderRadius: "50px",
+            fontSize: "14px",
+          }}
+          onClick={() => window.location.reload()} // Refresh the page
+          className="retake-test"
+        >
+          Retake Test
+        </button>
+      </div>
 
       {/* Render Strength category */}
       <div
-      className="custom-box"
+        className="custom-box"
         style={{
           display: "flex",
           flexDirection: "column",
@@ -73,14 +127,16 @@ const Results = ({ answers, questions }) => {
           >
             <p style={{ fontWeight: "600" }}>{result.question}</p>
             <p style={{ color: "#3B82F6" }}>Answer: {result.selectedAnswer}</p>
-            <p style={{ color: "#6B7280" }}>Response: {result.response}</p>
+            <p style={{ color: "#6B7280", fontWeight: "bold" }}>
+              Response: {result.response}
+            </p>
           </div>
         ))}
       </div>
 
       {/* Render Weakness category */}
       <div
-      className="custom-box"
+        className="custom-box"
         style={{
           display: "flex",
           flexDirection: "column",
@@ -118,14 +174,16 @@ const Results = ({ answers, questions }) => {
           >
             <p style={{ fontWeight: "600" }}>{result.question}</p>
             <p style={{ color: "#F87171" }}>Answer: {result.selectedAnswer}</p>
-            <p style={{ color: "#6B7280" }}>Response: {result.response}</p>
+            <p style={{ color: "#6B7280", fontWeight: "bold" }}>
+              Response: {result.response}
+            </p>
           </div>
         ))}
       </div>
 
       {/* Render Opportunity category */}
       <div
-      className="custom-box"
+        className="custom-box"
         style={{
           display: "flex",
           flexDirection: "column",
@@ -163,14 +221,16 @@ const Results = ({ answers, questions }) => {
           >
             <p style={{ fontWeight: "600" }}>{result.question}</p>
             <p style={{ color: "#F59E0B" }}>Answer: {result.selectedAnswer}</p>
-            <p style={{ color: "#6B7280" }}>Response: {result.response}</p>
+            <p style={{ color: "#6B7280", fontWeight: "bold" }}>
+              Response: {result.response}
+            </p>
           </div>
         ))}
       </div>
 
       {/* Render Threat category */}
       <div
-      className="custom-box"
+        className="custom-box"
         style={{
           display: "flex",
           flexDirection: "column",
@@ -208,7 +268,9 @@ const Results = ({ answers, questions }) => {
           >
             <p style={{ fontWeight: "600" }}>{result.question}</p>
             <p style={{ color: "#EC4899" }}>Answer: {result.selectedAnswer}</p>
-            <p style={{ color: "#6B7280" }}>Response: {result.response}</p>
+            <p style={{ color: "#6B7280", fontWeight: "bold" }}>
+              Response: {result.response}
+            </p>
           </div>
         ))}
       </div>

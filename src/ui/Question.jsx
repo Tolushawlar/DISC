@@ -7,6 +7,9 @@ const Question = ({ question, onAnswer, selectedAnswer }) => {
         style={{
           fontFamily: "Poppins, sans-serif", // Corrected font family syntax
           marginTop: "60px",
+          maxWidth: "600px",
+          width: "600px",
+          fontSize: "16px"
         }}
         className="text-lg font-bold mb-4"
       >
@@ -51,7 +54,7 @@ const Question = ({ question, onAnswer, selectedAnswer }) => {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "25px",
+                padding: "22px",
                 marginRight: "20px",
                 marginBottom: "5px"
               }}
@@ -60,7 +63,7 @@ const Question = ({ question, onAnswer, selectedAnswer }) => {
             </button>
             <div>
               <>
-                <p style={{ fontSize: "20px",}}>{option.label}</p>
+                <p style={{ fontSize: "16px",}}>{option.label}</p>
               </>
             </div>
           </div>
