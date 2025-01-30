@@ -1767,6 +1767,7 @@ const Questionnaire = () => {
 
   return (
     <div
+    className="main"
       style={{
         width: "600px",
         maxWidth: "600px",
