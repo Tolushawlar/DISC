@@ -62,8 +62,7 @@
 
 @media (max-width: 768px) {
   .main {
-    width: 80vw;
-    max-width: 80vw;
-    background-color: red,
+    width: 80vw !important;
+    max-width: 80vw !important;
   }
 }
