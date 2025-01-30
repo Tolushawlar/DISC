@@ -31,7 +31,7 @@ const Results = ({ answers, questions, onRetakeTest }) => {
   });
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: "center" }} className="riy">
       <h2
         style={{
           fontSize: "2.25rem",

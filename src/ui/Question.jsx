@@ -11,7 +11,7 @@ const Question = ({ question, onAnswer, selectedAnswer }) => {
           width: "600px",
           fontSize: "16px"
         }}
-        className="text-lg font-bold mb-4"
+        className=" quest text-lg font-bold mb-4"
       >
         {question.question}
       </h2>

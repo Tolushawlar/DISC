@@ -65,4 +65,14 @@
     width: 80vw !important;
     max-width: 80vw !important;
   }
+
+  .quest{
+    width: 500px !important;
+    max-width: 500px !important;
+  }
+
+  .riy{
+    width: 500px !important;
+    max-width: 500px !important;
+  }
 }
