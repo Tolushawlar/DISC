@@ -140,172 +140,26 @@ const handleDownloadPdf = (
   currentY = 190;
 
   // Function to add a SWOT section
-  // const addSwotSection = (title, list, color) => {
-  //   if (list.length === 0) return;
+  const addSwotSection = (title, list, color) => {
+    if (list.length === 0) return;
 
-  //   let currentY = doc.internal.pageSize.height - 180;
+    let currentY = doc.internal.pageSize.height - 180;
 
-  //   // Add section header
-  //   doc.setDrawColor(0, 0, 0);
-  //   doc.setLineWidth(0.5);
-  //   doc.setFillColor(...color);
-  //   doc.roundedRect(10, currentY + 30, 190, 20, 10, 10, "FD");
+    // Add section header
+    doc.setDrawColor(0, 0, 0);
+    doc.setLineWidth(0.5);
+    doc.setFillColor(...color);
+    doc.roundedRect(10, currentY + 30, 190, 20, 10, 10, "FD");
 
-  //   doc.setFont("helvetica", "bold");
-  //   doc.setFontSize(18);
-  //   doc.setTextColor(255, 255, 255);
-  //   doc.text(title, 15, currentY + 42);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(18);
+    doc.setTextColor(255, 255, 255);
+    doc.text(title, 15, currentY + 42);
 
-  //   currentY += 55;
+    currentY += 55;
 
-  //   // Loop through results
-  //   list.forEach((result) => {
-  //     const { question, selected, response } = result;
-
-  //     doc.setFillColor(...color);
-  //     doc.roundedRect(15, currentY, 180, 33, 10, 10, "F");
-
-  //     doc.setFontSize(10);
-  //     doc.setFont("helvetica", "bold");
-  //     doc.setTextColor(255, 255, 255);
-  //     doc.text(doc.splitTextToSize(`${question}:`, 170), 20, currentY + 7);
-  //     doc.setFont("helvetica", "normal");
-  //     doc.text(
-  //       doc.splitTextToSize(`Selected: ${selected}`, 170),
-  //       20,
-  //       currentY + 15
-  //     );
-  //     doc.text(
-  //       doc.splitTextToSize(`Response: ${response}`, 170),
-  //       20,
-  //       currentY + 22
-  //     );
-
-  //     // doc.setFont("helvetica", "normal");
-  //     // doc.text(
-  //     //   doc.splitTextToSize(
-  //     //     `Selected: ${selected}\nResponse: ${response}`,
-  //     //     170
-  //     //   ),
-  //     //   20,
-  //     //   currentY + 12
-  //     // );
-
-  //     currentY += 35;
-
-  //     if (currentY > 260) {
-  //       addFooter(doc);
-  //       pageNumber += 1;
-  //       doc.addPage();
-  //       addSoftBackground(doc);
-  //       drawPageBorder(doc);
-  //       currentY = 20;
-  //     }
-  //   });
-
-  //   currentY += 20;
-  // };
-//   const addSwotSection = (title, list, color) => {
-//     if (list.length === 0) return;
-
-//     // Start a new page for each section
-//     if (pageNumber > 1) {
-//         doc.addPage();
-//         addSoftBackground(doc);
-//         drawPageBorder(doc);
-//     }
-//     addFooter(doc);
-//     pageNumber += 1;
-
-//     let currentY = 30; // Reset Y position for new page
-
-//     // Add section header
-//     doc.setDrawColor(0, 0, 0);
-//     doc.setLineWidth(0.5);
-//     doc.setFillColor(...color);
-//     doc.roundedRect(10, currentY, 190, 20, 10, 10, "FD");
-
-//     doc.setFont("helvetica", "bold");
-//     doc.setFontSize(18);
-//     doc.setTextColor(255, 255, 255);
-//     doc.text(title, 15, currentY + 12);
-
-//     currentY += 35;
-
-//     // Loop through results
-//     list.forEach((result) => {
-//         const { question, selected, response } = result;
-
-//         doc.setFillColor(...color);
-//         doc.roundedRect(15, currentY, 180, 33, 10, 10, "F");
-
-//         doc.setFontSize(10);
-//         doc.setFont("helvetica", "bold");
-//         doc.setTextColor(255, 255, 255);
-//         doc.text(doc.splitTextToSize(`${question}:`, 170), 20, currentY + 7);
-//         doc.setFont("helvetica", "normal");
-//         doc.text(
-//             doc.splitTextToSize(`Selected: ${selected}`, 170),
-//             20,
-//             currentY + 15
-//         );
-//         doc.text(
-//             doc.splitTextToSize(`Response: ${response}`, 170),
-//             20,
-//             currentY + 22
-//         );
-
-//         currentY += 35;
-
-//         if (currentY > 260) {
-//             addFooter(doc);
-//             pageNumber += 1;
-//             doc.addPage();
-//             addSoftBackground(doc);
-//             drawPageBorder(doc);
-//             currentY = 20;
-//         }
-//     });
-
-//     addFooter(doc);
-// };
-
-const addSwotSection = (title, list, color) => {
-  if (list.length === 0) return;
-
-  // Ensure Strengths start on page 2
-  if (pageNumber === 1 && title === "Strengths") {
-      doc.addPage();
-      pageNumber += 1;
-  }
-
-  // Start a new page for each section (except Strengths since it's already handled)
-  if (pageNumber > 1 && title !== "Strengths") {
-      doc.addPage();
-      pageNumber += 1;
-  }
-
-  addSoftBackground(doc);
-  drawPageBorder(doc);
-  addFooter(doc);
-
-  let currentY = 30; // Reset Y position for the new page
-
-  // Add section header
-  doc.setDrawColor(0, 0, 0);
-  doc.setLineWidth(0.5);
-  doc.setFillColor(...color);
-  doc.roundedRect(10, currentY, 190, 20, 10, 10, "FD");
-
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(18);
-  doc.setTextColor(255, 255, 255);
-  doc.text(title, 15, currentY + 12);
-
-  currentY += 35;
-
-  // Loop through results
-  list.forEach((result) => {
+    // Loop through results
+    list.forEach((result) => {
       const { question, selected, response } = result;
 
       doc.setFillColor(...color);
@@ -317,31 +171,40 @@ const addSwotSection = (title, list, color) => {
       doc.text(doc.splitTextToSize(`${question}:`, 170), 20, currentY + 7);
       doc.setFont("helvetica", "normal");
       doc.text(
-          doc.splitTextToSize(`Selected: ${selected}`, 170),
-          20,
-          currentY + 15
+        doc.splitTextToSize(`Selected: ${selected}`, 170),
+        20,
+        currentY + 15
       );
       doc.text(
-          doc.splitTextToSize(`Response: ${response}`, 170),
-          20,
-          currentY + 22
+        doc.splitTextToSize(`Response: ${response}`, 170),
+        20,
+        currentY + 22
       );
+
+      // doc.setFont("helvetica", "normal");
+      // doc.text(
+      //   doc.splitTextToSize(
+      //     `Selected: ${selected}\nResponse: ${response}`,
+      //     170
+      //   ),
+      //   20,
+      //   currentY + 12
+      // );
 
       currentY += 35;
 
       if (currentY > 260) {
-          addFooter(doc);
-          doc.addPage();
-          addSoftBackground(doc);
-          drawPageBorder(doc);
-          pageNumber += 1;
-          currentY = 20;
+        addFooter(doc);
+        pageNumber += 1;
+        doc.addPage();
+        addSoftBackground(doc);
+        drawPageBorder(doc);
+        currentY = 20;
       }
-  });
+    });
 
-  addFooter(doc);
-};
-
+    currentY += 20;
+  };
 
   // Add SWOT sections
   addSwotSection("Strengths", strengthsList, sectionStyles.Strength.colorStart);
@@ -357,6 +220,73 @@ const addSwotSection = (title, list, color) => {
   );
   addSwotSection("Threats", threatsList, sectionStyles.Threat.colorStart);
 
+  // Object.entries(groupedResults).forEach(([category, results]) => {
+  //   const { colorStart, colorEnd } = sectionStyles[category] || {};
+
+  //   // Add section title with padding and rounded rectangle
+  //   doc.setDrawColor(0, 0, 0); // Border color
+  //   doc.setLineWidth(0.5);
+  //   doc.setFillColor(...colorStart);
+  //   doc.roundedRect(10, currentY, 190, 20, 10, 10, "FD"); // Rounded rectangle
+
+  //   doc.setFont("helvetica", "bold");
+  //   doc.setFontSize(18);
+  //   doc.setTextColor(255, 255, 255); // White text
+  //   const sectionText = `${category}`;
+  //   // Write the text multiple times with slight shifts
+  //   doc.text(sectionText, 15, currentY + 13);
+  //   doc.text(sectionText, 15.2, currentY + 13);
+  //   doc.text(sectionText, 14.8, currentY + 13);
+  //   doc.text(sectionText, 15, currentY + 13.2);
+  //   doc.text(sectionText, 15, currentY + 12.8);
+
+  //   // Add spacing for content
+  //   currentY += 25;
+
+  //   // Loop through each result in the category
+  //   results.forEach((result) => {
+  //     const { question, selectedAnswer, response } = result;
+
+  //     // Define the box dimensions
+  //     const boxHeight = 28; // Height for the question and response box
+  //     const boxWidth = 180;
+  //     const boxX = 15;
+
+  //     // Draw a solid background for the box (no gradient)
+  //     doc.setFillColor(...colorStart);
+  //     doc.roundedRect(boxX, currentY, boxWidth, boxHeight, 10, 10, "F"); // Solid fill
+
+  //     // Add question and response text inside the box with white text
+  //     doc.setFontSize(10);
+  //     doc.setFont("helvetica", "bold");
+  //     doc.setTextColor(255, 255, 255); // Set text color to white for the question
+  //     const questionText = doc.splitTextToSize(`${question}:`, boxWidth - 10);
+  //     doc.text(questionText, boxX + 5, currentY + 7);
+
+  //     doc.setFont("helvetica", "normal");
+  //     const responseText = `Selected: ${selectedAnswer}\nResponse: ${response}`;
+  //     const responseLines = doc.splitTextToSize(responseText, boxWidth - 10);
+  //     doc.text(responseLines, boxX + 5, currentY + 12);
+
+  //     // Adjust currentY for the next question
+  //     currentY += boxHeight + 5;
+
+  //     // Handle page break if content exceeds the page
+  //     if (currentY > 260) {
+  //       addFooter(doc);
+  //       pageNumber += 1;
+  //       doc.addPage();
+  //       addSoftBackground(doc); // Add background to the new page
+  //       drawPageBorder(doc); // Add border to the new page
+  //       currentY = 20; // Reset Y for the new page
+  //     }
+  //   });
+
+  //   // Add spacing between sections
+  //   currentY += 10;
+  // });
+
+  // Add footer to the final page
   addFooter(doc);
 
   // Save the PDF

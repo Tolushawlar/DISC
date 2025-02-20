@@ -350,7 +350,7 @@ const questionsData = [
     options: [
       {
         label: "Yes",
-        quadrant: "Threat/Weakness",
+        quadrant: "Threat",
         response:
           "Operating at a loss can be a challenge. Analyze the reasons behind these losses and develop strategies to minimize them, such as cost-cutting, increasing revenue, or improving efficiency.",
       },
@@ -362,7 +362,7 @@ const questionsData = [
       },
       {
         label: "Unsure",
-        quadrant: "Threat/Weakness",
+        quadrant: "Weakness",
         response:
           "Uncertainty here suggests a need for financial analysis. Review your financial statements to identify any periods of loss and address the underlying causes.",
       },
@@ -1033,7 +1033,7 @@ const questionsData = [
     options: [
       {
         label: "Yes",
-        quadrant: "Threat/Weakness",
+        quadrant: "Threat",
         response:
           "Competitors outpacing you in growth can be a challenge. Analyze their strategies and identify areas where you can improve, such as product innovation, customer engagement, or marketing efforts.",
       },
@@ -1045,7 +1045,7 @@ const questionsData = [
       },
       {
         label: "Unsure",
-        quadrant: "Threat/Weakness",
+        quadrant: "Weakness",
         response:
           "Uncertainty here suggests a need for competitive analysis. Evaluate your position relative to competitors and develop strategies to enhance your growth.",
       },
@@ -1719,28 +1719,63 @@ const questionsData = [
       },
     ],
   },
+  // {
+  //   id: 71,
+  //   question: "Have you acted on customer feedback to improve your business?",
+  //   options: [
+  //     {
+  //       label: "Yes",
+  //       quadrant: "Strength",
+  //       response:
+  //         "Excellent! Leveraging customer feedback to improve your business is a major strength. Keep refining your offerings based on insights from your customers to maintain a competitive edge.",
+  //     },
+  //     {
+  //       label: "No",
+  //       quadrant: "Opportunity",
+  //       response:
+  //         "This presents a valuable opportunity for growth. Customer feedback can provide actionable insights for improvement. Consider implementing a structured approach to gathering and acting on feedback.",
+  //     },
+  //     {
+  //       label: "Unsure",
+  //       quadrant: "Threat",
+  //       response:
+  //         "Uncertainty here may indicate a risk. If feedback isn’t properly utilized, you might miss important opportunities for improvement. Establish a process to assess and act on customer input to strengthen your business.",
+  //     },
+  //   ],
+  // },
 ];
-
 
 const Questionnaire = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ fullName: "", email: "", phone: "" });
-  
-  const totalQuestions = questionsData.length;
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+  });
 
+  const totalQuestions = questionsData.length;
+  // console.log(answers);
   const handleAnswer = (selectedOption) => {
+    console.log(
+      selectedOption,
+      questionsData[currentQuestionIndex].id,
+      questionsData[currentQuestionIndex].question
+    );
     setAnswers((prev) => ({
       ...prev,
       [currentQuestionIndex]: {
+        questionId: questionsData[currentQuestionIndex].id,
+        question: questionsData[currentQuestionIndex].question,
+        id: selectedOption.id,
         selected: selectedOption.label,
         response: selectedOption.response,
         quadrant: selectedOption.quadrant,
       },
     }));
 
-    if (currentQuestionIndex < totalQuestions - 1) {
+    if (currentQuestionIndex < totalQuestions - 1 ) {
       setTimeout(() => setCurrentQuestionIndex((prev) => prev + 1), 300);
     }
   };
@@ -1768,25 +1803,101 @@ const Questionnaire = () => {
   }
 
   return (
-    <div className="main" style={{ width: "600px", margin: "100px auto", padding: "24px", backgroundColor: "white", borderRadius: "8px" }}>
-      <ProgressBar progress={(currentQuestionIndex + 1) / totalQuestions} currentStep={currentQuestionIndex + 1} totalSteps={totalQuestions} />
-      
-      <Question question={questionsData[currentQuestionIndex]} onAnswer={handleAnswer} selectedAnswer={answers[currentQuestionIndex]?.selected} />
-      
-      {currentQuestionIndex === totalQuestions - 1 && (
+    <div
+      className="main"
+      style={{
+        width: "600px",
+        margin: "100px auto",
+        padding: "24px",
+        backgroundColor: "white",
+        borderRadius: "8px",
+      }}
+    >
+      <ProgressBar
+        progress={(currentQuestionIndex + 1) / totalQuestions}
+        currentStep={currentQuestionIndex + 1}
+        totalSteps={totalQuestions}
+      />
+
+      <Question
+        question={questionsData[currentQuestionIndex]}
+        onAnswer={handleAnswer}
+        selectedAnswer={answers[currentQuestionIndex]?.selected}
+      />
+
+      {currentQuestionIndex === totalQuestions - 1  && (
         <div>
           <h2>Complete Your Details</h2>
-          <input type="text" name="fullName" placeholder="Full Name" value={formData.fullName} onChange={handleFormChange} required /><br />
-          <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleFormChange} required /><br />
-          <input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleFormChange} required /><br />
+          <input
+            type="text"
+            name="fullName"
+            placeholder="Full Name"
+            value={formData.fullName}
+            onChange={handleFormChange}
+            required
+          />
+          <br />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleFormChange}
+            required
+          />
+          <br />
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            value={formData.phone}
+            onChange={handleFormChange}
+            required
+          />
+          <br />
         </div>
       )}
 
-      <div style={{ display: "flex", justifyContent: "flex-start", marginTop: "16px" }}>
-        <button className="prev" style={{ padding: "8px 16px", backgroundColor: "#E5E7EB", cursor: currentQuestionIndex === 0 ? "not-allowed" : "pointer", opacity: currentQuestionIndex === 0 ? 0.5 : 1 }} onClick={handlePrevious} disabled={currentQuestionIndex === 0}>Previous</button>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-start",
+          marginTop: "16px",
+        }}
+      >
+        <button
+          className="prev"
+          style={{
+            padding: "8px 16px",
+            backgroundColor: "#E5E7EB",
+            cursor: currentQuestionIndex === 0 ? "not-allowed" : "pointer",
+            opacity: currentQuestionIndex === 0 ? 0.5 : 1,
+          }}
+          onClick={handlePrevious}
+          disabled={currentQuestionIndex === 0}
+        >
+          Previous
+        </button>
 
-        {currentQuestionIndex === totalQuestions - 1 && (
-          <button style={{ padding: "8px 16px", background: "linear-gradient(to right, #16133d, #6357a5)", color: "white", marginLeft: "10px", borderRadius: "50px", width: "200px", fontSize: "15px", fontWeight: "bold", cursor: isFormValid ? "pointer" : "not-allowed", opacity: isFormValid ? 1 : 0.5 }} onClick={handleSubmit} disabled={!isFormValid}>Submit</button>
+        {currentQuestionIndex === totalQuestions - 1  && (
+          <button
+            style={{
+              padding: "8px 16px",
+              background: "linear-gradient(to right, #16133d, #6357a5)",
+              color: "white",
+              marginLeft: "10px",
+              borderRadius: "50px",
+              width: "200px",
+              fontSize: "15px",
+              fontWeight: "bold",
+              cursor: isFormValid ? "pointer" : "not-allowed",
+              opacity: isFormValid ? 1 : 0.5,
+            }}
+            onClick={handleSubmit}
+            disabled={!isFormValid}
+          >
+            Submit
+          </button>
         )}
       </div>
     </div>

@@ -345,7 +345,7 @@ const questionsData = [
     options: [
       {
         label: "Yes",
-        quadrant: "Threat/Weakness",
+        quadrant: "Threat",
         response:
           "Operating at a loss can be a challenge. Analyze the reasons behind these losses and develop strategies to minimize them, such as cost-cutting, increasing revenue, or improving efficiency.",
       },
@@ -357,7 +357,7 @@ const questionsData = [
       },
       {
         label: "Unsure",
-        quadrant: "Threat/Weakness",
+        quadrant: "Weakness",
         response:
           "Uncertainty here suggests a need for financial analysis. Review your financial statements to identify any periods of loss and address the underlying causes.",
       },
@@ -1028,7 +1028,7 @@ const questionsData = [
     options: [
       {
         label: "Yes",
-        quadrant: "Threat/Weakness",
+        quadrant: "Threat",
         response:
           "Competitors outpacing you in growth can be a challenge. Analyze their strategies and identify areas where you can improve, such as product innovation, customer engagement, or marketing efforts.",
       },
@@ -1040,7 +1040,7 @@ const questionsData = [
       },
       {
         label: "Unsure",
-        quadrant: "Threat/Weakness",
+        quadrant: "Weakness",
         response:
           "Uncertainty here suggests a need for competitive analysis. Evaluate your position relative to competitors and develop strategies to enhance your growth.",
       },
@@ -1709,6 +1709,30 @@ const questionsData = [
       {
         label: "Unsure",
         quadrant: "Opportunity",
+        response:
+          "Uncertainty here suggests potential for improvement. Evaluate your current approach to customer feedback and consider using it to drive innovation and meet evolving demands.",
+      },
+    ],
+  },
+  {
+    id: 71,
+    question: "feedback?",
+    options: [
+      {
+        label: "Yes",
+        quadrant: "ste",
+        response:
+          "Great work! Innovating based on customer needs is a key strength that drives satisfaction and loyalty. Continue to gather feedback and use it to refine your offerings and stay ahead of competitors.",
+      },
+      {
+        label: "No",
+        quadrant: "opp",
+        response:
+          "This is a promising area for growth. Customer feedback can provide valuable insights for innovation. Develop processes to collect and act on feedback to address unmet needs and enhance your offerings.",
+      },
+      {
+        label: "Unsure",
+        quadrant: "thr",
         response:
           "Uncertainty here suggests potential for improvement. Evaluate your current approach to customer feedback and consider using it to drive innovation and meet evolving demands.",
       },

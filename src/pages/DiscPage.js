@@ -702,9 +702,9 @@ const App = () => {
   const [secondHighestColor2, setSecondHighestColorName] = useState(null);
   const [thirdHighestColor2, setThirdHighestColorName] = useState(null);
   const [fourthHighestColor2, setFourthHighestColorName] = useState(null);
-  const [childValue, setChildValue] = useState([])
-  const [parentValue, setParentValue] = useState([])
-  const [adultValue, setAdultValue] = useState([])
+  const [childValue, setChildValue] = useState([]);
+  const [parentValue, setParentValue] = useState([]);
+  const [adultValue, setAdultValue] = useState([]);
   const [finalResults, setFinalResults] = useState([]);
   const [currentSection, setCurrentSection] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -789,7 +789,6 @@ const App = () => {
     setIsGenerating(false);
   };
 
-
   const handleAnswerSelection = (questionId, selectedOption) => {
     // Store answer and its weight in state
     setAnswers((prev) => ({
@@ -870,7 +869,12 @@ const App = () => {
     if (currentSection === 0) {
       return (
         <>
-          <p className="topicHeader" style={{ fontSize: "18px", fontWeight: "bolder" }}>How I Respond Under Intense Pressure</p>
+          <p
+            className="topicHeader"
+            style={{ fontSize: "18px", fontWeight: "bolder" }}
+          >
+            How I Respond Under Intense Pressure
+          </p>
           <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px" }}>
             Each question below is divided into two statements. Choose the
             statement in either column that best describes how you feel under
@@ -885,7 +889,12 @@ const App = () => {
     } else if (currentSection === 1) {
       return (
         <>
-          <p className="topicHeader" style={{ fontSize: "18px", fontWeight: "bolder" }}>What I Think I Should Do</p>
+          <p
+            className="topicHeader"
+            style={{ fontSize: "18px", fontWeight: "bolder" }}
+          >
+            What I Think I Should Do
+          </p>
           <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px" }}>
             Each question below is divided into two statements. Choose the
             statement in either column that best describes what you think you
@@ -901,7 +910,12 @@ const App = () => {
     } else if (currentSection === 2) {
       return (
         <>
-          <p className="topicHeader" style={{ fontSize: "18px", fontWeight: "bolder" }}>What I Am Comfortable Doing</p>
+          <p
+            className="topicHeader"
+            style={{ fontSize: "18px", fontWeight: "bolder" }}
+          >
+            What I Am Comfortable Doing
+          </p>
           <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px" }}>
             Each question below is divided into two statements. Choose the
             statement in either column that best describes what you are
@@ -997,6 +1011,7 @@ const App = () => {
   const thirdHighestColor = colorsArray[thirdHighestIndex];
   const fourthHighestColor = colorsArray[fourthHighestIndex];
 
+  console.log(valueIndexPairs);
   console.log("Values Array:", valuesArray);
   console.log("Colors Array:", colorsArray);
   console.log(`2nd Highest Color: ${secondHighestColor}`);
@@ -1011,7 +1026,6 @@ const App = () => {
   );
   console.log(colorsArray[0]);
   console.log(colors);
-
 
   const ColorFeedback = () => {
     const [feedback, setFeedback] = useState("");
@@ -1047,7 +1061,7 @@ const App = () => {
     ];
 
     const sortedColors = [...colors].sort((a, b) => b.result - a.result);
-    console.log("sorted", sortedColors)
+    console.log("sorted", sortedColors);
     // Helper function to convert hex color to an integer value
     const hexToInt = (hex) => parseInt(hex.slice(1), 16);
 
@@ -1074,11 +1088,20 @@ const App = () => {
             </p> */}
             <h3> Result-Oriented and Driven </h3>
             <p>
-              You are a highly driven and goal-oriented individual who is focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects.</p>
+              You are a highly driven and goal-oriented individual who is
+              focused on achieving tangible results. You have a direct
+              communication style and are confident in your abilities, often
+              taking a competitive approach to tasks and projects.
+            </p>
             <div>
               <h3>Communication Preferences </h3>
               <p>
-                Direct Communication Style When communicating with you, it is best to be concise and to the point. You prefer clear and straightforward information, as you believe that people should already know what they are doing. You are a "bottom-line" person who values efficiency and getting things done.</p>
+                Direct Communication Style When communicating with you, it is
+                best to be concise and to the point. You prefer clear and
+                straightforward information, as you believe that people should
+                already know what they are doing. You are a "bottom-line" person
+                who values efficiency and getting things done.
+              </p>
             </div>
             {/* <table class="custom-table">
               <thead>
@@ -1114,19 +1137,36 @@ const App = () => {
             <div>
               <h3>Strengths and Weaknesses </h3>
               <p>
-                Your key strengths lie in your ability to make decisions, achieve your goals, and take calculated risks. However, you may sometimes overlook the importance of caution and long-term considerations, focusing instead on short-term results. Additionally, you have a very high built-in sense of urgency. This allows you to make decisions and get results quickly, but can also cause frustration when working with others who don't have the same motor.</p>  </div>
+                Your key strengths lie in your ability to make decisions,
+                achieve your goals, and take calculated risks. However, you may
+                sometimes overlook the importance of caution and long-term
+                considerations, focusing instead on short-term results.
+                Additionally, you have a very high built-in sense of urgency.
+                This allows you to make decisions and get results quickly, but
+                can also cause frustration when working with others who don't
+                have the same motor.
+              </p>{" "}
+            </div>
             <div>
               <h3>Needs and Motivations </h3>
               <p>
-                To thrive, you require a sense of power, authority, and the ability to win. You are motivated by quantifiable achievements and the opportunity to demonstrate your competence and drive. </p>
+                To thrive, you require a sense of power, authority, and the
+                ability to win. You are motivated by quantifiable achievements
+                and the opportunity to demonstrate your competence and drive.{" "}
+              </p>
             </div>
-            <p>Overall, you are a highly capable and results-oriented individual who values direct communication, decision-making, and the achievement of your goals. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
+            <p>
+              Overall, you are a highly capable and results-oriented individual
+              who values direct communication, decision-making, and the
+              achievement of your goals. By understanding your personality
+              traits and communication preferences, others can more effectively
+              collaborate and work with you.
+            </p>
           </div>
         );
       } else if (correspondingColor === "yellow") {
         setIdentity("Communicators, Participants, Adaptable");
         setFeedback(
-
           <div>
             {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
           <p>Your major strength is associated with {correspondingColor}!</p> */}
@@ -1138,12 +1178,20 @@ const App = () => {
           </p> */}
             <h3>Friendly, Outgoing, and Emotional</h3>
             <p>
-              You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations.
+              You are a vibrant and sociable individual who thrives on human
+              connection and spontaneity. Your orientation is people-focused,
+              with results taking a secondary priority. You are enthusiastic,
+              expressive, and enjoy engaging in lively conversations.
             </p>
             <div>
               <h3>Communication Preferences </h3>
               <p>
-                When communicating with you, it is best to ask for your help and input. You appreciate being involved and valued for your unique perspective. Showcase your enthusiasm and excitement, and look for common ground that can foster a sense of camaraderie. Avoid getting bogged down in details, and instead focus on creating a positive and engaging atmosphere.
+                When communicating with you, it is best to ask for your help and
+                input. You appreciate being involved and valued for your unique
+                perspective. Showcase your enthusiasm and excitement, and look
+                for common ground that can foster a sense of camaraderie. Avoid
+                getting bogged down in details, and instead focus on creating a
+                positive and engaging atmosphere.
               </p>
             </div>
             {/* <table class="custom-table">
@@ -1180,22 +1228,33 @@ const App = () => {
             <div>
               <h3>Strengths and Weaknesses </h3>
               <p>
-                Your key strengths include your strong communication skills, adaptability, and optimistic outlook. However, you may sometimes struggle with a lack of time management, difficulty following up on tasks, and a tendency to be overly subjective.
+                Your key strengths include your strong communication skills,
+                adaptability, and optimistic outlook. However, you may sometimes
+                struggle with a lack of time management, difficulty following up
+                on tasks, and a tendency to be overly subjective.
               </p>
               <div>
                 <h3>Needs and Motivations </h3>
                 <p>
-                  To feel fulfilled, you require recognition, acceptance, and the opportunity to exert influence and be involved. You are motivated by flexibility, options, and the chance to participate actively in discussions and decision-making.
+                  To feel fulfilled, you require recognition, acceptance, and
+                  the opportunity to exert influence and be involved. You are
+                  motivated by flexibility, options, and the chance to
+                  participate actively in discussions and decision-making.
                 </p>
               </div>
-              <p>Overall, you are a vibrant and people-oriented individual who thrives on social interaction, enthusiasm, and a sense of belonging. By understanding your personality traits and communication preferences, others can more effectively engage and collaborate with you.</p>
+              <p>
+                Overall, you are a vibrant and people-oriented individual who
+                thrives on social interaction, enthusiasm, and a sense of
+                belonging. By understanding your personality traits and
+                communication preferences, others can more effectively engage
+                and collaborate with you.
+              </p>
             </div>
           </div>
         );
       } else if (correspondingColor === "blue") {
         setIdentity("Patient, Problem Solver, Good Listener");
         setFeedback(
-
           <div>
             {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
           <p>Your major strength is associated with {correspondingColor}!</p> */}
@@ -1207,12 +1266,19 @@ const App = () => {
           </p> */}
             <h3>Sincere and Focused on Problem-Solving</h3>
             <p>
-              You are a sincere and thoughtful individual who takes great pride in being a good listener and a problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper.
+              You are a sincere and thoughtful individual who takes great pride
+              in being a good listener and a problem-solver. Your focus is on
+              making things better and maintaining harmony, often taking on the
+              role of peacekeeper.
             </p>
             <div>
               <h3>Communication Preferences </h3>
               <p>
-                When communicating with you, it is important to ask for your input and opinions. You thrive when given the freedom to evaluate alternatives and choose the best course of action. Showing appreciation for your ideas and allowing you to contribute to the problem-solving process is key.
+                When communicating with you, it is important to ask for your
+                input and opinions. You thrive when given the freedom to
+                evaluate alternatives and choose the best course of action.
+                Showing appreciation for your ideas and allowing you to
+                contribute to the problem-solving process is key.
               </p>
             </div>
             {/* <table class="custom-table">
@@ -1249,15 +1315,29 @@ const App = () => {
             <div>
               <h3>Strengths and Weaknesses </h3>
               <p>
-                Your key strengths include your ability to listen attentively, your patience, and your skill in evaluating alternatives and identifying improvements. However, you may sometimes struggle with conflict avoidance and procrastination, and can become overly focused on perfecting a solution.
+                Your key strengths include your ability to listen attentively,
+                your patience, and your skill in evaluating alternatives and
+                identifying improvements. However, you may sometimes struggle
+                with conflict avoidance and procrastination, and can become
+                overly focused on perfecting a solution.
               </p>
               <div>
                 <h3>Needs and Motivations </h3>
                 <p>
-                  To feel fulfilled, you require a sense of appreciation, the freedom to explore options, and the time needed to thoroughly consider and implement solutions. You are motivated by the opportunity to make a positive impact and contribute to the overall well-being of the group or organization.
+                  To feel fulfilled, you require a sense of appreciation, the
+                  freedom to explore options, and the time needed to thoroughly
+                  consider and implement solutions. You are motivated by the
+                  opportunity to make a positive impact and contribute to the
+                  overall well-being of the group or organization.
                 </p>
               </div>
-              <p>Overall, you are a supportive and problem-solving oriented individual who values collaboration, consensus-building, and continuous improvement. By understanding your personality traits and communication preferences, others can more effectively engage and work with you.</p>
+              <p>
+                Overall, you are a supportive and problem-solving oriented
+                individual who values collaboration, consensus-building, and
+                continuous improvement. By understanding your personality traits
+                and communication preferences, others can more effectively
+                engage and work with you.
+              </p>
             </div>
           </div>
         );
@@ -1268,12 +1348,20 @@ const App = () => {
             <div>
               <h3>Analytical and Cautious</h3>
               <p>
-                You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to "look before you leap" in order to avoid repeating past mistakes.
+                You are an analytical individual who values consistency,
+                caution, and high standards. You carefully consider your
+                decisions and actions, preferring to "look before you leap" in
+                order to avoid repeating past mistakes.
               </p>
               <div>
                 <h3>Communication Preferences </h3>
                 <p>
-                  When communicating with you, it is important to provide a clear and structured approach, addressing the "how" rather than just the "what." You thrive on predictability and control, so presenting detailed information, facts, and testimonials early on will help establish trust and credibility.
+                  When communicating with you, it is important to provide a
+                  clear and structured approach, addressing the "how" rather
+                  than just the "what." You thrive on predictability and
+                  control, so presenting detailed information, facts, and
+                  testimonials early on will help establish trust and
+                  credibility.
                 </p>
               </div>
               {/* <table class="custom-table">
@@ -1310,14 +1398,28 @@ const App = () => {
               <div>
                 <h3>Strengths and Weaknesses </h3>
                 <p>
-                  Your key strengths lie in your analytical abilities, accuracy, and commitment to maintaining high standards. However, this can also lead to rigidity, procrastination, and an overly critical perspective that focuses too heavily on the past. </p>
+                  Your key strengths lie in your analytical abilities, accuracy,
+                  and commitment to maintaining high standards. However, this
+                  can also lead to rigidity, procrastination, and an overly
+                  critical perspective that focuses too heavily on the past.{" "}
+                </p>
               </div>
               <div>
                 <h3>Needs and Motivations </h3>
                 <p>
-                  To feel fulfilled, you require a sense of control, the opportunity to engage in precise and detailed work, and a consistent environment that allows you to take the time needed to thoroughly consider your decisions. </p>
+                  To feel fulfilled, you require a sense of control, the
+                  opportunity to engage in precise and detailed work, and a
+                  consistent environment that allows you to take the time needed
+                  to thoroughly consider your decisions.{" "}
+                </p>
               </div>
-              <p>Overall, you are a thoughtful and cautious individual who values structure, predictability, and a methodical approach to tasks and projects. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
+              <p>
+                Overall, you are a thoughtful and cautious individual who values
+                structure, predictability, and a methodical approach to tasks
+                and projects. By understanding your personality traits and
+                communication preferences, others can more effectively
+                collaborate and work with you.
+              </p>
             </div>
           </>
         );
@@ -1340,11 +1442,20 @@ const App = () => {
             </p> */}
             <h3> Result-Oriented and Driven </h3>
             <p>
-              You are a highly driven and goal-oriented individual who is focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects.</p>
+              You are a highly driven and goal-oriented individual who is
+              focused on achieving tangible results. You have a direct
+              communication style and are confident in your abilities, often
+              taking a competitive approach to tasks and projects.
+            </p>
             <div>
               <h3>Communication Preferences </h3>
               <p>
-                Direct Communication Style When communicating with you, it is best to be concise and to the point. You prefer clear and straightforward information, as you believe that people should already know what they are doing. You are a "bottom-line" person who values efficiency and getting things done.</p>
+                Direct Communication Style When communicating with you, it is
+                best to be concise and to the point. You prefer clear and
+                straightforward information, as you believe that people should
+                already know what they are doing. You are a "bottom-line" person
+                who values efficiency and getting things done.
+              </p>
             </div>
             {/* <table class="custom-table">
               <thead>
@@ -1380,13 +1491,31 @@ const App = () => {
             <div>
               <h3>Strengths and Weaknesses </h3>
               <p>
-                Your key strengths lie in your ability to make decisions, achieve your goals, and take calculated risks. However, you may sometimes overlook the importance of caution and long-term considerations, focusing instead on short-term results. Additionally, you have a very high built-in sense of urgency. This allows you to make decisions and get results quickly, but can also cause frustration when working with others who don't have the same motor.</p>  </div>
+                Your key strengths lie in your ability to make decisions,
+                achieve your goals, and take calculated risks. However, you may
+                sometimes overlook the importance of caution and long-term
+                considerations, focusing instead on short-term results.
+                Additionally, you have a very high built-in sense of urgency.
+                This allows you to make decisions and get results quickly, but
+                can also cause frustration when working with others who don't
+                have the same motor.
+              </p>{" "}
+            </div>
             <div>
               <h3>Needs and Motivations </h3>
               <p>
-                To thrive, you require a sense of power, authority, and the ability to win. You are motivated by quantifiable achievements and the opportunity to demonstrate your competence and drive. </p>
+                To thrive, you require a sense of power, authority, and the
+                ability to win. You are motivated by quantifiable achievements
+                and the opportunity to demonstrate your competence and drive.{" "}
+              </p>
             </div>
-            <p>Overall, you are a highly capable and results-oriented individual who values direct communication, decision-making, and the achievement of your goals. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
+            <p>
+              Overall, you are a highly capable and results-oriented individual
+              who values direct communication, decision-making, and the
+              achievement of your goals. By understanding your personality
+              traits and communication preferences, others can more effectively
+              collaborate and work with you.
+            </p>
           </div>
         );
       } else if (secondHighestColor === "yellow") {
@@ -1403,12 +1532,20 @@ const App = () => {
           </p> */}
             <h3> Friendly, Outgoing, and Emotional</h3>
             <p>
-              You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations.
+              You are a vibrant and sociable individual who thrives on human
+              connection and spontaneity. Your orientation is people-focused,
+              with results taking a secondary priority. You are enthusiastic,
+              expressive, and enjoy engaging in lively conversations.
             </p>
             <div>
               <h3>Communication Preferences </h3>
               <p>
-                When communicating with you, it is best to ask for your help and input. You appreciate being involved and valued for your unique perspective. Showcase your enthusiasm and excitement, and look for common ground that can foster a sense of camaraderie. Avoid getting bogged down in details, and instead focus on creating a positive and engaging atmosphere.
+                When communicating with you, it is best to ask for your help and
+                input. You appreciate being involved and valued for your unique
+                perspective. Showcase your enthusiasm and excitement, and look
+                for common ground that can foster a sense of camaraderie. Avoid
+                getting bogged down in details, and instead focus on creating a
+                positive and engaging atmosphere.
               </p>
             </div>
             {/* <table class="custom-table">
@@ -1445,18 +1582,30 @@ const App = () => {
             <div>
               <h3>Strengths and Weaknesses </h3>
               <p>
-                Your key strengths include your strong communication skills, adaptability, and optimistic outlook. However, you may sometimes struggle with a lack of time management, difficulty following up on tasks, and a tendency to be overly subjective.
+                Your key strengths include your strong communication skills,
+                adaptability, and optimistic outlook. However, you may sometimes
+                struggle with a lack of time management, difficulty following up
+                on tasks, and a tendency to be overly subjective.
               </p>
               <div>
                 <h3>Needs and Motivations </h3>
                 <p>
-                  To feel fulfilled, you require recognition, acceptance, and the opportunity to exert influence and be involved. You are motivated by flexibility, options, and the chance to participate actively in discussions and decision-making.
+                  To feel fulfilled, you require recognition, acceptance, and
+                  the opportunity to exert influence and be involved. You are
+                  motivated by flexibility, options, and the chance to
+                  participate actively in discussions and decision-making.
                 </p>
               </div>
-              <p>Overall, you are a vibrant and people-oriented individual who thrives on social interaction, enthusiasm, and a sense of belonging. By understanding your personality traits and communication preferences, others can more effectively engage and collaborate with you.</p>
+              <p>
+                Overall, you are a vibrant and people-oriented individual who
+                thrives on social interaction, enthusiasm, and a sense of
+                belonging. By understanding your personality traits and
+                communication preferences, others can more effectively engage
+                and collaborate with you.
+              </p>
             </div>
           </div>
-        )
+        );
       } else if (secondHighestColor === "blue") {
         setIdentity2("Patient, Problem Solver, Good Listener");
         setFeedback2(
@@ -1471,12 +1620,19 @@ const App = () => {
           </p> */}
             <h3> Sincere and Focused on Problem-Solving </h3>
             <p>
-              You are a sincere and thoughtful individual who takes great pride in being a good listener and a problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper.
+              You are a sincere and thoughtful individual who takes great pride
+              in being a good listener and a problem-solver. Your focus is on
+              making things better and maintaining harmony, often taking on the
+              role of peacekeeper.
             </p>
             <div>
               <h3>Communication Preferences </h3>
               <p>
-                When communicating with you, it is important to ask for your input and opinions. You thrive when given the freedom to evaluate alternatives and choose the best course of action. Showing appreciation for your ideas and allowing you to contribute to the problem-solving process is key.
+                When communicating with you, it is important to ask for your
+                input and opinions. You thrive when given the freedom to
+                evaluate alternatives and choose the best course of action.
+                Showing appreciation for your ideas and allowing you to
+                contribute to the problem-solving process is key.
               </p>
             </div>
             {/* <table class="custom-table">
@@ -1513,15 +1669,29 @@ const App = () => {
             <div>
               <h3>Strengths and Weaknesses </h3>
               <p>
-                Your key strengths include your ability to listen attentively, your patience, and your skill in evaluating alternatives and identifying improvements. However, you may sometimes struggle with conflict avoidance and procrastination, and can become overly focused on perfecting a solution.
+                Your key strengths include your ability to listen attentively,
+                your patience, and your skill in evaluating alternatives and
+                identifying improvements. However, you may sometimes struggle
+                with conflict avoidance and procrastination, and can become
+                overly focused on perfecting a solution.
               </p>
               <div>
                 <h3>Needs and Motivations </h3>
                 <p>
-                  To feel fulfilled, you require a sense of appreciation, the freedom to explore options, and the time needed to thoroughly consider and implement solutions. You are motivated by the opportunity to make a positive impact and contribute to the overall well-being of the group or organization.
+                  To feel fulfilled, you require a sense of appreciation, the
+                  freedom to explore options, and the time needed to thoroughly
+                  consider and implement solutions. You are motivated by the
+                  opportunity to make a positive impact and contribute to the
+                  overall well-being of the group or organization.
                 </p>
               </div>
-              <p>Overall, you are a supportive and problem-solving oriented individual who values collaboration, consensus-building, and continuous improvement. By understanding your personality traits and communication preferences, others can more effectively engage and work with you.</p>
+              <p>
+                Overall, you are a supportive and problem-solving oriented
+                individual who values collaboration, consensus-building, and
+                continuous improvement. By understanding your personality traits
+                and communication preferences, others can more effectively
+                engage and work with you.
+              </p>
             </div>
           </div>
         );
@@ -1532,12 +1702,20 @@ const App = () => {
             <div>
               <h3> Analytical and Cautious </h3>
               <p>
-                You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to "look before you leap" in order to avoid repeating past mistakes.
+                You are an analytical individual who values consistency,
+                caution, and high standards. You carefully consider your
+                decisions and actions, preferring to "look before you leap" in
+                order to avoid repeating past mistakes.
               </p>
               <div>
                 <h3>Communication Preferences </h3>
                 <p>
-                  When communicating with you, it is important to provide a clear and structured approach, addressing the "how" rather than just the "what." You thrive on predictability and control, so presenting detailed information, facts, and testimonials early on will help establish trust and credibility.
+                  When communicating with you, it is important to provide a
+                  clear and structured approach, addressing the "how" rather
+                  than just the "what." You thrive on predictability and
+                  control, so presenting detailed information, facts, and
+                  testimonials early on will help establish trust and
+                  credibility.
                 </p>
               </div>
               {/* <table class="custom-table">
@@ -1574,14 +1752,28 @@ const App = () => {
               <div>
                 <h3>Strengths and Weaknesses </h3>
                 <p>
-                  Your key strengths lie in your analytical abilities, accuracy, and commitment to maintaining high standards. However, this can also lead to rigidity, procrastination, and an overly critical perspective that focuses too heavily on the past. </p>
+                  Your key strengths lie in your analytical abilities, accuracy,
+                  and commitment to maintaining high standards. However, this
+                  can also lead to rigidity, procrastination, and an overly
+                  critical perspective that focuses too heavily on the past.{" "}
+                </p>
               </div>
               <div>
                 <h3>Needs and Motivations </h3>
                 <p>
-                  To feel fulfilled, you require a sense of control, the opportunity to engage in precise and detailed work, and a consistent environment that allows you to take the time needed to thoroughly consider your decisions. </p>
+                  To feel fulfilled, you require a sense of control, the
+                  opportunity to engage in precise and detailed work, and a
+                  consistent environment that allows you to take the time needed
+                  to thoroughly consider your decisions.{" "}
+                </p>
               </div>
-              <p>Overall, you are a thoughtful and cautious individual who values structure, predictability, and a methodical approach to tasks and projects. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
+              <p>
+                Overall, you are a thoughtful and cautious individual who values
+                structure, predictability, and a methodical approach to tasks
+                and projects. By understanding your personality traits and
+                communication preferences, others can more effectively
+                collaborate and work with you.
+              </p>
             </div>
           </>
         );
@@ -1604,11 +1796,20 @@ const App = () => {
             </p> */}
             <h3>Result-Oriented and Driven</h3>
             <p>
-              You are a highly driven and goal-oriented individual who is focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects.</p>
+              You are a highly driven and goal-oriented individual who is
+              focused on achieving tangible results. You have a direct
+              communication style and are confident in your abilities, often
+              taking a competitive approach to tasks and projects.
+            </p>
             <div>
               <h3>Communication Preferences </h3>
               <p>
-                Direct Communication Style When communicating with you, it is best to be concise and to the point. You prefer clear and straightforward information, as you believe that people should already know what they are doing. You are a "bottom-line" person who values efficiency and getting things done.</p>
+                Direct Communication Style When communicating with you, it is
+                best to be concise and to the point. You prefer clear and
+                straightforward information, as you believe that people should
+                already know what they are doing. You are a "bottom-line" person
+                who values efficiency and getting things done.
+              </p>
             </div>
             {/* <table class="custom-table">
               <thead>
@@ -1644,13 +1845,31 @@ const App = () => {
             <div>
               <h3>Strengths and Weaknesses </h3>
               <p>
-                Your key strengths lie in your ability to make decisions, achieve your goals, and take calculated risks. However, you may sometimes overlook the importance of caution and long-term considerations, focusing instead on short-term results. Additionally, you have a very high built-in sense of urgency. This allows you to make decisions and get results quickly, but can also cause frustration when working with others who don't have the same motor.</p>  </div>
+                Your key strengths lie in your ability to make decisions,
+                achieve your goals, and take calculated risks. However, you may
+                sometimes overlook the importance of caution and long-term
+                considerations, focusing instead on short-term results.
+                Additionally, you have a very high built-in sense of urgency.
+                This allows you to make decisions and get results quickly, but
+                can also cause frustration when working with others who don't
+                have the same motor.
+              </p>{" "}
+            </div>
             <div>
               <h3>Needs and Motivations </h3>
               <p>
-                To thrive, you require a sense of power, authority, and the ability to win. You are motivated by quantifiable achievements and the opportunity to demonstrate your competence and drive. </p>
+                To thrive, you require a sense of power, authority, and the
+                ability to win. You are motivated by quantifiable achievements
+                and the opportunity to demonstrate your competence and drive.{" "}
+              </p>
             </div>
-            <p>Overall, you are a highly capable and results-oriented individual who values direct communication, decision-making, and the achievement of your goals. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
+            <p>
+              Overall, you are a highly capable and results-oriented individual
+              who values direct communication, decision-making, and the
+              achievement of your goals. By understanding your personality
+              traits and communication preferences, others can more effectively
+              collaborate and work with you.
+            </p>
           </div>
         );
       } else if (thirdHighestColor === "yellow") {
@@ -1667,12 +1886,20 @@ const App = () => {
           </p> */}
             <h3>Friendly, Outgoing, and Emotional</h3>
             <p>
-              You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations.
+              You are a vibrant and sociable individual who thrives on human
+              connection and spontaneity. Your orientation is people-focused,
+              with results taking a secondary priority. You are enthusiastic,
+              expressive, and enjoy engaging in lively conversations.
             </p>
             <div>
               <h3>Communication Preferences </h3>
               <p>
-                When communicating with you, it is best to ask for your help and input. You appreciate being involved and valued for your unique perspective. Showcase your enthusiasm and excitement, and look for common ground that can foster a sense of camaraderie. Avoid getting bogged down in details, and instead focus on creating a positive and engaging atmosphere.
+                When communicating with you, it is best to ask for your help and
+                input. You appreciate being involved and valued for your unique
+                perspective. Showcase your enthusiasm and excitement, and look
+                for common ground that can foster a sense of camaraderie. Avoid
+                getting bogged down in details, and instead focus on creating a
+                positive and engaging atmosphere.
               </p>
             </div>
             {/* <table class="custom-table">
@@ -1709,15 +1936,27 @@ const App = () => {
             <div>
               <h3>Strengths and Weaknesses </h3>
               <p>
-                Your key strengths include your strong communication skills, adaptability, and optimistic outlook. However, you may sometimes struggle with a lack of time management, difficulty following up on tasks, and a tendency to be overly subjective.
+                Your key strengths include your strong communication skills,
+                adaptability, and optimistic outlook. However, you may sometimes
+                struggle with a lack of time management, difficulty following up
+                on tasks, and a tendency to be overly subjective.
               </p>
               <div>
                 <h3>Needs and Motivations </h3>
                 <p>
-                  To feel fulfilled, you require recognition, acceptance, and the opportunity to exert influence and be involved. You are motivated by flexibility, options, and the chance to participate actively in discussions and decision-making.
+                  To feel fulfilled, you require recognition, acceptance, and
+                  the opportunity to exert influence and be involved. You are
+                  motivated by flexibility, options, and the chance to
+                  participate actively in discussions and decision-making.
                 </p>
               </div>
-              <p>Overall, you are a vibrant and people-oriented individual who thrives on social interaction, enthusiasm, and a sense of belonging. By understanding your personality traits and communication preferences, others can more effectively engage and collaborate with you.</p>
+              <p>
+                Overall, you are a vibrant and people-oriented individual who
+                thrives on social interaction, enthusiasm, and a sense of
+                belonging. By understanding your personality traits and
+                communication preferences, others can more effectively engage
+                and collaborate with you.
+              </p>
             </div>
           </div>
         );
@@ -1735,12 +1974,19 @@ const App = () => {
           </p> */}
             <h3> Sincere and Focused on Problem-Solving </h3>
             <p>
-              You are a sincere and thoughtful individual who takes great pride in being a good listener and a problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper.
+              You are a sincere and thoughtful individual who takes great pride
+              in being a good listener and a problem-solver. Your focus is on
+              making things better and maintaining harmony, often taking on the
+              role of peacekeeper.
             </p>
             <div>
               <h3>Communication Preferences </h3>
               <p>
-                When communicating with you, it is important to ask for your input and opinions. You thrive when given the freedom to evaluate alternatives and choose the best course of action. Showing appreciation for your ideas and allowing you to contribute to the problem-solving process is key.
+                When communicating with you, it is important to ask for your
+                input and opinions. You thrive when given the freedom to
+                evaluate alternatives and choose the best course of action.
+                Showing appreciation for your ideas and allowing you to
+                contribute to the problem-solving process is key.
               </p>
             </div>
             {/* <table class="custom-table">
@@ -1777,15 +2023,29 @@ const App = () => {
             <div>
               <h3>Strengths and Weaknesses </h3>
               <p>
-                Your key strengths include your ability to listen attentively, your patience, and your skill in evaluating alternatives and identifying improvements. However, you may sometimes struggle with conflict avoidance and procrastination, and can become overly focused on perfecting a solution.
+                Your key strengths include your ability to listen attentively,
+                your patience, and your skill in evaluating alternatives and
+                identifying improvements. However, you may sometimes struggle
+                with conflict avoidance and procrastination, and can become
+                overly focused on perfecting a solution.
               </p>
               <div>
                 <h3>Needs and Motivations </h3>
                 <p>
-                  To feel fulfilled, you require a sense of appreciation, the freedom to explore options, and the time needed to thoroughly consider and implement solutions. You are motivated by the opportunity to make a positive impact and contribute to the overall well-being of the group or organization.
+                  To feel fulfilled, you require a sense of appreciation, the
+                  freedom to explore options, and the time needed to thoroughly
+                  consider and implement solutions. You are motivated by the
+                  opportunity to make a positive impact and contribute to the
+                  overall well-being of the group or organization.
                 </p>
               </div>
-              <p>Overall, you are a supportive and problem-solving oriented individual who values collaboration, consensus-building, and continuous improvement. By understanding your personality traits and communication preferences, others can more effectively engage and work with you.</p>
+              <p>
+                Overall, you are a supportive and problem-solving oriented
+                individual who values collaboration, consensus-building, and
+                continuous improvement. By understanding your personality traits
+                and communication preferences, others can more effectively
+                engage and work with you.
+              </p>
             </div>
           </div>
         );
@@ -1796,12 +2056,20 @@ const App = () => {
             <div>
               <h3> Analytical and Cautious </h3>
               <p>
-                You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to "look before you leap" in order to avoid repeating past mistakes.
+                You are an analytical individual who values consistency,
+                caution, and high standards. You carefully consider your
+                decisions and actions, preferring to "look before you leap" in
+                order to avoid repeating past mistakes.
               </p>
               <div>
                 <h3>Communication Preferences </h3>
                 <p>
-                  When communicating with you, it is important to provide a clear and structured approach, addressing the "how" rather than just the "what." You thrive on predictability and control, so presenting detailed information, facts, and testimonials early on will help establish trust and credibility.
+                  When communicating with you, it is important to provide a
+                  clear and structured approach, addressing the "how" rather
+                  than just the "what." You thrive on predictability and
+                  control, so presenting detailed information, facts, and
+                  testimonials early on will help establish trust and
+                  credibility.
                 </p>
               </div>
               {/* <table class="custom-table">
@@ -1838,14 +2106,28 @@ const App = () => {
               <div>
                 <h3>Strengths and Weaknesses </h3>
                 <p>
-                  Your key strengths lie in your analytical abilities, accuracy, and commitment to maintaining high standards. However, this can also lead to rigidity, procrastination, and an overly critical perspective that focuses too heavily on the past. </p>
+                  Your key strengths lie in your analytical abilities, accuracy,
+                  and commitment to maintaining high standards. However, this
+                  can also lead to rigidity, procrastination, and an overly
+                  critical perspective that focuses too heavily on the past.{" "}
+                </p>
               </div>
               <div>
                 <h3>Needs and Motivations </h3>
                 <p>
-                  To feel fulfilled, you require a sense of control, the opportunity to engage in precise and detailed work, and a consistent environment that allows you to take the time needed to thoroughly consider your decisions. </p>
+                  To feel fulfilled, you require a sense of control, the
+                  opportunity to engage in precise and detailed work, and a
+                  consistent environment that allows you to take the time needed
+                  to thoroughly consider your decisions.{" "}
+                </p>
               </div>
-              <p>Overall, you are a thoughtful and cautious individual who values structure, predictability, and a methodical approach to tasks and projects. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
+              <p>
+                Overall, you are a thoughtful and cautious individual who values
+                structure, predictability, and a methodical approach to tasks
+                and projects. By understanding your personality traits and
+                communication preferences, others can more effectively
+                collaborate and work with you.
+              </p>
             </div>
           </>
         );
@@ -1868,11 +2150,20 @@ const App = () => {
             </p> */}
             <h3> Result-Oriented and Driven </h3>
             <p>
-              You are a highly driven and goal-oriented individual who is focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects.</p>
+              You are a highly driven and goal-oriented individual who is
+              focused on achieving tangible results. You have a direct
+              communication style and are confident in your abilities, often
+              taking a competitive approach to tasks and projects.
+            </p>
             <div>
               <h3>Communication Preferences </h3>
               <p>
-                Direct Communication Style When communicating with you, it is best to be concise and to the point. You prefer clear and straightforward information, as you believe that people should already know what they are doing. You are a "bottom-line" person who values efficiency and getting things done.</p>
+                Direct Communication Style When communicating with you, it is
+                best to be concise and to the point. You prefer clear and
+                straightforward information, as you believe that people should
+                already know what they are doing. You are a "bottom-line" person
+                who values efficiency and getting things done.
+              </p>
             </div>
             {/* <table class="custom-table">
               <thead>
@@ -1908,19 +2199,36 @@ const App = () => {
             <div>
               <h3>Strengths and Weaknesses </h3>
               <p>
-                Your key strengths lie in your ability to make decisions, achieve your goals, and take calculated risks. However, you may sometimes overlook the importance of caution and long-term considerations, focusing instead on short-term results. Additionally, you have a very high built-in sense of urgency. This allows you to make decisions and get results quickly, but can also cause frustration when working with others who don't have the same motor.</p>  </div>
+                Your key strengths lie in your ability to make decisions,
+                achieve your goals, and take calculated risks. However, you may
+                sometimes overlook the importance of caution and long-term
+                considerations, focusing instead on short-term results.
+                Additionally, you have a very high built-in sense of urgency.
+                This allows you to make decisions and get results quickly, but
+                can also cause frustration when working with others who don't
+                have the same motor.
+              </p>{" "}
+            </div>
             <div>
               <h3>Needs and Motivations </h3>
               <p>
-                To thrive, you require a sense of power, authority, and the ability to win. You are motivated by quantifiable achievements and the opportunity to demonstrate your competence and drive. </p>
+                To thrive, you require a sense of power, authority, and the
+                ability to win. You are motivated by quantifiable achievements
+                and the opportunity to demonstrate your competence and drive.{" "}
+              </p>
             </div>
-            <p>Overall, you are a highly capable and results-oriented individual who values direct communication, decision-making, and the achievement of your goals. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
+            <p>
+              Overall, you are a highly capable and results-oriented individual
+              who values direct communication, decision-making, and the
+              achievement of your goals. By understanding your personality
+              traits and communication preferences, others can more effectively
+              collaborate and work with you.
+            </p>
           </div>
         );
       } else if (fourthHighestColor === "yellow") {
         setIdentity4("Communicators, Participants, Adaptable");
         setFeedback4(
-
           <div>
             {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
           <p>Your major strength is associated with {correspondingColor}!</p> */}
@@ -1932,12 +2240,20 @@ const App = () => {
           </p> */}
             <h3> Friendly, Outgoing, and Emotional </h3>
             <p>
-              You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations.
+              You are a vibrant and sociable individual who thrives on human
+              connection and spontaneity. Your orientation is people-focused,
+              with results taking a secondary priority. You are enthusiastic,
+              expressive, and enjoy engaging in lively conversations.
             </p>
             <div>
               <h3>Communication Preferences </h3>
               <p>
-                When communicating with you, it is best to ask for your help and input. You appreciate being involved and valued for your unique perspective. Showcase your enthusiasm and excitement, and look for common ground that can foster a sense of camaraderie. Avoid getting bogged down in details, and instead focus on creating a positive and engaging atmosphere.
+                When communicating with you, it is best to ask for your help and
+                input. You appreciate being involved and valued for your unique
+                perspective. Showcase your enthusiasm and excitement, and look
+                for common ground that can foster a sense of camaraderie. Avoid
+                getting bogged down in details, and instead focus on creating a
+                positive and engaging atmosphere.
               </p>
             </div>
             {/* <table class="custom-table">
@@ -1974,22 +2290,33 @@ const App = () => {
             <div>
               <h3>Strengths and Weaknesses </h3>
               <p>
-                Your key strengths include your strong communication skills, adaptability, and optimistic outlook. However, you may sometimes struggle with a lack of time management, difficulty following up on tasks, and a tendency to be overly subjective.
+                Your key strengths include your strong communication skills,
+                adaptability, and optimistic outlook. However, you may sometimes
+                struggle with a lack of time management, difficulty following up
+                on tasks, and a tendency to be overly subjective.
               </p>
               <div>
                 <h3>Needs and Motivations </h3>
                 <p>
-                  To feel fulfilled, you require recognition, acceptance, and the opportunity to exert influence and be involved. You are motivated by flexibility, options, and the chance to participate actively in discussions and decision-making.
+                  To feel fulfilled, you require recognition, acceptance, and
+                  the opportunity to exert influence and be involved. You are
+                  motivated by flexibility, options, and the chance to
+                  participate actively in discussions and decision-making.
                 </p>
               </div>
-              <p>Overall, you are a vibrant and people-oriented individual who thrives on social interaction, enthusiasm, and a sense of belonging. By understanding your personality traits and communication preferences, others can more effectively engage and collaborate with you.</p>
+              <p>
+                Overall, you are a vibrant and people-oriented individual who
+                thrives on social interaction, enthusiasm, and a sense of
+                belonging. By understanding your personality traits and
+                communication preferences, others can more effectively engage
+                and collaborate with you.
+              </p>
             </div>
           </div>
         );
       } else if (fourthHighestColor === "blue") {
         setIdentity4("Patient, Problem Solver, Good Listener");
         setFeedback4(
-
           <div>
             {/* 🎨 The color with the highest value is <strong>{correspondingColor}</strong> ({maxValue}).
           <p>Your major strength is associated with {correspondingColor}!</p> */}
@@ -2001,12 +2328,19 @@ const App = () => {
           </p> */}
             <h3>Sincere and Focused on Problem-Solving</h3>
             <p>
-              You are a sincere and thoughtful individual who takes great pride in being a good listener and a problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper.
+              You are a sincere and thoughtful individual who takes great pride
+              in being a good listener and a problem-solver. Your focus is on
+              making things better and maintaining harmony, often taking on the
+              role of peacekeeper.
             </p>
             <div>
               <h3>Communication Preferences </h3>
               <p>
-                When communicating with you, it is important to ask for your input and opinions. You thrive when given the freedom to evaluate alternatives and choose the best course of action. Showing appreciation for your ideas and allowing you to contribute to the problem-solving process is key.
+                When communicating with you, it is important to ask for your
+                input and opinions. You thrive when given the freedom to
+                evaluate alternatives and choose the best course of action.
+                Showing appreciation for your ideas and allowing you to
+                contribute to the problem-solving process is key.
               </p>
             </div>
             {/* <table class="custom-table">
@@ -2043,15 +2377,29 @@ const App = () => {
             <div>
               <h3>Strengths and Weaknesses </h3>
               <p>
-                Your key strengths include your ability to listen attentively, your patience, and your skill in evaluating alternatives and identifying improvements. However, you may sometimes struggle with conflict avoidance and procrastination, and can become overly focused on perfecting a solution.
+                Your key strengths include your ability to listen attentively,
+                your patience, and your skill in evaluating alternatives and
+                identifying improvements. However, you may sometimes struggle
+                with conflict avoidance and procrastination, and can become
+                overly focused on perfecting a solution.
               </p>
               <div>
                 <h3>Needs and Motivations </h3>
                 <p>
-                  To feel fulfilled, you require a sense of appreciation, the freedom to explore options, and the time needed to thoroughly consider and implement solutions. You are motivated by the opportunity to make a positive impact and contribute to the overall well-being of the group or organization.
+                  To feel fulfilled, you require a sense of appreciation, the
+                  freedom to explore options, and the time needed to thoroughly
+                  consider and implement solutions. You are motivated by the
+                  opportunity to make a positive impact and contribute to the
+                  overall well-being of the group or organization.
                 </p>
               </div>
-              <p>Overall, you are a supportive and problem-solving oriented individual who values collaboration, consensus-building, and continuous improvement. By understanding your personality traits and communication preferences, others can more effectively engage and work with you.</p>
+              <p>
+                Overall, you are a supportive and problem-solving oriented
+                individual who values collaboration, consensus-building, and
+                continuous improvement. By understanding your personality traits
+                and communication preferences, others can more effectively
+                engage and work with you.
+              </p>
             </div>
           </div>
         );
@@ -2062,12 +2410,20 @@ const App = () => {
             <div>
               <h3>Analytical and Cautious</h3>
               <p>
-                You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to "look before you leap" in order to avoid repeating past mistakes.
+                You are an analytical individual who values consistency,
+                caution, and high standards. You carefully consider your
+                decisions and actions, preferring to "look before you leap" in
+                order to avoid repeating past mistakes.
               </p>
               <div>
                 <h3>Communication Preferences </h3>
                 <p>
-                  When communicating with you, it is important to provide a clear and structured approach, addressing the "how" rather than just the "what." You thrive on predictability and control, so presenting detailed information, facts, and testimonials early on will help establish trust and credibility.
+                  When communicating with you, it is important to provide a
+                  clear and structured approach, addressing the "how" rather
+                  than just the "what." You thrive on predictability and
+                  control, so presenting detailed information, facts, and
+                  testimonials early on will help establish trust and
+                  credibility.
                 </p>
               </div>
               {/* <table class="custom-table">
@@ -2104,77 +2460,97 @@ const App = () => {
               <div>
                 <h3>Strengths and Weaknesses </h3>
                 <p>
-                  Your key strengths lie in your analytical abilities, accuracy, and commitment to maintaining high standards. However, this can also lead to rigidity, procrastination, and an overly critical perspective that focuses too heavily on the past. </p>
+                  Your key strengths lie in your analytical abilities, accuracy,
+                  and commitment to maintaining high standards. However, this
+                  can also lead to rigidity, procrastination, and an overly
+                  critical perspective that focuses too heavily on the past.{" "}
+                </p>
               </div>
               <div>
                 <h3>Needs and Motivations </h3>
                 <p>
-                  To feel fulfilled, you require a sense of control, the opportunity to engage in precise and detailed work, and a consistent environment that allows you to take the time needed to thoroughly consider your decisions. </p>
+                  To feel fulfilled, you require a sense of control, the
+                  opportunity to engage in precise and detailed work, and a
+                  consistent environment that allows you to take the time needed
+                  to thoroughly consider your decisions.{" "}
+                </p>
               </div>
-              <p>Overall, you are a thoughtful and cautious individual who values structure, predictability, and a methodical approach to tasks and projects. By understanding your personality traits and communication preferences, others can more effectively collaborate and work with you.</p>
+              <p>
+                Overall, you are a thoughtful and cautious individual who values
+                structure, predictability, and a methodical approach to tasks
+                and projects. By understanding your personality traits and
+                communication preferences, others can more effectively
+                collaborate and work with you.
+              </p>
             </div>
           </>
         );
       }
     }, []);
 
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setShowResults(true);
+      }, 7000); // 7 seconds delay
+
+      return () => clearTimeout(timer); // Cleanup timeout on unmount
+    }, []);
 
     return (
       <div className="feedbackCol">
         <h2>Total Result</h2>
-        <div className="container mx-auto p-4 custom-box colorBox">
-          {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
-          <table
-            className="min-w-full border-collapse border border-gray-300 mb-4"
-          // style={{
-          //   border: '1px solid #ccc',
-          //   padding: '20px',
-          //   borderRadius: '5px',
-          //   backgroundColor: '#f9f9f9',
-          //   marginTop: "40px"
-          // }}
-          >
-            <thead>
-              <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">
-                  Color
-                </th>
-                <th className="border border-gray-300 px-4 py-2 text-left"></th>
-                <th className="border border-gray-300 px-4 py-2 text-left">
-                  Profile
-                </th>
-                <th className="border border-gray-300 px-4 py-2 text-left">
-                  Score
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {finalResults.map((color, index) => (
-                <tr key={index} className="">
-                  <td className="border border-gray-300 px-4 py-2">
-                    {color.name}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">
-                    <div
-                      style={{
-                        backgroundColor: color.code,
-                        width: "30px",
-                        height: "30px",
-                        borderRadius: "4px",
-                      }}
-                    />
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2 profileHead">
-                    {color.value}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">
-                    {color.result}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="container mx-auto p-4">
+          {showResults ? (
+            <div className="custom-box colorBox">
+              <table className="min-w-full border-collapse border border-gray-300 mb-4">
+                <thead>
+                  <tr>
+                    <th className="border border-gray-300 px-4 py-2 text-left">
+                      Color
+                    </th>
+                    <th className="border border-gray-300 px-4 py-2 text-left"></th>
+                    <th className="border border-gray-300 px-4 py-2 text-left">
+                      Profile
+                    </th>
+                    <th className="border border-gray-300 px-4 py-2 text-left">
+                      Score
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {finalResults.map((color, index) => (
+                    <tr key={index}>
+                      <td className="border border-gray-300 px-4 py-2">
+                        {color.name}
+                      </td>
+                      <td className="border border-gray-300 px-4 py-2">
+                        <div
+                          style={{
+                            backgroundColor: color.code,
+                            width: "30px",
+                            height: "30px",
+                            borderRadius: "4px",
+                          }}
+                        />
+                      </td>
+                      <td className="border border-gray-300 px-4 py-2 profileHead">
+                        {color.value}
+                      </td>
+                      <td className="border border-gray-300 px-4 py-2">
+                        {color.result}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <p className="text-center text-lg font-semibold text-gray-600">
+              Analyzing total results...
+            </p>
+          )}
         </div>
+
         {/* Feedback Section */}
         <div
           className="custom-box feedbackColTable"
@@ -2491,13 +2867,13 @@ const App = () => {
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
             className="min-w-full border-collapse border border-gray-300 mb-4"
-          // style={{
-          //   border: '1px solid #ccc',
-          //   padding: '20px',
-          //   borderRadius: '5px',
-          //   backgroundColor: '#f9f9f9',
-          //   marginTop: "40px"
-          // }}
+            // style={{
+            //   border: '1px solid #ccc',
+            //   padding: '20px',
+            //   borderRadius: '5px',
+            //   backgroundColor: '#f9f9f9',
+            //   marginTop: "40px"
+            // }}
           >
             <thead>
               <tr>
@@ -2790,13 +3166,13 @@ const App = () => {
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
             className="min-w-full border-collapse border border-gray-300 mb-4"
-          // style={{
-          //   border: '1px solid #ccc',
-          //   padding: '20px',
-          //   borderRadius: '5px',
-          //   backgroundColor: '#f9f9f9',
-          //   marginTop: "40px"
-          // }}
+            // style={{
+            //   border: '1px solid #ccc',
+            //   padding: '20px',
+            //   borderRadius: '5px',
+            //   backgroundColor: '#f9f9f9',
+            //   marginTop: "40px"
+            // }}
           >
             <thead>
               <tr>
@@ -3089,13 +3465,13 @@ const App = () => {
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
             className="min-w-full border-collapse border border-gray-300 mb-4"
-          // style={{
-          //   border: '1px solid #ccc',
-          //   padding: '20px',
-          //   borderRadius: '5px',
-          //   backgroundColor: '#f9f9f9',
-          //   marginTop: "40px"
-          // }}
+            // style={{
+            //   border: '1px solid #ccc',
+            //   padding: '20px',
+            //   borderRadius: '5px',
+            //   backgroundColor: '#f9f9f9',
+            //   marginTop: "40px"
+            // }}
           >
             <thead>
               <tr>
@@ -3155,7 +3531,6 @@ const App = () => {
       </div>
     );
   };
-
 
   const handleDownloadPdf = () => {
     const doc = new jsPDF();
@@ -3275,7 +3650,6 @@ const App = () => {
     return middle20Weights;
   };
 
-
   const extractLast20Weights = () => {
     // Flatten all questions across sections
     const allQuestions = questionsUpdate.flatMap(
@@ -3312,7 +3686,6 @@ const App = () => {
   console.log("middle 20 Question Weights:", middle20Weights);
   console.log("Last 20 Question Weights:", last20Weights);
 
-
   const childResult = ["A", "B", "C", "D"].map(
     (value) => first20Weights.filter((item) => item === value).length
   );
@@ -3330,10 +3703,10 @@ const App = () => {
   console.log(adultResult);
 
   useEffect(() => {
-    setChildValue(childResult)
-    setParentValue(parentResult)
-    setAdultValue(adultResult)
-  }, [])
+    setChildValue(childResult);
+    setParentValue(parentResult);
+    setAdultValue(adultResult);
+  }, []);
 
   console.log(valuesArray);
   console.log(colorsArray);
@@ -3365,11 +3738,7 @@ const App = () => {
   **/
 
   useEffect(() => {
-    const rows = [
-      childResult,
-      parentResult,
-      adultResult,
-    ];
+    const rows = [childResult, parentResult, adultResult];
 
     // Colors in the specified order and their attributes
     const colorAttributes = {
@@ -3404,7 +3773,7 @@ const App = () => {
     ];
 
     // Sum the values column-wise and assign to the respective colors
-    rows.forEach(row => {
+    rows.forEach((row) => {
       row.forEach((value, index) => {
         results[index].result += value;
       });
@@ -3416,19 +3785,18 @@ const App = () => {
 
     // Store the highest, second-highest, third-highest, and fourth-highest color
     if (results.length > 0) {
-      let first = (results[0].name);
-      setHighestColorName(JSON.stringify(first, null, 2))
+      let first = results[0].name;
+      setHighestColorName(JSON.stringify(first, null, 2));
       setSecondHighestColorName(results[1].name);
       setThirdHighestColorName(results[2].name);
       setFourthHighestColorName(results[3].name);
     }
 
-
     setFinalResults(results);
-  }, [])
+  }, []);
 
   console.log("Final Results:", finalResults);
-  console.log("higgg", highestColor)
+  console.log("higgg", highestColor);
 
   const letterToColor = {
     C: "blue",
@@ -3650,27 +4018,56 @@ const App = () => {
           </h2>
           <div className="innerResults">
             <div className="chart charDiv">
-              <Doughnut data={data} className="dou" ref={chartRef} />
-              <button
-                onClick={handleRetake}
-                className="retake"
-                id="download-button2"
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: "10px", // Space between buttons
+                  marginBottom: "20px",
+                }}
               >
-                Retake Test
-              </button>
-              {/* <button onClick={generatePDF} className="pdf">Download Result</button> */}
-              {/* Hide button while generating PDF */}
-              {!isGenerating && (
                 <button
-                  id="download-button"
-                  className="pdf"
-                  onClick={generatePDF}
+                  onClick={handleRetake}
+                  className="retake"
+                  id="download-button2"
+                  style={{
+                    padding: "10px 15px",
+                    backgroundColor: "#FECACA",
+                    cursor: "pointer",
+                    border: "none",
+                    height: "50px",
+                    borderRadius: "50px",
+                    fontSize: "14px",
+                  }}
                 >
-                  Download PDF
+                  Retake Test
                 </button>
-              )}
+                {/* <button onClick={generatePDF} className="pdf">Download Result</button> */}
+                {/* Hide button while generating PDF */}
+                {!isGenerating && (
+                  <button
+                    id="download-button"
+                    className="pdf"
+                    onClick={generatePDF}
+                    style={{
+                      padding: "10px 15px",
+                      backgroundColor: "#E5E7EB",
+                      cursor: "pointer",
+                      border: "none",
+                      borderRadius: "50px",
+                      width: "200px",
+                      height: "50px",
+                      fontWeight: "400",
+                      fontSize: "14px",
+                    }}
+                  >
+                    Download PDF
+                  </button>
+                )}
 
-              {isGenerating && <p>Generating PDF, please wait...</p>}
+                {isGenerating && <p>Generating PDF, please wait...</p>}
+              </div>
+              <Doughnut data={data} className="dou" ref={chartRef} />
             </div>
             <div style={{ marginBottom: "80px" }} className="feedback">
               <ColorFeedback3 />

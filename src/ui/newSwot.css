@@ -75,4 +75,15 @@
     width: 75vw !important;
     max-width: 75vw !important;
   }
+
+.swotBox{
+  display: flex;
+  flex-direction: column !important;
+}
+
+.custom-box{
+  width: 70vw !important;
+  overflow-x: hidden;
+}
+
 }

@@ -1,6 +1,12 @@
 import React from "react";
 
-const ProgressBar = ({ progress, currentStep, totalSteps, currentSection, totalSections }) => {
+const ProgressBar = ({
+  progress,
+  currentStep,
+  totalSteps,
+  currentSection,
+  totalSections,
+}) => {
   return (
     <div style={{ marginBottom: "24px" }}>
       <div
@@ -22,10 +28,10 @@ const ProgressBar = ({ progress, currentStep, totalSteps, currentSection, totalS
           }}
         />
       </div>
-      
+
       {/* Step Information */}
       <div style={{ paddingTop: "10px", fontSize: "18px", color: "#12192a" }}>
-        Question {currentStep} of {totalSteps} 
+        Question {currentStep } of {totalSteps }
         {/* Step {currentStep} of {totalSteps} in Section {currentSection} ({currentStep} of {totalSections}) */}
       </div>
     </div>
