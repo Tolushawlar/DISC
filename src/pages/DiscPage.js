@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
@@ -710,6 +711,7 @@ const App = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
+  const [showResultsFinal, setShowResultsFinal] = useState(false);
   const [identity, setIdentity] = useState("");
   const [identity2, setIdentity2] = useState("");
   const [identity3, setIdentity3] = useState("");
@@ -969,6 +971,7 @@ const App = () => {
     setCurrentQuestion(0);
     setAnswers({});
     setShowResults(false);
+    setShowResultsFinal(false);
   };
 
   const allQuestionsAnswered =
@@ -2490,8 +2493,8 @@ const App = () => {
 
     useEffect(() => {
       const timer = setTimeout(() => {
-        setShowResults(true);
-      }, 7000); // 7 seconds delay
+        setShowResultsFinal(true);
+      }, 10000); // 7 seconds delay
 
       return () => clearTimeout(timer); // Cleanup timeout on unmount
     }, []);
@@ -2500,7 +2503,7 @@ const App = () => {
       <div className="feedbackCol">
         <h2>Total Result</h2>
         <div className="container mx-auto p-4">
-          {showResults ? (
+          {showResultsFinal ? (
             <div className="custom-box colorBox">
               <table className="min-w-full border-collapse border border-gray-300 mb-4">
                 <thead>
@@ -4028,7 +4031,7 @@ const App = () => {
               >
                 <button
                   onClick={handleRetake}
-                  className="retake"
+                  // className="retake"
                   id="download-button2"
                   style={{
                     padding: "10px 15px",
@@ -4047,7 +4050,7 @@ const App = () => {
                 {!isGenerating && (
                   <button
                     id="download-button"
-                    className="pdf"
+                    // className="pdf"
                     onClick={generatePDF}
                     style={{
                       padding: "10px 15px",
