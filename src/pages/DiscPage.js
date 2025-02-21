@@ -2521,7 +2521,7 @@ const App = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {finalResults.map((color, index) => (
+                  {sortedColors.map((color, index) => (
                     <tr key={index}>
                       <td className="border border-gray-300 px-4 py-2">
                         {color.name}
