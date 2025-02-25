@@ -2494,7 +2494,7 @@ const App = () => {
     useEffect(() => {
       const timer = setTimeout(() => {
         setShowResultsFinal(true);
-      }, 10000); // 7 seconds delay
+      }, 20000); // 7 seconds delay
 
       return () => clearTimeout(timer); // Cleanup timeout on unmount
     }, []);
@@ -2521,7 +2521,7 @@ const App = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {sortedColors.map((color, index) => (
+                  {sortedCombined.map((color, index) => (
                     <tr key={index}>
                       <td className="border border-gray-300 px-4 py-2">
                         {color.name}
@@ -2870,13 +2870,13 @@ const App = () => {
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
             className="min-w-full border-collapse border border-gray-300 mb-4"
-            // style={{
-            //   border: '1px solid #ccc',
-            //   padding: '20px',
-            //   borderRadius: '5px',
-            //   backgroundColor: '#f9f9f9',
-            //   marginTop: "40px"
-            // }}
+          // style={{
+          //   border: '1px solid #ccc',
+          //   padding: '20px',
+          //   borderRadius: '5px',
+          //   backgroundColor: '#f9f9f9',
+          //   marginTop: "40px"
+          // }}
           >
             <thead>
               <tr>
@@ -2968,6 +2968,7 @@ const App = () => {
     ];
 
     const sortedColors = [...colors].sort((a, b) => b.result - a.result);
+    console.log("total result color, ", sortedColors)
 
     // Helper function to convert hex color to an integer value
     const hexToInt = (hex) => parseInt(hex.slice(1), 16);
@@ -3169,13 +3170,13 @@ const App = () => {
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
             className="min-w-full border-collapse border border-gray-300 mb-4"
-            // style={{
-            //   border: '1px solid #ccc',
-            //   padding: '20px',
-            //   borderRadius: '5px',
-            //   backgroundColor: '#f9f9f9',
-            //   marginTop: "40px"
-            // }}
+          // style={{
+          //   border: '1px solid #ccc',
+          //   padding: '20px',
+          //   borderRadius: '5px',
+          //   backgroundColor: '#f9f9f9',
+          //   marginTop: "40px"
+          // }}
           >
             <thead>
               <tr>
@@ -3468,13 +3469,13 @@ const App = () => {
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
             className="min-w-full border-collapse border border-gray-300 mb-4"
-            // style={{
-            //   border: '1px solid #ccc',
-            //   padding: '20px',
-            //   borderRadius: '5px',
-            //   backgroundColor: '#f9f9f9',
-            //   marginTop: "40px"
-            // }}
+          // style={{
+          //   border: '1px solid #ccc',
+          //   padding: '20px',
+          //   borderRadius: '5px',
+          //   backgroundColor: '#f9f9f9',
+          //   marginTop: "40px"
+          // }}
           >
             <thead>
               <tr>
@@ -3701,9 +3702,10 @@ const App = () => {
     (value) => middle20Weights.filter((item) => item === value).length
   );
 
-  console.log(childResult);
-  console.log(parentResult);
-  console.log(adultResult);
+
+  console.log("child", childResult);
+  console.log("parent", parentResult);
+  console.log("adult", adultResult);
 
   useEffect(() => {
     setChildValue(childResult);
@@ -3713,6 +3715,59 @@ const App = () => {
 
   console.log(valuesArray);
   console.log(colorsArray);
+
+  // Color assignment based on index
+  const resultColors = ['red', 'yellow', 'blue', 'green'];
+
+  // Create a function to assign colors to each array
+  function assignColors(array) {
+    return array.map((value, index) => ({
+      value: value,
+      color: resultColors[index]
+    }));
+  }
+
+  // Creating new arrays with assigned colors
+  const childWithColors = assignColors(childResult);
+  const parentWithColors = assignColors(parentResult);
+  const adultWithColors = assignColors(adultResult);
+
+  console.log('Child Array with Colors:', childWithColors);
+  console.log('Parent Array with Colors:', parentWithColors);
+  console.log('Adult Array with Colors:', adultWithColors);
+
+  // Mapping of colors to the desired names, descriptions, and codes
+  const colorMapping = {
+    red: { name: 'Red', value: 'Decision Makers, Goal Oriented, Results', code: '#FF0000' },
+    yellow: { name: 'Yellow', value: 'Communicators, Participants, Adaptable', code: '#FFFF00' },
+    blue: { name: 'Blue', value: 'Problem Solver, Good Listener', code: '#0000FF' },
+    green: { name: 'Green', value: 'Accurate, Consistent, Analytical', code: '#00FF00' }
+  };
+
+  // Function to combine the arrays according to the index positions
+  function combineArrays(child, parent, adult) {
+    const combined = [];
+
+    for (let i = 0; i < child.length; i++) {
+      const color = child[i].color;  // Assuming child, parent, and adult arrays are aligned by index
+      const result = child[i].value + parent[i].value + adult[i].value; // Summing the values for the result
+
+      const colorInfo = colorMapping[color];
+      combined.push({
+        name: colorInfo.name,
+        value: colorInfo.value,
+        code: colorInfo.code,
+        result: result
+      });
+    }
+
+    return combined;
+  }
+
+  // Generate the combined array
+  const finalArray = combineArrays(childWithColors, parentWithColors, adultWithColors);
+  const sortedCombined = finalArray.sort((a, b) => b.result - a.result);
+  console.log("newstest", sortedCombined);
 
   /** 
   const rows = [
