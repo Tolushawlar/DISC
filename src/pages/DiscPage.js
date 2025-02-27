@@ -11,6 +11,8 @@ import jsPDF from "jspdf";
 import "jspdf-autotable";
 // import { useReactToPrint } from "react-to-print";
 
+import newpdf from "./newpdf";
+
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const questionsUpdate = [
@@ -711,7 +713,7 @@ const App = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
-  const [showResultsFinal, setShowResultsFinal] = useState(false);
+  const [showResultsFinal, setShowResultsFinal] = useState(true);
   const [identity, setIdentity] = useState("");
   const [identity2, setIdentity2] = useState("");
   const [identity3, setIdentity3] = useState("");
@@ -724,73 +726,17 @@ const App = () => {
   const chartRef = useRef(null);
   const [isGenerating, setIsGenerating] = useState(false); // State to track PDF generation
 
-  const generatePDF = async () => {
-    setIsGenerating(true); // Hide button
-    const buttonElement = document.getElementById("download-button");
-    const buttonElement2 = document.getElementById("download-button2");
-    buttonElement.style.display = "none";
-    buttonElement2.style.display = "none";
+  const [childPdfValue, setChildPdfValue] = useState([]);
+  const [parentPdfValue, setParentPdfValue] = useState([]);
+  const [adultPdfValue, setAdultPdfValue] = useState([]);
+  const [totalCombinedPdf, setTotalCombinedPdf] = useState([]);
 
-    // Capture the entire page
-    const element = document.body; // Replace with the specific element to capture if needed
-    const canvas = await html2canvas(element, {
-      useCORS: true,
-      scale: 2, // Improves resolution
-    });
+  const [feedback, setFeedback] = useState("");
+  const [feedback2, setFeedback2] = useState("");
+  const [feedback3, setFeedback3] = useState("");
+  const [feedback4, setFeedback4] = useState("");
 
-    const pdf = new jsPDF("p", "mm", "a4");
-    const pdfWidth = 210; // A4 width in mm
-    const pdfHeight = 297; // A4 height in mm
-    const canvasWidth = canvas.width;
-    const canvasHeight = canvas.height;
-
-    const imgData = canvas.toDataURL("image/png");
-    const imgHeight = (pdfWidth / canvasWidth) * canvasHeight;
-
-    let currentHeight = 0; // Track how much content has been rendered
-
-    while (currentHeight < canvasHeight) {
-      const pageCanvas = document.createElement("canvas");
-      pageCanvas.width = canvas.width;
-      pageCanvas.height = Math.min(
-        canvas.height - currentHeight,
-        (pdfHeight / pdfWidth) * canvasWidth // Map height proportionally to A4
-      );
-
-      const context = pageCanvas.getContext("2d");
-      context.drawImage(
-        canvas,
-        0,
-        currentHeight,
-        canvas.width,
-        pageCanvas.height,
-        0,
-        0,
-        canvas.width,
-        pageCanvas.height
-      );
-
-      const pageData = pageCanvas.toDataURL("image/png");
-      const pageHeight = (pdfWidth / canvasWidth) * pageCanvas.height;
-
-      pdf.addImage(pageData, "PNG", 0, 0, pdfWidth, pageHeight);
-
-      currentHeight += pageCanvas.height;
-
-      if (currentHeight < canvasHeight) {
-        pdf.addPage();
-      }
-    }
-
-    // Save the PDF
-    pdf.save(`${userDetails.name}'s Strengths-Matrix Results.pdf`);
-
-    // Restore button visibility
-    buttonElement.style.display = "block";
-    buttonElement2.style.display = "block";
-    setIsGenerating(false);
-  };
-
+  
   const handleAnswerSelection = (questionId, selectedOption) => {
     // Store answer and its weight in state
     setAnswers((prev) => ({
@@ -1031,11 +977,13 @@ const App = () => {
   console.log(colors);
 
   const ColorFeedback = () => {
-    const [feedback, setFeedback] = useState("");
-    const [feedback2, setFeedback2] = useState("");
-    const [feedback3, setFeedback3] = useState("");
-    const [feedback4, setFeedback4] = useState("");
+    // const [feedback, setFeedback] = useState("");
+    // const [feedback2, setFeedback2] = useState("");
+    // const [feedback3, setFeedback3] = useState("");
+    // const [feedback4, setFeedback4] = useState("");
 
+    // setIdentity(setFeedback);
+    console.log(feedback);
     const colors = [
       {
         name: "Red",
@@ -2491,19 +2439,18 @@ const App = () => {
       }
     }, []);
 
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        setShowResultsFinal(true);
-      }, 20000); // 7 seconds delay
+    // useEffect(() => {
+    //   const timer = setTimeout(() => {
+    //     setShowResultsFinal(true);
+    //   }, 10000); // 7 seconds delay
 
-      return () => clearTimeout(timer); // Cleanup timeout on unmount
-    }, []);
+    //   return () => clearTimeout(timer); // Cleanup timeout on unmount
+    // }, []);
 
     return (
       <div className="feedbackCol">
         <h2>Total Result</h2>
         <div className="container mx-auto p-4">
-          {showResultsFinal ? (
             <div className="custom-box colorBox">
               <table className="min-w-full border-collapse border border-gray-300 mb-4">
                 <thead>
@@ -2547,11 +2494,7 @@ const App = () => {
                 </tbody>
               </table>
             </div>
-          ) : (
-            <p className="text-center text-lg font-semibold text-gray-600">
-              Analyzing total results...
-            </p>
-          )}
+          
         </div>
 
         {/* Feedback Section */}
@@ -3536,66 +3479,6 @@ const App = () => {
     );
   };
 
-  const handleDownloadPdf = () => {
-    const doc = new jsPDF();
-    doc.setFontSize(18);
-    doc.text(`${userDetails.name}'s Strengths-Matrix Results`, 14, 20);
-    let yPos = 30; // Initial Y position for questions
-
-    // Add chart
-    console.log(chartRef);
-    if (chartRef.current) {
-      const chartImage = chartRef.current.toBase64Image();
-      doc.addImage(chartImage, "PNG", 14, yPos, 100, 90);
-      yPos += 100;
-    }
-
-    // Add feedback
-    const feedbackText = document.querySelector(".feedback").innerText;
-    doc.text("Feedback:", 14, yPos);
-    yPos += 10;
-    doc.setFontSize(11);
-    doc.text(feedbackText, 14, yPos, { maxWidth: 180 });
-
-    // Flatten all questions across sections and map questions to responses
-    const questionsMap = {};
-    questionsUpdate.forEach((section) => {
-      section.questions.forEach(({ id, question, options }) => {
-        const userResponse = answers[id] || "No response given";
-        const result =
-          options.find((opt) => opt.text === userResponse)?.result || "N/A";
-
-        if (!questionsMap[question]) {
-          questionsMap[question] = []; // Initialize response array for each question
-        }
-        questionsMap[question].push({ userResponse, result });
-      });
-    });
-
-    // Format PDF with each question appearing only once
-    Object.entries(questionsMap).forEach(([question, responses], index) => {
-      // Add question as a header in the PDF
-      doc.setFontSize(14);
-      // doc.text(`${index + 1}. ${question}`, 14, yPos);
-      doc.text(`Section ${index + 1}.`, 14, yPos);
-      yPos += 5; // Add space after question title
-
-      const data = responses.map(({ userResponse }) => [userResponse]);
-
-      // Generate table for responses
-      doc.autoTable({
-        head: [["Response"]],
-        body: data,
-        startY: yPos,
-        margin: { top: 10, left: 14, right: 14 },
-      });
-
-      yPos = doc.autoTable.previous.finalY + 15; // Update Y position after table with additional space
-    });
-
-    doc.save(`${userDetails.name}_Strengths_Matrix_Results.pdf`);
-  };
-
   const extractFirst20Weights = () => {
     // Flatten all questions across sections
     const allQuestions = questionsUpdate.flatMap(
@@ -3718,6 +3601,9 @@ const App = () => {
 
   // Color assignment based on index
   const resultColors = ['red', 'yellow', 'blue', 'green'];
+  const childResultProfile = ["Taking Action", "Influencing", "Thinking", "Maintaining"]
+  const parentResultProfile = ["Taking Action", "Influencing", "Thinking", "Maintaining"]
+  const adultResultProfile = ["Taking Action", "Talking", "Thinking", "Checking & Analyzing"]
 
   // Create a function to assign colors to each array
   function assignColors(array) {
@@ -3727,14 +3613,38 @@ const App = () => {
     }));
   }
 
+  function assignPdfColors(array) {
+    return array.map((value, index) => ({
+      value: value,
+      color: resultColors[index],
+      profile: childResultProfile[index]
+    }));
+  }
+
+  function assignPdfColors2(array) {
+    return array.map((value, index) => ({
+      value: value,
+      color: resultColors[index],
+      profile: adultResultProfile[index]
+    }));
+  }
+
   // Creating new arrays with assigned colors
   const childWithColors = assignColors(childResult);
   const parentWithColors = assignColors(parentResult);
   const adultWithColors = assignColors(adultResult);
 
-  console.log('Child Array with Colors:', childWithColors);
-  console.log('Parent Array with Colors:', parentWithColors);
-  console.log('Adult Array with Colors:', adultWithColors);
+  const childWithColorsPdf = assignPdfColors(childResult);
+  const parentWithColorsPdf = assignPdfColors(parentResult);
+  const adultWithColorsPdf = assignPdfColors2(adultResult);
+
+  // setChildPdfValue(childWithColorsPdf)
+  // setParentPdfValue(parentWithColorsPdf)
+  // setAdultPdfValue(adultWithColorsPdf)
+
+  console.log('Child Array with Colors:', childWithColorsPdf);
+  console.log('Parent Array with Colors:', parentWithColorsPdf);
+  console.log('Adult Array with Colors:', adultWithColorsPdf);
 
   // Mapping of colors to the desired names, descriptions, and codes
   const colorMapping = {
@@ -4106,7 +4016,8 @@ const App = () => {
                   <button
                     id="download-button"
                     // className="pdf"
-                    onClick={generatePDF}
+                    // onClick={generatePDF}
+                    onClick={() => newpdf(userDetails, feedback, identity, feedback2, identity2, feedback3, identity3, feedback4, identity4, sortedCombined, childWithColorsPdf, parentWithColorsPdf, adultWithColorsPdf)}
                     style={{
                       padding: "10px 15px",
                       backgroundColor: "#E5E7EB",
