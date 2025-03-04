@@ -3877,7 +3877,7 @@ const App = () => {
             />
           </div>
           <p>{getCurrentStep()}</p>
-          <p>{profiling()}</p>
+          <p className="profiling">{profiling()}</p>
           {/* <h3 style={{ marginTop: "0px" }}>
             {
               questionsUpdate[currentSection].questions[currentQuestion]
