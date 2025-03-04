@@ -283,6 +283,13 @@ body::-webkit-scrollbar {
     overflow-x: hidden !important;
   }
 
+  /* .App {
+    margin-top: 40px !important;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  } */
+
   .options {
     font-size: 14px !important;
     max-width: 270px;
@@ -365,15 +372,7 @@ body::-webkit-scrollbar {
     padding: 0px;
   }
 
-  .App {
-    margin-top: 40px !important;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    /* width: 100vw !important; */
-    overflow-x: hidden !important;
-    /* Center elements in column */
-  }
+  
 
   .App .left,
   .App .right {
