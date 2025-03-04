@@ -277,13 +277,13 @@ body::-webkit-scrollbar {
   html, body {
     overflow-x: hidden;
   }
-  
+
   .App {
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    margin-left: 80vw;
+    margin-left: 74vw;
     overflow-x: hidden !important;
   }
 
