@@ -369,7 +369,8 @@ body::-webkit-scrollbar {
     margin-top: 40px !important;
     flex-direction: column-reverse;
     justify-content: center;
-    width: 100vw !important;
+    align-items: center;
+    /* width: 100vw !important; */
     overflow-x: hidden !important;
     /* Center elements in column */
   }
