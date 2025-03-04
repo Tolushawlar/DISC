@@ -279,7 +279,7 @@ body::-webkit-scrollbar {
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    margin-left: 70vw;
+    margin-left: 80vw;
     width: 100vw !important;
     overflow-x: hidden !important;
   }
