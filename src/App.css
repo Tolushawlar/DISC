@@ -274,6 +274,10 @@ body::-webkit-scrollbar {
     margin-right: 60vw !important;
   }
 
+  html, body {
+    overflow-x: hidden;
+  }
+  
   .App {
     display: flex !important;
     flex-direction: column !important;
