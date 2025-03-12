@@ -18,13 +18,13 @@ function Header() {
             marginBottom: "20px",
         }} className=''>
             <img src='./logo-white-2.png' alt='logo-img' width={188.78} height={48} />
-            <div className='flex flex-row' style={{
+             {/* <div className='flex flex-row' style={{
                 fontSize: "1.5rem",
                 fontFamily: "Lato",
                 marginRight: "80px",
             }}>
-               STRENGTH MATRIX
-            </div>
+               SWOTIFY 
+            </div> */}
             <div></div>
         </div>
     )
