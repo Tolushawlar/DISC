@@ -12,6 +12,8 @@ import "jspdf-autotable";
 // import { useReactToPrint } from "react-to-print";
 
 import newpdf from "./newpdf";
+import Footer from "../Components/Footer";
+import Header from "../Components/Header";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -819,11 +821,11 @@ const App = () => {
         <>
           <p
             className="topicHeader"
-            style={{ fontSize: "18px", fontWeight: "bolder" }}
+            style={{ fontSize: "18px", fontWeight: "bolder", color:"white" }}
           >
             How I Respond Under Intense Pressure
           </p>
-          <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px" }}>
+          <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px", color:"white" }}>
             Each question below is divided into two statements. Choose the
             statement in either column that best describes how you feel under
             intense stress. There are no wrong answers. . For example: On
@@ -839,11 +841,11 @@ const App = () => {
         <>
           <p
             className="topicHeader"
-            style={{ fontSize: "18px", fontWeight: "bolder" }}
+            style={{ fontSize: "18px", fontWeight: "bolder", color:"white" }}
           >
             What I Think I Should Do
           </p>
-          <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px" }}>
+          <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px", color:"white" }}>
             Each question below is divided into two statements. Choose the
             statement in either column that best describes what you think you
             should do (or how you think others want you be).There are no wrong
@@ -860,11 +862,11 @@ const App = () => {
         <>
           <p
             className="topicHeader"
-            style={{ fontSize: "18px", fontWeight: "bolder" }}
+            style={{ fontSize: "18px", fontWeight: "bolder", color:"white" }}
           >
             What I Am Comfortable Doing
           </p>
-          <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px" }}>
+          <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px", color:"white" }}>
             Each question below is divided into two statements. Choose the
             statement in either column that best describes what you are
             comfortable doing. There are no wrong answers. For example: On
@@ -2449,7 +2451,7 @@ const App = () => {
 
     return (
       <div className="feedbackCol">
-        <h2>Total Result</h2>
+        <h2 style={{color: "white"}}>Total Result</h2>
         <div className="container mx-auto p-4">
             <div className="custom-box colorBox">
               <table className="min-w-full border-collapse border border-gray-300 mb-4">
@@ -2808,7 +2810,7 @@ const App = () => {
 
     return (
       <div className="feedbackCol">
-        <h2>What You Prefer To Do/How You Are Effective</h2>
+        <h2 style={{color: "white"}}>What You Prefer To Do/How You Are Effective</h2>
         <div className="container mx-auto p-4 custom-box colorBox">
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
@@ -3108,7 +3110,7 @@ const App = () => {
 
     return (
       <div className="feedbackCol">
-        <h2>How You React Under Stress</h2>
+        <h2 style={{color: "white"}}>How You React Under Stress</h2>
         <div className="container mx-auto p-4 custom-box colorBox">
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
@@ -3407,7 +3409,7 @@ const App = () => {
 
     return (
       <div className="feedbackCol">
-        <h2>What You Feel You Ought to Do/How You Should Think</h2>
+        <h2 style={{color: "white"}}>What You Feel You Ought to Do/How You Should Think</h2>
         <div className="container mx-auto p-4 custom-box colorBox">
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
@@ -3859,6 +3861,8 @@ const App = () => {
   };
 
   return (
+    <>
+      <Header/>
     <div className="App">
       {!showResults ? (
         <div
@@ -3876,7 +3880,7 @@ const App = () => {
               style={{ width: `${calculateProgress()}%` }}
             />
           </div>
-          <p>{getCurrentStep()}</p>
+          <p style={{color: "white"}}>{getCurrentStep()}</p>
           <p className="profiling">{profiling()}</p>
           {/* <h3 style={{ marginTop: "0px" }}>
             {
@@ -3896,7 +3900,7 @@ const App = () => {
                 alignItems: "center",
               }}
             >
-              <p className="options" style={{ fontSize: "18px" }}>
+              <p className="options" style={{ fontSize: "18px", color:"white" }}>
                 {option.text}
               </p>
               <button
@@ -3940,13 +3944,14 @@ const App = () => {
           <br />
           {allQuestionsAnswered && currentQuestion === 19 && (
             <div className="details">
-              <h3>Enter Your Details:</h3>
+              <h3 style={{color: "white"}}>Enter Your Details:</h3>
               <input
                 type="text"
                 name="name"
                 placeholder="Name"
                 value={userDetails.name}
                 onChange={handleInputChange}
+                style={{color: "white"}}
               />
               <input
                 type="email"
@@ -3954,6 +3959,7 @@ const App = () => {
                 placeholder="Email"
                 value={userDetails.email}
                 onChange={handleInputChange}
+                style={{color: "white"}}
               />
               <input
                 type="tel"
@@ -3961,6 +3967,7 @@ const App = () => {
                 placeholder="Phone"
                 value={userDetails.phone}
                 onChange={handleInputChange}
+                style={{color: "white"}}
               />
             </div>
           )}
@@ -3981,7 +3988,7 @@ const App = () => {
         </div>
       ) : (
         <div className="riz">
-          <h2 className="resultHeader">
+          <h2 className="resultHeader" style = {{color: "white"}}>
             {userDetails.name}'s Strengths-Matrix Results
           </h2>
           <div className="innerResults">
@@ -4051,6 +4058,8 @@ const App = () => {
         </div>
       )}
     </div>
+    <Footer/>
+    </>
   );
 };
 

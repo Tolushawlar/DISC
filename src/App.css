@@ -180,8 +180,9 @@ body::-webkit-scrollbar {
   border: 0.5px solid black;
   border-radius: 50px;
   width: 200px;
-  background: linear-gradient(to right, #16133d, #6357a5);
-  color: white;
+  
+  background: white;
+  color: black;
   font-weight: bolder;
   font-size: 15px;
   cursor: pointer;
@@ -190,13 +191,13 @@ body::-webkit-scrollbar {
 }
 
 .opts:hover {
-  background-color: #12192a !important;
+  background-color: #131A2A !important;
   color: white;
 }
 
 .controllBtn .prev:hover {
-  background: white;
-  color: black;
+  background: linear-gradient(to right, #16133d, #6357a5);
+  color: white; 
 }
 
 .controllBtn .sub {
@@ -229,7 +230,7 @@ body::-webkit-scrollbar {
 
 .progress-bar {
   height: 100%;
-  background-color: #4caf50;
+  background-color: #131A2A;
   width: 0%;
   /* Start at 0%, will update dynamically */
   transition: width 0.3s ease-in-out;
@@ -280,6 +281,7 @@ body::-webkit-scrollbar {
 
   .profiling{
     max-width: 75vw !important;
+    color: white;
   }
 
   .App {
