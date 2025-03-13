@@ -9,7 +9,7 @@ function Footer() {
         alignItems: "center",
         padding: "20px",
         color: "white",
-        marginTop: "20px"
+        marginTop: "50px",
       }}
     >
       <p 

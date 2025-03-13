@@ -362,6 +362,14 @@ body::-webkit-scrollbar {
     justify-content: center !important;
     align-items: center !important;
     margin-right: 30vw !important;
+
+    background: url("./bgcover.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background: linear-gradient(right, #6357a5, #556cb3, #131A2A); */
+    -moz-osx-font-smoothing: grayscale;
+    /* background: linear-gradient(to right, #131A2A, #6357a5); */
+    overflow-x: hidden !important;
   }
 
   .feedback {
