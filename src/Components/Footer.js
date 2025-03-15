@@ -3,6 +3,7 @@ import React from "react";
 function Footer() {
   return (
     <div
+    className="foot"
       style={{
         display: "flex",
         justifyContent: "center",

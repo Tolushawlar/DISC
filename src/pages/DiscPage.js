@@ -738,7 +738,7 @@ const App = () => {
   const [feedback3, setFeedback3] = useState("");
   const [feedback4, setFeedback4] = useState("");
 
-  
+
   const handleAnswerSelection = (questionId, selectedOption) => {
     // Store answer and its weight in state
     setAnswers((prev) => ({
@@ -821,11 +821,11 @@ const App = () => {
         <>
           <p
             className="topicHeader"
-            style={{ fontSize: "18px", fontWeight: "bolder", color:"white" }}
+            style={{ fontSize: "18px", fontWeight: "bolder", color: "white" }}
           >
             How I Respond Under Intense Pressure
           </p>
-          <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px", color:"white" }}>
+          <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px", color: "white" }}>
             Each question below is divided into two statements. Choose the
             statement in either column that best describes how you feel under
             intense stress. There are no wrong answers. . For example: On
@@ -841,11 +841,11 @@ const App = () => {
         <>
           <p
             className="topicHeader"
-            style={{ fontSize: "18px", fontWeight: "bolder", color:"white" }}
+            style={{ fontSize: "18px", fontWeight: "bolder", color: "white" }}
           >
             What I Think I Should Do
           </p>
-          <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px", color:"white" }}>
+          <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px", color: "white" }}>
             Each question below is divided into two statements. Choose the
             statement in either column that best describes what you think you
             should do (or how you think others want you be).There are no wrong
@@ -862,11 +862,11 @@ const App = () => {
         <>
           <p
             className="topicHeader"
-            style={{ fontSize: "18px", fontWeight: "bolder", color:"white" }}
+            style={{ fontSize: "18px", fontWeight: "bolder", color: "white" }}
           >
             What I Am Comfortable Doing
           </p>
-          <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px", color:"white" }}>
+          <p className="intro" style={{ maxWidth: "40vw", fontSize: "12px", color: "white" }}>
             Each question below is divided into two statements. Choose the
             statement in either column that best describes what you are
             comfortable doing. There are no wrong answers. For example: On
@@ -2451,52 +2451,52 @@ const App = () => {
 
     return (
       <div className="feedbackCol">
-        <h2 style={{color: "white"}}>Total Result</h2>
+        <h2 style={{ color: "white" }}>Total Result</h2>
         <div className="container mx-auto p-4">
-            <div className="custom-box colorBox">
-              <table className="min-w-full border-collapse border border-gray-300 mb-4">
-                <thead>
-                  <tr>
-                    <th className="border border-gray-300 px-4 py-2 text-left">
-                      Color
-                    </th>
-                    <th className="border border-gray-300 px-4 py-2 text-left"></th>
-                    <th className="border border-gray-300 px-4 py-2 text-left">
-                      Profile
-                    </th>
-                    <th className="border border-gray-300 px-4 py-2 text-left">
-                      Score
-                    </th>
+          <div className="custom-box colorBox">
+            <table className="min-w-full border-collapse border border-gray-300 mb-4">
+              <thead>
+                <tr>
+                  <th className="border border-gray-300 px-4 py-2 text-left">
+                    Color
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left"></th>
+                  <th className="border border-gray-300 px-4 py-2 text-left">
+                    Profile
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left">
+                    Score
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {sortedCombined.map((color, index) => (
+                  <tr key={index}>
+                    <td className="border border-gray-300 px-4 py-2">
+                      {color.name}
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      <div
+                        style={{
+                          backgroundColor: color.code,
+                          width: "30px",
+                          height: "30px",
+                          borderRadius: "4px",
+                        }}
+                      />
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2 profileHead">
+                      {color.value}
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      {color.result}
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  {sortedCombined.map((color, index) => (
-                    <tr key={index}>
-                      <td className="border border-gray-300 px-4 py-2">
-                        {color.name}
-                      </td>
-                      <td className="border border-gray-300 px-4 py-2">
-                        <div
-                          style={{
-                            backgroundColor: color.code,
-                            width: "30px",
-                            height: "30px",
-                            borderRadius: "4px",
-                          }}
-                        />
-                      </td>
-                      <td className="border border-gray-300 px-4 py-2 profileHead">
-                        {color.value}
-                      </td>
-                      <td className="border border-gray-300 px-4 py-2">
-                        {color.result}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          
+                ))}
+              </tbody>
+            </table>
+          </div>
+
         </div>
 
         {/* Feedback Section */}
@@ -2810,7 +2810,7 @@ const App = () => {
 
     return (
       <div className="feedbackCol">
-        <h2 style={{color: "white"}}>What You Prefer To Do/How You Are Effective</h2>
+        <h2 style={{ color: "white" }}>What You Prefer To Do/How You Are Effective</h2>
         <div className="container mx-auto p-4 custom-box colorBox">
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
@@ -3110,7 +3110,7 @@ const App = () => {
 
     return (
       <div className="feedbackCol">
-        <h2 style={{color: "white"}}>How You React Under Stress</h2>
+        <h2 style={{ color: "white" }}>How You React Under Stress</h2>
         <div className="container mx-auto p-4 custom-box colorBox">
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
@@ -3409,7 +3409,7 @@ const App = () => {
 
     return (
       <div className="feedbackCol">
-        <h2 style={{color: "white"}}>What You Feel You Ought to Do/How You Should Think</h2>
+        <h2 style={{ color: "white" }}>What You Feel You Ought to Do/How You Should Think</h2>
         <div className="container mx-auto p-4 custom-box colorBox">
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
@@ -3861,205 +3861,229 @@ const App = () => {
   };
 
   return (
-    <>
-      <Header/>
-    <div className="App">
-      {!showResults ? (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "start",
-            minWidth: "700px",
-          }}
-        >
-          {/* Render Progress Bar */}
-          <div className="progress-container">
-            <div
-              className="progress-bar"
-              style={{ width: `${calculateProgress()}%` }}
-            />
-          </div>
-          <p style={{color: "white"}}>{getCurrentStep()}</p>
-          <p className="profiling">{profiling()}</p>
-          {/* <h3 style={{ marginTop: "0px" }}>
+    <div className="inn">
+      <div style={{
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: '40px',
+        color: 'white',
+        height: '60px',
+        width: '100%',
+        position: 'absolute',
+        top: '0px',
+        left: '0px',
+        // zIndex: '1000',
+        marginBottom: "20px",
+      }} className={`hea ${showResults ? 'last' : ''}`}>
+        <img src='./logo-white-2.png' alt='logo-img' width={188.78} height={48} />
+        {/* <div className='flex flex-row' style={{
+                fontSize: "1.5rem",
+                fontFamily: "Lato",
+                marginRight: "80px",
+            }}>
+               SWOTIFY 
+            </div> */}
+        <div></div>
+      </div>
+      <div className="App">
+        {!showResults ? (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "start",
+              minWidth: "700px",
+            }}
+          >
+            {/* Render Progress Bar */}
+            <div className="progress-container">
+              <div
+                className="progress-bar"
+                style={{ width: `${calculateProgress()}%` }}
+              />
+            </div>
+            <p style={{ color: "white" }}>{getCurrentStep()}</p>
+            <p className="profiling">{profiling()}</p>
+            {/* <h3 style={{ marginTop: "0px" }}>
             {
               questionsUpdate[currentSection].questions[currentQuestion]
                 .question
             }
           </h3> */}
-          {questionsUpdate[currentSection].questions[
-            currentQuestion
-          ].options.map((option) => (
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                flexDirection: "row-reverse",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <p className="options" style={{ fontSize: "18px", color:"white" }}>
-                {option.text}
-              </p>
-              <button
-                key={option.text}
-                onClick={() =>
-                  handleAnswerSelection(
-                    questionsUpdate[currentSection].questions[currentQuestion]
-                      .id,
-                    option.text
-                  )
-                }
-                className="opts"
-                style={{
-                  backgroundColor:
-                    answers[
-                      questionsUpdate[currentSection].questions[currentQuestion]
-                        .id
-                    ] === option.text
-                      ? `#6357A4`
-                      : "white",
-                  color:
-                    answers[
-                      questionsUpdate[currentSection].questions[currentQuestion]
-                        .id
-                    ] === option.text
-                      ? `white`
-                      : "",
-                  margin: "5px",
-                  padding: "25px",
-                  border: "0.5px solid black",
-                  borderRadius: "15px",
-                  marginTop: "10px",
-                  fontFamily: "Poppins",
-                  fontSize: "20px",
-                  fontWeight: "bold",
-                  cursor: "pointer",
-                }}
-              ></button>
-            </div>
-          ))}
-          <br />
-          {allQuestionsAnswered && currentQuestion === 19 && (
-            <div className="details">
-              <h3 style={{color: "white"}}>Enter Your Details:</h3>
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                value={userDetails.name}
-                onChange={handleInputChange}
-                style={{color: "white"}}
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={userDetails.email}
-                onChange={handleInputChange}
-                style={{color: "white"}}
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone"
-                value={userDetails.phone}
-                onChange={handleInputChange}
-                style={{color: "white"}}
-              />
-            </div>
-          )}
-
-          <div className="controllBtn">
-            {(currentQuestion > 0 || currentSection > 0) && (
-              <button className="prev" onClick={handlePreviousQuestion}>
-                Previous
-              </button>
-            )}
-
-            {allQuestionsAnswered && (
-              <button className="sub" onClick={handleSubmit}>
-                Submit
-              </button>
-            )}
-          </div>
-        </div>
-      ) : (
-        <div className="riz">
-          <h2 className="resultHeader" style = {{color: "white"}}>
-            {userDetails.name}'s Strengths-Matrix Results
-          </h2>
-          <div className="innerResults">
-            <div className="chart charDiv">
+            {questionsUpdate[currentSection].questions[
+              currentQuestion
+            ].options.map((option) => (
               <div
                 style={{
                   display: "flex",
+                  flexWrap: "wrap",
+                  flexDirection: "row-reverse",
                   justifyContent: "center",
-                  gap: "10px", // Space between buttons
-                  marginBottom: "20px",
+                  alignItems: "center",
                 }}
               >
+                <p className="options" style={{ fontSize: "18px", color: "white" }}>
+                  {option.text}
+                </p>
                 <button
-                  onClick={handleRetake}
-                  // className="retake"
-                  id="download-button2"
+                  key={option.text}
+                  onClick={() =>
+                    handleAnswerSelection(
+                      questionsUpdate[currentSection].questions[currentQuestion]
+                        .id,
+                      option.text
+                    )
+                  }
+                  className="opts"
                   style={{
-                    padding: "10px 15px",
-                    backgroundColor: "#FECACA",
+                    backgroundColor:
+                      answers[
+                        questionsUpdate[currentSection].questions[currentQuestion]
+                          .id
+                      ] === option.text
+                        ? `#6357A4`
+                        : "white",
+                    color:
+                      answers[
+                        questionsUpdate[currentSection].questions[currentQuestion]
+                          .id
+                      ] === option.text
+                        ? `white`
+                        : "",
+                    margin: "5px",
+                    padding: "25px",
+                    border: "0.5px solid black",
+                    borderRadius: "15px",
+                    marginTop: "10px",
+                    fontFamily: "Poppins",
+                    fontSize: "20px",
+                    fontWeight: "bold",
                     cursor: "pointer",
-                    border: "none",
-                    height: "50px",
-                    borderRadius: "50px",
-                    fontSize: "14px",
+                  }}
+                ></button>
+              </div>
+            ))}
+            <br />
+            {allQuestionsAnswered && currentQuestion === 19 && (
+              <div className="details">
+                <h3 style={{ color: "white" }}>Enter Your Details:</h3>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  value={userDetails.name}
+                  onChange={handleInputChange}
+                  style={{ color: "white" }}
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={userDetails.email}
+                  onChange={handleInputChange}
+                  style={{ color: "white" }}
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone"
+                  value={userDetails.phone}
+                  onChange={handleInputChange}
+                  style={{ color: "white" }}
+                />
+              </div>
+            )}
+
+            <div className="controllBtn">
+              {(currentQuestion > 0 || currentSection > 0) && (
+                <button className="prev" onClick={handlePreviousQuestion}>
+                  Previous
+                </button>
+              )}
+
+              {allQuestionsAnswered && (
+                <button className="sub" onClick={handleSubmit}>
+                  Submit
+                </button>
+              )}
+            </div>
+          </div>
+        ) : (
+          <div className="riz">
+            <h2 className="resultHeader" style={{ color: "white" }}>
+              {userDetails.name}'s Strengths-Matrix Results
+            </h2>
+            <div className="innerResults">
+              <div className="chart charDiv">
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    gap: "10px", // Space between buttons
+                    marginBottom: "20px",
                   }}
                 >
-                  Retake Test
-                </button>
-                {/* <button onClick={generatePDF} className="pdf">Download Result</button> */}
-                {/* Hide button while generating PDF */}
-                {!isGenerating && (
                   <button
-                    id="download-button"
-                    // className="pdf"
-                    // onClick={generatePDF}
-                    onClick={() => newpdf(userDetails, feedback, identity, feedback2, identity2, feedback3, identity3, feedback4, identity4, sortedCombined, childWithColorsPdf, parentWithColorsPdf, adultWithColorsPdf)}
+                    onClick={handleRetake}
+                    // className="retake"
+                    id="download-button2"
                     style={{
                       padding: "10px 15px",
-                      backgroundColor: "#E5E7EB",
+                      backgroundColor: "#FECACA",
                       cursor: "pointer",
                       border: "none",
-                      borderRadius: "50px",
-                      width: "200px",
                       height: "50px",
-                      fontWeight: "400",
+                      borderRadius: "50px",
                       fontSize: "14px",
                     }}
                   >
-                    Download PDF
+                    Retake Test
                   </button>
-                )}
+                  {/* <button onClick={generatePDF} className="pdf">Download Result</button> */}
+                  {/* Hide button while generating PDF */}
+                  {!isGenerating && (
+                    <button
+                      id="download-button"
+                      // className="pdf"
+                      // onClick={generatePDF}
+                      onClick={() => newpdf(userDetails, feedback, identity, feedback2, identity2, feedback3, identity3, feedback4, identity4, sortedCombined, childWithColorsPdf, parentWithColorsPdf, adultWithColorsPdf)}
+                      style={{
+                        padding: "10px 15px",
+                        backgroundColor: "#E5E7EB",
+                        cursor: "pointer",
+                        border: "none",
+                        borderRadius: "50px",
+                        width: "200px",
+                        height: "50px",
+                        fontWeight: "400",
+                        fontSize: "14px",
+                      }}
+                    >
+                      Download PDF
+                    </button>
+                  )}
 
-                {isGenerating && <p>Generating PDF, please wait...</p>}
+                  {isGenerating && <p>Generating PDF, please wait...</p>}
+                </div>
+                <Doughnut data={data} className="dou" ref={chartRef} />
               </div>
-              <Doughnut data={data} className="dou" ref={chartRef} />
-            </div>
-            <div style={{ marginBottom: "80px" }} className="feedback">
-              <ColorFeedback3 />
-              <ColorFeedback4 />
-              <ColorFeedback2 />
-              {/* <FourStrengthsTable /> */}
-            </div>
-            <div style={{ marginBottom: "80px" }} className="feedback">
-              <ColorFeedback />
+              <div style={{ marginBottom: "80px" }} className="feedback">
+                <ColorFeedback3 />
+                <ColorFeedback4 />
+                <ColorFeedback2 />
+                {/* <FourStrengthsTable /> */}
+              </div>
+              <div style={{ marginBottom: "80px" }} className="feedback">
+                <ColorFeedback />
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
+      <Footer />
     </div>
-    <Footer/>
-    </>
   );
 };
 

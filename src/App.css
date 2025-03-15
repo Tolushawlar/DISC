@@ -291,8 +291,35 @@ body::-webkit-scrollbar {
     align-items: center !important;
     margin-left:68vw;
     overflow-x: hidden !important;
+    /* background-color:  red !important; */
+    position: relative !important;
   }
 
+  *{
+    position: relative !important;
+  }
+
+  .hea{
+    position:  relative !important;
+    left: 280px !important;
+    /* top: 10; */
+  }
+
+  .last{
+    position:  relative !important;
+    left: 520px !important;
+  }
+
+  .App .riz{
+    /* background-color: red !important; */
+  } 
+
+  .charDiv, .resultHeader{
+    /* background-color: red !important; */
+    position:  relative !important;
+    left: 60px !important;
+    bottom: 20px !important;
+  }
   /* .App {
     margin-top: 40px !important;
     flex-direction: column-reverse;
@@ -378,6 +405,8 @@ body::-webkit-scrollbar {
     justify-content: center !important;
     align-items: center !important;
     margin-left: 13vw !important;
+    position: relative !important;
+    /* left: -6px !important; */
   }
 
   .dou {
@@ -421,6 +450,12 @@ body::-webkit-scrollbar {
   .opt {
     padding: 20px !important;
   }
+
+
+.foot{
+  /* background-color: red !important; */
+}
+
 
   .safari-browser  {
     /* background-color: red !important; */

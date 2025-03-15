@@ -16,7 +16,7 @@ function Header() {
             left: '0px',
             // zIndex: '1000',
             marginBottom: "20px",
-        }} className=''>
+        }} className='hea'>
             <img src='./logo-white-2.png' alt='logo-img' width={188.78} height={48} />
              {/* <div className='flex flex-row' style={{
                 fontSize: "1.5rem",
