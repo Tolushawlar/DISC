@@ -3923,6 +3923,7 @@ const App = () => {
                   justifyContent: "center",
                   alignItems: "center",
                 }}
+                className="btnGr"
               >
                 <p className="options" style={{ fontSize: "18px", color: "white" }}>
                   {option.text}

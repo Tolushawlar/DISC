@@ -15,6 +15,10 @@
   transition: box-shadow 0.3s ease-in-out;
   text-align: left;
   font-family: "Lato", sans-serif;
+  -webkit-transition: box-shadow 0.3s ease-in-out;
+  -moz-transition: box-shadow 0.3s ease-in-out;
+  -ms-transition: box-shadow 0.3s ease-in-out;
+  -o-transition: box-shadow 0.3s ease-in-out;
 }
 
 /* Hover effect */
@@ -180,7 +184,7 @@ body::-webkit-scrollbar {
   border: 0.5px solid black;
   border-radius: 50px;
   width: 200px;
-  
+
   background: white;
   color: black;
   font-weight: bolder;
@@ -191,13 +195,13 @@ body::-webkit-scrollbar {
 }
 
 .opts:hover {
-  background-color: #131A2A !important;
+  background-color: #131a2a !important;
   color: white;
 }
 
 .controllBtn .prev:hover {
   background: linear-gradient(to right, #16133d, #6357a5);
-  color: white; 
+  color: white;
 }
 
 .controllBtn .sub {
@@ -230,7 +234,7 @@ body::-webkit-scrollbar {
 
 .progress-bar {
   height: 100%;
-  background-color: #131A2A;
+  background-color: #131a2a;
   width: 0%;
   /* Start at 0%, will update dynamically */
   transition: width 0.3s ease-in-out;
@@ -275,11 +279,12 @@ body::-webkit-scrollbar {
     margin-right: 60vw !important;
   }
 
-  html, body {
+  html,
+  body {
     overflow-x: hidden;
   }
 
-  .profiling{
+  .profiling {
     max-width: 75vw !important;
     color: white;
   }
@@ -289,34 +294,36 @@ body::-webkit-scrollbar {
     flex-direction: column !important;
     justify-content: center !important;
     align-items: center !important;
-    margin-left:68vw;
+    margin-left: 68vw;
     overflow-x: hidden !important;
     /* background-color:  red !important; */
     position: relative !important;
+    left: 22vw !important;
   }
 
-  *{
+  * {
     position: relative !important;
   }
 
-  .hea{
-    position:  relative !important;
+  .hea {
+    position: relative !important;
     left: 280px !important;
     /* top: 10; */
   }
 
-  .last{
-    position:  relative !important;
+  .last {
+    position: relative !important;
     left: 520px !important;
   }
 
-  .App .riz{
+  .App .riz {
     /* background-color: red !important; */
-  } 
+  }
 
-  .charDiv, .resultHeader{
+  .charDiv,
+  .resultHeader {
     /* background-color: red !important; */
-    position:  relative !important;
+    position: relative !important;
     left: 60px !important;
     bottom: 20px !important;
   }
@@ -419,8 +426,6 @@ body::-webkit-scrollbar {
     padding: 0px;
   }
 
-  
-
   .App .left,
   .App .right {
     width: 100%;
@@ -451,29 +456,41 @@ body::-webkit-scrollbar {
     padding: 20px !important;
   }
 
-
-.foot{
-  /* background-color: red !important; */
-}
-
-
-  .safari-browser  {
+  .foot {
     /* background-color: red !important; */
-    margin-left: 30vw !important;
+  }
+
+  .safari-browser {
+    /* background-color: red !important;  */
+    margin-left: 0vw !important;
     overflow-x: hidden !important;
   }
 
-  .safari-browser .options{
+  .safari-browser .riz{
+    position: relative !important;
+    right: 7vw !important;
+  }
+
+
+
+  .safari-browser .btnGr{
+    /* background-color: red !important; */
+    position: relative !important;
+    /* right: 5vw !important; */
+    max-width: 400px !important;
+  }
+
+  .safari-browser .options {
     max-width: 280px !important;
     /* color: red !important; */
   }
 
-  .safari-browser .intro{
+  .safari-browser .intro {
     max-width: 280px !important;
     /* color: red !important; */
   }
 
-  .safari-browser .topicHeader{
+  .safari-browser .topicHeader {
     max-width: 180px !important;
     /* color: red !important; */
   }
