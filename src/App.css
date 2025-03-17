@@ -460,10 +460,18 @@ body::-webkit-scrollbar {
     /* background-color: red !important; */
   }
 
+  .safari-browser *{
+  /* background-color: green !important; */
+  position: relative !important;
+  z-index: 0 !important;
+  /* left: 8vw !important; */
+  }
   .safari-browser {
     /* background-color: red !important;  */
     margin-left: 0vw !important;
     overflow-x: hidden !important;
+  background-color: green !important;
+
   }
 
   .safari-browser .riz{
@@ -471,7 +479,11 @@ body::-webkit-scrollbar {
     right: 7vw !important;
   }
 
-
+.safari-browser .inCont{
+  position: relative !important;
+  left: 0.3vw !important;
+  z-index: 10000 !important;
+}
 
   .safari-browser .btnGr{
     /* background-color: red !important; */
@@ -481,7 +493,9 @@ body::-webkit-scrollbar {
   }
 
   .safari-browser .options {
-    max-width: 280px !important;
+    max-width: 200px !important;
+  background-color: green !important;
+
     /* color: red !important; */
   }
 

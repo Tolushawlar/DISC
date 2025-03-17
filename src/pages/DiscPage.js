@@ -3896,6 +3896,7 @@ const App = () => {
               alignItems: "start",
               minWidth: "700px",
             }}
+            className="inCont"
           >
             {/* Render Progress Bar */}
             <div className="progress-container">
