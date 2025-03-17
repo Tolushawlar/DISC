@@ -10,7 +10,7 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 // import { useReactToPrint } from "react-to-print";
-
+import newpdfBW from './newpdfBW';
 import newpdf from "./newpdf";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
@@ -727,6 +727,7 @@ const App = () => {
   });
   const chartRef = useRef(null);
   const [isGenerating, setIsGenerating] = useState(false); // State to track PDF generation
+  const [isGenerating2, setIsGenerating2] = useState(false); // State to track PDF generation
 
   const [childPdfValue, setChildPdfValue] = useState([]);
   const [parentPdfValue, setParentPdfValue] = useState([]);
@@ -4026,6 +4027,7 @@ const App = () => {
                     gap: "10px", // Space between buttons
                     marginBottom: "20px",
                   }}
+                  className="downPdf"
                 >
                   <button
                     onClick={handleRetake}
@@ -4063,11 +4065,36 @@ const App = () => {
                         fontSize: "14px",
                       }}
                     >
-                      Download PDF
+                      Download PDF (Coloured)
                     </button>
                   )}
 
                   {isGenerating && <p>Generating PDF, please wait...</p>}
+
+                  {!isGenerating2 && (
+                    <button
+                      id="download-button"
+                      // className="pdf"
+                      // onClick={generatePDF}
+                      onClick={() => newpdfBW(userDetails, feedback, identity, feedback2, identity2, feedback3, identity3, feedback4, identity4, sortedCombined, childWithColorsPdf, parentWithColorsPdf, adultWithColorsPdf)}
+                      style={{
+                        padding: "10px 15px",
+                        backgroundColor: "#E5E7EB",
+                        cursor: "pointer",
+                        border: "none",
+                        borderRadius: "50px",
+                        width: "200px",
+                        height: "50px",
+                        fontWeight: "400",
+                        fontSize: "14px",
+                      }}
+                    >
+                      Download PDF (Black & White)
+                    </button>
+                  )}
+
+                  {isGenerating2 && <p>Generating PDF, please wait...</p>}
+                
                 </div>
                 <Doughnut data={data} className="dou" ref={chartRef} />
               </div>

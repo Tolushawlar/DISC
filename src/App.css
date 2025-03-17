@@ -460,6 +460,11 @@ body::-webkit-scrollbar {
     /* background-color: red !important; */
   }
 
+  .downPdf{
+    display: flex;
+    flex-direction: column !important;
+  }
+
   .safari-browser * {
     /* background-color: green !important; */
     position: relative !important;
@@ -482,7 +487,7 @@ body::-webkit-scrollbar {
     position: relative !important;
     left: 0.3vw !important;
     z-index: 10000 !important;
-    background-color: green !important;
+    /* background-color: green !important; */
   }
 
   .safari-browser .btnGr {
@@ -499,9 +504,20 @@ body::-webkit-scrollbar {
     /* color: red !important; */
   }
 
+  .safari-browser .progress-container{
+    position: relative !important;
+    /* left: -15vw !important; */
+    max-width: 250px;
+  }
   .safari-browser .intro {
     max-width: 280px !important;
     /* color: red !important; */
+  }
+
+  .safari-browser .details input{
+    max-width: 250px !important;
+    /* background-color: red !important; */
+
   }
 
   .safari-browser .topicHeader {
