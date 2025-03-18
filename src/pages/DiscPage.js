@@ -4093,7 +4093,7 @@ const App = () => {
                     </button>
                   )}
 
-                  {isGenerating2 && <p>Generating PDF, please wait...</p>}
+                  {isGenerating2 && <p>Generating PDF, please wait.....</p>}
                 
                 </div>
                 <Doughnut data={data} className="dou" ref={chartRef} />

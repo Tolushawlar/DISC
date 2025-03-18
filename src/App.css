@@ -296,7 +296,6 @@ body::-webkit-scrollbar {
     align-items: center !important;
     margin-left: 68vw;
     overflow-x: hidden !important;
-    /* background-color:  red !important; */
     position: relative !important;
     left: 22vw !important;
   }
@@ -315,14 +314,10 @@ body::-webkit-scrollbar {
     position: relative !important;
     left: 520px !important;
   }
-
-  .App .riz {
-    /* background-color: red !important; */
-  }
+  
 
   .charDiv,
   .resultHeader {
-    /* background-color: red !important; */
     position: relative !important;
     left: 60px !important;
     bottom: 20px !important;
