@@ -4104,7 +4104,7 @@ const App = () => {
                 <ColorFeedback2 />
                 {/* <FourStrengthsTable /> */}
               </div>
-              <div style={{ marginBottom: "80px" }} className="feedback">
+              <div style={{ marginBottom: "80px" }} className="feedback feds2">
                 <ColorFeedback />
               </div>
             </div>

@@ -533,12 +533,22 @@ body::-webkit-scrollbar {
 
 
 @media only screen and (device-width: 390px) and (device-height: 844px) {
-  .riz .charDiv {
+  .riz .resultHeader {
     position: relative !important;
-    right: 6vw !important;
+    right: 8vw !important;
+  }
+
+  .riz .downPdf {
+    position: relative !important;
+    right: 5vw !important;
   }
 
   .riz .feds {
+    position: relative !important;
+    left: 6vw !important;
+  }
+
+  .riz .feds2 {
     position: relative !important;
     left: 6vw !important;
   }
