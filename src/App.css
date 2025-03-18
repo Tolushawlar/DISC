@@ -314,7 +314,7 @@ body::-webkit-scrollbar {
     position: relative !important;
     left: 520px !important;
   }
-  
+
 
   .charDiv,
   .resultHeader {
@@ -322,6 +322,7 @@ body::-webkit-scrollbar {
     left: 60px !important;
     bottom: 20px !important;
   }
+
   /* .App {
     margin-top: 40px !important;
     flex-direction: column-reverse;
@@ -366,6 +367,7 @@ body::-webkit-scrollbar {
   .custInner {
     max-width: 270px !important;
   }
+
   .feedback h3 {
     font-size: 18px;
   }
@@ -455,7 +457,7 @@ body::-webkit-scrollbar {
     /* background-color: red !important; */
   }
 
-  .downPdf{
+  .downPdf {
     display: flex;
     flex-direction: column !important;
   }
@@ -466,6 +468,7 @@ body::-webkit-scrollbar {
     z-index: 0 !important;
     /* left: 8vw !important; */
   }
+
   .safari-browser {
     /* background-color: red !important;  */
     margin-left: 0vw !important;
@@ -499,17 +502,18 @@ body::-webkit-scrollbar {
     /* color: red !important; */
   }
 
-  .safari-browser .progress-container{
+  .safari-browser .progress-container {
     position: relative !important;
     /* left: -15vw !important; */
     max-width: 250px;
   }
+
   .safari-browser .intro {
     max-width: 280px !important;
     /* color: red !important; */
   }
 
-  .safari-browser .details input{
+  .safari-browser .details input {
     max-width: 250px !important;
     /* background-color: red !important; */
 
@@ -518,5 +522,24 @@ body::-webkit-scrollbar {
   .safari-browser .topicHeader {
     max-width: 180px !important;
     /* color: red !important; */
+  }
+
+  .safari-browser .foot {
+    font-size: 10px !important;
+    /* color: red !important; */
+  }
+}
+
+
+
+@media only screen and (device-width: 390px) and (device-height: 844px) {
+  .riz .charDiv {
+    position: relative !important;
+    right: 6vw !important;
+  }
+
+  .riz .feds {
+    position: relative !important;
+    left: 6vw !important;
   }
 }

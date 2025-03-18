@@ -21,7 +21,7 @@ function Footer() {
           color: "white !important",
           fontFamily: "Lato",
         }}
-     >&copy; Copyright {new Date().getFullYear()} , All Rights Reserved by BeTeachable</p>
+     >&copy; Copyright {new Date().getFullYear()}, All Rights Reserved by BeTeachable</p>
     </div>
   );
 }

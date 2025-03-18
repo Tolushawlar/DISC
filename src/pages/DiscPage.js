@@ -4098,7 +4098,7 @@ const App = () => {
                 </div>
                 <Doughnut data={data} className="dou" ref={chartRef} />
               </div>
-              <div style={{ marginBottom: "80px" }} className="feedback">
+              <div style={{ marginBottom: "80px" }} className="feedback feds">
                 <ColorFeedback3 />
                 <ColorFeedback4 />
                 <ColorFeedback2 />
