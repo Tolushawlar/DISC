@@ -297,7 +297,7 @@ body::-webkit-scrollbar {
     margin-left: 68vw;
     overflow-x: hidden !important;
     position: relative !important;
-    left: 22vw !important;
+    left: 2vw !important;
   }
 
   * {
@@ -461,7 +461,7 @@ body::-webkit-scrollbar {
   }
 
   .safari-browser * {
-    /* background-color: green !important; */
+    background-color: green !important;
     position: relative !important;
     z-index: 0 !important;
     /* left: 8vw !important; */
