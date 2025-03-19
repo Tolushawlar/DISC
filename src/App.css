@@ -475,12 +475,12 @@ body::-webkit-scrollbar {
 
   .safari-browser .App{
     position: relative !important;
-    left: 3vw !important;
+    left: 4vw !important;
   }
 
   .safari-browser .riz {
     position: relative !important;
-    left: -20vw !important;
+    left: -15vw !important;
   }
 
   .safari-browser .inCont {
