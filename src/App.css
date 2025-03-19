@@ -483,6 +483,32 @@ body::-webkit-scrollbar {
     left: -15vw !important;
   }
 
+  .safari-browser .riz .feds {
+    position: relative !important;
+    left: 10vw !important;
+  }
+
+  .safari-browser .riz .feds2 {
+    position: relative !important;
+    left: 10vw !important;
+  }
+
+
+  .safari-browser .riz .resultHeader {
+    position: relative !important;
+    left: 5vw !important;
+  }
+
+  .safari-browser .riz .chartDiv {
+    position: relative !important;
+    left: 5vw !important;
+  }
+
+  .safari-browser .App .inCont{
+    position: relative !important;
+    left: 5vw !important;
+  }
+
   .safari-browser .inCont {
     position: relative !important;
     left: 0.3vw !important;
