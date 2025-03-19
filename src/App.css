@@ -461,10 +461,10 @@ body::-webkit-scrollbar {
   }
 
   .safari-browser * {
-    background-color: green !important;
+    /* background-color: green !important; */
     position: relative !important;
     z-index: 0 !important;
-    /* left: 8vw !important; */
+    left: 2vw !important;
   }
   .safari-browser {
     /* background-color: red !important;  */
