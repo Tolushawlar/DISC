@@ -464,13 +464,18 @@ body::-webkit-scrollbar {
     /* background-color: green !important; */
     position: relative !important;
     z-index: 0 !important;
-    left: 3vw !important;
+    /* left: 3vw !important; */
   }
   .safari-browser {
     /* background-color: red !important;  */
     margin-left: 0vw !important;
     overflow-x: hidden !important;
     /* background-color: green !important; */
+  }
+
+  .safari-browser .App{
+    position: relative !important;
+    left: 3vw !important;
   }
 
   .safari-browser .riz {
