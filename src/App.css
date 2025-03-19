@@ -464,7 +464,7 @@ body::-webkit-scrollbar {
     /* background-color: green !important; */
     position: relative !important;
     z-index: 0 !important;
-    left: 5vw !important;
+    left: 3vw !important;
   }
   .safari-browser {
     /* background-color: red !important;  */
