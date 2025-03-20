@@ -483,7 +483,8 @@ body::-webkit-scrollbar {
 
   .safari-browser .riz {
     position: relative !important;
-    left: -15vw !important;
+    left: -20vw !important;
+    background-color: red !important;
   }
 
   .safari-browser .riz .feds {
@@ -565,13 +566,13 @@ body::-webkit-scrollbar {
 
 @media only screen and (device-width: 390px) and (device-height: 844px) {
  
-  .riz{
+  /* .riz{
     position: relative !important;
     margin-right: 0px !important;
     margin-left: 20px !important;
     background-color: red !important;
     z-index: 9999 !important;
-  }
+  } */
 
   .riz .resultHeader {
     position: relative !important;
