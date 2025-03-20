@@ -540,7 +540,7 @@ body::-webkit-scrollbar {
   }
 
   .safari-browser .intro {
-    max-width: 290px !important;
+    max-width: 310px !important;
     /* color: red !important; */
   }
 
@@ -551,7 +551,7 @@ body::-webkit-scrollbar {
   }
 
   .safari-browser .topicHeader {
-    max-width: 190px !important;
+    max-width: 210px !important;
     /* color: red !important; */
   }
 
