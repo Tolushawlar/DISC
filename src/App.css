@@ -297,7 +297,7 @@ body::-webkit-scrollbar {
     margin-left: 68vw;
     overflow-x: hidden !important;
     position: relative !important;
-    left: 22vw !important;
+    left: 2vw !important;
   }
 
   * {
@@ -466,7 +466,7 @@ body::-webkit-scrollbar {
     /* background-color: green !important; */
     position: relative !important;
     z-index: 0 !important;
-    /* left: 8vw !important; */
+    /* left: 3vw !important; */
   }
 
   .safari-browser {
@@ -476,9 +476,40 @@ body::-webkit-scrollbar {
     /* background-color: green !important; */
   }
 
+  .safari-browser .App{
+    position: relative !important;
+    left: 4vw !important;
+  }
+
   .safari-browser .riz {
     position: relative !important;
-    left: -20vw !important;
+    left: -15vw !important;
+  }
+
+  .safari-browser .riz .feds {
+    position: relative !important;
+    left: 10vw !important;
+  }
+
+  .safari-browser .riz .feds2 {
+    position: relative !important;
+    left: 10vw !important;
+  }
+
+
+  .safari-browser .riz .resultHeader {
+    position: relative !important;
+    left: 5vw !important;
+  }
+
+  .safari-browser .riz .chartDiv {
+    position: relative !important;
+    left: 5vw !important;
+  }
+
+  .safari-browser .App .inCont{
+    position: relative !important;
+    left: 5vw !important;
   }
 
   .safari-browser .inCont {
