@@ -483,8 +483,8 @@ body::-webkit-scrollbar {
 
   .safari-browser .riz {
     position: relative !important;
-    left: -20vw !important;
-    background-color: red !important;
+    left: -5vw !important;
+    /* background-color: red !important; */
   }
 
   .safari-browser .riz .feds {
