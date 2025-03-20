@@ -321,6 +321,7 @@ body::-webkit-scrollbar {
     position: relative !important;
     left: 60px !important;
     bottom: 20px !important;
+    max-width: 300px !important;
   }
 
   /* .App {
@@ -464,8 +465,7 @@ body::-webkit-scrollbar {
 
   .riz .chartDiv {
     position: relative !important;
-    right: 6vw !important;
-    max-width: 300px !important;
+    right: 8vw !important;
   }
 
   .safari-browser * {
