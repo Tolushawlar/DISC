@@ -504,9 +504,14 @@ body::-webkit-scrollbar {
   }
 
 
+  .safari-browser .riz .feedback {
+    position: relative !important;
+    right: 10vw !important;
+  }
+
   .safari-browser .riz .resultHeader {
     position: relative !important;
-    left: 5vw !important;
+    /* left: 5vw !important; */
   }
 
   .safari-browser .riz .chartDiv {
