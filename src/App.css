@@ -360,7 +360,8 @@ body::-webkit-scrollbar {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    margin-left: 82vw;
+    /* this is the control of the feedback col for the mobile version */
+    margin-left: 35vw;
   }
 
   .custInner {
@@ -402,11 +403,11 @@ body::-webkit-scrollbar {
   }
 
   .feedback {
-    width: 300px;
+    width: 100vw;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    margin-left: 13vw !important;
+    /* margin-left: 13vw !important; */
     position: relative !important;
     /* left: -6px !important; */
   }
@@ -458,6 +459,10 @@ body::-webkit-scrollbar {
   .downPdf{
     display: flex;
     flex-direction: column !important;
+  }
+
+  .riz .feds{
+/* background-color: red !important; */
   }
 
   .safari-browser * {
