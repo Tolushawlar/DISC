@@ -361,7 +361,7 @@ body::-webkit-scrollbar {
     align-items: center !important;
     justify-content: center !important;
     /* this is the control of the feedback col for the mobile version */
-    margin-left: 35vw;
+    margin-left: 50vw;
   }
 
   .custInner {
