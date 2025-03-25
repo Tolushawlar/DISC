@@ -469,6 +469,10 @@ body::-webkit-scrollbar {
 /* background-color: red !important; */
   }
 
+  .fedHead{
+    font-size: 14px !important;
+  }
+  
   .safari-browser * {
     /* background-color: green !important; */
     position: relative !important;

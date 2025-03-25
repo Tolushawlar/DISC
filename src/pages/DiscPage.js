@@ -2811,7 +2811,7 @@ const App = () => {
 
     return (
       <div className="feedbackCol">
-        <h2 style={{ color: "white" }}>What You Prefer To Do/How You Are Effective</h2>
+        <h2 className="fedHead"  style={{ color: "white" }}>What You Prefer To Do/How You Are Effective</h2>
         <div className="container mx-auto p-4 custom-box colorBox">
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
@@ -3111,7 +3111,7 @@ const App = () => {
 
     return (
       <div className="feedbackCol">
-        <h2 style={{ color: "white" }}>How You React Under Stress</h2>
+        <h2 className="fedHead" style={{ color: "white" }}>How You React Under Stress</h2>
         <div className="container mx-auto p-4 custom-box colorBox">
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
@@ -3410,7 +3410,7 @@ const App = () => {
 
     return (
       <div className="feedbackCol">
-        <h2 style={{ color: "white" }}>What You Feel You Ought to Do/How You Should Think</h2>
+        <h2 className="fedHead"  style={{ color: "white" }}>What You Feel You Ought to Do/How You Should Think</h2>
         <div className="container mx-auto p-4 custom-box colorBox">
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
