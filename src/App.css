@@ -356,16 +356,16 @@ body::-webkit-scrollbar {
     max-width: 70vw;
   }
 
-  .feedbackCol,
-  .fourTable {
-    display: flex;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    /* this is the control of the feedback col for the mobile version */
-    margin-left: 70vw;
-    background-color: red !important;
-  }
+    .feedbackCol,
+    .fourTable {
+      display: flex;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      /* this is the control of the feedback col for the mobile version */
+      margin-left: 30vw;
+      background-color: red !important;
+    }
 
   .custInner {
     max-width: 270px !important;
@@ -567,6 +567,18 @@ body::-webkit-scrollbar {
     font-size: 10px !important;
     /* color: red !important; */
   }
+
+  .safari-browser .feedbackCol,
+  .fourTable {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    /* this is the control of the feedback col for the mobile version */
+    margin-left: 25vw;
+    background-color: yellowgreen !important;
+  }
+
 }
 
 
