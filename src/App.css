@@ -363,7 +363,7 @@ body::-webkit-scrollbar {
       align-items: center !important;
       justify-content: center !important;
       /* this is the control of the feedback col for the mobile version */
-      margin-left: -20vw;
+      margin-left: -22vw;
       background-color: red !important;
     }
 
@@ -575,7 +575,7 @@ body::-webkit-scrollbar {
     align-items: center !important;
     justify-content: center !important;
     /* this is the control of the feedback col for the mobile version */
-    margin-left: -20vw;
+    margin-left: -22vw;
     background-color: yellowgreen !important;
   }
 
