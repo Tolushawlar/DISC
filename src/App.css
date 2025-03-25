@@ -612,11 +612,11 @@ body::-webkit-scrollbar {
 
   .riz .feds {
     position: relative !important;
-    /* left: 6vw !important; */
+    left: -6vw !important;
   }
 
   .riz .feds2 {
     position: relative !important;
-    /* left: 6vw !important; */
+    left: -6vw !important;
   }
 }
