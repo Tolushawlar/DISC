@@ -362,7 +362,9 @@ body::-webkit-scrollbar {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    margin-left: 82vw;
+    /* this is the control of the feedback col for the mobile version */
+    margin-left: 70vw;
+    background-color: red !important;
   }
 
   .custInner {
@@ -405,11 +407,11 @@ body::-webkit-scrollbar {
   }
 
   .feedback {
-    width: 300px;
+    width: 100vw;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    margin-left: 13vw !important;
+    /* margin-left: 13vw !important; */
     position: relative !important;
     /* left: -6px !important; */
   }
@@ -463,9 +465,8 @@ body::-webkit-scrollbar {
     flex-direction: column !important;
   }
 
-  .riz .chartDiv {
-    position: relative !important;
-    right: 8vw !important;
+  .riz .feds{
+/* background-color: red !important; */
   }
 
   .safari-browser * {
@@ -487,20 +488,15 @@ body::-webkit-scrollbar {
     left: 4vw !important;
   }
 
-  .safari-browser .riz {
-    position: relative !important;
-    left: -3vw !important;
-    /* background-color: red !important; */
-  }
 
   .safari-browser .riz .feds {
     position: relative !important;
-    left: 10vw !important;
+    left: 15vw !important;
   }
 
   .safari-browser .riz .feds2 {
     position: relative !important;
-    left: 10vw !important;
+    left: 15vw !important;
   }
 
 
@@ -511,12 +507,12 @@ body::-webkit-scrollbar {
 
   .safari-browser .riz .resultHeader {
     position: relative !important;
-    /* left: 5vw !important; */
+    left: 10vw !important;
   }
 
   .safari-browser .riz .chartDiv {
     position: relative !important;
-    left: 5vw !important;
+    left: 10vw !important;
   }
 
   .safari-browser .App .inCont{
