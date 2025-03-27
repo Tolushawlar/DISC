@@ -312,7 +312,7 @@ body::-webkit-scrollbar {
 
   .last {
     position: relative !important;
-    left: 255px !important;
+    left: 270px !important;
   }
 
 
@@ -465,10 +465,6 @@ body::-webkit-scrollbar {
     flex-direction: column !important;
   }
 
-  .riz .feds{
-/* background-color: red !important; */
-  }
-
   .fedHead{
     font-size: 14px !important;
     max-width: 200px !important;
@@ -512,12 +508,17 @@ body::-webkit-scrollbar {
 
   .safari-browser .riz .resultHeader {
     position: relative !important;
-    left: 10vw !important;
+    left: 5vw !important;
   }
 
   .safari-browser .riz .chartDiv {
     position: relative !important;
-    left: 10vw !important;
+    left: 5vw !important;
+  }
+
+  .safari-browser .riz .innerResults {
+    position: relative !important;
+    left: -8vw !important;
   }
 
   .safari-browser .App .inCont{
