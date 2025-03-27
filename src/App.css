@@ -516,9 +516,10 @@ body::-webkit-scrollbar {
     left: 5vw !important;
   }
 
+  /* change styles for the mobile iphone here header section */
   .safari-browser .riz .innerResults {
     position: relative !important;
-    left: -8vw !important;
+    left: -7vw !important;
   }
 
   .safari-browser .App .inCont{
@@ -581,7 +582,7 @@ body::-webkit-scrollbar {
     align-items: center !important;
     justify-content: center !important;
     /* this is the control of the feedback col for the mobile version */
-    margin-left: -45vw;
+    margin-left: -30vw;
     /* background-color: yellowgreen !important; */
   }
 
