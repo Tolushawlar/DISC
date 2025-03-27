@@ -580,7 +580,7 @@ body::-webkit-scrollbar {
     align-items: center !important;
     justify-content: center !important;
     /* this is the control of the feedback col for the mobile version */
-    margin-left: -20vw;
+    margin-left: -30vw;
     /* background-color: yellowgreen !important; */
   }
 
@@ -617,11 +617,11 @@ body::-webkit-scrollbar {
 
   .riz .feds {
     position: relative !important;
-    left: -10vw !important;
+    left: 0vw !important;
   }
 
   .riz .feds2 {
     position: relative !important;
-    left: -10vw !important;
+    left: 0vw !important;
   }
 }
