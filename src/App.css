@@ -312,14 +312,14 @@ body::-webkit-scrollbar {
 
   .last {
     position: relative !important;
-    left: 520px !important;
+    left: 250px !important;
   }
 
 
   .charDiv,
   .resultHeader {
     position: relative !important;
-    left: 60px !important;
+    left: 55px !important;
     bottom: 20px !important;
     max-width: 300px !important;
   }
