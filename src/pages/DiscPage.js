@@ -721,10 +721,12 @@ const App = () => {
   const [identity3, setIdentity3] = useState("");
   const [identity4, setIdentity4] = useState("");
   const [userDetails, setUserDetails] = useState({
-    name: "",
+    fullName: "",
     email: "",
     phone: "",
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const chartRef = useRef(null);
   const [isGenerating, setIsGenerating] = useState(false); // State to track PDF generation
   const [isGenerating2, setIsGenerating2] = useState(false); // State to track PDF generation
@@ -906,13 +908,34 @@ const App = () => {
     return resultCounts;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log("Quiz Submitted", answers);
-    if (!userDetails.name || !userDetails.email || !userDetails.phone) {
+    if (!userDetails.fullName || !userDetails.email || !userDetails.phone) {
       alert("Please fill in all fields before submitting.");
       return;
     }
-    setShowResults(true);
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('https://services.leadconnectorhq.com/hooks/MJHmir5Xkxz4EWxcOEj3/webhook-trigger/3da337e1-619a-40b5-8966-bac6ac4edee7', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userDetails)
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      setShowResults(true);
+    } catch (error) {
+      console.error('Error submitting user details:', error);
+      alert('There was an error submitting your details. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleRetake = () => {
@@ -2811,7 +2834,7 @@ const App = () => {
 
     return (
       <div className="feedbackCol">
-        <h2 className="fedHead"  style={{ color: "white" }}>What You Prefer To Do/How You Are Effective</h2>
+        <h2 className="fedHead" style={{ color: "white" }}>What You Prefer To Do/How You Are Effective</h2>
         <div className="container mx-auto p-4 custom-box colorBox">
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
@@ -3410,7 +3433,7 @@ const App = () => {
 
     return (
       <div className="feedbackCol">
-        <h2 className="fedHead"  style={{ color: "white" }}>What You Feel You Ought to Do/How You Should Think</h2>
+        <h2 className="fedHead" style={{ color: "white" }}>What You Feel You Ought to Do/How You Should Think</h2>
         <div className="container mx-auto p-4 custom-box colorBox">
           {/* <h1 className="text-2xl font-bold mb-4">Color List</h1> */}
           <table
@@ -3974,9 +3997,9 @@ const App = () => {
                 <h3 style={{ color: "white" }}>Enter Your Details:</h3>
                 <input
                   type="text"
-                  name="name"
+                  name="fullName"
                   placeholder="Name"
-                  value={userDetails.name}
+                  value={userDetails.fullName}
                   onChange={handleInputChange}
                   style={{ color: "white" }}
                 />
@@ -4007,8 +4030,12 @@ const App = () => {
               )}
 
               {allQuestionsAnswered && (
-                <button className="sub" onClick={handleSubmit}>
-                  Submit
+                <button
+                  className="sub"
+                  onClick={handleSubmit}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Submitting...' : 'Submit'}
                 </button>
               )}
             </div>
@@ -4094,7 +4121,7 @@ const App = () => {
                   )}
 
                   {isGenerating2 && <p>Generating PDF, please wait.....</p>}
-                
+
                 </div>
                 <Doughnut data={data} className="dou" ref={chartRef} />
               </div>

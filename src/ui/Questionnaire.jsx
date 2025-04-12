@@ -1775,7 +1775,7 @@ const Questionnaire = () => {
       },
     }));
 
-    if (currentQuestionIndex < totalQuestions - 1 ) {
+    if (currentQuestionIndex < totalQuestions - 1) {
       setTimeout(() => setCurrentQuestionIndex((prev) => prev + 1), 300);
     }
   };
@@ -1792,11 +1792,47 @@ const Questionnaire = () => {
 
   const isFormValid = formData.fullName && formData.email && formData.phone;
 
-  const handleSubmit = () => {
+  // const handleSubmit = () => {
+  //   if (isFormValid) {
+  //     setIsSubmitted(true);
+  //   }
+  // };
+
+  const handleSubmit = async () => {
+    console.log("handleSubmit called"); // Add this line
     if (isFormValid) {
-      setIsSubmitted(true);
+      try {
+        // Prepare the data to be sent
+        console.log("Form is valid, submitting..."); // Add this line
+        const dataToSend = {
+          fullName: formData.fullName,
+          phone: formData.phone,
+          email: formData.email,
+        };
+        console.log(dataToSend)
+
+        // Make the API request
+        const response = await fetch('https://services.leadconnectorhq.com/hooks/MJHmir5Xkxz4EWxcOEj3/webhook-trigger/3da337e1-619a-40b5-8966-bac6ac4edee7', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(dataToSend) // Convert data to JSON string
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        alert("Form Submitted");
+        setIsSubmitted(true); // Enable this to show results
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('There was an error submitting your form. Please try again.');
+      }
     }
   };
+
 
   if (isSubmitted) {
     return <Results answers={answers} questions={questionsData} />;
@@ -1825,7 +1861,7 @@ const Questionnaire = () => {
         selectedAnswer={answers[currentQuestionIndex]?.selected}
       />
 
-      {currentQuestionIndex === totalQuestions - 1  && (
+      {currentQuestionIndex === totalQuestions - 1 && (
         <div>
           <h2>Complete Your Details</h2>
           <input
@@ -1879,7 +1915,7 @@ const Questionnaire = () => {
           Previous
         </button>
 
-        {currentQuestionIndex === totalQuestions - 1  && (
+        {currentQuestionIndex === totalQuestions - 1 && (
           <button
             style={{
               padding: "8px 16px",
