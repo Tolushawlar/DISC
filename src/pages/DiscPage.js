@@ -724,7 +724,15 @@ const App = () => {
     fullName: "",
     email: "",
     phone: "",
-  });
+    childResult: "",
+    parentResult: "",
+    adultResult: "",
+    totalResult: "",
+    feedback1: "",
+    feedback2: "",
+    feedback3: "",
+    feedback4: "",
+  })
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const chartRef = useRef(null);
@@ -817,7 +825,7 @@ const App = () => {
     (${overallStep} of ${overallTotal})`;
   };
 
-  console.log(currentSection);
+  // console.log(currentSection);
   const profiling = () => {
     if (currentSection === 0) {
       return (
@@ -904,7 +912,7 @@ const App = () => {
       }
     });
 
-    console.log(resultCounts);
+    // console.log(resultCounts);
     return resultCounts;
   };
 
@@ -915,15 +923,63 @@ const App = () => {
       return;
     }
 
+    // Create form data with user details and results
+    const formData = {
+      ...userDetails,
+      ChildResult: `${childWithColorsPdf.map(item => `Value: ${item.value}, Color: ${item.color}, Action: ${item.profile}`).join('\n')}`,
+      ParentResult: `${parentWithColorsPdf.map(item => `Value: ${item.value}, Color: ${item.color}, Action: ${item.profile}`).join('\n')}`,
+      AdultResult: `${adultWithColorsPdf.map(item => `Value: ${item.value}, Color: ${item.color}, Action: ${item.profile}`).join('\n')}`, 
+      TotalResult: `${sortedCombined.map(item => `Result:${item.result}, Color:${item.name}, Action:${item.value}`).join('\n ')}`,      
+      Feedback1: correspondingColor === "red" ?
+        "You are a highly driven and goal-oriented individual focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects. Your key strengths lie in your ability to make decisions, achieve goals, and take calculated risks." :
+        correspondingColor === "yellow" ?
+          "You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations. Your key strengths include strong communication skills, adaptability, and optimistic outlook." :
+          correspondingColor === "blue" ?
+            "You are a sincere and thoughtful individual who takes great pride in being a good listener and problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper. Your key strengths include your ability to listen attentively, your patience, and your skill in evaluating alternatives." :
+            correspondingColor === "green" ?
+              "You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to look before you leap. Your key strengths lie in your analytical abilities, accuracy, and commitment to maintaining high standards." :
+              "",
+      Feedback2: secondHighestColor === "red" ?
+        "You are a highly driven and goal-oriented individual focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects. Your key strengths lie in your ability to make decisions, achieve goals, and take calculated risks." :
+        secondHighestColor === "yellow" ?
+          "You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations. Your key strengths include strong communication skills, adaptability, and optimistic outlook." :
+          secondHighestColor === "blue" ?
+            "You are a sincere and thoughtful individual who takes great pride in being a good listener and problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper. Your key strengths include your ability to listen attentively, your patience, and your skill in evaluating alternatives." :
+            secondHighestColor === "green" ?
+              "You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to look before you leap. Your key strengths lie in your analytical abilities, accuracy, and commitment to maintaining high standards." :
+              "",
+      Feedback3: thirdHighestColor === "red" ?
+        "You are a highly driven and goal-oriented individual focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects. Your key strengths lie in your ability to make decisions, achieve goals, and take calculated risks." :
+        thirdHighestColor === "yellow" ?
+          "You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations. Your key strengths include strong communication skills, adaptability, and optimistic outlook." :
+          thirdHighestColor === "blue" ?
+            "You are a sincere and thoughtful individual who takes great pride in being a good listener and problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper. Your key strengths include your ability to listen attentively, your patience, and your skill in evaluating alternatives." :
+            thirdHighestColor === "green" ?
+              "You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to look before you leap. Your key strengths lie in your analytical abilities, accuracy, and commitment to maintaining high standards." :
+              "",
+      Feedback4: fourthHighestColor === "red" ?
+        "You are a highly driven and goal-oriented individual focused on achieving tangible results. You have a direct communication style and are confident in your abilities, often taking a competitive approach to tasks and projects. Your key strengths lie in your ability to make decisions, achieve goals, and take calculated risks." :
+        fourthHighestColor === "yellow" ?
+          "You are a vibrant and sociable individual who thrives on human connection and spontaneity. Your orientation is people-focused, with results taking a secondary priority. You are enthusiastic, expressive, and enjoy engaging in lively conversations. Your key strengths include strong communication skills, adaptability, and optimistic outlook." :
+          fourthHighestColor === "blue" ?
+            "You are a sincere and thoughtful individual who takes great pride in being a good listener and problem-solver. Your focus is on making things better and maintaining harmony, often taking on the role of peacekeeper. Your key strengths include your ability to listen attentively, your patience, and your skill in evaluating alternatives." :
+            fourthHighestColor === "green" ?
+              "You are an analytical individual who values consistency, caution, and high standards. You carefully consider your decisions and actions, preferring to look before you leap. Your key strengths lie in your analytical abilities, accuracy, and commitment to maintaining high standards." :
+              ""
+    };
+
     setIsSubmitting(true);
+    console.log(formData);
     try {
       const response = await fetch('https://services.leadconnectorhq.com/hooks/MJHmir5Xkxz4EWxcOEj3/webhook-trigger/3da337e1-619a-40b5-8966-bac6ac4edee7', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(userDetails)
+        body: JSON.stringify(formData)
       });
+      console.log(formData);
+
 
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -986,21 +1042,21 @@ const App = () => {
   const thirdHighestColor = colorsArray[thirdHighestIndex];
   const fourthHighestColor = colorsArray[fourthHighestIndex];
 
-  console.log(valueIndexPairs);
-  console.log("Values Array:", valuesArray);
-  console.log("Colors Array:", colorsArray);
-  console.log(`2nd Highest Color: ${secondHighestColor}`);
-  console.log(`3rd Highest Color: ${thirdHighestColor}`);
-  console.log(`4th Highest Color: ${fourthHighestColor}`);
+  // console.log(valueIndexPairs);
+  // console.log("Values Array:", valuesArray);
+  // console.log("Colors Array:", colorsArray);
+  // console.log(`2nd Highest Color: ${secondHighestColor}`);
+  // console.log(`3rd Highest Color: ${thirdHighestColor}`);
+  // console.log(`4th Highest Color: ${fourthHighestColor}`);
 
   // Step 2: Get the corresponding color from the colors array
   const correspondingColor = colorsArray[maxIndex];
 
-  console.log(
-    `Highest value: ${maxValue}, Position: ${maxIndex}, Color: ${correspondingColor}`
-  );
-  console.log(colorsArray[0]);
-  console.log(colors);
+  // console.log(
+  //   `Highest value: ${maxValue}, Position: ${maxIndex}, Color: ${correspondingColor}`
+  // );
+  // console.log(colorsArray[0]);
+  // console.log(colors);
 
   const ColorFeedback = () => {
     // const [feedback, setFeedback] = useState("");
@@ -1009,7 +1065,7 @@ const App = () => {
     // const [feedback4, setFeedback4] = useState("");
 
     // setIdentity(setFeedback);
-    console.log(feedback);
+    // console.log(feedback);
     const colors = [
       {
         name: "Red",
@@ -1038,7 +1094,7 @@ const App = () => {
     ];
 
     const sortedColors = [...colors].sort((a, b) => b.result - a.result);
-    console.log("sorted", sortedColors);
+    // console.log("sorted", sortedColors);
     // Helper function to convert hex color to an integer value
     const hexToInt = (hex) => parseInt(hex.slice(1), 16);
 
@@ -2937,7 +2993,7 @@ const App = () => {
     ];
 
     const sortedColors = [...colors].sort((a, b) => b.result - a.result);
-    console.log("total result color, ", sortedColors)
+    // console.log("total result color, ", sortedColors)
 
     // Helper function to convert hex color to an integer value
     const hexToInt = (hex) => parseInt(hex.slice(1), 16);
@@ -3595,9 +3651,9 @@ const App = () => {
   const last20Weights = extractLast20Weights();
   const first20Weights = extractFirst20Weights();
   const middle20Weights = extractMiddle20Weights();
-  console.log("first 20 Question Weights:", first20Weights);
-  console.log("middle 20 Question Weights:", middle20Weights);
-  console.log("Last 20 Question Weights:", last20Weights);
+  // console.log("first 20 Question Weights:", first20Weights);
+  // console.log("middle 20 Question Weights:", middle20Weights);
+  // console.log("Last 20 Question Weights:", last20Weights);
 
   const childResult = ["A", "B", "C", "D"].map(
     (value) => first20Weights.filter((item) => item === value).length
@@ -3612,9 +3668,9 @@ const App = () => {
   );
 
 
-  console.log("child", childResult);
-  console.log("parent", parentResult);
-  console.log("adult", adultResult);
+  // console.log("child", childResult);
+  // console.log("parent", parentResult);
+  // console.log("adult", adultResult);
 
   useEffect(() => {
     setChildValue(childResult);
@@ -3622,8 +3678,8 @@ const App = () => {
     setAdultValue(adultResult);
   }, []);
 
-  console.log(valuesArray);
-  console.log(colorsArray);
+  // console.log(valuesArray);
+  // console.log(colorsArray);
 
   // Color assignment based on index
   const resultColors = ['red', 'yellow', 'blue', 'green'];
@@ -3668,9 +3724,9 @@ const App = () => {
   // setParentPdfValue(parentWithColorsPdf)
   // setAdultPdfValue(adultWithColorsPdf)
 
-  console.log('Child Array with Colors:', childWithColorsPdf);
-  console.log('Parent Array with Colors:', parentWithColorsPdf);
-  console.log('Adult Array with Colors:', adultWithColorsPdf);
+  // console.log('Child Array with Colors:', childWithColorsPdf);
+  // console.log('Parent Array with Colors:', parentWithColorsPdf);
+  // console.log('Adult Array with Colors:', adultWithColorsPdf);
 
   // Mapping of colors to the desired names, descriptions, and codes
   const colorMapping = {
@@ -3703,7 +3759,7 @@ const App = () => {
   // Generate the combined array
   const finalArray = combineArrays(childWithColors, parentWithColors, adultWithColors);
   const sortedCombined = finalArray.sort((a, b) => b.result - a.result);
-  console.log("newstest", sortedCombined);
+  // console.log("newstest", sortedCombined);
 
   /** 
   const rows = [
@@ -3789,8 +3845,8 @@ const App = () => {
     setFinalResults(results);
   }, []);
 
-  console.log("Final Results:", finalResults);
-  console.log("higgg", highestColor);
+  // console.log("Final Results:", finalResults);
+  // console.log("higgg", highestColor);
 
   const letterToColor = {
     C: "blue",
@@ -3808,7 +3864,7 @@ const App = () => {
     return acc;
   }, {});
 
-  console.log("Color Counts:", colorCounts);
+  // console.log("Color Counts:", colorCounts);
 
   const FourStrengthsTable = () => {
     const tableData = [
@@ -4043,7 +4099,7 @@ const App = () => {
         ) : (
           <div className="riz">
             <h2 className="resultHeader" style={{ color: "white" }}>
-              {userDetails.name}'s Strengths-Matrix Results
+              {userDetails.fullName}'s Strengths-Matrix Results
             </h2>
             <div className="innerResults">
               <div className="chart charDiv">
